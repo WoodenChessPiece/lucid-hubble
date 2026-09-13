@@ -39,6 +39,8 @@ def authenticate_youtube(interactive: bool = False):
                 token_data = json.load(f)
             creds = Credentials.from_authorized_user_info(token_data, SCOPES)
         except Exception as e:
+        print(f"  [Thumbnail Warning] {e}")
+        pass
             print(f"[YouTube Auth] Warning: could not load stored credentials: {e}")
 
     # Check environment variables fallback
@@ -163,15 +165,18 @@ def upload_video_to_youtube(
 
     video_id = resumable_upload(insert_req)
 
-    # Attach custom thumbnail
+    # Attach custom thumbnail (graceful if channel lacks phone verification for custom thumbnails)
     if thumbnail_file_path and os.path.exists(thumbnail_file_path):
         print(f"[YouTube Uploader] Uploading custom thumbnail...")
-        thumb_media = MediaFileUpload(thumbnail_file_path, mimetype="image/png")
-        youtube.thumbnails().set(
-            videoId=video_id,
-            media_body=thumb_media
-        ).execute()
-        print(f"  ✓ Thumbnail attached!")
+        try:
+            thumb_media = MediaFileUpload(thumbnail_file_path, mimetype="image/png")
+            youtube.thumbnails().set(
+                videoId=video_id,
+                media_body=thumb_media
+            ).execute()
+            print(f"  ✓ Thumbnail attached!")
+        except Exception as e:
+            print(f"  ⚠️ Custom thumbnail could not be set automatically (channel may need 1-time phone verification at youtube.com/verify): {e}")
 
     video_url = f"https://youtu.be/{video_id}"
     print(f"\n🎉 VIDEO IS LIVE ON YOUTUBE: {video_url}")
