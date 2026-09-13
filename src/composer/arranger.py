@@ -393,7 +393,16 @@ def create_arrangement(
                 pass
 
     def fetch_progression(section_name: str) -> Dict[str, Any]:
-        if progression is not None:
+        if progression is not None and isinstance(progression, dict):
+            if section_name in progression:
+                return progression[section_name]
+            if "roots" in progression:
+                try:
+                    from src.composer.studio_brain import get_studio_brain
+                    sb = get_studio_brain()
+                    return sb.harmonic.get_section_progression(progression, section_name, genre=genre)
+                except Exception:
+                    return progression
             return progression
         if loader is not None:
             try:
@@ -608,16 +617,35 @@ def create_arrangement(
                 if note_str_to_midi is not None:
                     hook_notes_midi = [note_str_to_midi(n) for n in motif["resolution_path"]]
 
-            if hook_notes_midi:
-                # Avicii Levels: G#5(80), F#5(78), E5(76), C#5(73), B4(71), G#4(68), C#4(61)
-                phrase_notes_map = {
-                    0: hook_notes_midi[:4] if len(hook_notes_midi) >= 4 else hook_notes_midi,
-                    1: (hook_notes_midi[4:] + [hook_notes_midi[0]])[:4] if len(hook_notes_midi) > 4 else hook_notes_midi,
-                    2: [hook_notes_midi[0], hook_notes_midi[1] if len(hook_notes_midi) > 1 else hook_notes_midi[0],
-                        hook_notes_midi[2] if len(hook_notes_midi) > 2 else hook_notes_midi[0], hook_notes_midi[0]],
-                    3: (hook_notes_midi[3:] + [hook_notes_midi[0]])[:4] if len(hook_notes_midi) > 3 else hook_notes_midi
-                }
-                bar_pitches = phrase_notes_map.get(motif_step, hook_notes_midi[:4])
+                n_notes = len(hook_notes_midi)
+                if n_notes == 7 and artist and "avicii" in artist.lower():
+                    # Exact Avicii Levels phrasing
+                    phrase_notes_map = {
+                        0: hook_notes_midi[:4],
+                        1: (hook_notes_midi[4:] + [hook_notes_midi[0]])[:4],
+                        2: [hook_notes_midi[0], hook_notes_midi[1], hook_notes_midi[2], hook_notes_midi[0]],
+                        3: (hook_notes_midi[3:] + [hook_notes_midi[0]])[:4]
+                    }
+                    bar_pitches = phrase_notes_map.get(motif_step, hook_notes_midi[:4])
+                elif n_notes <= 4:
+                    # 4-note motif statement / answer / inversion / resolution
+                    if motif_step == 0:
+                        bar_pitches = hook_notes_midi
+                    elif motif_step == 1:
+                        bar_pitches = [hook_notes_midi[1], hook_notes_midi[2], hook_notes_midi[0], hook_notes_midi[3 if n_notes > 3 else 0]]
+                    elif motif_step == 2:
+                        bar_pitches = [p + 2 for p in hook_notes_midi] # Intensification
+                    else:
+                        bar_pitches = [hook_notes_midi[-1], hook_notes_midi[0], hook_notes_midi[1], hook_notes_midi[0]]
+                else:
+                    # Universal 7-stage motif sentence partitioning for arbitrary note lengths
+                    chunk_len = max(2, math.ceil(n_notes / 4))
+                    start_idx = (motif_step * 2) % n_notes
+                    slice_notes = hook_notes_midi[start_idx: start_idx + chunk_len]
+                    while len(slice_notes) < 4:
+                        slice_notes.append(hook_notes_midi[len(slice_notes) % n_notes])
+                    bar_pitches = slice_notes[:4]
+
                 m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
                 if len(m_rhythm) < len(bar_pitches):
                     m_rhythm = [i * 0.5 for i in range(len(bar_pitches))]

@@ -10,7 +10,8 @@ import scipy.signal as signal
 from src.composer.arranger import Arrangement, NoteEvent
 from src.composer.theory import midi_to_freq
 from src.engine.analog_saturation import console8_channel_encode, console8_bus_decode, diode_bass_saturation
-from src.engine.pristine_keys import PristineKeysEngine, PristinePianoVoice, PristineRhodesVoice
+from src.engine.soundfont_synth import SoundFontSamplerEngine, HAS_FLUIDSYNTH
+from src.engine.pristine_keys import PristineKeysEngine
 from src.engine.drum_sampler import DrumSamplerEngine
 from src.engine.spatial_reverb import StudioSpatialReverb
 from src.engine.sound_layering import MidSideProcessor
@@ -20,6 +21,7 @@ SAMPLE_RATE = 44100
 class MultiTrackEngine:
     def __init__(self, sample_rate: int = SAMPLE_RATE):
         self.sr = sample_rate
+        self.soundfont_engine = SoundFontSamplerEngine(sample_rate=sample_rate)
         self.keys_engine = PristineKeysEngine(sample_rate=sample_rate)
         self.drum_engine = DrumSamplerEngine(sample_rate=sample_rate)
         self.reverb = StudioSpatialReverb(
@@ -201,51 +203,39 @@ class MultiTrackEngine:
             bass_sound = self.synth_moog_bass(f, n.duration)
             add_to_buffer(bass_stem, bass_sound * (n.velocity / 127.0), n.start_time)
 
-        # 5. Pads (Roland JP-8000 7-Saw)
+        # 5. Pads (Lush multi-sampled strings / warm synth strings with JP-8000 analog layer)
         pad_events = arr.tracks.get("pads", [])
-        time_groups = {}
-        for pe in pad_events:
-            key = round(pe.start_time, 2)
-            time_groups.setdefault(key, []).append(pe)
+        if pad_events:
+            sf_pads = self.soundfont_engine.render_note_events(pad_events, preset="slow_strings")
+            add_to_buffer(pad_stem, sf_pads * 0.85, 0.0)
 
-        for t_key, notes in time_groups.items():
-            pitches = [n.pitch for n in notes]
-            dur = max(n.duration for n in notes)
-            pad_sound = self.synth_supersaw_pad(pitches, dur)
-            add_to_buffer(pad_stem, pad_sound, t_key)
-
-        # 6. Leads (Meyer-Narmour phrases)
-        for n in arr.tracks.get("lead", []):
-            f = midi_to_freq(n.pitch)
-            lead_sound = self.synth_lead_note(f, n.duration)
-            add_to_buffer(lead_stem, lead_sound * (n.velocity / 127.0), n.start_time)
+        # 6. Leads (Multi-sampled expressive synth brass/lead + singing sustain)
+        lead_events = arr.tracks.get("lead", [])
+        if lead_events:
+            sf_lead = self.soundfont_engine.render_note_events(lead_events, preset="synth_brass")
+            add_to_buffer(lead_stem, sf_lead * 0.95, 0.0)
 
         # 7. Acoustic Grand Piano, Rhodes Keys, Chords & Counterpoint
-        for n in arr.tracks.get("piano", []):
-            p_sound = self.synth_piano_note(n.pitch, n.velocity, n.duration)
-            add_to_buffer(keys_stem, p_sound, n.start_time)
+        piano_events = arr.tracks.get("piano", [])
+        if piano_events:
+            sf_piano = self.soundfont_engine.render_note_events(piano_events, preset="grand_piano")
+            add_to_buffer(keys_stem, sf_piano, 0.0)
 
-        for n in arr.tracks.get("keys", []):
-            r_sound = self.synth_rhodes_note(n.pitch, n.velocity, n.duration)
-            add_to_buffer(keys_stem, r_sound, n.start_time)
+        keys_events = arr.tracks.get("keys", [])
+        if keys_events:
+            sf_rhodes = self.soundfont_engine.render_note_events(keys_events, preset="rhodes")
+            add_to_buffer(keys_stem, sf_rhodes, 0.0)
 
-        for n in arr.tracks.get("counter", []):
-            c_sound = self.synth_rhodes_note(n.pitch, n.velocity, n.duration)
-            add_to_buffer(keys_stem, c_sound, n.start_time)
+        counter_events = arr.tracks.get("counter", [])
+        if counter_events:
+            sf_counter = self.soundfont_engine.render_note_events(counter_events, preset="rhodes")
+            add_to_buffer(keys_stem, sf_counter, 0.0)
 
-        # Chords rendered through Pristine Grand Piano with micro-strum descent
+        # Chords rendered through multi-sampled Grand Piano / Strings
         chord_events = arr.tracks.get("chords", [])
         if chord_events:
-            chord_time_groups = {}
-            for ce in chord_events:
-                key = round(ce.start_time, 2)
-                chord_time_groups.setdefault(key, []).append(ce)
-            for t_key, notes in chord_time_groups.items():
-                pitches = [n.pitch for n in notes]
-                dur = max(n.duration for n in notes)
-                vel = int(np.mean([n.velocity for n in notes]))
-                chord_sound = self.keys_engine.render_chord(pitches, duration=dur, velocity=vel, preset="grand_piano")
-                add_to_buffer(keys_stem, chord_sound, t_key)
+            sf_chords = self.soundfont_engine.render_note_events(chord_events, preset="grand_piano")
+            add_to_buffer(keys_stem, sf_chords, 0.0)
 
         # Dynamic Raised-Cosine Sidechain Ducking
         bass_ducked = self.apply_raised_cosine_sidechain(bass_stem, arr.kick_times)

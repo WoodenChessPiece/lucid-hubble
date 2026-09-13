@@ -130,6 +130,17 @@ def extract_roots_and_types_from_chords(raw_chords: list, key: str = "") -> Tupl
     return roots, types, bass_notes, drop2_voicings
 
 
+def _clean_name(s: str) -> str:
+    """Normalizes string removing accents, case, and whitespace."""
+    import unicodedata
+    if not s:
+        return ""
+    return "".join(
+        c for c in unicodedata.normalize('NFKD', str(s))
+        if not unicodedata.combining(c)
+    ).lower().strip()
+
+
 class EDMLoader:
     """Fast-indexing in-memory reader and query engine for Top 100 EDM Artists Billboard Database."""
 
@@ -173,16 +184,16 @@ class EDMLoader:
 
             # Build fast lookup indexes
             for a in self.artists:
-                name_key = a.get("name", "").lower().strip()
+                name_key = _clean_name(a.get("name", ""))
                 self._artist_index[name_key] = a
 
-                disc = a.get("discipline", "").lower().strip()
+                disc = _clean_name(a.get("discipline", ""))
                 if disc not in self._discipline_index:
                     self._discipline_index[disc] = []
                 self._discipline_index[disc].append(a)
 
             for p in self.progressions:
-                p_artist = p.get("artist", "").lower().strip()
+                p_artist = _clean_name(p.get("artist", ""))
                 if p_artist not in self._progression_index:
                     self._progression_index[p_artist] = []
                 self._progression_index[p_artist].append(p)
@@ -196,14 +207,26 @@ class EDMLoader:
         return [a.get("name", "") for a in self.artists]
 
     def get_artist(self, artist_name: str) -> Optional[Dict[str, Any]]:
-        """Finds an artist by name with case-insensitive and fuzzy matching."""
-        q = artist_name.lower().strip()
+        """Finds an artist by name with accent-insensitive, case-insensitive, and fuzzy matching."""
+        if not artist_name:
+            return None
+        q = _clean_name(artist_name)
         if q in self._artist_index:
             return self._artist_index[q]
 
         for k, v in self._artist_index.items():
-            if q in k or k in q:
+            if q == k or q in k or k in q:
                 return v
+
+        # Also check aliases or track names
+        for a in self.artists:
+            raw_name = _clean_name(a.get("name", ""))
+            if q in raw_name or raw_name in q:
+                return a
+            for pt in a.get("primary_tracks", []):
+                t_title = _clean_name(pt.get("title") if isinstance(pt, dict) else str(pt))
+                if q in t_title or t_title in q:
+                    return a
         return None
 
     def get_progression(self, artist_name: str) -> Optional[Dict[str, Any]]:
@@ -306,7 +329,28 @@ class EDMLoader:
         art = self.get_artist(artist_name)
         if art:
             if art.get("topline_melody") and len(art["topline_melody"]) > 0:
-                return dict(art["topline_melody"])
+                hook = dict(art["topline_melody"])
+                hook["artist"] = art.get("name", "")
+                if "notes_midi" not in hook:
+                    prog = self.get_progression(artist_name)
+                    root_name = prog["roots"][0] if (prog and prog.get("roots")) else "D"
+                    root_offset = NOTE_OFFSETS.get(root_name, 2)
+                    root_midi = root_offset + 5 * 12 # Octave 4
+                    subg = str(art.get("subgenre", "")).lower()
+                    if "techno" in subg or "progressive" in subg:
+                        intervals = [0, 3, 5, 7, 10, 12, 10, 7]
+                    elif "french" in subg or "disco" in subg or "funk" in subg:
+                        intervals = [0, 2, 3, 7, 9, 7, 3, 2]
+                    elif "bass" in subg or "dubstep" in subg or "trap" in subg:
+                        intervals = [0, 12, 10, 7, 3, 5, 7, 0]
+                    else:
+                        intervals = [0, 3, 5, 7, 10, 7, 5, 3]
+                    hook["notes_midi"] = [root_midi + i for i in intervals]
+                    hook["notes"] = hook["notes_midi"]
+                if "rhythm" not in hook:
+                    hook["rhythm"] = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5]
+                return hook
+
             if art.get("primary_tracks") and isinstance(art["primary_tracks"][0], dict):
                 pt = art["primary_tracks"][0]
                 if pt.get("topline_hook") and len(pt["topline_hook"]) > 0:
@@ -323,9 +367,9 @@ class EDMLoader:
                         hook["rhythm"] = [0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0]
                     return hook
 
-        q = artist_name.lower().strip()
+        q = _clean_name(artist_name)
         for m in self.melodic_motifs:
-            if q in m.get("artist", "").lower():
+            if q in _clean_name(m.get("artist", "")):
                 return dict(m)
         return None
 
@@ -334,7 +378,32 @@ class EDMLoader:
         art = self.get_artist(artist_name)
         if art:
             if art.get("bass_groove") and len(art["bass_groove"]) > 0:
-                return dict(art["bass_groove"])
+                bg = dict(art["bass_groove"])
+                bg["artist"] = art.get("name", "")
+                if "steps" not in bg:
+                    gate_pct = float(bg.get("gate_length_percent", 35.0)) / 100.0
+                    accent = 120
+                    groove = 92
+                    ghost = 70
+                    bg["steps"] = [
+                        (0, gate_pct, accent),
+                        (1, max(0.18, gate_pct * 0.75), ghost),
+                        (2, gate_pct, groove),
+                        (3, max(0.18, gate_pct * 0.75), ghost),
+                        (4, gate_pct, accent),
+                        (5, max(0.18, gate_pct * 0.75), ghost),
+                        (6, gate_pct, groove),
+                        (7, max(0.18, gate_pct * 0.75), ghost),
+                        (8, gate_pct, accent),
+                        (9, max(0.18, gate_pct * 0.75), ghost),
+                        (10, gate_pct, groove),
+                        (11, max(0.18, gate_pct * 0.75), ghost),
+                        (12, gate_pct, accent),
+                        (13, max(0.18, gate_pct * 0.75), ghost),
+                        (14, gate_pct, groove),
+                        (15, max(0.18, gate_pct * 0.75), ghost),
+                    ]
+                return bg
             if art.get("primary_tracks") and isinstance(art["primary_tracks"][0], dict):
                 pt = art["primary_tracks"][0]
                 if pt.get("bass_groove") and len(pt["bass_groove"]) > 0:

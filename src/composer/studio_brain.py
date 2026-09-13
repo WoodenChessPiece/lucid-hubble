@@ -186,6 +186,113 @@ class HarmonicIntelligence:
             new_types[i] = reharm_map.get(new_types[i], new_types[i])
         return new_roots, new_types
 
+    def get_section_progression(
+        self,
+        base_prog: Dict[str, Any],
+        section_name: str,
+        genre: str = "progressive_house",
+        key: str = "C# Minor"
+    ) -> Dict[str, Any]:
+        """
+        Generates musically coherent, section-distinct chord progressions:
+        - Chorus/Climax: The primary anthemic progression (e.g. i - VI - III - VII)
+        - Verse: Open-ended lower-tension cadence (e.g. i - v - VI - iv or two-chord vamp i - VI)
+        - Buildup: Dominant prolongation / pedal on V or climbing secondary dominants (iv - V - iv - V)
+        - Breakdown: Modal borrowing (Aeolian to Dorian with major IV, relative major swap, or Neapolitan bII)
+        - Outro: Resolving cadence or fading tonic pedal
+        """
+        roots = list(base_prog.get("roots", ["D", "Bb", "F", "C"]))
+        types = list(base_prog.get("types", ["min", "maj", "maj", "maj"]))
+        bass_notes = list(base_prog.get("bass_notes", roots))
+        drop2 = base_prog.get("drop2_voicings")
+
+        sec = section_name.lower()
+
+        if "chorus" in sec or "climax" in sec or "drop" in sec:
+            p = dict(base_prog)
+            p["harmonic_rhythm"] = "1 chord per measure"
+            return p
+
+        elif "verse" in sec:
+            if drop2 and len(drop2) >= 4:
+                p = dict(base_prog)
+                p["harmonic_rhythm"] = "1 chord per measure"
+                return p
+            if len(roots) >= 4:
+                verse_roots = [roots[0], roots[3] if len(roots) > 3 else roots[1], roots[1], roots[2] if len(roots) > 2 else roots[0]]
+                verse_types = [types[0], "min7", types[1], "min7"]
+            else:
+                verse_roots = [roots[0], roots[-1]]
+                verse_types = [types[0], types[-1]]
+            return {
+                "name": f"{base_prog.get('name', 'Main')} (Verse Open Cadence)",
+                "roots": verse_roots,
+                "types": verse_types,
+                "bass_notes": verse_roots,
+                "harmonic_rhythm": "2 measures per chord" if len(verse_roots) <= 2 else "1 chord per measure",
+                "key": base_prog.get("key", key),
+                "roman_numerals": "i - v - VI - iv (Verse)"
+            }
+
+        elif "buildup" in sec or "build" in sec:
+            v_root = roots[-1] if len(roots) >= 4 else roots[0]
+            iv_root = roots[1] if len(roots) >= 2 else roots[0]
+            build_roots = [iv_root, v_root, iv_root, v_root]
+            build_types = ["min7", "dom7", "min7", "dom7"]
+            return {
+                "name": f"{base_prog.get('name', 'Main')} (Buildup Dominant Climb)",
+                "roots": build_roots,
+                "types": build_types,
+                "bass_notes": build_roots,
+                "harmonic_rhythm": "1 chord per measure (accelerating)",
+                "key": base_prog.get("key", key),
+                "roman_numerals": "iv - V - iv - V (Dominant Prolongation)"
+            }
+
+        elif "breakdown" in sec:
+            if len(roots) >= 4:
+                break_roots = [roots[1], roots[2], roots[0], roots[3]]
+                break_types = ["maj9", "maj7", "min9", "dom7"]
+            else:
+                break_roots = [roots[0], roots[-1]]
+                break_types = ["min9", "maj9"]
+            return {
+                "name": f"{base_prog.get('name', 'Main')} (Breakdown Modal Borrowing)",
+                "roots": break_roots,
+                "types": break_types,
+                "bass_notes": break_roots,
+                "harmonic_rhythm": "2 measures per chord (Lush Ambient)",
+                "key": base_prog.get("key", key),
+                "roman_numerals": "VImaj9 - IIImaj7 - imin9 - V7 (Modal Shift)"
+            }
+
+        elif "outro" in sec:
+            tonic = roots[0]
+            outro_roots = [tonic, tonic, roots[1] if len(roots) > 1 else tonic, tonic]
+            outro_types = [types[0], types[0], "maj7", types[0]]
+            return {
+                "name": f"{base_prog.get('name', 'Main')} (Outro Resolution)",
+                "roots": outro_roots,
+                "types": outro_types,
+                "bass_notes": outro_roots,
+                "harmonic_rhythm": "2 measures per chord",
+                "key": base_prog.get("key", key),
+                "roman_numerals": "i - i - VI - i (Resolving Fade)"
+            }
+
+        elif "zero_drop" in sec:
+            return {
+                "name": "Zero Drop Silence",
+                "roots": [roots[0]],
+                "types": [types[0]],
+                "bass_notes": [roots[0]],
+                "harmonic_rhythm": "silent",
+                "key": base_prog.get("key", key),
+                "roman_numerals": "Silence"
+            }
+
+        return dict(base_prog)
+
     def register_progression(self, progression: Dict[str, Any]) -> None:
         """Dynamic ingestion of a new chord progression."""
         self.custom_progressions.append(progression)
@@ -879,13 +986,158 @@ class StudioBrain:
         else:
             raise ValueError(f"Unknown data_type: {data_type}. Expected 'progression', 'motif', 'groove', 'archetype', or 'timbre'.")
 
-    def generate_arrangement(
+    def parse_prompt(self, prompt: str) -> Dict[str, Any]:
+        """
+        Autonomous Intent Resolver:
+        Parses ANY natural language prompt or query into structured musical composition
+        parameters across the 100 EDM and Billboard databases.
+        Extracts: artist, genre, subgenre, mood, BPM, bars, archetype, key.
+        """
+        import re
+        import unicodedata
+
+        if not prompt:
+            return {}
+
+        p_lower = prompt.lower()
+        res: Dict[str, Any] = {"raw_prompt": prompt}
+
+        def clean(s: str) -> str:
+            return "".join(
+                c for c in unicodedata.normalize('NFKD', str(s))
+                if not unicodedata.combining(c)
+            ).lower().strip()
+
+        p_clean = clean(prompt)
+
+        # 1. Match EDM Artists (100 artists)
+        all_edm = self.get_all_edm_artists()
+        all_edm_sorted = sorted(all_edm, key=lambda x: len(x), reverse=True)
+        for art in all_edm_sorted:
+            c_art = clean(art)
+            if c_art in p_clean or art.lower() in p_lower:
+                res["artist"] = art
+                res["source"] = "edm_top100"
+                edm_data = self.get_edm_artist(art)
+                if edm_data:
+                    res["subgenre"] = edm_data.get("subgenre")
+                    res["discipline"] = edm_data.get("discipline")
+                    if "harmonic_progression" in edm_data and edm_data["harmonic_progression"].get("bpm"):
+                        res["bpm"] = float(edm_data["harmonic_progression"]["bpm"])
+                    elif edm_data.get("primary_tracks") and isinstance(edm_data["primary_tracks"][0], dict):
+                        pt = edm_data["primary_tracks"][0]
+                        if pt.get("tempo_bpm"):
+                            res["bpm"] = float(pt["tempo_bpm"])
+                break
+
+        # 2. Match Billboard Artists if no EDM artist matched
+        if "artist" not in res and self.billboard_loader:
+            for bb_p in self.billboard_loader.progressions:
+                c_bb = clean(bb_p.artist)
+                if c_bb in p_clean or bb_p.artist.lower() in p_lower:
+                    res["artist"] = bb_p.artist
+                    res["source"] = "billboard_hits"
+                    res["bpm"] = bb_p.bpm
+                    res["key"] = bb_p.key
+                    res["genre"] = "dark_pop" if "billie" in bb_p.artist.lower() else "pop"
+                    break
+
+        # 3. Match Genre / Subgenre
+        genre_patterns = [
+            ("progressive_house", ["progressive house", "prog house", "festival house", "progressive"]),
+            ("melodic_techno", ["melodic techno", "deep techno", "afterlife", "techno", "minimal techno"]),
+            ("french_touch", ["french touch", "disco funk", "filter house", "nu-disco", "disco", "funk"]),
+            ("dubstep", ["dubstep", "brostep", "riddim"]),
+            ("future_bass", ["future bass", "melodic bass"]),
+            ("melodic_house", ["melodic house", "organic house", "deep house", "afro house"]),
+            ("dark_pop", ["dark pop", "bedroom pop", "alt pop"]),
+            ("synthwave", ["synthwave", "darksynth", "retrowave", "cyberpunk", "outrun"]),
+            ("drum_and_bass", ["drum and bass", "drum & bass", "dnb", "liquid dnb"]),
+            ("trance", ["trance", "uplifting trance", "psytrance"]),
+        ]
+        for g_id, keywords in genre_patterns:
+            if any(kw in p_clean for kw in keywords):
+                res["genre"] = g_id
+                break
+
+        # Infer genre from artist if not explicit
+        if "genre" not in res and "subgenre" in res and res["subgenre"]:
+            sg = str(res["subgenre"]).lower()
+            if "techno" in sg:
+                res["genre"] = "melodic_techno"
+            elif "progressive" in sg:
+                res["genre"] = "progressive_house"
+            elif "french" in sg or "disco" in sg or "touch" in sg or "filter" in sg:
+                res["genre"] = "french_touch"
+            elif "dubstep" in sg or "bass" in sg or "trap" in sg:
+                res["genre"] = "dubstep" if "dubstep" in sg else "future_bass"
+            elif "house" in sg:
+                res["genre"] = "melodic_house"
+
+        # 4. Match Archetype
+        arch_patterns = [
+            ("slow_burn_progressive", ["slow burn", "hypnotic", "slow-burn", "progressive build", "strobe"]),
+            ("in_medias_res", ["in medias res", "hook first", "immediate drop", "radio pop"]),
+            ("continuous_drive", ["continuous", "driving", "relentless", "non-stop"]),
+            ("aaba_classic", ["aaba", "verse chorus", "pop structure"]),
+            ("narrative_7part", ["narrative", "7-part", "festival", "commercial arc", "anthem"]),
+            ("episodic_rondo", ["rondo", "episodic"]),
+        ]
+        for a_id, keywords in arch_patterns:
+            if any(kw in p_clean for kw in keywords):
+                res["archetype"] = a_id
+                break
+
+        # Infer archetype from artist or genre
+        if "archetype" not in res:
+            art_name = res.get("artist", "").lower()
+            if any(x in art_name for x in ["deadmau5", "eric prydz", "lane 8", "ben bohmer", "bodzin"]):
+                res["archetype"] = "slow_burn_progressive"
+            elif any(x in art_name for x in ["daft punk", "justice", "kavinsky", "carpenter brut"]):
+                res["archetype"] = "continuous_drive"
+            elif any(x in art_name for x in ["skrillex", "illenium"]):
+                res["archetype"] = "in_medias_res"
+            elif any(x in art_name for x in ["billie eilish", "chappell roan"]):
+                res["archetype"] = "aaba_classic"
+            else:
+                res["archetype"] = "narrative_7part"
+
+        # 5. Match BPM
+        bpm_match = re.search(r"(\d{2,3})\s*(?:bpm|tempo)", p_lower)
+        if bpm_match:
+            res["bpm"] = float(bpm_match.group(1))
+        elif "bpm" not in res:
+            genre_bpms = {
+                "progressive_house": 126.0,
+                "melodic_techno": 124.0,
+                "french_touch": 122.0,
+                "dubstep": 140.0,
+                "future_bass": 150.0,
+                "melodic_house": 122.0,
+                "dark_pop": 105.0,
+                "synthwave": 118.0,
+                "drum_and_bass": 174.0,
+                "trance": 138.0
+            }
+            res["bpm"] = genre_bpms.get(res.get("genre", "synthwave"), 118.0)
+
+        # 6. Match Bars
+        bars_match = re.search(r"(\d{2,3})\s*bars?", p_lower)
+        if bars_match:
+            res["bars"] = int(bars_match.group(1))
+        else:
+            res["bars"] = 96
+
+        return res
+
+    def orchestrate(
         self,
-        genre: str = "synthwave",
-        bpm: Optional[float] = None,
-        bars: int = 96,
-        archetype: str = "narrative_7part",
+        prompt: Optional[str] = None,
         artist: Optional[str] = None,
+        genre: Optional[str] = None,
+        bpm: Optional[float] = None,
+        bars: Optional[int] = None,
+        archetype: Optional[str] = None,
         style: Optional[str] = None,
         key: Optional[str] = None,
         mode: Optional[str] = None,
@@ -894,15 +1146,36 @@ class StudioBrain:
         bass_pattern: Optional[Dict[str, Any]] = None
     ) -> UnifiedArrangement:
         """
-        Generates a masterclass multi-track arrangement in a single pass,
-        synthesizing ALL 5 intelligence layers:
-        - Harmonic: Multi-source chord voicings, Drop-2 jazz inversions, parsimonious transitions
-        - Melodic: Sentence structure melodic motifs, vocal climax targets, conversational counter-melody
-        - Groove: Micro-timing swing, drum pocket alignment, 16-step bass patterns, turnaround fills
-        - Structural: Section masks, Bar 32 Zero-Drop silence, macro energy contour
-        - Timbral: Instrument frequency allocations, filter cutoffs, analog saturation metadata
+        Master Orchestrator:
+        Synthesizes ALL 5 intelligence layers into a complete, deeply musical,
+        and authentic multi-track arrangement for ANY prompt, genre, or artist
+        across the 100 EDM and Billboard databases.
         """
-        # Dynamically fetch artist assets from loaders if artist is provided and not explicitly supplied
+        # 1. Autonomous Prompt Resolution
+        if prompt:
+            parsed = self.parse_prompt(prompt)
+            if artist is None:
+                artist = parsed.get("artist")
+            if genre is None:
+                genre = parsed.get("genre")
+            if bpm is None:
+                bpm = parsed.get("bpm")
+            if bars is None:
+                bars = parsed.get("bars")
+            if archetype is None:
+                archetype = parsed.get("archetype")
+            if key is None:
+                key = parsed.get("key")
+
+        # 2. Defaults & Profile Resolution
+        if genre is None:
+            genre = "progressive_house"
+        if bars is None:
+            bars = 96
+        if archetype is None:
+            archetype = "slow_burn_progressive" if (artist and "deadmau5" in artist.lower()) else "narrative_7part"
+
+        # 3. Dynamic Querying across Loaders
         if artist:
             if progression is None:
                 progression = self.harmonic.get_progression(artist=artist, genre=genre, style=style, use_edm=True)
@@ -915,11 +1188,12 @@ class StudioBrain:
                 if progression and progression.get("bpm"):
                     bpm = float(progression["bpm"])
                 else:
-                    bpm = 126.0 if artist.lower() == "avicii" else 118.0
+                    bpm = 126.0 if "avicii" in artist.lower() else 118.0
 
         if bpm is None:
             bpm = 118.0
 
+        # 4. Generate the complete interconnected arrangement
         base_arr = create_arrangement(
             genre=genre,
             bpm=bpm,
@@ -931,6 +1205,7 @@ class StudioBrain:
             bass_pattern=bass_pattern
         )
 
+        # 5. Attach Unified Intelligence Metadata
         unified = UnifiedArrangement(
             bpm=base_arr.bpm,
             bars=base_arr.bars,
@@ -950,6 +1225,40 @@ class StudioBrain:
         )
 
         return unified
+
+    def generate_arrangement(
+        self,
+        genre: str = "synthwave",
+        bpm: Optional[float] = None,
+        bars: int = 96,
+        archetype: str = "narrative_7part",
+        artist: Optional[str] = None,
+        style: Optional[str] = None,
+        key: Optional[str] = None,
+        mode: Optional[str] = None,
+        progression: Optional[Dict[str, Any]] = None,
+        motif: Optional[Dict[str, Any]] = None,
+        bass_pattern: Optional[Dict[str, Any]] = None,
+        prompt: Optional[str] = None
+    ) -> UnifiedArrangement:
+        """
+        Generates a masterclass multi-track arrangement in a single pass,
+        synthesizing ALL 5 intelligence layers. Backward-compatible wrapper over orchestrate().
+        """
+        return self.orchestrate(
+            prompt=prompt,
+            artist=artist,
+            genre=genre,
+            bpm=bpm,
+            bars=bars,
+            archetype=archetype,
+            style=style,
+            key=key,
+            mode=mode,
+            progression=progression,
+            motif=motif,
+            bass_pattern=bass_pattern
+        )
 
     def reset_voicings(self) -> None:
         """Resets voice-leading caches between arrangements."""
