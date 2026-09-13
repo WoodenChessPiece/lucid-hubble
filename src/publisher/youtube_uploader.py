@@ -39,8 +39,6 @@ def authenticate_youtube(interactive: bool = False):
                 token_data = json.load(f)
             creds = Credentials.from_authorized_user_info(token_data, SCOPES)
         except Exception as e:
-        print(f"  [Thumbnail Warning] {e}")
-        pass
             print(f"[YouTube Auth] Warning: could not load stored credentials: {e}")
 
     # Check environment variables fallback
