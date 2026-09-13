@@ -606,17 +606,28 @@ def create_arrangement(
                 ))
 
         # --- 4. LEAD MOTIF HOOK ---
-        # Active in Chorus 1 & Climax Drop; strictly NO lead hook in Intro, Verse 1, or Zero-Drop!
+        # Active in Chorus 1 & Climax Drop; plus Beat 4.5 pickup in pre-drop bar
+        is_pre_drop_pickup_bar = (is_zero_drop_bar or (mask.name in ["buildup", "breakdown"] and bar_idx == mask.end_bar - 1))
+        
+        hook_notes_midi = motif.get("notes_midi")
+        if not hook_notes_midi and motif.get("resolution_path"):
+            if note_str_to_midi is not None:
+                hook_notes_midi = [note_str_to_midi(n) for n in motif["resolution_path"]]
+
+        # Beat 4.5 anticipatory pickup note on the bar leading into Chorus or Climax
+        if is_pre_drop_pickup_bar and motif.get("pickup_beat", 4.5) == 4.5:
+            pickup_pitch = (hook_notes_midi[0] if hook_notes_midi else get_chord_pitches(chord_root, chord_type, base_octave=4)[0])
+            pickup_t, pickup_v = humanize_timing_and_velocity(bar_start + 3.5 * beat_dur, 110, swing_ratio=swing_ratio, genre=genre)
+            arr.tracks["lead"].append(NoteEvent(
+                pitch=pickup_pitch, start_time=pickup_t, duration=beat_dur * 0.45, velocity=pickup_v, track_name="lead"
+            ))
+
         if mask.lead and not is_zero_drop_bar:
             chord_pitches_lead = get_chord_pitches(chord_root, chord_type, base_octave=4)
             lead_root_midi = chord_pitches_lead[0]
             motif_step = rel_bar % 4
 
-            hook_notes_midi = motif.get("notes_midi")
-            if not hook_notes_midi and motif.get("resolution_path"):
-                if note_str_to_midi is not None:
-                    hook_notes_midi = [note_str_to_midi(n) for n in motif["resolution_path"]]
-
+            if hook_notes_midi:
                 n_notes = len(hook_notes_midi)
                 if n_notes <= 4:
                     # 4-note motif statement / answer / intensification / resolution

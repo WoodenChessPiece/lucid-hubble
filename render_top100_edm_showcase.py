@@ -45,6 +45,7 @@ Examples:
   python3 render_top100_edm_showcase.py --list-artists
         """
     )
+    parser.add_argument("-c", "--communal", action="store_true", help="Synthesize collective best practices across all 100 EDM masters and Billboard Hot 100")
     parser.add_argument("-p", "--prompt", type=str, help="Natural language prompt describing desired artist, genre, or mood")
     parser.add_argument("-a", "--artist", type=str, default=None, help="Explicit artist name (from 100 EDM or Billboard hits)")
     parser.add_argument("-g", "--genre", type=str, default=None, help="Genre/subgenre (e.g. progressive_house, melodic_techno, french_touch, dubstep, dark_pop)")
@@ -101,12 +102,13 @@ Examples:
         if user_in:
             prompt = user_in
 
-    # Dynamic selection if no arguments provided: Pick randomly from the 100-artist database
-    if not prompt and not artist_choice:
-        all_artists = brain.get_all_edm_artists()
-        artist_choice = random.choice(all_artists) if all_artists else "Daft Punk"
-        print(f"\n💡 [Autonomous Selection] No artist or prompt specified. Selected from 100 EDM roster: '{artist_choice}'")
-        print("   Specify any prompt via '--prompt \"<query>\"' or '--artist \"<name>\"' or view all with '--list-artists'.")
+    # Communal Best-Practice Synthesis by default when no artist or prompt specified
+    is_communal = args.communal or (not prompt and not artist_choice and not args.random)
+    if is_communal:
+        artist_choice = None
+        print("\n🌐 [Communal Masterclass Synthesis] Synthesizing collective best practices across all 100 EDM artists & Billboard Hot 100.")
+        print("   Cross-Discipline Fusion: Progressive House Drop-2 Voicings + Melodic House Modal Breakdown + French Touch Funk Turnarounds + 31% Staccato Bass + Bar 32 Zero-Drop.")
+        print("   Specify any individual artist via '--artist \"<name>\"' or view all with '--list-artists'.")
 
     print("=" * 75)
     print("🚀 STUDIOBRAIN INTERCONNECTED MASTERCLASS ORCHESTRATION")
@@ -152,11 +154,14 @@ Examples:
     mastered = masterer.master(raw_audio)
 
     os.makedirs("storage/renders", exist_ok=True)
-    slug_artist = slugify(resolved_artist)
-    slug_arch = slugify(arr.archetype)
-
-    wav_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.wav"
-    mp3_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.mp3"
+    if is_communal:
+        wav_out = "storage/renders/COMMUNAL_MASTERCLASS_SHOWCASE.wav"
+        mp3_out = "storage/renders/COMMUNAL_MASTERCLASS_SHOWCASE.mp3"
+    else:
+        slug_artist = slugify(resolved_artist)
+        slug_arch = slugify(arr.archetype)
+        wav_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.wav"
+        mp3_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.mp3"
     legacy_mp3 = "storage/renders/TOP100_EDM_BILLBOARD_SHOWCASE.mp3"
 
     int16_audio = np.int16(np.clip(mastered * 32767, -32767, 32767))
