@@ -728,6 +728,26 @@ class OpenMidiLoader:
     def __init__(self):
         self.catalog = OPEN_HUMAN_PROGRESSIONS
         self.harmonic_engine = HarmonicQueryEngine()
+        self.billboard_loader = get_billboard_loader()
+
+    def get_hit_progression(
+        self,
+        artist: Optional[str] = None,
+        style: Optional[str] = None,
+        title: Optional[str] = None,
+        section: Optional[str] = None,
+        return_dataclass: bool = False
+    ) -> Union[Dict[str, Any], HitProgression]:
+        """
+        Retrieves a Billboard hit progression by artist or style.
+        E.g.:
+            loader.get_hit_progression(artist="Sabrina Carpenter")
+            loader.get_hit_progression(style="dreamy_pop")
+        """
+        return self.billboard_loader.get_hit_progression(
+            artist=artist, style=style, title=title, section=section, return_dataclass=return_dataclass
+        )
+
 
     def query_hooktheory(
         self,
