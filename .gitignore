@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Heavy Audio & Video Assets (saved in Google Drive)
+storage/
+*.wav
+*.mp3
+*.mp4
+*.flac
+*.aif
+*.aiff
+
+# Soundfonts and large binary weights
+*.sf2
+*.sfz
+*.bin
+*.pt
+*.ts
+
+# Environment & Secrets
+.env
+client_secret*.json
+credentials.json
+*token*.json
+*.key
+
+# macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+storage/
