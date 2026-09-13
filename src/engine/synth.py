@@ -11,6 +11,7 @@ from src.composer.arranger import Arrangement, NoteEvent
 from src.composer.theory import midi_to_freq
 from src.engine.analog_saturation import console8_channel_encode, console8_bus_decode, diode_bass_saturation
 from src.engine.pristine_keys import PristineKeysEngine, PristinePianoVoice, PristineRhodesVoice
+from src.engine.drum_sampler import DrumSamplerEngine
 from src.engine.spatial_reverb import StudioSpatialReverb
 from src.engine.sound_layering import MidSideProcessor
 
@@ -20,46 +21,36 @@ class MultiTrackEngine:
     def __init__(self, sample_rate: int = SAMPLE_RATE):
         self.sr = sample_rate
         self.keys_engine = PristineKeysEngine(sample_rate=sample_rate)
+        self.drum_engine = DrumSamplerEngine(sample_rate=sample_rate)
         self.reverb = StudioSpatialReverb(
             sample_rate=sample_rate,
             abbey_road=True,
             ducking=True,
-            rt60_s=2.4,
-            wet_level=0.18,
-            dry_level=0.92,
-            duck_db=5.0
+            rt60_s=2.2,
+            hp_cutoff=600.0,
+            lp_cutoff=8000.0,
+            er_level=0.18,
+            wet_level=0.32,
+            duck_db=6.0,
+            attack_ms=10.0,
+            release_ms=220.0
         )
 
-    def synth_kick(self, duration: float = 0.42) -> np.ndarray:
-        t = np.linspace(0, duration, int(self.sr * duration), endpoint=False)
-        pitch_env = 42 + (170 - 42) * np.exp(-36 * t)
-        phase = 2 * np.pi * np.cumsum(pitch_env) / self.sr
-        body = np.sin(phase) * np.exp(-10.5 * t)
-        click = np.random.uniform(-1, 1, len(t)) * np.exp(-130 * t) * 0.45
-        kick = np.tanh((body + click) * 1.85) * 0.94
-        return np.column_stack((kick, kick))
+    def synth_kick(self, duration: float = 0.45, velocity: int = 110, pitch_sub: float = 50.0) -> np.ndarray:
+        """Commercial layered kick: Sub sine (45-55 Hz) + Acoustic beater (2.5-4 kHz) + Saturated body."""
+        return self.drum_engine.render_hit("kick", velocity=velocity, mode="hybrid", duration=duration, pitch_sub=pitch_sub)
 
-    def synth_snare(self, duration: float = 0.45) -> np.ndarray:
-        t = np.linspace(0, duration, int(self.sr * duration), endpoint=False)
-        tone = np.sin(2 * np.pi * 182 * t) * np.exp(-23 * t)
-        noise = np.random.uniform(-1, 1, len(t))
-        sos = signal.butter(4, [950, 7800], btype='bandpass', fs=self.sr, output='sos')
-        filtered_noise = signal.sosfilt(sos, noise)
-        noise_env = np.exp(-8.8 * t)
-        l = np.tanh((tone * 0.45 + filtered_noise * noise_env * 0.85) * 1.6) * 0.76
-        noise_r = np.roll(filtered_noise, 48) * noise_env * 0.85
-        r = np.tanh((tone * 0.45 + noise_r) * 1.6) * 0.76
-        return np.column_stack((l, r))
+    def synth_snare(self, duration: float = 0.45, velocity: int = 105) -> np.ndarray:
+        """Commercial layered snare: 200 Hz body thump + 909 wire sizzle + Stereo acoustic ring."""
+        return self.drum_engine.render_hit("snare", velocity=velocity, mode="hybrid", duration=duration)
 
-    def synth_hat(self, is_open: bool = False, duration: float = 0.25) -> np.ndarray:
-        actual_dur = duration if is_open else 0.08
-        t = np.linspace(0, actual_dur, int(self.sr * actual_dur), endpoint=False)
-        noise = np.random.uniform(-1, 1, len(t))
-        sos = signal.butter(3, 7000, btype='highpass', fs=self.sr, output='sos')
-        hat = signal.sosfilt(sos, noise)
-        decay = 19 if is_open else 68
-        hat = hat * np.exp(-decay * t) * 0.36
-        return np.column_stack((hat, hat * 0.94))
+    def synth_hat(self, is_open: bool = False, duration: float = 0.25, velocity: int = 90) -> np.ndarray:
+        """Inharmonic metallic hi-hat using Roland TR-808 6-oscillator cluster."""
+        return self.drum_engine.render_hit("hat_open" if is_open else "hat_closed", velocity=velocity, mode="hybrid", duration=duration)
+
+    def synth_clap(self, duration: float = 0.55, velocity: int = 100) -> np.ndarray:
+        """Authentic handclap with multi-tap flam delays and stereo spread."""
+        return self.drum_engine.render_hit("clap", velocity=velocity, mode="hybrid", duration=duration)
 
     def synth_moog_bass(self, freq: float, duration: float, cutoff_start: float = 1800.0, resonance: float = 0.35) -> np.ndarray:
         """
@@ -169,6 +160,7 @@ class MultiTrackEngine:
     def render_arrangement(self, arr: Arrangement) -> np.ndarray:
         total_samples = int(arr.total_duration * self.sr)
         drums_stem = np.zeros((total_samples, 2), dtype=np.float32)
+        kick_stem = np.zeros((total_samples, 2), dtype=np.float32)
         bass_stem = np.zeros((total_samples, 2), dtype=np.float32)
         pad_stem = np.zeros((total_samples, 2), dtype=np.float32)
         lead_stem = np.zeros((total_samples, 2), dtype=np.float32)
@@ -181,21 +173,27 @@ class MultiTrackEngine:
             if clen > 0:
                 buffer[idx:end] += sound[:clen]
 
-        # 1. Kicks
-        kick_sound = self.synth_kick()
+        # 1. Kicks (kept isolated for sidechain ducking & clean dry drum bus)
         for n in arr.tracks.get("kick", []):
-            add_to_buffer(drums_stem, kick_sound * (n.velocity / 127.0), n.start_time)
+            k_sound = self.synth_kick(velocity=n.velocity)
+            add_to_buffer(kick_stem, k_sound, n.start_time)
+        drums_stem += kick_stem
 
         # 2. Snares
-        snare_sound = self.synth_snare()
         for n in arr.tracks.get("snare", []):
-            add_to_buffer(drums_stem, snare_sound * (n.velocity / 127.0), n.start_time)
+            s_sound = self.synth_snare(velocity=n.velocity)
+            add_to_buffer(drums_stem, s_sound, n.start_time)
 
-        # 3. Hats
+        # 3. Claps
+        for n in arr.tracks.get("clap", []):
+            c_sound = self.synth_clap(velocity=n.velocity)
+            add_to_buffer(drums_stem, c_sound, n.start_time)
+
+        # 4. Hats
         for n in arr.tracks.get("hats", []):
             is_open = (n.pitch == 46)
-            hat_sound = self.synth_hat(is_open=is_open, duration=n.duration)
-            add_to_buffer(drums_stem, hat_sound * (n.velocity / 127.0), n.start_time)
+            hat_sound = self.synth_hat(is_open=is_open, duration=n.duration, velocity=n.velocity)
+            add_to_buffer(drums_stem, hat_sound, n.start_time)
 
         # 4. Bass (Moog 4-Pole Synthesis)
         for n in arr.tracks.get("bass", []):
@@ -254,23 +252,48 @@ class MultiTrackEngine:
         pads_ducked = self.apply_raised_cosine_sidechain(pad_stem, arr.kick_times)
         keys_ducked = self.apply_raised_cosine_sidechain(keys_stem, arr.kick_times, duck_dur=0.18)
 
-        # Agent 5: Airwindows Console8 Channel Encode per stem
+        # =========================================================================
+        # PROFESSIONAL REVERB AUX SEND & MIX BUS ARCHITECTURE
+        # =========================================================================
+        # 1. Isolation: Drums (Kick/Snare/Hats) and Sub-Bass remain 100% DRY (-inf dB send).
+        # 2. Parallel Aux Send: Only melodic stems feed the reverb aux at calibrated levels:
+        #    - Pads: -12 dB (linear 0.2512) -> rich harmonic bedding behind the mix
+        #    - Keys: -18 dB (linear 0.1259) -> acoustic depth halo preserving hammer strike
+        #    - Lead: -20 dB (linear 0.1000) -> laser-focused, pristine up-front vocal presence
+        send_pads = 10.0 ** (-12.0 / 20.0)
+        send_keys = 10.0 ** (-18.0 / 20.0)
+        send_lead = 10.0 ** (-20.0 / 20.0)
+
+        reverb_send = (
+            pads_ducked * send_pads +
+            keys_ducked * send_keys +
+            lead_stem * send_lead
+        )
+
+        # 3. Dual Sidechain Key: Dry Lead + Kick for dynamic masking elimination
+        #    - Kick unmasks low-end punch & transient slap
+        #    - Lead unmasks rapid melodic notes so they cut through upfront
+        #    - When lead rests, reverb blooms into the stereo field
+        reverb_sc_key = kick_stem + lead_stem * 0.85
+
+        # 4. 100% Wet Aux Return with Abbey Road Pre-Filter (600 Hz HPF / 8 kHz LPF)
+        reverb_return = self.reverb.process_aux(reverb_send, sidechain_key=reverb_sc_key)
+
+        # 5. Airwindows Console8 Channel Encode per stem + Reverb Aux Return
         drums_enc = console8_channel_encode(drums_stem * 0.95, drive=0.82)
         bass_enc = console8_channel_encode(bass_ducked * 0.88, drive=0.88)
         pads_enc = console8_channel_encode(pads_ducked * 0.72, drive=0.80)
         lead_enc = console8_channel_encode(lead_stem * 0.68, drive=0.78)
         keys_enc = console8_channel_encode(keys_ducked * 0.75, drive=0.80)
+        reverb_enc = console8_channel_encode(reverb_return * 0.75, drive=0.75)
 
-        # Sum encoded stems
-        summed = drums_enc + bass_enc + pads_enc + lead_enc + keys_enc
+        # 6. Master Console Summing (all dry stems + reverb aux return)
+        summed = drums_enc + bass_enc + pads_enc + lead_enc + keys_enc + reverb_enc
 
-        # Master Bus Decode: arcsin(x) analog depth expansion
+        # 7. Master Bus Decode: arcsin(x) analog depth expansion
         master = console8_bus_decode(summed, drive=0.82)
 
-        # Professional Spatial Reverb Engine (Dattorro Plate + Abbey Road Filtering + Dynamic Ducking)
-        master, _ = self.reverb.process(master)
-
-        # Elliptical Filter (Mono-maker below 120 Hz) for punchy, focused low end
+        # 8. Elliptical Filter (Mono-maker below 120 Hz) for punchy, focused low end
         master_t = master.T  # (2, N)
         master_t = MidSideProcessor.elliptical_mono_maker(master_t, cutoff_hz=120.0, fs=self.sr)
         master = master_t.T  # (N, 2)

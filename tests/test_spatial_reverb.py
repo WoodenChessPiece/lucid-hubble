@@ -79,5 +79,34 @@ class TestSpatialReverb(unittest.TestCase):
         self.assertIn('ducked_wet', stems)
         self.assertTrue(np.all(np.isfinite(out)))
 
+    def test_studio_spatial_reverb_aux_send(self):
+        fs = 44100
+        rev = StudioSpatialReverb(
+            sample_rate=fs,
+            rt60_s=2.2,
+            abbey_road=True,
+            ducking=True,
+            duck_db=6.0,
+            hp_cutoff=600.0,
+            lp_cutoff=8000.0
+        )
+        t = np.linspace(0, 1.0, fs, endpoint=False)
+        send_signal = np.sin(2 * np.pi * 1000 * t).astype(np.float32)
+        sidechain_key = np.zeros(fs, dtype=np.float32)
+        sidechain_key[:int(fs * 0.3)] = 0.8  # Key active for first 300ms
+
+        wet_return = rev.process_aux(send_signal, sidechain_key=sidechain_key)
+        self.assertEqual(wet_return.shape, (fs, 2))
+        self.assertTrue(np.all(np.isfinite(wet_return)))
+
+        # Verify low frequency attenuation: 60 Hz tone into aux send should be strongly rejected
+        sub_tone = np.sin(2 * np.pi * 60 * t).astype(np.float32)
+        wet_sub = rev.process_aux(sub_tone)
+        # Compare RMS of mid tone (1kHz) vs sub tone (60Hz)
+        rms_sub = np.sqrt(np.mean(wet_sub**2))
+        wet_mid = rev.process_aux(send_signal)
+        rms_mid = np.sqrt(np.mean(wet_mid**2))
+        self.assertLess(rms_sub, rms_mid * 0.1)
+
 if __name__ == '__main__':
     unittest.main()

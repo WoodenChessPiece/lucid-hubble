@@ -210,13 +210,27 @@ class MelodicIntelligence:
     conversational counter-melodies, and evolutionary phrase mutations.
     """
 
-    def __init__(self, knowledge_base: MusicKnowledgeBase, billboard_loader: BillboardHitLoader):
+    def __init__(
+        self,
+        knowledge_base: MusicKnowledgeBase,
+        billboard_loader: BillboardHitLoader,
+        edm_loader: Optional[EDMLoader] = None
+    ):
         self.kb = knowledge_base
         self.billboard = billboard_loader
+        self.edm_loader = edm_loader or get_edm_loader()
         self.custom_motifs: List[Dict[str, Any]] = []
 
     def get_seed_motif(self, artist: Optional[str] = None, style: Optional[str] = None) -> Dict[str, Any]:
-        """Queries Billboard or knowledge base motif library."""
+        """Queries EDM Top 100, Billboard, or knowledge base motif library."""
+        if artist and self.edm_loader:
+            try:
+                edm_motif = self.edm_loader.get_melodic_hook(artist)
+                if edm_motif:
+                    return edm_motif
+            except Exception:
+                pass
+
         if artist or style:
             try:
                 hit_motif = self.billboard.get_hit_motif(artist=artist, style=style)
@@ -336,13 +350,27 @@ class GrooveIntelligence:
     turnaround fills, and energy-dependent drum architectures.
     """
 
-    def __init__(self, knowledge_base: MusicKnowledgeBase, billboard_loader: BillboardHitLoader):
+    def __init__(
+        self,
+        knowledge_base: MusicKnowledgeBase,
+        billboard_loader: BillboardHitLoader,
+        edm_loader: Optional[EDMLoader] = None
+    ):
         self.kb = knowledge_base
         self.billboard = billboard_loader
+        self.edm_loader = edm_loader or get_edm_loader()
         self.custom_grooves: List[Dict[str, Any]] = []
 
     def get_bass_pattern(self, style: str = "carpenter_brut_staccato", artist: Optional[str] = None) -> Dict[str, Any]:
         """Queries authentic 16-step bass groove pattern."""
+        if artist and self.edm_loader:
+            try:
+                edm_groove = self.edm_loader.get_bass_groove(artist)
+                if edm_groove:
+                    return edm_groove
+            except Exception:
+                pass
+
         if artist:
             try:
                 bg = self.billboard.get_hit_bass_groove(artist=artist)
@@ -637,10 +665,15 @@ class UnifiedArrangement(Arrangement):
     - Disciplines applied (Harmonic, Melodic, Groove, Structural, Timbral)
     - Frequency slotting & timbral profiles
     - Discovered database origins
+    - Dynamic artist harmonic progression, voicings, motif, and bass groove
     """
     timbral_profiles: Dict[str, Any] = field(default_factory=dict)
     disciplines: List[str] = field(default_factory=list)
     database_sources: Dict[str, Any] = field(default_factory=dict)
+    artist: Optional[str] = None
+    progression: Optional[Dict[str, Any]] = None
+    motif: Optional[Dict[str, Any]] = None
+    bass_groove: Optional[Dict[str, Any]] = None
 
 
 # ---------------------------------------------------------------------------
@@ -708,11 +741,13 @@ class StudioBrain:
         )
         self.melodic = MelodicIntelligence(
             knowledge_base=self.knowledge_base,
-            billboard_loader=self.billboard_loader
+            billboard_loader=self.billboard_loader,
+            edm_loader=self.edm_loader
         )
         self.groove = GrooveIntelligence(
             knowledge_base=self.knowledge_base,
-            billboard_loader=self.billboard_loader
+            billboard_loader=self.billboard_loader,
+            edm_loader=self.edm_loader
         )
         self.structural = StructuralIntelligence()
         self.timbral = TimbralIntelligence()
@@ -847,13 +882,16 @@ class StudioBrain:
     def generate_arrangement(
         self,
         genre: str = "synthwave",
-        bpm: float = 118.0,
+        bpm: Optional[float] = None,
         bars: int = 96,
         archetype: str = "narrative_7part",
         artist: Optional[str] = None,
         style: Optional[str] = None,
-        key: str = "D",
-        mode: str = "Minor"
+        key: Optional[str] = None,
+        mode: Optional[str] = None,
+        progression: Optional[Dict[str, Any]] = None,
+        motif: Optional[Dict[str, Any]] = None,
+        bass_pattern: Optional[Dict[str, Any]] = None
     ) -> UnifiedArrangement:
         """
         Generates a masterclass multi-track arrangement in a single pass,
@@ -864,7 +902,34 @@ class StudioBrain:
         - Structural: Section masks, Bar 32 Zero-Drop silence, macro energy contour
         - Timbral: Instrument frequency allocations, filter cutoffs, analog saturation metadata
         """
-        base_arr = create_arrangement(genre=genre, bpm=bpm, bars=bars, archetype=archetype)
+        # Dynamically fetch artist assets from loaders if artist is provided and not explicitly supplied
+        if artist:
+            if progression is None:
+                progression = self.harmonic.get_progression(artist=artist, genre=genre, style=style, use_edm=True)
+            if motif is None:
+                motif = self.melodic.get_seed_motif(artist=artist, style=style)
+            if bass_pattern is None:
+                bass_pattern = self.groove.get_bass_pattern(artist=artist)
+
+            if bpm is None:
+                if progression and progression.get("bpm"):
+                    bpm = float(progression["bpm"])
+                else:
+                    bpm = 126.0 if artist.lower() == "avicii" else 118.0
+
+        if bpm is None:
+            bpm = 118.0
+
+        base_arr = create_arrangement(
+            genre=genre,
+            bpm=bpm,
+            bars=bars,
+            archetype=archetype,
+            artist=artist,
+            progression=progression,
+            motif=motif,
+            bass_pattern=bass_pattern
+        )
 
         unified = UnifiedArrangement(
             bpm=base_arr.bpm,
@@ -877,7 +942,11 @@ class StudioBrain:
             sections=base_arr.sections,
             timbral_profiles={k: (v.__dict__ if hasattr(v, "__dict__") else v) for k, v in self.timbral.get_all_profiles().items()},
             disciplines=["Harmonic", "Melodic", "Groove", "Structural", "Timbral"],
-            database_sources={k: v["exists"] for k, v in self.databases.items()}
+            database_sources={k: v["exists"] for k, v in self.databases.items()},
+            artist=artist,
+            progression=progression,
+            motif=motif,
+            bass_groove=bass_pattern
         )
 
         return unified

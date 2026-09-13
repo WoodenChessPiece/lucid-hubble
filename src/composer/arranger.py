@@ -34,6 +34,23 @@ try:
 except ImportError:
     OpenMidiLoader = None
 
+try:
+    from src.composer.edm_loader import get_edm_loader, note_str_to_midi
+except ImportError:
+    try:
+        from edm_loader import get_edm_loader, note_str_to_midi
+    except ImportError:
+        get_edm_loader = None
+        note_str_to_midi = None
+
+try:
+    from src.composer.billboard_loader import get_billboard_loader
+except ImportError:
+    try:
+        from billboard_loader import get_billboard_loader
+    except ImportError:
+        get_billboard_loader = None
+
 @dataclass
 class NoteEvent:
     pitch: int
@@ -279,7 +296,11 @@ def create_arrangement(
     bpm: float = 118.0,
     bars: int = 96,
     swing_ratio: float = 0.52,
-    archetype: Optional[str] = None
+    archetype: Optional[str] = None,
+    artist: Optional[str] = None,
+    progression: Optional[Dict[str, Any]] = None,
+    motif: Optional[Dict[str, Any]] = None,
+    bass_pattern: Optional[Dict[str, Any]] = None
 ) -> Arrangement:
     """
     Creates a masterclass musical arrangement with dynamic 7-section narrative arc
@@ -324,11 +345,56 @@ def create_arrangement(
         "fx": []
     }
 
-    # 2. Query Human Chord Progressions from OpenMidiLoader and MusicKnowledgeBase
+    # 2. Query Human Chord Progressions, Motifs, and Bass Grooves
     loader = OpenMidiLoader() if OpenMidiLoader is not None else None
     kb = MusicKnowledgeBase()
 
+    # Dynamic Ingestion: Resolve artist progression, motif, and bass pattern if not directly provided
+    if progression is None and artist is not None:
+        if get_edm_loader is not None:
+            try:
+                edm = get_edm_loader()
+                progression = edm.get_progression(artist)
+            except Exception:
+                pass
+        if progression is None and get_billboard_loader is not None:
+            try:
+                bb = get_billboard_loader()
+                progression = bb.get_hit_progression(artist=artist)
+            except Exception:
+                pass
+
+    if motif is None and artist is not None:
+        if get_edm_loader is not None:
+            try:
+                edm = get_edm_loader()
+                motif = edm.get_melodic_hook(artist)
+            except Exception:
+                pass
+        if motif is None and get_billboard_loader is not None:
+            try:
+                bb = get_billboard_loader()
+                motif = bb.get_hit_motif(artist=artist)
+            except Exception:
+                pass
+
+    if bass_pattern is None and artist is not None:
+        if get_edm_loader is not None:
+            try:
+                edm = get_edm_loader()
+                bass_pattern = edm.get_bass_groove(artist)
+            except Exception:
+                pass
+        if bass_pattern is None and get_billboard_loader is not None:
+            try:
+                bb = get_billboard_loader()
+                bass_pattern = bb.get_hit_bass_groove(artist=artist)
+            except Exception:
+                pass
+
     def fetch_progression(section_name: str) -> Dict[str, Any]:
+        if progression is not None:
+            return progression
         if loader is not None:
             try:
                 return loader.get_progression(genre=genre, section=section_name)
@@ -341,9 +407,51 @@ def create_arrangement(
         if sm.name not in prog_cache:
             prog_cache[sm.name] = fetch_progression(sm.name)
 
-    motif = kb.get_motif()
-    bass_style = "carpenter_brut_staccato" if genre in ["synthwave", "darksynth"] else "italo_rolling_octave"
-    bass_groove = kb.get_bass_pattern(bass_style)
+    if motif is None:
+        motif = kb.get_motif()
+
+    if bass_pattern is None:
+        bass_style = "carpenter_brut_staccato" if genre in ["synthwave", "darksynth"] else "italo_rolling_octave"
+        bass_groove = kb.get_bass_pattern(bass_style)
+    else:
+        bass_groove = dict(bass_pattern)
+
+    # Normalize bass groove steps to list of (step_idx, gate_pct, vel)
+    if "steps" not in bass_groove or not bass_groove["steps"]:
+        gate_pct = bass_groove.get("gate_length_percent", 42.0) / 100.0
+        tiers = bass_groove.get("velocity_tiers", {})
+        accent = tiers.get("accent", 124)
+        groove = tiers.get("groove", 90)
+        ghost = tiers.get("ghost", 72)
+        bass_groove["steps"] = [
+            (0, gate_pct, accent),
+            (1, max(0.20, gate_pct * 0.75), ghost),
+            (2, gate_pct, groove),
+            (3, max(0.20, gate_pct * 0.75), ghost),
+            (4, gate_pct, accent),
+            (5, max(0.20, gate_pct * 0.75), ghost),
+            (6, gate_pct, groove),
+            (7, max(0.20, gate_pct * 0.75), ghost),
+            (8, gate_pct, accent),
+            (9, max(0.20, gate_pct * 0.75), ghost),
+            (10, gate_pct, groove),
+            (11, max(0.20, gate_pct * 0.75), ghost),
+            (12, gate_pct, accent),
+            (13, max(0.20, gate_pct * 0.75), ghost),
+            (14, gate_pct, groove),
+            (15, max(0.20, gate_pct * 0.75), ghost),
+        ]
+    else:
+        norm_steps = []
+        for s in bass_groove["steps"]:
+            if isinstance(s, (tuple, list)):
+                norm_steps.append((s[0], s[1], s[2]))
+            elif isinstance(s, dict):
+                step_idx = s.get("step", 1) - 1
+                gate = s.get("gate_ratio", s.get("gate", 0.35))
+                vel = s.get("velocity", 90)
+                norm_steps.append((step_idx, gate, vel))
+        bass_groove["steps"] = norm_steps
 
     prev_chord_voicing = None
     prev_pad_voicing = None
@@ -361,15 +469,28 @@ def create_arrangement(
         section = mask.name
         prog = prog_cache.get(section, prog_cache.get("chorus", fetch_progression("chorus")))
 
-        roots = prog.get("roots", ["D", "Bb", "F", "C"])
-        types = prog.get("types", ["min7", "maj7", "maj", "dom7"])
-        bass_notes = prog.get("bass_notes", roots)
+        roots = prog.get("roots") or ["D", "Bb", "F", "C"]
+        types = prog.get("types") or ["min7", "maj7", "maj", "dom7"]
+        bass_notes = prog.get("bass_notes") or roots
 
         # Bar index relative to section
         rel_bar = bar_idx - mask.start_bar
-        chord_root = roots[rel_bar % len(roots)]
+        chord_idx = rel_bar % len(roots)
+        chord_root = roots[chord_idx]
         chord_type = types[rel_bar % len(types)]
         bass_root_name = bass_notes[rel_bar % len(bass_notes)]
+
+        # Check for explicit Drop-2 voicings from progression
+        explicit_drop2 = prog.get("drop2_voicings")
+        if not explicit_drop2 and "voicings" in prog and isinstance(prog["voicings"], dict):
+            if "drop2_midi" in prog["voicings"]:
+                explicit_drop2 = [
+                    item["notes"] if isinstance(item, dict) else item
+                    for item in prog["voicings"]["drop2_midi"]
+                ]
+        if not explicit_drop2 and "chords" in prog and isinstance(prog["chords"], list):
+            if prog["chords"] and isinstance(prog["chords"][0], dict) and "drop2_voicing" in prog["chords"][0]:
+                explicit_drop2 = [c["drop2_voicing"] for c in prog["chords"]]
 
         # Check for Bar 32 "Zero-Drop" or transition cutoff bar
         is_zero_drop_bar = (section == "zero_drop") or (mask.name == "buildup" and bar_idx == mask.end_bar - 1 and mask.end_bar - mask.start_bar >= 4)
@@ -377,9 +498,12 @@ def create_arrangement(
 
         # --- 1. PAD (Ambient pad + subtle texture) ---
         if mask.pad:
-            raw_pad = get_chord_pitches(chord_root, chord_type, base_octave=3)
-            voiced_pad = parsimonious_voice_leading(prev_pad_voicing, raw_pad, register_range=(48, 72))
-            voiced_pad = apply_drop_2(voiced_pad)
+            if explicit_drop2 and len(explicit_drop2) > 0:
+                voiced_pad = explicit_drop2[chord_idx % len(explicit_drop2)]
+            else:
+                raw_pad = get_chord_pitches(chord_root, chord_type, base_octave=3)
+                voiced_pad = parsimonious_voice_leading(prev_pad_voicing, raw_pad, register_range=(48, 72))
+                voiced_pad = apply_drop_2(voiced_pad)
             prev_pad_voicing = voiced_pad
 
             pad_vel = 58 if section in ["intro", "outro", "breakdown"] else 88
@@ -397,9 +521,12 @@ def create_arrangement(
 
         # --- 2. CHORDS (Human chord voicings / Piano / Rhodes) ---
         if mask.chords:
-            raw_chords = get_chord_pitches(chord_root, chord_type, base_octave=3)
-            voiced_chords = parsimonious_voice_leading(prev_chord_voicing, raw_chords, register_range=(52, 76))
-            voiced_chords = apply_drop_2(voiced_chords)
+            if explicit_drop2 and len(explicit_drop2) > 0:
+                voiced_chords = explicit_drop2[chord_idx % len(explicit_drop2)]
+            else:
+                raw_chords = get_chord_pitches(chord_root, chord_type, base_octave=3)
+                voiced_chords = parsimonious_voice_leading(prev_chord_voicing, raw_chords, register_range=(52, 76))
+                voiced_chords = apply_drop_2(voiced_chords)
             prev_chord_voicing = voiced_chords
 
             # In Breakdown: rich emotional piano/Rhodes counterpoint chord voicings
@@ -431,11 +558,13 @@ def create_arrangement(
         if can_play_bass:
             bass_root_midi = get_chord_pitches(bass_root_name, 'maj', base_octave=1)[0]
             bar_in_phrase = rel_bar % 4
+            sync_offset_s = float(bass_groove.get("syncopation_offset_ms", 0.0)) / 1000.0
 
             for step, gate_pct, vel in bass_groove["steps"]:
                 if vel == 0:
                     continue
-                step_time = bar_start + step * sixteenth_dur
+                step_time = bar_start + step * sixteenth_dur + sync_offset_s
+                step_time = max(0.0, step_time)
                 is_off = (step % 2 != 0)
 
                 # Conversational Walking Turnaround on Bar 4 of phrase in Climax / Chorus
@@ -474,35 +603,74 @@ def create_arrangement(
             lead_root_midi = chord_pitches_lead[0]
             motif_step = rel_bar % 4
 
-            # Dynamic chord tones (Root, 3rd, 5th, 7th) for 100% consonance:
-            third_offset = chord_pitches_lead[1] - chord_pitches_lead[0]
-            fifth_offset = 7
-            seventh_offset = (chord_pitches_lead[3] - chord_pitches_lead[0]) if len(chord_pitches_lead) > 3 else (10 if "min" in chord_type else 11)
+            hook_notes_midi = motif.get("notes_midi")
+            if not hook_notes_midi and motif.get("resolution_path"):
+                if note_str_to_midi is not None:
+                    hook_notes_midi = [note_str_to_midi(n) for n in motif["resolution_path"]]
 
-            m_intervals = [0, third_offset, fifth_offset, seventh_offset]
-            m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
-            for note_idx, (interval, r_offset) in enumerate(zip(m_intervals, m_rhythm)):
-                # Metric displacement on phrases 2 & 4
-                disp = 0.25 if motif_step in [1, 3] else 0.0
-                note_start = bar_start + (r_offset * beat_dur * 0.5) + disp
+            if hook_notes_midi:
+                # Avicii Levels: G#5(80), F#5(78), E5(76), C#5(73), B4(71), G#4(68), C#4(61)
+                phrase_notes_map = {
+                    0: hook_notes_midi[:4] if len(hook_notes_midi) >= 4 else hook_notes_midi,
+                    1: (hook_notes_midi[4:] + [hook_notes_midi[0]])[:4] if len(hook_notes_midi) > 4 else hook_notes_midi,
+                    2: [hook_notes_midi[0], hook_notes_midi[1] if len(hook_notes_midi) > 1 else hook_notes_midi[0],
+                        hook_notes_midi[2] if len(hook_notes_midi) > 2 else hook_notes_midi[0], hook_notes_midi[0]],
+                    3: (hook_notes_midi[3:] + [hook_notes_midi[0]])[:4] if len(hook_notes_midi) > 3 else hook_notes_midi
+                }
+                bar_pitches = phrase_notes_map.get(motif_step, hook_notes_midi[:4])
+                m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
+                if len(m_rhythm) < len(bar_pitches):
+                    m_rhythm = [i * 0.5 for i in range(len(bar_pitches))]
 
-                if note_start < bar_start + bar_dur:
-                    pitch = lead_root_midi + interval
-                    vel_base = 100 if section == "chorus" else 115
+                for note_idx, (p_note, r_offset) in enumerate(zip(bar_pitches, m_rhythm)):
+                    note_start = bar_start + (r_offset * beat_dur)
+                    if note_start < bar_start + bar_dur:
+                        pitch = p_note
+                        vel_base = 100 if section == "chorus" else 115
 
-                    # Climax Drop: Layered +12 octave lift with ornamental brilliance!
-                    if section == "climax":
-                        pitch += 12
+                        # Climax Drop: Layered +12 octave lift with ornamental brilliance!
+                        if section == "climax":
+                            pitch += 12
 
-                    t, v = humanize_timing_and_velocity(
-                        note_start, vel_base,
-                        metric_weight=1.1 if note_idx == 0 else 0.8,
-                        swing_ratio=swing_ratio,
-                        genre=genre
-                    )
-                    arr.tracks["lead"].append(NoteEvent(
-                        pitch=pitch, start_time=t, duration=sixteenth_dur * 2.2, velocity=v, track_name="lead"
-                    ))
+                        t, v = humanize_timing_and_velocity(
+                            note_start, vel_base,
+                            metric_weight=1.1 if note_idx == 0 else 0.8,
+                            swing_ratio=swing_ratio,
+                            genre=genre
+                        )
+                        arr.tracks["lead"].append(NoteEvent(
+                            pitch=pitch, start_time=t, duration=sixteenth_dur * 2.2, velocity=v, track_name="lead"
+                        ))
+            else:
+                # Dynamic chord tones (Root, 3rd, 5th, 7th) for 100% consonance:
+                third_offset = chord_pitches_lead[1] - chord_pitches_lead[0]
+                fifth_offset = 7
+                seventh_offset = (chord_pitches_lead[3] - chord_pitches_lead[0]) if len(chord_pitches_lead) > 3 else (10 if "min" in chord_type else 11)
+
+                m_intervals = [0, third_offset, fifth_offset, seventh_offset]
+                m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
+                for note_idx, (interval, r_offset) in enumerate(zip(m_intervals, m_rhythm)):
+                    # Metric displacement on phrases 2 & 4
+                    disp = 0.25 if motif_step in [1, 3] else 0.0
+                    note_start = bar_start + (r_offset * beat_dur * 0.5) + disp
+
+                    if note_start < bar_start + bar_dur:
+                        pitch = lead_root_midi + interval
+                        vel_base = 100 if section == "chorus" else 115
+
+                        # Climax Drop: Layered +12 octave lift with ornamental brilliance!
+                        if section == "climax":
+                            pitch += 12
+
+                        t, v = humanize_timing_and_velocity(
+                            note_start, vel_base,
+                            metric_weight=1.1 if note_idx == 0 else 0.8,
+                            swing_ratio=swing_ratio,
+                            genre=genre
+                        )
+                        arr.tracks["lead"].append(NoteEvent(
+                            pitch=pitch, start_time=t, duration=sixteenth_dur * 2.2, velocity=v, track_name="lead"
+                        ))
 
         # --- 5. COUNTER-MELODY (Emotional Piano/Rhodes Counterpoint & Polyphony) ---
         # In Breakdown: emotional piano/Rhodes counterpoint.

@@ -129,5 +129,64 @@ class TestEDMTop100Database(unittest.TestCase):
         self.assertIn("kick", arr.tracks)
         self.assertGreater(len(arr.tracks["bass"]), 0)
 
+    def test_avicii_full_pipeline_ingestion_and_routing(self):
+        """
+        Verifies that StudioBrain.generate_arrangement(artist='Avicii') correctly ingests
+        and routes Avicii's authentic C# Minor progression, Drop-2 voicings, hook seed, and bass groove.
+        """
+        arr = self.brain.generate_arrangement(
+            genre="progressive_house",
+            artist="Avicii",
+            bars=96
+        )
+        self.assertEqual(arr.artist, "Avicii")
+        self.assertEqual(arr.bpm, 126.0)
+
+        # 1. Progression: C#m - A - E - B
+        self.assertIsNotNone(arr.progression)
+        self.assertEqual(arr.progression.get("roots"), ["C#", "A", "E", "B"])
+        self.assertEqual(arr.progression.get("chords"), ["C#m", "A", "E", "B"])
+
+        # 2. Drop-2 Voicings in chords track
+        beat_dur = 60.0 / arr.bpm
+        bar_dur = beat_dur * 4.0
+        by_bar = {}
+        for e in arr.tracks["chords"]:
+            bar_idx = int(round(e.start_time / bar_dur))
+            by_bar.setdefault(bar_idx, []).append(e.pitch)
+
+        expected_voicings = {
+            8: [44, 49, 52, 61],   # C#m Drop-2
+            9: [40, 45, 49, 57],   # A Drop-2
+            10: [47, 52, 56, 64],  # E Drop-2
+            11: [42, 47, 51, 59]   # B Drop-2
+        }
+        for b, exp in expected_voicings.items():
+            actual = sorted(by_bar.get(b, []))
+            self.assertEqual(actual, exp, f"Bar {b} chord voicing mismatch: {actual} != {exp}")
+
+        # 3. Bass Pattern: C# minor roots & 42% gate
+        bass_events = arr.tracks["bass"]
+        self.assertGreater(len(bass_events), 0)
+        c_sharp_bass = [e for e in bass_events if e.pitch in [25, 37]]
+        a_bass = [e for e in bass_events if e.pitch in [33, 45]]
+        e_bass = [e for e in bass_events if e.pitch in [28, 40]]
+        b_bass = [e for e in bass_events if e.pitch in [35, 47]]
+        self.assertGreater(len(c_sharp_bass), 0)
+        self.assertGreater(len(a_bass), 0)
+        self.assertGreater(len(e_bass), 0)
+        self.assertGreater(len(b_bass), 0)
+
+        sixteenth_dur = beat_dur / 4.0
+        self.assertAlmostEqual(bass_events[0].duration, sixteenth_dur * 0.42, delta=0.01)
+
+        # 4. Melodic Hook Seed: G#5, F#5, E5, C#5, B4, G#4, C#4
+        lead_events = arr.tracks["lead"]
+        self.assertGreater(len(lead_events), 0)
+        lead_pitches = set(e.pitch for e in lead_events)
+        for expected_note in [80, 78, 76, 73, 71, 68, 61]:
+            self.assertIn(expected_note, lead_pitches, f"Hook note {expected_note} missing from lead track")
+
+
 if __name__ == "__main__":
     unittest.main()

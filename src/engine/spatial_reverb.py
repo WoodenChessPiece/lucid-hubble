@@ -413,7 +413,8 @@ class StudioSpatialReverb:
     def __init__(self, sample_rate: int = 44100, predelay_ms: float = 25.0,
                  rt60_s: float = 2.5, abbey_road: bool = True, ducking: bool = True,
                  duck_db: float = 6.0, attack_ms: float = 10.0, release_ms: float = 250.0,
-                 er_level: float = 0.25, wet_level: float = 0.35, dry_level: float = 0.85):
+                 er_level: float = 0.25, wet_level: float = 0.35, dry_level: float = 0.85,
+                 hp_cutoff: float = 600.0, lp_cutoff: float = 8000.0):
         self.fs = sample_rate
         self.abbey_road_enabled = abbey_road
         self.ducking_enabled = ducking
@@ -425,10 +426,51 @@ class StudioSpatialReverb:
         decay = np.clip(0.5 + 0.12 * np.log(max(0.2, rt60_s)), 0.4, 0.94)
 
         self.er = EarlyReflections(sample_rate=sample_rate)
-        self.filter = AbbeyRoadFilter(sample_rate=sample_rate) if abbey_road else None
+        self.filter = AbbeyRoadFilter(sample_rate=sample_rate, hp_cutoff=hp_cutoff, lp_cutoff=lp_cutoff) if abbey_road else None
         self.dattorro = DattorroReverbEngine(sample_rate=sample_rate, predelay_ms=predelay_ms, decay=decay)
         self.ducker = SidechainDucker(sample_rate=sample_rate, duck_db=duck_db,
                                       attack_ms=attack_ms, release_ms=release_ms) if ducking else None
+
+    def process_aux(self, send_signal: np.ndarray, sidechain_key: Optional[np.ndarray] = None) -> np.ndarray:
+        """
+        Pure 100% Wet Aux Send / Return processing:
+        - Filters send_signal with Abbey Road filter (600 Hz HPF / 8 kHz LPF).
+        - Computes early reflections from the filtered send.
+        - Computes late diffuse plate reverberation from the filtered send.
+        - Sums early reflections and late tail into 100% wet stereo return.
+        - Applies dynamic sidechain ducking against sidechain_key (e.g. Kick + Lead).
+        Returns:
+            (N, 2) 100% wet stereo aux return.
+        """
+        if send_signal.ndim == 1:
+            s_stereo = np.stack([send_signal, send_signal], axis=-1).astype(np.float32)
+        else:
+            s_stereo = send_signal.astype(np.float32)
+
+        # 1. Abbey Road Pre-Filtering on Aux Send
+        if self.abbey_road_enabled and self.filter is not None:
+            filtered_send = self.filter.process(s_stereo)
+        else:
+            filtered_send = s_stereo
+
+        # 2. Specular Early Reflections from filtered send
+        early_ref = self.er.process(filtered_send)
+
+        # 3. Late Diffuse Reverb Tail (Dattorro Engine)
+        late_wet = self.dattorro.process(filtered_send)
+
+        # 4. Pure Wet Return Summation (Zero dry bleed)
+        wet_return = (self.er_level * early_ref + self.wet_level * late_wet).astype(np.float32)
+
+        # 5. Dynamic Sidechain Ducking from key signal (Kick + Lead)
+        if self.ducking_enabled and self.ducker is not None and sidechain_key is not None:
+            ducked_wet, _ = self.ducker.process(sidechain_key, wet_return)
+            return ducked_wet.astype(np.float32)
+        elif self.ducking_enabled and self.ducker is not None:
+            ducked_wet, _ = self.ducker.process(s_stereo, wet_return)
+            return ducked_wet.astype(np.float32)
+
+        return wet_return
 
     def process(self, x: np.ndarray) -> Tuple[np.ndarray, Dict[str, np.ndarray]]:
         """
