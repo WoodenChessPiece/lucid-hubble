@@ -1,0 +1,6099 @@
+{
+  "metadata": {
+    "database_name": "Billboard Hot 100 Knowledge Base (2024-2026)",
+    "version": "1.0.0",
+    "compiled_by": "Billboard Hit Knowledge Base Integrator",
+    "total_progressions": 19,
+    "total_melodic_motifs": 9,
+    "total_bass_grooves": 4,
+    "artists_covered": [
+      "Benson Boone",
+      "Billie Eilish",
+      "Chappell Roan",
+      "Charli XCX",
+      "Dua Lipa",
+      "Dua Lipa & Kevin Parker",
+      "Post Malone & Morgan Wallen",
+      "Sabrina Carpenter",
+      "Taylor Swift",
+      "Teddy Swims",
+      "The Weeknd"
+    ],
+    "supported_styles": [
+      "80s_pop",
+      "alt_pop",
+      "ambient_pop",
+      "anthemic_pop",
+      "atmospheric_pop",
+      "billboard_hit",
+      "blues_belt",
+      "blues_pop",
+      "breezy_pop",
+      "bright_pop",
+      "club_pop",
+      "conversational_pop",
+      "country_pop",
+      "dance_pop",
+      "dark_pop",
+      "deep_house_pop",
+      "disco_pop",
+      "dreamy_pop",
+      "earworm",
+      "electroclash",
+      "explosive_hook",
+      "funk_pop",
+      "glam_pop",
+      "heroic_cadence",
+      "high_belt",
+      "hyperpop",
+      "indie_pop",
+      "intimate_pop",
+      "minimal_groove",
+      "minor_plagal",
+      "modal_borrowing",
+      "nashville_pop",
+      "nostalgic_pop",
+      "nu_disco",
+      "pedal_drone",
+      "pop_rock",
+      "power_ballad",
+      "power_pop",
+      "psych_pop",
+      "radio_pop",
+      "retro_pop",
+      "retro_soul",
+      "retro_synthpop",
+      "rnb_pop",
+      "soaring_chorus",
+      "soul_pop",
+      "stadium_rock",
+      "synth_country",
+      "synthpop",
+      "synthwave",
+      "vocal_hook"
+    ]
+  },
+  "progressions": [
+    {
+      "id": "billie_eilish_birds_of_a_feather_verse",
+      "title": "Birds of a Feather",
+      "artist": "Billie Eilish",
+      "section": "verse",
+      "key": "D Major",
+      "mode": "Major",
+      "bpm": 105,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure (4 beats per chord)",
+      "roman_numerals": "Imaj7 - ii9 - V11 - vi7",
+      "roots": [
+        "D",
+        "E",
+        "A",
+        "B"
+      ],
+      "types": [
+        "maj7",
+        "min9",
+        "11",
+        "min7"
+      ],
+      "bass_notes": [
+        "D",
+        "E",
+        "A",
+        "B"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "Dmaj7",
+          "roman_numeral": "Imaj7",
+          "function": "Tonic",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            54,
+            57,
+            61
+          ],
+          "close_voicing_notes": [
+            "D3",
+            "F#3",
+            "A3",
+            "C#4"
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            54,
+            61
+          ],
+          "drop2_voicing_notes": [
+            "A2",
+            "D3",
+            "F#3",
+            "C#4"
+          ],
+          "drop4_voicing": [
+            38,
+            54,
+            57,
+            61
+          ],
+          "drop4_voicing_notes": [
+            "D2",
+            "F#3",
+            "A3",
+            "C#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            11
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "Em9",
+          "roman_numeral": "ii9",
+          "function": "Supertonic / Predominant",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            55,
+            59,
+            62,
+            66
+          ],
+          "close_voicing_notes": [
+            "E3",
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            50,
+            52,
+            55,
+            59,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "E3",
+            "G3",
+            "B3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59,
+            62,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "E2",
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10,
+            14
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "A11",
+          "roman_numeral": "V11",
+          "function": "Dominant Suspended",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 4,
+          "close_voicing": [
+            57,
+            60,
+            62,
+            67
+          ],
+          "close_voicing_notes": [
+            "A3",
+            "C4",
+            "D4",
+            "G4"
+          ],
+          "drop2_voicing": [
+            50,
+            57,
+            60,
+            67
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "A3",
+            "C4",
+            "G4"
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            62,
+            67
+          ],
+          "drop4_voicing_notes": [
+            "A2",
+            "C4",
+            "D4",
+            "G4"
+          ],
+          "interval_semitones": [
+            0,
+            5,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "Bm7",
+          "roman_numeral": "vi7",
+          "function": "Submediant",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            47,
+            50,
+            54,
+            57
+          ],
+          "close_voicing_notes": [
+            "B2",
+            "D3",
+            "F#3",
+            "A3"
+          ],
+          "drop2_voicing": [
+            42,
+            47,
+            50,
+            57
+          ],
+          "drop2_voicing_notes": [
+            "F#2",
+            "B2",
+            "D3",
+            "A3"
+          ],
+          "drop4_voicing": [
+            35,
+            50,
+            54,
+            57
+          ],
+          "drop4_voicing_notes": [
+            "B1",
+            "D3",
+            "F#3",
+            "A3"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "indie_pop",
+        "intimate_pop",
+        "alt_pop",
+        "breezy_pop"
+      ],
+      "description": "Nostalgic, floating pop-jazz loop using extended Maj7 and min9 voicings with V11 suspension."
+    },
+    {
+      "id": "billie_eilish_birds_of_a_feather_chorus_climax",
+      "title": "Birds of a Feather",
+      "artist": "Billie Eilish",
+      "section": "chorus_climax",
+      "key": "D Major",
+      "mode": "Major / Modal Interchange",
+      "bpm": 105,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure (4 beats per chord)",
+      "roman_numerals": "Imaj7 - ii9 - IVmaj7 - iv6",
+      "roots": [
+        "D",
+        "E",
+        "G",
+        "G"
+      ],
+      "types": [
+        "maj7",
+        "min9",
+        "maj7",
+        "min6"
+      ],
+      "bass_notes": [
+        "D",
+        "E",
+        "G",
+        "G"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "Dmaj7",
+          "roman_numeral": "Imaj7",
+          "function": "Tonic",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            54,
+            57,
+            61
+          ],
+          "close_voicing_notes": [
+            "D3",
+            "F#3",
+            "A3",
+            "C#4"
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            54,
+            61
+          ],
+          "drop2_voicing_notes": [
+            "A2",
+            "D3",
+            "F#3",
+            "C#4"
+          ],
+          "drop4_voicing": [
+            38,
+            54,
+            57,
+            61
+          ],
+          "drop4_voicing_notes": [
+            "D2",
+            "F#3",
+            "A3",
+            "C#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            11
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "Em9",
+          "roman_numeral": "ii9",
+          "function": "Supertonic",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            55,
+            59,
+            62,
+            66
+          ],
+          "close_voicing_notes": [
+            "E3",
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            50,
+            52,
+            55,
+            59,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "E3",
+            "G3",
+            "B3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59,
+            62,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "E2",
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10,
+            14
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "Gmaj7",
+          "roman_numeral": "IVmaj7",
+          "function": "Subdominant (Diatonic)",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            66
+          ],
+          "close_voicing_notes": [
+            "G3",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "G3",
+            "B3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "G2",
+            "B3",
+            "D4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            11
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "Gm6",
+          "roman_numeral": "iv6",
+          "function": "Subdominant Minor (Borrowed from D Aeolian)",
+          "root": "G",
+          "bass_note": "G",
+          "slash_alternative": "Gm6/Bb",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            58,
+            62,
+            64
+          ],
+          "close_voicing_notes": [
+            "G3",
+            "Bb3",
+            "D4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            58,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "G3",
+            "Bb3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            43,
+            58,
+            62,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "G2",
+            "Bb3",
+            "D4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            9
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "indie_pop",
+        "modal_borrowing",
+        "alt_pop",
+        "nostalgic_pop"
+      ],
+      "description": "The emotional turning point: modal interchange introducing the minor subdominant iv (Gm6) with descending chromatic line B -> Bb -> A."
+    },
+    {
+      "id": "chappell_roan_good_luck_babe_verse",
+      "title": "Good Luck, Babe!",
+      "artist": "Chappell Roan",
+      "section": "verse",
+      "key": "B Major",
+      "mode": "Major",
+      "bpm": 117,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure (4 beats); 2 beats in bridge build; 1 chord per bar in heroic lift",
+      "roman_numerals": "I - iii - vi - V",
+      "roots": [
+        "B",
+        "D#",
+        "G#",
+        "F#"
+      ],
+      "types": [
+        "maj",
+        "min",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "B",
+        "D#",
+        "G#",
+        "F#"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "B",
+          "roman_numeral": "I",
+          "function": "Tonic",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            59,
+            63,
+            66,
+            71
+          ],
+          "close_voicing_notes": [
+            "B3",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "drop2_voicing": [
+            54,
+            59,
+            63,
+            71
+          ],
+          "drop2_voicing_notes": [
+            "F#3",
+            "B3",
+            "D#4",
+            "B4"
+          ],
+          "drop4_voicing": [
+            47,
+            63,
+            66,
+            71
+          ],
+          "drop4_voicing_notes": [
+            "B2",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "D#m",
+          "roman_numeral": "iii",
+          "function": "Mediant",
+          "root": "D#",
+          "bass_note": "D#",
+          "bass_midi": 51,
+          "duration_beats": 4,
+          "close_voicing": [
+            51,
+            54,
+            58,
+            63
+          ],
+          "close_voicing_notes": [
+            "D#3",
+            "F#3",
+            "A#3",
+            "D#4"
+          ],
+          "drop2_voicing": [
+            46,
+            51,
+            54,
+            63
+          ],
+          "drop2_voicing_notes": [
+            "A#2",
+            "D#3",
+            "F#3",
+            "D#4"
+          ],
+          "drop4_voicing": [
+            39,
+            54,
+            58,
+            63
+          ],
+          "drop4_voicing_notes": [
+            "D#2",
+            "F#3",
+            "A#3",
+            "D#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "G#m",
+          "roman_numeral": "vi",
+          "function": "Submediant",
+          "root": "G#",
+          "bass_note": "G#",
+          "bass_midi": 44,
+          "duration_beats": 4,
+          "close_voicing": [
+            56,
+            59,
+            63,
+            68
+          ],
+          "close_voicing_notes": [
+            "G#3",
+            "B3",
+            "D#4",
+            "G#4"
+          ],
+          "drop2_voicing": [
+            51,
+            56,
+            59,
+            68
+          ],
+          "drop2_voicing_notes": [
+            "D#3",
+            "G#3",
+            "B3",
+            "G#4"
+          ],
+          "drop4_voicing": [
+            44,
+            59,
+            63,
+            68
+          ],
+          "drop4_voicing_notes": [
+            "G#2",
+            "B3",
+            "D#4",
+            "G#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "F#",
+          "roman_numeral": "V",
+          "function": "Dominant",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            58,
+            61,
+            66
+          ],
+          "close_voicing_notes": [
+            "F#3",
+            "A#3",
+            "C#4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            58,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "C#3",
+            "F#3",
+            "A#3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            42,
+            58,
+            61,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "F#2",
+            "A#3",
+            "C#4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "glam_pop",
+        "80s_pop",
+        "anthemic_pop"
+      ],
+      "description": "80s synthpop ostinato driven by pulsing Juno bass and glassy poly-synth pads."
+    },
+    {
+      "id": "chappell_roan_good_luck_babe_chorus",
+      "title": "Good Luck, Babe!",
+      "artist": "Chappell Roan",
+      "section": "chorus",
+      "key": "B Major",
+      "mode": "Major",
+      "bpm": 117,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure (4 beats); 2 beats in bridge build; 1 chord per bar in heroic lift",
+      "roman_numerals": "IV - V - vi - I6",
+      "roots": [
+        "E",
+        "F#",
+        "G#",
+        "B"
+      ],
+      "types": [
+        "maj",
+        "maj",
+        "min",
+        "maj/3rd"
+      ],
+      "bass_notes": [
+        "E",
+        "F#",
+        "G#",
+        "D#"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "E",
+          "roman_numeral": "IV",
+          "function": "Subdominant",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            56,
+            59,
+            64
+          ],
+          "close_voicing_notes": [
+            "E3",
+            "G#3",
+            "B3",
+            "E4"
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            56,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "B2",
+            "E3",
+            "G#3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            40,
+            56,
+            59,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "E2",
+            "G#3",
+            "B3",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "F#",
+          "roman_numeral": "V",
+          "function": "Dominant",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            58,
+            61,
+            66
+          ],
+          "close_voicing_notes": [
+            "F#3",
+            "A#3",
+            "C#4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            58,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "C#3",
+            "F#3",
+            "A#3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            42,
+            58,
+            61,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "F#2",
+            "A#3",
+            "C#4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "G#m",
+          "roman_numeral": "vi",
+          "function": "Submediant",
+          "root": "G#",
+          "bass_note": "G#",
+          "bass_midi": 44,
+          "duration_beats": 4,
+          "close_voicing": [
+            56,
+            59,
+            63,
+            68
+          ],
+          "close_voicing_notes": [
+            "G#3",
+            "B3",
+            "D#4",
+            "G#4"
+          ],
+          "drop2_voicing": [
+            51,
+            56,
+            59,
+            68
+          ],
+          "drop2_voicing_notes": [
+            "D#3",
+            "G#3",
+            "B3",
+            "G#4"
+          ],
+          "drop4_voicing": [
+            44,
+            59,
+            63,
+            68
+          ],
+          "drop4_voicing_notes": [
+            "G#2",
+            "B3",
+            "D#4",
+            "G#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "B/D#",
+          "roman_numeral": "I6",
+          "function": "Tonic (First Inversion)",
+          "root": "B",
+          "bass_note": "D#",
+          "bass_midi": 51,
+          "duration_beats": 4,
+          "close_voicing": [
+            51,
+            54,
+            59,
+            63
+          ],
+          "close_voicing_notes": [
+            "D#3",
+            "F#3",
+            "B3",
+            "D#4"
+          ],
+          "drop2_voicing": [
+            47,
+            51,
+            54,
+            63
+          ],
+          "drop2_voicing_notes": [
+            "B2",
+            "D#3",
+            "F#3",
+            "D#4"
+          ],
+          "drop4_voicing": [
+            39,
+            54,
+            59,
+            63
+          ],
+          "drop4_voicing_notes": [
+            "D#2",
+            "F#3",
+            "B3",
+            "D#4"
+          ],
+          "interval_semitones": [
+            4,
+            7,
+            12,
+            16
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "glam_pop",
+        "80s_pop",
+        "anthemic_pop",
+        "soaring_chorus"
+      ],
+      "description": "Euphoric soaring chorus avoiding root-position tonic on downbeats, using slash chord B/D# to create ascending bass step."
+    },
+    {
+      "id": "chappell_roan_good_luck_babe_heroic_cadence",
+      "title": "Good Luck, Babe!",
+      "artist": "Chappell Roan",
+      "section": "bridge_climax",
+      "key": "B Major",
+      "mode": "Aeolian Modal Interchange / Major",
+      "bpm": 117,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure, culminating in double tonic",
+      "roman_numerals": "bVI - bVII - I - I",
+      "roots": [
+        "G",
+        "A",
+        "B",
+        "B"
+      ],
+      "types": [
+        "maj",
+        "maj",
+        "maj",
+        "maj"
+      ],
+      "bass_notes": [
+        "G",
+        "A",
+        "B",
+        "B"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "G",
+          "roman_numeral": "bVI",
+          "function": "Submediant Flat (Borrowed from B Aeolian)",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            67
+          ],
+          "close_voicing_notes": [
+            "G3",
+            "B3",
+            "D4",
+            "G4"
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            67
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "G3",
+            "B3",
+            "G4"
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            67
+          ],
+          "drop4_voicing_notes": [
+            "G2",
+            "B3",
+            "D4",
+            "G4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "A",
+          "roman_numeral": "bVII",
+          "function": "Subtonic (Borrowed from B Aeolian / Mixolydian)",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 4,
+          "close_voicing": [
+            57,
+            61,
+            64,
+            69
+          ],
+          "close_voicing_notes": [
+            "A3",
+            "C#4",
+            "E4",
+            "A4"
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            61,
+            69
+          ],
+          "drop2_voicing_notes": [
+            "E3",
+            "A3",
+            "C#4",
+            "A4"
+          ],
+          "drop4_voicing": [
+            45,
+            61,
+            64,
+            69
+          ],
+          "drop4_voicing_notes": [
+            "A2",
+            "C#4",
+            "E4",
+            "A4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "B",
+          "roman_numeral": "I",
+          "function": "Tonic (Picardy Third Resolution to Major)",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            59,
+            63,
+            66,
+            71
+          ],
+          "close_voicing_notes": [
+            "B3",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "drop2_voicing": [
+            54,
+            59,
+            63,
+            71
+          ],
+          "drop2_voicing_notes": [
+            "F#3",
+            "B3",
+            "D#4",
+            "B4"
+          ],
+          "drop4_voicing": [
+            47,
+            63,
+            66,
+            71
+          ],
+          "drop4_voicing_notes": [
+            "B2",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "B",
+          "roman_numeral": "I",
+          "function": "Tonic (Sustained Climax)",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            59,
+            63,
+            66,
+            71
+          ],
+          "close_voicing_notes": [
+            "B3",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "drop2_voicing": [
+            54,
+            59,
+            63,
+            71
+          ],
+          "drop2_voicing_notes": [
+            "F#3",
+            "B3",
+            "D#4",
+            "B4"
+          ],
+          "drop4_voicing": [
+            47,
+            63,
+            66,
+            71
+          ],
+          "drop4_voicing_notes": [
+            "B2",
+            "D#4",
+            "F#4",
+            "B4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "heroic_cadence",
+        "80s_pop",
+        "anthemic_pop",
+        "modal_borrowing"
+      ],
+      "description": "The jaw-dropping bVI - bVII - I double whole-step ascent into euphoric major resolution."
+    },
+    {
+      "id": "sabrina_carpenter_espresso_funk_groove",
+      "title": "Espresso",
+      "artist": "Sabrina Carpenter",
+      "section": "chorus_main",
+      "key": "A Minor / C Major (Dorian Inflected Funk)",
+      "mode": "Dorian / Major",
+      "bpm": 104,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "Syncopated funk micro-rhythm: chord stabs on beat 1, beat 3, beat 4&",
+      "roman_numerals": "iv7 - v7 - i7 - iv9 - IV9 - i7",
+      "roots": [
+        "D",
+        "E",
+        "A",
+        "D",
+        "D",
+        "A"
+      ],
+      "types": [
+        "min7",
+        "min7",
+        "min7",
+        "min9",
+        "dom9",
+        "min7"
+      ],
+      "bass_notes": [
+        "D",
+        "E",
+        "A",
+        "D",
+        "D",
+        "A"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "beat_offset": 1.0,
+          "chord_symbol": "Dm7",
+          "roman_numeral": "iv7 (or ii7 in C)",
+          "function": "Subdominant Minor / Funk Predominant",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 2.0,
+          "close_voicing": [
+            53,
+            57,
+            60,
+            62
+          ],
+          "close_voicing_notes": [
+            "F3",
+            "A3",
+            "C4",
+            "D4"
+          ],
+          "drop2_voicing": [
+            48,
+            53,
+            57,
+            62
+          ],
+          "drop2_voicing_notes": [
+            "C3",
+            "F3",
+            "A3",
+            "D4"
+          ],
+          "drop4_voicing": [
+            41,
+            57,
+            60,
+            62
+          ],
+          "drop4_voicing_notes": [
+            "F2",
+            "A3",
+            "C4",
+            "D4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 1,
+          "beat_offset": 3.0,
+          "chord_symbol": "Em7",
+          "roman_numeral": "v7 (or iii7 in C)",
+          "function": "Stepwise Passing Chord",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 1.0,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            64
+          ],
+          "close_voicing_notes": [
+            "G3",
+            "B3",
+            "D4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "D3",
+            "G3",
+            "B3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "G2",
+            "B3",
+            "D4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 1,
+          "beat_offset": 4.0,
+          "chord_symbol": "Am7",
+          "roman_numeral": "i7 (or vi7 in C)",
+          "function": "Tonic Minor Resolution",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 1.0,
+          "close_voicing": [
+            57,
+            60,
+            64,
+            67
+          ],
+          "close_voicing_notes": [
+            "A3",
+            "C4",
+            "E4",
+            "G4"
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            60,
+            67
+          ],
+          "drop2_voicing_notes": [
+            "E3",
+            "A3",
+            "C4",
+            "G4"
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            64,
+            67
+          ],
+          "drop4_voicing_notes": [
+            "A2",
+            "C4",
+            "E4",
+            "G4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 2,
+          "beat_offset": 1.0,
+          "chord_symbol": "Dm9",
+          "roman_numeral": "iv9",
+          "function": "Extended Subdominant",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 2.0,
+          "close_voicing": [
+            53,
+            57,
+            60,
+            62,
+            64
+          ],
+          "close_voicing_notes": [
+            "F3",
+            "A3",
+            "C4",
+            "D4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            48,
+            53,
+            57,
+            62,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "C3",
+            "F3",
+            "A3",
+            "D4",
+            "E4"
+          ],
+          "drop4_voicing": [
+            41,
+            57,
+            60,
+            62,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "F2",
+            "A3",
+            "C4",
+            "D4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10,
+            14
+          ]
+        },
+        {
+          "measure": 2,
+          "beat_offset": 3.0,
+          "chord_symbol": "D9",
+          "roman_numeral": "IV9 / Dorian Dominant",
+          "function": "Dorian Major 6th Inflection (F# replacing F)",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 1.0,
+          "close_voicing": [
+            54,
+            57,
+            60,
+            64
+          ],
+          "close_voicing_notes": [
+            "F#3",
+            "A3",
+            "C4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            48,
+            54,
+            57,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "C3",
+            "F#3",
+            "A3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            60,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "F#2",
+            "A3",
+            "C4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            10,
+            14
+          ]
+        },
+        {
+          "measure": 2,
+          "beat_offset": 4.0,
+          "chord_symbol": "Am7",
+          "roman_numeral": "i7",
+          "function": "Tonic Anchor",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 1.0,
+          "close_voicing": [
+            57,
+            60,
+            64,
+            67
+          ],
+          "close_voicing_notes": [
+            "A3",
+            "C4",
+            "E4",
+            "G4"
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            60,
+            67
+          ],
+          "drop2_voicing_notes": [
+            "E3",
+            "A3",
+            "C4",
+            "G4"
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            64,
+            67
+          ],
+          "drop4_voicing_notes": [
+            "A2",
+            "C4",
+            "E4",
+            "G4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "funk_pop",
+        "disco_pop",
+        "dance_pop",
+        "retro_pop"
+      ],
+      "description": "Core 2-bar funk ostinato: Dm7 stab sliding through Em7 to Am7, interspersed with subtle D9 / G9 dominant stabs."
+    },
+    {
+      "id": "sabrina_carpenter_espresso_diatonic_hook",
+      "title": "Espresso (Diatonic Hook)",
+      "artist": "Sabrina Carpenter",
+      "section": "chorus_diatonic",
+      "key": "C Major",
+      "mode": "Major",
+      "bpm": 103,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "2 beats per chord / 1 chord per 2 beats",
+      "roman_numerals": "IVmaj7 - V - iii7 - vi7",
+      "roots": [
+        "F",
+        "G",
+        "E",
+        "A"
+      ],
+      "types": [
+        "maj7",
+        "maj",
+        "min7",
+        "min7"
+      ],
+      "bass_notes": [
+        "F",
+        "G",
+        "E",
+        "A"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "Fmaj7",
+          "roman_numeral": "IVmaj7",
+          "root": "F",
+          "bass_note": "F",
+          "bass_midi": 41,
+          "duration_beats": 2,
+          "close_voicing": [
+            53,
+            57,
+            60,
+            64
+          ],
+          "drop2_voicing": [
+            48,
+            53,
+            57,
+            64
+          ],
+          "drop4_voicing": [
+            41,
+            57,
+            60,
+            64
+          ]
+        },
+        {
+          "measure": 1,
+          "chord_symbol": "G",
+          "roman_numeral": "V",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 2,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            67
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            67
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            67
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "Em7",
+          "roman_numeral": "iii7",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 2,
+          "close_voicing": [
+            52,
+            55,
+            59,
+            62
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            55,
+            62
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59,
+            62
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "Am7",
+          "roman_numeral": "vi7",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 2,
+          "close_voicing": [
+            57,
+            60,
+            64,
+            67
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            60,
+            67
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            64,
+            67
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "funk_pop",
+        "radio_pop",
+        "dance_pop"
+      ],
+      "description": "The irresistible four-chord pop cycle underlying the main vocal chorus of Espresso."
+    },
+    {
+      "id": "taylor_swift_fortnight_pedal_loop",
+      "title": "Fortnight (feat. Post Malone)",
+      "artist": "Taylor Swift",
+      "section": "main_loop",
+      "key": "B Major",
+      "mode": "Major",
+      "bpm": 96,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure (4 beats per chord)",
+      "roman_numerals": "IV - V - iii - vi",
+      "roots": [
+        "E",
+        "F#",
+        "D#",
+        "G#"
+      ],
+      "types": [
+        "add9",
+        "sus4",
+        "min7",
+        "min7"
+      ],
+      "bass_notes": [
+        "E",
+        "F#",
+        "D#",
+        "G#"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "Eadd9",
+          "roman_numeral": "IVadd9",
+          "function": "Subdominant with Pedal Suspension",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            56,
+            59,
+            66
+          ],
+          "close_voicing_notes": [
+            "E3",
+            "G#3",
+            "B3",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            56,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "B2",
+            "E3",
+            "G#3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            40,
+            56,
+            59,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "E2",
+            "G#3",
+            "B3",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            14
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "F#sus4",
+          "roman_numeral": "Vsus4",
+          "function": "Dominant Suspended",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            59,
+            61,
+            66
+          ],
+          "close_voicing_notes": [
+            "F#3",
+            "B3",
+            "C#4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            59,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "C#3",
+            "F#3",
+            "B3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            42,
+            59,
+            61,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "F#2",
+            "B3",
+            "C#4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            5,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "D#m7",
+          "roman_numeral": "iii7",
+          "function": "Mediant (Anime/Royal Road Color)",
+          "root": "D#",
+          "bass_note": "D#",
+          "bass_midi": 51,
+          "duration_beats": 4,
+          "close_voicing": [
+            51,
+            54,
+            58,
+            61
+          ],
+          "close_voicing_notes": [
+            "D#3",
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "drop2_voicing": [
+            46,
+            51,
+            54,
+            61
+          ],
+          "drop2_voicing_notes": [
+            "A#2",
+            "D#3",
+            "F#3",
+            "C#4"
+          ],
+          "drop4_voicing": [
+            39,
+            54,
+            58,
+            61
+          ],
+          "drop4_voicing_notes": [
+            "D#2",
+            "F#3",
+            "A#3",
+            "C#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "G#m7",
+          "roman_numeral": "vi7",
+          "function": "Submediant Melancholy Resolution",
+          "root": "G#",
+          "bass_note": "G#",
+          "bass_midi": 44,
+          "duration_beats": 4,
+          "close_voicing": [
+            56,
+            59,
+            63,
+            66
+          ],
+          "close_voicing_notes": [
+            "G#3",
+            "B3",
+            "D#4",
+            "F#4"
+          ],
+          "drop2_voicing": [
+            51,
+            56,
+            59,
+            66
+          ],
+          "drop2_voicing_notes": [
+            "D#3",
+            "G#3",
+            "B3",
+            "F#4"
+          ],
+          "drop4_voicing": [
+            44,
+            59,
+            63,
+            66
+          ],
+          "drop4_voicing_notes": [
+            "G#2",
+            "B3",
+            "D#4",
+            "F#4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "dreamy_pop",
+        "ambient_pop",
+        "indie_pop",
+        "pedal_drone"
+      ],
+      "description": "Suspended synth drone on F#4 and B4 anchoring an emotional IV - V - iii - vi cycle."
+    },
+    {
+      "id": "taylor_swift_cruel_summer_bridge_anthem",
+      "title": "Cruel Summer",
+      "artist": "Taylor Swift",
+      "section": "bridge_anthem",
+      "key": "A Major",
+      "mode": "Major",
+      "bpm": 170,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "Macro harmonic rhythm: 2 bars (8 beats) per chord in verse/chorus; 1 bar per chord in bridge",
+      "roman_numerals": "I - iii - vi - IV",
+      "roots": [
+        "D",
+        "E",
+        "F#",
+        "A"
+      ],
+      "types": [
+        "maj",
+        "min",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "D",
+        "E",
+        "F#",
+        "C#"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "chord_symbol": "Dsus2",
+          "roman_numeral": "IVsus2",
+          "function": "Subdominant Lift",
+          "root": "D",
+          "bass_note": "D",
+          "pedal_bass_alternative": "Dsus2/A",
+          "bass_midi": 38,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            57,
+            62,
+            64
+          ],
+          "close_voicing_notes": [
+            "D3",
+            "A3",
+            "D4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            57,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "A2",
+            "D3",
+            "A3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            38,
+            57,
+            62,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "D2",
+            "A3",
+            "D4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            7,
+            12,
+            14
+          ]
+        },
+        {
+          "measure": 2,
+          "chord_symbol": "Esus4",
+          "roman_numeral": "Vsus4",
+          "function": "Dominant Escalation",
+          "root": "E",
+          "bass_note": "E",
+          "pedal_bass_alternative": "Esus4/A",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            57,
+            59,
+            64
+          ],
+          "close_voicing_notes": [
+            "E3",
+            "A3",
+            "B3",
+            "E4"
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            57,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "B2",
+            "E3",
+            "A3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            40,
+            57,
+            59,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "E2",
+            "A3",
+            "B3",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            5,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 3,
+          "chord_symbol": "F#m7",
+          "roman_numeral": "vi7",
+          "function": "Submediant Climax",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            57,
+            61,
+            64
+          ],
+          "close_voicing_notes": [
+            "F#3",
+            "A3",
+            "C#4",
+            "E4"
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            57,
+            64
+          ],
+          "drop2_voicing_notes": [
+            "C#3",
+            "F#3",
+            "A3",
+            "E4"
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            61,
+            64
+          ],
+          "drop4_voicing_notes": [
+            "F#2",
+            "A3",
+            "C#4",
+            "E4"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            10
+          ]
+        },
+        {
+          "measure": 4,
+          "chord_symbol": "A/C#",
+          "roman_numeral": "I6",
+          "function": "Tonic (First Inversion Stepwise Bass)",
+          "root": "A",
+          "bass_note": "C#",
+          "bass_midi": 49,
+          "duration_beats": 4,
+          "close_voicing": [
+            49,
+            52,
+            57,
+            61
+          ],
+          "close_voicing_notes": [
+            "C#3",
+            "E3",
+            "A3",
+            "C#4"
+          ],
+          "drop2_voicing": [
+            45,
+            49,
+            52,
+            61
+          ],
+          "drop2_voicing_notes": [
+            "A2",
+            "C#3",
+            "E3",
+            "C#4"
+          ],
+          "drop4_voicing": [
+            37,
+            52,
+            57,
+            61
+          ],
+          "drop4_voicing_notes": [
+            "C#2",
+            "E3",
+            "A3",
+            "C#4"
+          ],
+          "interval_semitones": [
+            4,
+            7,
+            12,
+            16
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "anthemic_pop",
+        "dance_pop",
+        "bright_pop",
+        "power_pop"
+      ],
+      "description": "Anthemic driving synthpop progression with pulsing root pedal notes in the bass register."
+    },
+    {
+      "id": "post_malone_morgan_wallen_i_had_some_help",
+      "title": "I Had Some Help (feat. Morgan Wallen)",
+      "artist": "Post Malone & Morgan Wallen",
+      "section": "main_chorus",
+      "key": "C Major",
+      "mode": "Major",
+      "bpm": 128,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "High-velocity 2-beat harmonic rhythm (chords changing every half measure / 2 beats)",
+      "roman_numerals": "IV - I - vi - V",
+      "roots": [
+        "F",
+        "C",
+        "A",
+        "G"
+      ],
+      "types": [
+        "maj",
+        "maj",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "F",
+        "C",
+        "A",
+        "G"
+      ],
+      "chords": [
+        {
+          "measure": 1,
+          "beat_offset": 1.0,
+          "chord_symbol": "F",
+          "roman_numeral": "IV",
+          "function": "Subdominant Downbeat Push",
+          "root": "F",
+          "bass_note": "F",
+          "bass_midi": 41,
+          "duration_beats": 2,
+          "close_voicing": [
+            53,
+            57,
+            60,
+            65
+          ],
+          "close_voicing_notes": [
+            "F3",
+            "A3",
+            "C4",
+            "F4"
+          ],
+          "drop2_voicing": [
+            48,
+            53,
+            57,
+            65
+          ],
+          "drop2_voicing_notes": [
+            "C3",
+            "F3",
+            "A3",
+            "F4"
+          ],
+          "drop4_voicing": [
+            41,
+            57,
+            60,
+            65
+          ],
+          "drop4_voicing_notes": [
+            "F2",
+            "A3",
+            "C4",
+            "F4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 1,
+          "beat_offset": 3.0,
+          "chord_symbol": "C",
+          "roman_numeral": "I",
+          "function": "Tonic Mid-Bar Resolution",
+          "root": "C",
+          "bass_note": "C",
+          "bass_midi": 48,
+          "duration_beats": 2,
+          "close_voicing": [
+            48,
+            52,
+            55,
+            60
+          ],
+          "close_voicing_notes": [
+            "C3",
+            "E3",
+            "G3",
+            "C4"
+          ],
+          "drop2_voicing": [
+            43,
+            48,
+            52,
+            60
+          ],
+          "drop2_voicing_notes": [
+            "G2",
+            "C3",
+            "E3",
+            "C4"
+          ],
+          "drop4_voicing": [
+            36,
+            52,
+            55,
+            60
+          ],
+          "drop4_voicing_notes": [
+            "C2",
+            "E3",
+            "G3",
+            "C4"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 2,
+          "beat_offset": 1.0,
+          "chord_symbol": "Am",
+          "roman_numeral": "vi",
+          "function": "Submediant Diatonic Dip",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 2,
+          "close_voicing": [
+            45,
+            48,
+            52,
+            57
+          ],
+          "close_voicing_notes": [
+            "A2",
+            "C3",
+            "E3",
+            "A3"
+          ],
+          "drop2_voicing": [
+            40,
+            45,
+            48,
+            57
+          ],
+          "drop2_voicing_notes": [
+            "E2",
+            "A2",
+            "C3",
+            "A3"
+          ],
+          "drop4_voicing": [
+            33,
+            48,
+            52,
+            57
+          ],
+          "drop4_voicing_notes": [
+            "A1",
+            "C3",
+            "E3",
+            "A3"
+          ],
+          "interval_semitones": [
+            0,
+            3,
+            7,
+            12
+          ]
+        },
+        {
+          "measure": 2,
+          "beat_offset": 3.0,
+          "chord_symbol": "G",
+          "roman_numeral": "V",
+          "function": "Dominant Turnaround into IV",
+          "root": "G",
+          "bass_note": "G",
+          "slash_inversion_alternative": "G/B",
+          "bass_midi": 43,
+          "duration_beats": 2,
+          "close_voicing": [
+            47,
+            50,
+            55,
+            59
+          ],
+          "close_voicing_notes": [
+            "B2",
+            "D3",
+            "G3",
+            "B3"
+          ],
+          "drop2_voicing": [
+            43,
+            47,
+            50,
+            59
+          ],
+          "drop2_voicing_notes": [
+            "G2",
+            "B2",
+            "D3",
+            "B3"
+          ],
+          "drop4_voicing": [
+            35,
+            50,
+            55,
+            59
+          ],
+          "drop4_voicing_notes": [
+            "B1",
+            "D3",
+            "G3",
+            "B3"
+          ],
+          "interval_semitones": [
+            0,
+            4,
+            7,
+            12
+          ]
+        }
+      ],
+      "style_tags": [
+        "country_pop",
+        "radio_pop",
+        "nashville_pop",
+        "anthemic_pop",
+        "bright_pop"
+      ],
+      "description": "High-velocity Nashville 2-beat subdominant launch providing continuous kinetic drive."
+    },
+    {
+      "id": "sabrina_carpenter_please_please_please",
+      "title": "Please Please Please",
+      "artist": "Sabrina Carpenter",
+      "section": "chorus",
+      "key": "A Major",
+      "mode": "Major / Minor Plagal Cadence",
+      "bpm": 107,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "I - iii - vi - IV - iv",
+      "roots": [
+        "A",
+        "C#",
+        "F#",
+        "D",
+        "D"
+      ],
+      "types": [
+        "maj",
+        "min",
+        "min",
+        "maj",
+        "min"
+      ],
+      "bass_notes": [
+        "A",
+        "C#",
+        "F#",
+        "D",
+        "D"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "A",
+          "roman_numeral": "I",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 4,
+          "close_voicing": [
+            57,
+            61,
+            64
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            61,
+            64
+          ],
+          "drop4_voicing": [
+            45,
+            61,
+            64
+          ]
+        },
+        {
+          "chord_symbol": "C#m",
+          "roman_numeral": "iii",
+          "root": "C#",
+          "bass_note": "C#",
+          "bass_midi": 49,
+          "duration_beats": 4,
+          "close_voicing": [
+            61,
+            64,
+            68
+          ],
+          "drop2_voicing": [
+            56,
+            61,
+            64,
+            68
+          ],
+          "drop4_voicing": [
+            49,
+            64,
+            68
+          ]
+        },
+        {
+          "chord_symbol": "F#m",
+          "roman_numeral": "vi",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            57,
+            61
+          ],
+          "drop2_voicing": [
+            50,
+            54,
+            57,
+            61
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            61
+          ]
+        },
+        {
+          "chord_symbol": "D",
+          "roman_numeral": "IV",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 50,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            54,
+            57
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            54,
+            57
+          ],
+          "drop4_voicing": [
+            38,
+            54,
+            57
+          ]
+        },
+        {
+          "chord_symbol": "Dm",
+          "roman_numeral": "iv",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 50,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            53,
+            57
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            53,
+            57
+          ],
+          "drop4_voicing": [
+            38,
+            53,
+            57
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "synth_country",
+        "retro_pop",
+        "indie_pop",
+        "minor_plagal"
+      ],
+      "description": "Jack Antonoff synth-country progression highlighted by the emotional minor plagal cadence iv (Dm)."
+    },
+    {
+      "id": "billie_eilish_lunch",
+      "title": "Lunch",
+      "artist": "Billie Eilish",
+      "section": "main_groove",
+      "key": "E Minor",
+      "mode": "Dorian / Minor",
+      "bpm": 125,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "Syncopated 4-bar vamp",
+      "roman_numerals": "i - III - IV - i",
+      "roots": [
+        "E",
+        "G",
+        "A",
+        "E"
+      ],
+      "types": [
+        "min",
+        "maj",
+        "maj",
+        "min"
+      ],
+      "bass_notes": [
+        "E",
+        "G",
+        "A",
+        "E"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Em",
+          "roman_numeral": "i",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            55,
+            59
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            55,
+            59
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59
+          ]
+        },
+        {
+          "chord_symbol": "G",
+          "roman_numeral": "III",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            59,
+            62
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            62
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62
+          ]
+        },
+        {
+          "chord_symbol": "A",
+          "roman_numeral": "IV",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 4,
+          "close_voicing": [
+            57,
+            61,
+            64
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            61,
+            64
+          ],
+          "drop4_voicing": [
+            45,
+            61,
+            64
+          ]
+        },
+        {
+          "chord_symbol": "Em",
+          "roman_numeral": "i",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            55,
+            59
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            55,
+            59
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59
+          ]
+        }
+      ],
+      "style_tags": [
+        "alt_pop",
+        "dark_pop",
+        "minimal_groove",
+        "indie_pop"
+      ],
+      "description": "Heavy syncopated E minor bassline vamp with Dorian IV lift."
+    },
+    {
+      "id": "billie_eilish_chihiro",
+      "title": "Chihiro",
+      "artist": "Billie Eilish",
+      "section": "chorus_drop",
+      "key": "B Minor",
+      "mode": "Minor",
+      "bpm": 110,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "i9 - VImaj7 - iv7 - v7",
+      "roots": [
+        "B",
+        "G",
+        "E",
+        "F#"
+      ],
+      "types": [
+        "min9",
+        "maj7",
+        "min7",
+        "min7"
+      ],
+      "bass_notes": [
+        "B",
+        "G",
+        "E",
+        "F#"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Bm9",
+          "roman_numeral": "i9",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            47,
+            50,
+            54,
+            57,
+            61
+          ],
+          "drop2_voicing": [
+            42,
+            47,
+            50,
+            54,
+            61
+          ],
+          "drop4_voicing": [
+            35,
+            50,
+            54,
+            57,
+            61
+          ]
+        },
+        {
+          "chord_symbol": "Gmaj7",
+          "roman_numeral": "VImaj7",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            66
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            66
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            66
+          ]
+        },
+        {
+          "chord_symbol": "Em7",
+          "roman_numeral": "iv7",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 4,
+          "close_voicing": [
+            52,
+            55,
+            59,
+            62
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            55,
+            62
+          ],
+          "drop4_voicing": [
+            40,
+            55,
+            59,
+            62
+          ]
+        },
+        {
+          "chord_symbol": "F#m7",
+          "roman_numeral": "v7",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            57,
+            61,
+            64
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            57,
+            64
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            61,
+            64
+          ]
+        }
+      ],
+      "style_tags": [
+        "dreamy_pop",
+        "alt_pop",
+        "deep_house_pop",
+        "atmospheric_pop"
+      ],
+      "description": "Hypnotic, reverberant 4-chord house/indie-pop loop in B minor."
+    },
+    {
+      "id": "chappell_roan_pink_pony_club",
+      "title": "Pink Pony Club",
+      "artist": "Chappell Roan",
+      "section": "chorus",
+      "key": "F# Major",
+      "mode": "Major",
+      "bpm": 112,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "I - IV - vi - V",
+      "roots": [
+        "F#",
+        "B",
+        "D#",
+        "C#"
+      ],
+      "types": [
+        "maj",
+        "maj",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "F#",
+        "B",
+        "D#",
+        "C#"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "F#",
+          "roman_numeral": "I",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 4,
+          "close_voicing": [
+            54,
+            58,
+            61
+          ],
+          "drop2_voicing": [
+            49,
+            54,
+            58,
+            61
+          ],
+          "drop4_voicing": [
+            42,
+            58,
+            61
+          ]
+        },
+        {
+          "chord_symbol": "B",
+          "roman_numeral": "IV",
+          "root": "B",
+          "bass_note": "B",
+          "bass_midi": 47,
+          "duration_beats": 4,
+          "close_voicing": [
+            59,
+            63,
+            66
+          ],
+          "drop2_voicing": [
+            54,
+            59,
+            63,
+            66
+          ],
+          "drop4_voicing": [
+            47,
+            63,
+            66
+          ]
+        },
+        {
+          "chord_symbol": "D#m",
+          "roman_numeral": "vi",
+          "root": "D#",
+          "bass_note": "D#",
+          "bass_midi": 51,
+          "duration_beats": 4,
+          "close_voicing": [
+            51,
+            54,
+            58
+          ],
+          "drop2_voicing": [
+            46,
+            51,
+            54,
+            58
+          ],
+          "drop4_voicing": [
+            39,
+            54,
+            58
+          ]
+        },
+        {
+          "chord_symbol": "C#",
+          "roman_numeral": "V",
+          "root": "C#",
+          "bass_note": "C#",
+          "bass_midi": 49,
+          "duration_beats": 4,
+          "close_voicing": [
+            49,
+            53,
+            56
+          ],
+          "drop2_voicing": [
+            44,
+            49,
+            53,
+            56
+          ],
+          "drop4_voicing": [
+            37,
+            53,
+            56
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthpop",
+        "glam_pop",
+        "disco_pop",
+        "anthemic_pop"
+      ],
+      "description": "Euphoric, bittersweet disco-pop anthem progression."
+    },
+    {
+      "id": "benson_boone_beautiful_things",
+      "title": "Beautiful Things",
+      "artist": "Benson Boone",
+      "section": "chorus_drop",
+      "key": "Bb Major",
+      "mode": "Major",
+      "bpm": 105,
+      "time_signature": "6/8 (12/8 feel)",
+      "harmonic_rhythm": "1 measure per chord",
+      "roman_numerals": "I - V6 - vi - IV",
+      "roots": [
+        "Bb",
+        "F",
+        "G",
+        "Eb"
+      ],
+      "types": [
+        "maj",
+        "maj/3rd",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "Bb",
+        "A",
+        "G",
+        "Eb"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Bb",
+          "roman_numeral": "I",
+          "root": "Bb",
+          "bass_note": "Bb",
+          "bass_midi": 46,
+          "duration_beats": 6,
+          "close_voicing": [
+            58,
+            62,
+            65
+          ],
+          "drop2_voicing": [
+            53,
+            58,
+            62,
+            65
+          ],
+          "drop4_voicing": [
+            46,
+            62,
+            65
+          ]
+        },
+        {
+          "chord_symbol": "F/A",
+          "roman_numeral": "V6",
+          "root": "F",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 6,
+          "close_voicing": [
+            57,
+            60,
+            65
+          ],
+          "drop2_voicing": [
+            53,
+            57,
+            60,
+            65
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            65
+          ]
+        },
+        {
+          "chord_symbol": "Gm",
+          "roman_numeral": "vi",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 6,
+          "close_voicing": [
+            55,
+            58,
+            62
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            58,
+            62
+          ],
+          "drop4_voicing": [
+            43,
+            58,
+            62
+          ]
+        },
+        {
+          "chord_symbol": "Eb",
+          "roman_numeral": "IV",
+          "root": "Eb",
+          "bass_note": "Eb",
+          "bass_midi": 39,
+          "duration_beats": 6,
+          "close_voicing": [
+            51,
+            55,
+            58
+          ],
+          "drop2_voicing": [
+            46,
+            51,
+            55,
+            58
+          ],
+          "drop4_voicing": [
+            39,
+            55,
+            58
+          ]
+        }
+      ],
+      "style_tags": [
+        "pop_rock",
+        "power_ballad",
+        "anthemic_pop",
+        "stadium_rock"
+      ],
+      "description": "Explosive dynamic shift from intimate acoustic ballad into roaring stadium pop-rock drop."
+    },
+    {
+      "id": "teddy_swims_lose_control",
+      "title": "Lose Control",
+      "artist": "Teddy Swims",
+      "section": "chorus",
+      "key": "C Minor",
+      "mode": "Minor",
+      "bpm": 80,
+      "time_signature": "6/8 / 12/8 Soul",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "i - VI - VII - III - V7",
+      "roots": [
+        "C",
+        "Ab",
+        "Bb",
+        "Eb",
+        "G"
+      ],
+      "types": [
+        "min",
+        "maj",
+        "maj",
+        "maj",
+        "dom7"
+      ],
+      "bass_notes": [
+        "C",
+        "Ab",
+        "Bb",
+        "Eb",
+        "G"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Cm",
+          "roman_numeral": "i",
+          "root": "C",
+          "bass_note": "C",
+          "bass_midi": 36,
+          "duration_beats": 6,
+          "close_voicing": [
+            48,
+            51,
+            55
+          ],
+          "drop2_voicing": [
+            43,
+            48,
+            51,
+            55
+          ],
+          "drop4_voicing": [
+            36,
+            51,
+            55
+          ]
+        },
+        {
+          "chord_symbol": "Ab",
+          "roman_numeral": "VI",
+          "root": "Ab",
+          "bass_note": "Ab",
+          "bass_midi": 44,
+          "duration_beats": 6,
+          "close_voicing": [
+            56,
+            60,
+            63
+          ],
+          "drop2_voicing": [
+            51,
+            56,
+            60,
+            63
+          ],
+          "drop4_voicing": [
+            44,
+            60,
+            63
+          ]
+        },
+        {
+          "chord_symbol": "Bb",
+          "roman_numeral": "VII",
+          "root": "Bb",
+          "bass_note": "Bb",
+          "bass_midi": 46,
+          "duration_beats": 6,
+          "close_voicing": [
+            58,
+            62,
+            65
+          ],
+          "drop2_voicing": [
+            53,
+            58,
+            62,
+            65
+          ],
+          "drop4_voicing": [
+            46,
+            62,
+            65
+          ]
+        },
+        {
+          "chord_symbol": "Eb",
+          "roman_numeral": "III",
+          "root": "Eb",
+          "bass_note": "Eb",
+          "bass_midi": 39,
+          "duration_beats": 6,
+          "close_voicing": [
+            51,
+            55,
+            58
+          ],
+          "drop2_voicing": [
+            46,
+            51,
+            55,
+            58
+          ],
+          "drop4_voicing": [
+            39,
+            55,
+            58
+          ]
+        },
+        {
+          "chord_symbol": "G7",
+          "roman_numeral": "V7",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 6,
+          "close_voicing": [
+            55,
+            59,
+            62,
+            65
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            65
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62,
+            65
+          ]
+        }
+      ],
+      "style_tags": [
+        "soul_pop",
+        "rnb_pop",
+        "blues_pop",
+        "retro_soul"
+      ],
+      "description": "Deep 6/8 retro-soul chord progression rich with gospel dominant tension."
+    },
+    {
+      "id": "charli_xcx_360_minimal_club",
+      "title": "360",
+      "artist": "Charli XCX",
+      "section": "main_groove",
+      "key": "F# Minor",
+      "mode": "Minor",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "2 beats per chord",
+      "roman_numerals": "i - III - VII - i",
+      "roots": [
+        "F#",
+        "A",
+        "E",
+        "F#"
+      ],
+      "types": [
+        "min",
+        "maj",
+        "maj",
+        "min"
+      ],
+      "bass_notes": [
+        "F#",
+        "A",
+        "E",
+        "F#"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "F#m",
+          "roman_numeral": "i",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 2,
+          "close_voicing": [
+            54,
+            57,
+            61
+          ],
+          "drop2_voicing": [
+            45,
+            54,
+            57,
+            61
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            61
+          ]
+        },
+        {
+          "chord_symbol": "A",
+          "roman_numeral": "III",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 2,
+          "close_voicing": [
+            57,
+            61,
+            64
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            61,
+            64
+          ],
+          "drop4_voicing": [
+            45,
+            61,
+            64
+          ]
+        },
+        {
+          "chord_symbol": "E",
+          "roman_numeral": "VII",
+          "root": "E",
+          "bass_note": "E",
+          "bass_midi": 40,
+          "duration_beats": 2,
+          "close_voicing": [
+            52,
+            56,
+            59
+          ],
+          "drop2_voicing": [
+            47,
+            52,
+            56,
+            59
+          ],
+          "drop4_voicing": [
+            40,
+            56,
+            59
+          ]
+        },
+        {
+          "chord_symbol": "F#m",
+          "roman_numeral": "i",
+          "root": "F#",
+          "bass_note": "F#",
+          "bass_midi": 42,
+          "duration_beats": 2,
+          "close_voicing": [
+            54,
+            57,
+            61
+          ],
+          "drop2_voicing": [
+            45,
+            54,
+            57,
+            61
+          ],
+          "drop4_voicing": [
+            42,
+            57,
+            61
+          ]
+        }
+      ],
+      "style_tags": [
+        "hyperpop",
+        "electroclash",
+        "club_pop",
+        "dance_pop"
+      ],
+      "description": "Minimalist monophonic club stabs from the Brat sound architecture."
+    },
+    {
+      "id": "the_weeknd_dancing_in_the_flames",
+      "title": "Dancing in the Flames",
+      "artist": "The Weeknd",
+      "section": "chorus",
+      "key": "D Minor",
+      "mode": "Minor",
+      "bpm": 120,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "i - v - VII - IV",
+      "roots": [
+        "D",
+        "A",
+        "C",
+        "G"
+      ],
+      "types": [
+        "min",
+        "min",
+        "maj",
+        "maj"
+      ],
+      "bass_notes": [
+        "D",
+        "A",
+        "C",
+        "G"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Dm",
+          "roman_numeral": "i",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            53,
+            57
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            53,
+            57
+          ],
+          "drop4_voicing": [
+            38,
+            53,
+            57
+          ]
+        },
+        {
+          "chord_symbol": "Am",
+          "roman_numeral": "v",
+          "root": "A",
+          "bass_note": "A",
+          "bass_midi": 45,
+          "duration_beats": 4,
+          "close_voicing": [
+            57,
+            60,
+            64
+          ],
+          "drop2_voicing": [
+            52,
+            57,
+            60,
+            64
+          ],
+          "drop4_voicing": [
+            45,
+            60,
+            64
+          ]
+        },
+        {
+          "chord_symbol": "C",
+          "roman_numeral": "VII",
+          "root": "C",
+          "bass_note": "C",
+          "bass_midi": 48,
+          "duration_beats": 4,
+          "close_voicing": [
+            48,
+            52,
+            55
+          ],
+          "drop2_voicing": [
+            43,
+            48,
+            52,
+            55
+          ],
+          "drop4_voicing": [
+            36,
+            52,
+            55
+          ]
+        },
+        {
+          "chord_symbol": "G",
+          "roman_numeral": "IV",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            59,
+            62
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            59,
+            62
+          ],
+          "drop4_voicing": [
+            43,
+            59,
+            62
+          ]
+        }
+      ],
+      "style_tags": [
+        "synthwave",
+        "retro_synthpop",
+        "80s_pop",
+        "dance_pop"
+      ],
+      "description": "Max Martin 80s retro-futuristic driving synthpop chorus progression."
+    },
+    {
+      "id": "dua_lipa_houdini",
+      "title": "Houdini",
+      "artist": "Dua Lipa",
+      "section": "main_groove",
+      "key": "D Minor",
+      "mode": "Minor",
+      "bpm": 117,
+      "time_signature": "4/4",
+      "harmonic_rhythm": "1 chord per measure",
+      "roman_numerals": "i - VII - iv - VI",
+      "roots": [
+        "D",
+        "C",
+        "G",
+        "Bb"
+      ],
+      "types": [
+        "min",
+        "maj",
+        "min",
+        "maj"
+      ],
+      "bass_notes": [
+        "D",
+        "C",
+        "G",
+        "Bb"
+      ],
+      "chords": [
+        {
+          "chord_symbol": "Dm",
+          "roman_numeral": "i",
+          "root": "D",
+          "bass_note": "D",
+          "bass_midi": 38,
+          "duration_beats": 4,
+          "close_voicing": [
+            50,
+            53,
+            57
+          ],
+          "drop2_voicing": [
+            45,
+            50,
+            53,
+            57
+          ],
+          "drop4_voicing": [
+            38,
+            53,
+            57
+          ]
+        },
+        {
+          "chord_symbol": "C",
+          "roman_numeral": "VII",
+          "root": "C",
+          "bass_note": "C",
+          "bass_midi": 48,
+          "duration_beats": 4,
+          "close_voicing": [
+            48,
+            52,
+            55
+          ],
+          "drop2_voicing": [
+            43,
+            48,
+            52,
+            55
+          ],
+          "drop4_voicing": [
+            36,
+            52,
+            55
+          ]
+        },
+        {
+          "chord_symbol": "Gm",
+          "roman_numeral": "iv",
+          "root": "G",
+          "bass_note": "G",
+          "bass_midi": 43,
+          "duration_beats": 4,
+          "close_voicing": [
+            55,
+            58,
+            62
+          ],
+          "drop2_voicing": [
+            50,
+            55,
+            58,
+            62
+          ],
+          "drop4_voicing": [
+            43,
+            58,
+            62
+          ]
+        },
+        {
+          "chord_symbol": "Bb",
+          "roman_numeral": "VI",
+          "root": "Bb",
+          "bass_note": "Bb",
+          "bass_midi": 46,
+          "duration_beats": 4,
+          "close_voicing": [
+            58,
+            62,
+            65
+          ],
+          "drop2_voicing": [
+            53,
+            58,
+            62,
+            65
+          ],
+          "drop4_voicing": [
+            46,
+            62,
+            65
+          ]
+        }
+      ],
+      "style_tags": [
+        "nu_disco",
+        "psych_pop",
+        "dance_pop",
+        "funk_pop"
+      ],
+      "description": "Kevin Parker psych-pop disco groove with slap bass and acid synth layers."
+    }
+  ],
+  "melodic_motifs": [
+    {
+      "id": "sabrina_carpenter_espresso_hook_motif",
+      "title": "Espresso",
+      "artist": "Sabrina Carpenter",
+      "key": "C Major",
+      "bpm": 103,
+      "time_signature": "4/4",
+      "starting_scale_degree": 1,
+      "pickup_beat": 4.5,
+      "contour_type": "Disjunct leap to conjunct cascade",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "C5",
+        "midi_number": 72,
+        "scale_degree": 1,
+        "bar_location": "Bar 3, Beat 1.0",
+        "lyric": "Say you can't sleep",
+        "resolution_sequence": [
+          "C5",
+          "B4",
+          "A4",
+          "G4",
+          "E4",
+          "D4",
+          "C4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "Say",
+          "pitch": "C5",
+          "midi": 72,
+          "start_beat": 1.0,
+          "duration_beats": 0.5,
+          "velocity": 108,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "you",
+          "pitch": "C5",
+          "midi": 72,
+          "start_beat": 1.5,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "can't",
+          "pitch": "C5",
+          "midi": 72,
+          "start_beat": 2.0,
+          "duration_beats": 0.5,
+          "velocity": 112,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "sleep,",
+          "pitch": "C5",
+          "midi": 72,
+          "start_beat": 2.5,
+          "duration_beats": 0.5,
+          "velocity": 104,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "ba-",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 3.0,
+          "duration_beats": 0.5,
+          "velocity": 96,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "-by,",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 3.5,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "I",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 4.0,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "know,",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 4.5,
+          "duration_beats": 0.5,
+          "velocity": 84,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "That's",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 105,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "that",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "me,",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 6.0,
+          "duration_beats": 1.0,
+          "velocity": 102,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "es-",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 7.0,
+          "duration_beats": 0.5,
+          "velocity": 90,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "-pres-",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 7.5,
+          "duration_beats": 0.5,
+          "velocity": 98,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "-so",
+          "pitch": "C4",
+          "midi": 60,
+          "start_beat": 8.0,
+          "duration_beats": 1.0,
+          "velocity": 110,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "dreamy_pop",
+        "funk_pop",
+        "conversational_pop",
+        "earworm"
+      ]
+    },
+    {
+      "id": "sabrina_carpenter_please_please_please_hook_motif",
+      "title": "Please Please Please",
+      "artist": "Sabrina Carpenter",
+      "key": "A Major",
+      "bpm": 107,
+      "time_signature": "4/4",
+      "starting_scale_degree": 3,
+      "pickup_beat": 4.75,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 4.75,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "E5",
+        "midi_number": 76,
+        "scale_degree": 5,
+        "bar_location": "Bar 7, Beat 3.5",
+        "lyric": "embarrass me",
+        "resolution_sequence": [
+          "E5",
+          "D5",
+          "C#5",
+          "B4",
+          "A4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "Please,",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 1.0,
+          "duration_beats": 1.0,
+          "velocity": 105,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "please,",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 2.0,
+          "duration_beats": 1.0,
+          "velocity": 98,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "please,",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 3.0,
+          "duration_beats": 1.0,
+          "velocity": 102,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "Don't",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 4.5,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "prove",
+          "pitch": "G#4",
+          "midi": 68,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "'em",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "right.",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 6.0,
+          "duration_beats": 1.5,
+          "velocity": 90,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "And",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 8.75,
+          "duration_beats": 0.25,
+          "velocity": 85,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "em-",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 13.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "-BAR-",
+          "pitch": "E5",
+          "midi": 76,
+          "start_beat": 13.5,
+          "duration_beats": 0.75,
+          "velocity": 120,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-rass",
+          "pitch": "D5",
+          "midi": 74,
+          "start_beat": 14.25,
+          "duration_beats": 0.25,
+          "velocity": 105,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "me,",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 14.5,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "mo-",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 15.0,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "-ther-",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 15.5,
+          "duration_beats": 0.5,
+          "velocity": 96,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "-fucker",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 16.0,
+          "duration_beats": 1.0,
+          "velocity": 90,
+          "scale_degree": 6
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "dreamy_pop",
+        "funk_pop",
+        "conversational_pop",
+        "earworm"
+      ]
+    },
+    {
+      "id": "billie_eilish_birds_of_a_feather_hook_motif",
+      "title": "Birds of a Feather",
+      "artist": "Billie Eilish",
+      "key": "D Major",
+      "bpm": 105,
+      "time_signature": "4/4",
+      "starting_scale_degree": 3,
+      "pickup_beat": 4.5,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "D5",
+        "midi_number": 74,
+        "scale_degree": 1,
+        "bar_location": "Bar 5, Beat 1.0 (Extended Chorus)",
+        "lyric": "'Til the day that I die",
+        "resolution_sequence": [
+          "D5",
+          "C#5",
+          "B4",
+          "A4",
+          "F#4",
+          "E4",
+          "D4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "Birds",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 0.5,
+          "duration_beats": 0.25,
+          "velocity": 85,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "of",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 0.75,
+          "duration_beats": 0.25,
+          "velocity": 80,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "a",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 1.0,
+          "duration_beats": 0.5,
+          "velocity": 90,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "fea-",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 1.5,
+          "duration_beats": 0.75,
+          "velocity": 105,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-ther,",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 2.25,
+          "duration_beats": 0.75,
+          "velocity": 85,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "we",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 3.0,
+          "duration_beats": 0.25,
+          "velocity": 80,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "should",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 3.25,
+          "duration_beats": 0.25,
+          "velocity": 85,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "stick",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 3.5,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "to-",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 4.0,
+          "duration_beats": 0.75,
+          "velocity": 100,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "-geth-",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 4.75,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-er,",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 5.25,
+          "duration_beats": 0.75,
+          "velocity": 85,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "I",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 6.0,
+          "duration_beats": 0.5,
+          "velocity": 80,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "know",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 6.5,
+          "duration_beats": 1.5,
+          "velocity": 90,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "dreamy_pop",
+        "alt_pop",
+        "intimate_pop",
+        "earworm"
+      ]
+    },
+    {
+      "id": "billie_eilish_lunch_hook_motif",
+      "title": "Lunch",
+      "artist": "Billie Eilish",
+      "key": "E Minor",
+      "bpm": 125,
+      "time_signature": "4/4",
+      "starting_scale_degree": 7,
+      "pickup_beat": 4.5,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "B4",
+        "midi_number": 71,
+        "scale_degree": 5,
+        "bar_location": "Bar 4, Beat 3.5",
+        "lyric": "crush, huh",
+        "resolution_sequence": [
+          "B4",
+          "E4",
+          "E3"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "I",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 0.5,
+          "duration_beats": 0.25,
+          "velocity": 90,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "could",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 0.75,
+          "duration_beats": 0.25,
+          "velocity": 95,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "eat",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 1.0,
+          "duration_beats": 0.5,
+          "velocity": 115,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "that",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 1.5,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "girl",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 2.0,
+          "duration_beats": 0.75,
+          "velocity": 110,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "for",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 2.75,
+          "duration_beats": 0.25,
+          "velocity": 85,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "lunch,",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 3.0,
+          "duration_beats": 1.0,
+          "velocity": 105,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "not",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 7.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "a",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 7.5,
+          "duration_beats": 0.25,
+          "velocity": 95,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "crush,",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 7.75,
+          "duration_beats": 0.5,
+          "velocity": 120,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "huh",
+          "pitch": "E3",
+          "midi": 52,
+          "start_beat": 8.5,
+          "duration_beats": 0.5,
+          "velocity": 70,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "dreamy_pop",
+        "alt_pop",
+        "intimate_pop",
+        "earworm"
+      ]
+    },
+    {
+      "id": "billie_eilish_chihiro_hook_motif",
+      "title": "Chihiro",
+      "artist": "Billie Eilish",
+      "key": "B Minor",
+      "bpm": 110,
+      "time_signature": "4/4",
+      "starting_scale_degree": 5,
+      "pickup_beat": 4.5,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "D5",
+        "midi_number": 74,
+        "scale_degree": 3,
+        "bar_location": "Club Climax Drop, Beat 1.0",
+        "lyric": "Open up the door",
+        "resolution_sequence": [
+          "D5",
+          "C#5",
+          "B4",
+          "F#4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "To",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 0.5,
+          "duration_beats": 0.25,
+          "velocity": 85,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "o-",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 0.75,
+          "duration_beats": 0.25,
+          "velocity": 88,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-pen",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 1.0,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "up",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 1.5,
+          "duration_beats": 0.5,
+          "velocity": 90,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "the",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 2.0,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "door,",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 2.5,
+          "duration_beats": 1.0,
+          "velocity": 92,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "did",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 4.0,
+          "duration_beats": 0.5,
+          "velocity": 85,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "you",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 4.5,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "o-",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-pen",
+          "pitch": "E4",
+          "midi": 64,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "up",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 6.0,
+          "duration_beats": 0.5,
+          "velocity": 85,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "the",
+          "pitch": "B3",
+          "midi": 59,
+          "start_beat": 6.5,
+          "duration_beats": 0.5,
+          "velocity": 80,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "door?",
+          "pitch": "B3",
+          "midi": 59,
+          "start_beat": 7.0,
+          "duration_beats": 1.5,
+          "velocity": 85,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "dreamy_pop",
+        "alt_pop",
+        "intimate_pop",
+        "earworm"
+      ]
+    },
+    {
+      "id": "chappell_roan_good_luck_babe_hook_motif",
+      "title": "Good Luck, Babe!",
+      "artist": "Chappell Roan",
+      "key": "B Major",
+      "bpm": 117,
+      "time_signature": "4/4",
+      "starting_scale_degree": 1,
+      "pickup_beat": 4.5,
+      "contour_type": "Disjunct leap to conjunct cascade",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "F#5",
+        "midi_number": 78,
+        "scale_degree": 5,
+        "bar_location": "Bar 2, Beat 2.5",
+        "lyric": "Good luck, babe!",
+        "resolution_sequence": [
+          "F#5",
+          "D#5",
+          "C#5",
+          "B4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "Good",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 1.0,
+          "duration_beats": 1.0,
+          "velocity": 115,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "luck,",
+          "pitch": "D#5",
+          "midi": 75,
+          "start_beat": 2.0,
+          "duration_beats": 0.5,
+          "velocity": 120,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "babe!",
+          "pitch": "F#5",
+          "midi": 78,
+          "start_beat": 2.5,
+          "duration_beats": 2.0,
+          "velocity": 127,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "Well,",
+          "pitch": "E5",
+          "midi": 76,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "good",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 110,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "luck,",
+          "pitch": "D#5",
+          "midi": 75,
+          "start_beat": 6.0,
+          "duration_beats": 0.5,
+          "velocity": 118,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "babe!",
+          "pitch": "F#5",
+          "midi": 78,
+          "start_beat": 6.5,
+          "duration_beats": 2.0,
+          "velocity": 127,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "You'd",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 8.5,
+          "duration_beats": 0.25,
+          "velocity": 90,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "have",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 8.75,
+          "duration_beats": 0.25,
+          "velocity": 90,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "to",
+          "pitch": "G#4",
+          "midi": 68,
+          "start_beat": 9.0,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "stop",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 9.5,
+          "duration_beats": 0.5,
+          "velocity": 105,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "the",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 10.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "world",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 10.5,
+          "duration_beats": 1.0,
+          "velocity": 110,
+          "scale_degree": 2
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "synthpop",
+        "glam_pop",
+        "anthemic_pop",
+        "high_belt"
+      ]
+    },
+    {
+      "id": "chappell_roan_pink_pony_club_hook_motif",
+      "title": "Pink Pony Club",
+      "artist": "Chappell Roan",
+      "key": "F# Major",
+      "bpm": 112,
+      "time_signature": "4/4",
+      "starting_scale_degree": 1,
+      "pickup_beat": 4.5,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 4.5,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "D#5",
+        "midi_number": 75,
+        "scale_degree": 6,
+        "bar_location": "Bar 4, Beat 3.5",
+        "lyric": "Pink Pony Club",
+        "resolution_sequence": [
+          "D#5",
+          "C#5",
+          "A#4",
+          "G#4",
+          "F#4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "You're",
+          "pitch": "A#4",
+          "midi": 70,
+          "start_beat": 1.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "a",
+          "pitch": "A#4",
+          "midi": 70,
+          "start_beat": 1.5,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "pink",
+          "pitch": "A#4",
+          "midi": 70,
+          "start_beat": 2.0,
+          "duration_beats": 0.5,
+          "velocity": 105,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "po-",
+          "pitch": "B4",
+          "midi": 71,
+          "start_beat": 2.5,
+          "duration_beats": 0.5,
+          "velocity": 110,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "-ny",
+          "pitch": "A#4",
+          "midi": 70,
+          "start_beat": 3.0,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "girl,",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 3.5,
+          "duration_beats": 1.0,
+          "velocity": 112,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "down",
+          "pitch": "F#4",
+          "midi": 66,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "at",
+          "pitch": "A#4",
+          "midi": 70,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 100,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "the",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 6.0,
+          "duration_beats": 0.5,
+          "velocity": 110,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "Pink",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 6.5,
+          "duration_beats": 0.5,
+          "velocity": 115,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "Po-",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 7.0,
+          "duration_beats": 0.5,
+          "velocity": 115,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "-ny",
+          "pitch": "C#5",
+          "midi": 73,
+          "start_beat": 7.25,
+          "duration_beats": 0.25,
+          "velocity": 112,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "Club!",
+          "pitch": "D#5",
+          "midi": 75,
+          "start_beat": 7.5,
+          "duration_beats": 2.0,
+          "velocity": 127,
+          "scale_degree": 6
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "synthpop",
+        "glam_pop",
+        "anthemic_pop",
+        "high_belt"
+      ]
+    },
+    {
+      "id": "benson_boone_beautiful_things_hook_motif",
+      "title": "Beautiful Things",
+      "artist": "Benson Boone",
+      "key": "Bb Major",
+      "bpm": 105,
+      "time_signature": "6/8",
+      "starting_scale_degree": 5,
+      "pickup_beat": 6.0,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 6.0,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "Bb4",
+        "midi_number": 70,
+        "scale_degree": 1,
+        "bar_location": "Bar 1, Beat 1.0 (Chorus Explosion)",
+        "lyric": "Please STAY!",
+        "resolution_sequence": [
+          "Bb4",
+          "A4",
+          "G4",
+          "F4",
+          "Eb4",
+          "D4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "Please",
+          "pitch": "F4",
+          "midi": 65,
+          "start_beat": 0.833,
+          "duration_beats": 0.167,
+          "velocity": 95,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "STAY!",
+          "pitch": "Bb4",
+          "midi": 70,
+          "start_beat": 1.0,
+          "duration_beats": 1.5,
+          "velocity": 127,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "I",
+          "pitch": "Bb4",
+          "midi": 70,
+          "start_beat": 2.5,
+          "duration_beats": 0.5,
+          "velocity": 115,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "want",
+          "pitch": "A4",
+          "midi": 69,
+          "start_beat": 3.0,
+          "duration_beats": 0.5,
+          "velocity": 112,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "you,",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 3.5,
+          "duration_beats": 0.5,
+          "velocity": 108,
+          "scale_degree": 6
+        },
+        {
+          "lyric": "I",
+          "pitch": "F4",
+          "midi": 65,
+          "start_beat": 4.0,
+          "duration_beats": 0.5,
+          "velocity": 105,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "need",
+          "pitch": "Eb4",
+          "midi": 63,
+          "start_beat": 4.5,
+          "duration_beats": 0.5,
+          "velocity": 102,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "you,",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 98,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "oh",
+          "pitch": "C4",
+          "midi": 60,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "God,",
+          "pitch": "Bb3",
+          "midi": 58,
+          "start_beat": 6.0,
+          "duration_beats": 1.0,
+          "velocity": 100,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "pop_rock",
+        "power_ballad",
+        "explosive_hook"
+      ]
+    },
+    {
+      "id": "teddy_swims_lose_control_hook_motif",
+      "title": "Lose Control",
+      "artist": "Teddy Swims",
+      "key": "C Minor",
+      "bpm": 80,
+      "time_signature": "6/8",
+      "starting_scale_degree": 5,
+      "pickup_beat": 3.0,
+      "contour_type": "Conjunct arch",
+      "syncopation": {
+        "pickup_location": 3.0,
+        "anticipation": "8th and 16th note pushes displacing beat 1.0"
+      },
+      "climax_target": {
+        "pitch": "C5",
+        "midi_number": 72,
+        "scale_degree": 1,
+        "bar_location": "Bar 1, Beat 4.0",
+        "lyric": "lose con-TROL!",
+        "resolution_sequence": [
+          "C5",
+          "Bb4",
+          "Ab4",
+          "G4",
+          "F4",
+          "Eb4",
+          "C4"
+        ]
+      },
+      "midi_sequence": [
+        {
+          "lyric": "I",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 0.5,
+          "duration_beats": 0.5,
+          "velocity": 90,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "lose",
+          "pitch": "Bb4",
+          "midi": 70,
+          "start_beat": 1.0,
+          "duration_beats": 1.0,
+          "velocity": 115,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "con-",
+          "pitch": "C5",
+          "midi": 72,
+          "start_beat": 2.0,
+          "duration_beats": 1.5,
+          "velocity": 127,
+          "scale_degree": 1
+        },
+        {
+          "lyric": "-trol",
+          "pitch": "Bb4",
+          "midi": 70,
+          "start_beat": 3.5,
+          "duration_beats": 0.5,
+          "velocity": 105,
+          "scale_degree": 7
+        },
+        {
+          "lyric": "When",
+          "pitch": "G4",
+          "midi": 67,
+          "start_beat": 4.0,
+          "duration_beats": 0.5,
+          "velocity": 95,
+          "scale_degree": 5
+        },
+        {
+          "lyric": "you're",
+          "pitch": "F4",
+          "midi": 65,
+          "start_beat": 4.5,
+          "duration_beats": 0.5,
+          "velocity": 90,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "not",
+          "pitch": "Eb4",
+          "midi": 63,
+          "start_beat": 5.0,
+          "duration_beats": 0.5,
+          "velocity": 92,
+          "scale_degree": 3
+        },
+        {
+          "lyric": "next",
+          "pitch": "F4",
+          "midi": 65,
+          "start_beat": 5.5,
+          "duration_beats": 0.5,
+          "velocity": 88,
+          "scale_degree": 4
+        },
+        {
+          "lyric": "to",
+          "pitch": "D4",
+          "midi": 62,
+          "start_beat": 6.0,
+          "duration_beats": 0.5,
+          "velocity": 85,
+          "scale_degree": 2
+        },
+        {
+          "lyric": "me",
+          "pitch": "C4",
+          "midi": 60,
+          "start_beat": 6.5,
+          "duration_beats": 2.0,
+          "velocity": 100,
+          "scale_degree": 1
+        }
+      ],
+      "style_tags": [
+        "billboard_hit",
+        "vocal_hook",
+        "soul_pop",
+        "rnb_pop",
+        "blues_belt"
+      ]
+    }
+  ],
+  "bass_grooves": [
+    {
+      "id": "brat_aggressive_minimalism_v1",
+      "title": "360 / Apple / Von Dutch (Brat Sound)",
+      "artist": "Charli XCX",
+      "genre": "hyperpop_electroclash",
+      "tempo": 120,
+      "time_signature": "4/4",
+      "groove_characteristics": {
+        "swing_percentage": 53.5,
+        "humanize_ms_jitter": 2.5,
+        "pocket_description": "Kick centered, snare rushed by 3ms, offbeat 16ths laid back by 5ms"
+      },
+      "patch_type": "monosynth_square_sub",
+      "cutoff_hz": 1850,
+      "resonance_q": 3.4,
+      "envelope_decay_ms": 140,
+      "steps": [
+        {
+          "step": 1,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 2,
+          "note": "F#1",
+          "velocity": 115,
+          "gate_ratio": 0.35,
+          "offset_ms": 5.2
+        },
+        {
+          "step": 3,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 4,
+          "note": "F#1",
+          "velocity": 55,
+          "gate_ratio": 0.18,
+          "offset_ms": 6.0
+        },
+        {
+          "step": 5,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 6,
+          "note": "A1",
+          "velocity": 120,
+          "gate_ratio": 0.45,
+          "offset_ms": 4.8
+        },
+        {
+          "step": 7,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 8,
+          "note": "F#1",
+          "velocity": 60,
+          "gate_ratio": 0.2,
+          "offset_ms": 5.5
+        },
+        {
+          "step": 9,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 10,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 11,
+          "note": "F#1",
+          "velocity": 118,
+          "gate_ratio": 0.38,
+          "offset_ms": 1.2
+        },
+        {
+          "step": 12,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 13,
+          "note": "E1",
+          "velocity": 95,
+          "gate_ratio": 0.3,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 14,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 15,
+          "note": "F#1",
+          "velocity": 110,
+          "gate_ratio": 0.4,
+          "offset_ms": 2.0
+        },
+        {
+          "step": 16,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        }
+      ],
+      "drum_pocket": {
+        "kick": {
+          "steps": [
+            1,
+            5,
+            9,
+            13
+          ],
+          "velocity": [
+            127,
+            122,
+            125,
+            120
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "clap_snare": {
+          "steps": [
+            5,
+            13
+          ],
+          "velocity": [
+            124,
+            127
+          ],
+          "timing_offsets_ms": [
+            -3.5,
+            -3.2
+          ]
+        },
+        "closed_hat": {
+          "steps": [
+            2,
+            3,
+            4,
+            6,
+            7,
+            8,
+            10,
+            11,
+            12,
+            14,
+            15,
+            16
+          ],
+          "velocity": [
+            72,
+            98,
+            64,
+            75,
+            102,
+            68,
+            70,
+            95,
+            62,
+            74,
+            99,
+            65
+          ],
+          "timing_offsets_ms": [
+            5.2,
+            1.1,
+            6.0,
+            4.8,
+            1.5,
+            5.5,
+            5.0,
+            1.2,
+            5.8,
+            4.9,
+            1.4,
+            5.6
+          ]
+        },
+        "open_hat_sizzle": {
+          "steps": [
+            8,
+            16
+          ],
+          "velocity": [
+            115,
+            118
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0
+          ],
+          "choke_step_length": 1
+        }
+      },
+      "style_tags": [
+        "hyperpop_electroclash",
+        "bass_groove",
+        "hyperpop",
+        "electroclash",
+        "club_pop"
+      ]
+    },
+    {
+      "id": "weeknd_80s_analog_pulse_v1",
+      "title": "Dancing in the Flames / Blinding Lights",
+      "artist": "The Weeknd",
+      "genre": "synthpop_retrowave",
+      "tempo": 120,
+      "time_signature": "4/4",
+      "groove_characteristics": {
+        "swing_percentage": 50.0,
+        "humanize_ms_jitter": 1.0,
+        "pocket_description": "Strict quantization; forward drive created by exact gate clamping and velocity contours"
+      },
+      "patch_type": "juno106_pwm_saw_sub",
+      "cutoff_hz": 1250,
+      "resonance_q": 2.1,
+      "envelope_decay_ms": 220,
+      "steps": [
+        {
+          "step": 1,
+          "note": "A1",
+          "velocity": 120,
+          "gate_ratio": 0.55,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 2,
+          "note": "A1",
+          "velocity": 65,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 3,
+          "note": "A1",
+          "velocity": 90,
+          "gate_ratio": 0.45,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 4,
+          "note": "A2",
+          "velocity": 75,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 5,
+          "note": "A1",
+          "velocity": 115,
+          "gate_ratio": 0.5,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 6,
+          "note": "A1",
+          "velocity": 68,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 7,
+          "note": "A2",
+          "velocity": 110,
+          "gate_ratio": 0.5,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 8,
+          "note": "G2",
+          "velocity": 85,
+          "gate_ratio": 0.4,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 9,
+          "note": "F1",
+          "velocity": 122,
+          "gate_ratio": 0.55,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 10,
+          "note": "F1",
+          "velocity": 66,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 11,
+          "note": "F1",
+          "velocity": 92,
+          "gate_ratio": 0.45,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 12,
+          "note": "F2",
+          "velocity": 80,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 13,
+          "note": "G1",
+          "velocity": 118,
+          "gate_ratio": 0.52,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 14,
+          "note": "G1",
+          "velocity": 70,
+          "gate_ratio": 0.35,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 15,
+          "note": "G2",
+          "velocity": 112,
+          "gate_ratio": 0.5,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 16,
+          "note": "E2",
+          "velocity": 88,
+          "gate_ratio": 0.4,
+          "offset_ms": 0.0
+        }
+      ],
+      "drum_pocket": {
+        "kick": {
+          "steps": [
+            1,
+            5,
+            9,
+            13
+          ],
+          "velocity": [
+            127,
+            124,
+            127,
+            124
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "linn_snare_gated": {
+          "steps": [
+            5,
+            13
+          ],
+          "velocity": [
+            126,
+            127
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0
+          ],
+          "gated_reverb_decay_ms": 180
+        },
+        "hat_shaker_layer": {
+          "steps": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "velocity": [
+            110,
+            65,
+            90,
+            60,
+            115,
+            68,
+            92,
+            62,
+            112,
+            66,
+            91,
+            60,
+            118,
+            72,
+            95,
+            75
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "style_tags": [
+        "synthpop_retrowave",
+        "bass_groove",
+        "synthwave",
+        "retro_synthpop",
+        "80s_pop"
+      ]
+    },
+    {
+      "id": "dua_parker_psych_disco_v1",
+      "title": "Houdini / Training Season",
+      "artist": "Dua Lipa & Kevin Parker",
+      "genre": "psych_pop_nu_disco",
+      "tempo": 117,
+      "time_signature": "4/4",
+      "groove_characteristics": {
+        "swing_percentage": 58.0,
+        "humanize_ms_jitter": 4.5,
+        "pocket_description": "Kick locked to grid; snare laid back +4ms; bass offbeat 16ths delayed +11ms for deep MPC slouch"
+      },
+      "patch_type": "rickenbacker_flatwound_moog_double",
+      "cutoff_hz": 2800,
+      "resonance_q": 1.4,
+      "envelope_decay_ms": 150,
+      "steps": [
+        {
+          "step": 1,
+          "note": "D1",
+          "velocity": 124,
+          "gate_ratio": 0.65,
+          "offset_ms": 0.0,
+          "articulation": "finger_pluck"
+        },
+        {
+          "step": 2,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 3,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 4,
+          "note": "D1",
+          "velocity": 52,
+          "gate_ratio": 0.18,
+          "offset_ms": 11.2,
+          "articulation": "ghost_pop"
+        },
+        {
+          "step": 5,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 6,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 7,
+          "note": "D2",
+          "velocity": 118,
+          "gate_ratio": 0.35,
+          "offset_ms": 12.0,
+          "articulation": "octave_slap"
+        },
+        {
+          "step": 8,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 9,
+          "note": "F1",
+          "velocity": 108,
+          "gate_ratio": 0.5,
+          "offset_ms": 0.0,
+          "articulation": "finger_pluck"
+        },
+        {
+          "step": 10,
+          "note": "D1",
+          "velocity": 48,
+          "gate_ratio": 0.18,
+          "offset_ms": 10.5,
+          "articulation": "ghost_pop"
+        },
+        {
+          "step": 11,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 12,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 13,
+          "note": "C1",
+          "velocity": 85,
+          "gate_ratio": 0.85,
+          "offset_ms": 0.0,
+          "articulation": "chromatic_slide_start"
+        },
+        {
+          "step": 14,
+          "note": "C#1",
+          "velocity": 95,
+          "gate_ratio": 0.9,
+          "offset_ms": 12.5,
+          "articulation": "chromatic_slide_mid"
+        },
+        {
+          "step": 15,
+          "note": "D1",
+          "velocity": 120,
+          "gate_ratio": 0.7,
+          "offset_ms": 0.0,
+          "articulation": "accent_resolve"
+        },
+        {
+          "step": 16,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0,
+          "offset_ms": 0.0
+        }
+      ],
+      "drum_pocket": {
+        "kick": {
+          "steps": [
+            1,
+            5,
+            9,
+            13
+          ],
+          "velocity": [
+            126,
+            118,
+            124,
+            119
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "snare_with_ghosts": {
+          "steps": [
+            5,
+            8,
+            13,
+            14
+          ],
+          "velocity": [
+            124,
+            42,
+            127,
+            46
+          ],
+          "timing_offsets_ms": [
+            4.0,
+            12.0,
+            4.2,
+            10.5
+          ]
+        },
+        "hihat_disco_interlock": {
+          "closed_steps": [
+            1,
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15
+          ],
+          "closed_velocity": [
+            65,
+            70,
+            65,
+            72,
+            64,
+            70,
+            65,
+            75
+          ],
+          "open_sizzle_steps": [
+            3,
+            7,
+            11,
+            15
+          ],
+          "open_velocity": [
+            112,
+            115,
+            110,
+            118
+          ],
+          "open_decay_ms": 165,
+          "timing_offsets_ms": [
+            0.0,
+            11.5,
+            0.0,
+            12.0,
+            0.0,
+            11.0,
+            0.0,
+            12.5
+          ]
+        }
+      },
+      "style_tags": [
+        "psych_pop_nu_disco",
+        "bass_groove",
+        "nu_disco",
+        "psych_pop",
+        "funk_pop"
+      ]
+    },
+    {
+      "id": "sabrina_carpenter_espresso_funk_bass",
+      "title": "Espresso (Funk Pocket Bass)",
+      "artist": "Sabrina Carpenter",
+      "genre": "nu_disco_funk",
+      "tempo": 103,
+      "time_signature": "4/4",
+      "groove_characteristics": {
+        "swing_percentage": 54.0,
+        "humanize_ms_jitter": 3.0,
+        "pocket_description": "Laid-back funk pocket with 16th-note ghost pops and syncopated root octaves"
+      },
+      "patch_type": "vintage_p_bass_with_sub",
+      "cutoff_hz": 2200,
+      "resonance_q": 2.2,
+      "envelope_decay_ms": 220,
+      "steps": [
+        {
+          "step": 1,
+          "note": "F1",
+          "velocity": 112,
+          "gate_ratio": 0.4,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 2,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 3,
+          "note": "F2",
+          "velocity": 95,
+          "gate_ratio": 0.25,
+          "offset_ms": 4.5
+        },
+        {
+          "step": 4,
+          "note": "F1",
+          "velocity": 60,
+          "gate_ratio": 0.15,
+          "offset_ms": 5.0
+        },
+        {
+          "step": 5,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 6,
+          "note": "G1",
+          "velocity": 118,
+          "gate_ratio": 0.45,
+          "offset_ms": 3.5
+        },
+        {
+          "step": 7,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 8,
+          "note": "G2",
+          "velocity": 92,
+          "gate_ratio": 0.2,
+          "offset_ms": 4.0
+        },
+        {
+          "step": 9,
+          "note": "E1",
+          "velocity": 115,
+          "gate_ratio": 0.4,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 10,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 11,
+          "note": "E2",
+          "velocity": 96,
+          "gate_ratio": 0.25,
+          "offset_ms": 3.8
+        },
+        {
+          "step": 12,
+          "note": "E1",
+          "velocity": 58,
+          "gate_ratio": 0.15,
+          "offset_ms": 5.2
+        },
+        {
+          "step": 13,
+          "note": "A1",
+          "velocity": 120,
+          "gate_ratio": 0.5,
+          "offset_ms": 0.0
+        },
+        {
+          "step": 14,
+          "note": null,
+          "velocity": 0,
+          "gate_ratio": 0.0
+        },
+        {
+          "step": 15,
+          "note": "C2",
+          "velocity": 104,
+          "gate_ratio": 0.35,
+          "offset_ms": 2.0
+        },
+        {
+          "step": 16,
+          "note": "D2",
+          "velocity": 90,
+          "gate_ratio": 0.25,
+          "offset_ms": 3.0
+        }
+      ],
+      "drum_pocket": {
+        "kick": {
+          "steps": [
+            1,
+            5,
+            9,
+            13
+          ],
+          "velocity": [
+            124,
+            120,
+            124,
+            118
+          ]
+        },
+        "snare": {
+          "steps": [
+            5,
+            13
+          ],
+          "velocity": [
+            122,
+            125
+          ],
+          "timing_offsets_ms": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "style_tags": [
+        "dreamy_pop",
+        "funk_pop",
+        "nu_disco",
+        "dance_pop"
+      ]
+    }
+  ]
+}
