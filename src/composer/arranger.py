@@ -473,7 +473,9 @@ def create_arrangement(
             lead_root_midi = get_chord_pitches(chord_root, 'maj', base_octave=4)[0]
             motif_step = rel_bar % 4
 
-            for note_idx, (interval, r_offset) in enumerate(zip(motif["notes"], motif["rhythm"])):
+            m_notes = motif.get("notes") or motif.get("intervals") or [0, 2, 4, 7]
+            m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
+            for note_idx, (interval, r_offset) in enumerate(zip(m_notes, m_rhythm)):
                 # Metric displacement on phrases 2 & 4
                 disp = 0.25 if motif_step in [1, 3] else 0.0
                 note_start = bar_start + (r_offset * beat_dur * 0.5) + disp
