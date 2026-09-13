@@ -10,12 +10,25 @@ import scipy.signal as signal
 from src.composer.arranger import Arrangement, NoteEvent
 from src.composer.theory import midi_to_freq
 from src.engine.analog_saturation import console8_channel_encode, console8_bus_decode, diode_bass_saturation
+from src.engine.pristine_keys import PristineKeysEngine, PristinePianoVoice, PristineRhodesVoice
+from src.engine.spatial_reverb import StudioSpatialReverb
+from src.engine.sound_layering import MidSideProcessor
 
 SAMPLE_RATE = 44100
 
 class MultiTrackEngine:
     def __init__(self, sample_rate: int = SAMPLE_RATE):
         self.sr = sample_rate
+        self.keys_engine = PristineKeysEngine(sample_rate=sample_rate)
+        self.reverb = StudioSpatialReverb(
+            sample_rate=sample_rate,
+            abbey_road=True,
+            ducking=True,
+            rt60_s=2.4,
+            wet_level=0.18,
+            dry_level=0.92,
+            duck_db=5.0
+        )
 
     def synth_kick(self, duration: float = 0.42) -> np.ndarray:
         t = np.linspace(0, duration, int(self.sr * duration), endpoint=False)
@@ -108,8 +121,13 @@ class MultiTrackEngine:
         return np.column_stack((out_l, out_r))
 
     def synth_lead_note(self, freq: float, duration: float) -> np.ndarray:
+        """
+        Pitch-perfect lead synthesizer with stereo spatial width.
+        Eliminates the legacy 1.003x (+5.18 cent) detune artifact that caused sour beating,
+        using phase-locked harmonic oscillators.
+        """
         t = np.linspace(0, duration, int(self.sr * duration), endpoint=False)
-        osc = signal.square(2 * np.pi * freq * t, duty=0.32) * 0.6 + signal.sawtooth(2 * np.pi * freq * 1.003 * t) * 0.4
+        osc = signal.square(2 * np.pi * freq * t, duty=0.32) * 0.55 + signal.sawtooth(2 * np.pi * freq * t) * 0.45
         env = np.exp(-11.5 * t)
         sos = signal.butter(2, min(3600 / (self.sr / 2.0), 0.9), btype='lowpass', output='sos')
         filtered = signal.sosfilt(sos, osc) * env
@@ -120,6 +138,14 @@ class MultiTrackEngine:
         if len(filtered) > delay_samples:
             out_r[delay_samples:] += filtered[:-delay_samples] * 0.48
         return np.column_stack((out_l * 0.42, out_r * 0.42))
+
+    def synth_piano_note(self, pitch: int, velocity: int = 80, duration: float = 2.0) -> np.ndarray:
+        """Acoustic grand piano note with inharmonicity and soundboard resonance."""
+        return self.keys_engine.render_note(pitch, velocity=velocity, duration=duration, preset="grand_piano")
+
+    def synth_rhodes_note(self, pitch: int, velocity: int = 80, duration: float = 2.0) -> np.ndarray:
+        """Fender Rhodes electric piano note with FM tine physics, bark, and stereo tremolo."""
+        return self.keys_engine.render_note(pitch, velocity=velocity, duration=duration, preset="rhodes")
 
     def apply_raised_cosine_sidechain(self, stem: np.ndarray, kick_times: list[float], duck_dur: float = 0.22) -> np.ndarray:
         """
@@ -146,6 +172,7 @@ class MultiTrackEngine:
         bass_stem = np.zeros((total_samples, 2), dtype=np.float32)
         pad_stem = np.zeros((total_samples, 2), dtype=np.float32)
         lead_stem = np.zeros((total_samples, 2), dtype=np.float32)
+        keys_stem = np.zeros((total_samples, 2), dtype=np.float32)
 
         def add_to_buffer(buffer, sound, start_time):
             idx = int(start_time * self.sr)
@@ -195,25 +222,57 @@ class MultiTrackEngine:
             lead_sound = self.synth_lead_note(f, n.duration)
             add_to_buffer(lead_stem, lead_sound * (n.velocity / 127.0), n.start_time)
 
+        # 7. Acoustic Grand Piano, Rhodes Keys, Chords & Counterpoint
+        for n in arr.tracks.get("piano", []):
+            p_sound = self.synth_piano_note(n.pitch, n.velocity, n.duration)
+            add_to_buffer(keys_stem, p_sound, n.start_time)
+
+        for n in arr.tracks.get("keys", []):
+            r_sound = self.synth_rhodes_note(n.pitch, n.velocity, n.duration)
+            add_to_buffer(keys_stem, r_sound, n.start_time)
+
+        for n in arr.tracks.get("counter", []):
+            c_sound = self.synth_rhodes_note(n.pitch, n.velocity, n.duration)
+            add_to_buffer(keys_stem, c_sound, n.start_time)
+
+        # Chords rendered through Pristine Grand Piano with micro-strum descent
+        chord_events = arr.tracks.get("chords", [])
+        if chord_events:
+            chord_time_groups = {}
+            for ce in chord_events:
+                key = round(ce.start_time, 2)
+                chord_time_groups.setdefault(key, []).append(ce)
+            for t_key, notes in chord_time_groups.items():
+                pitches = [n.pitch for n in notes]
+                dur = max(n.duration for n in notes)
+                vel = int(np.mean([n.velocity for n in notes]))
+                chord_sound = self.keys_engine.render_chord(pitches, duration=dur, velocity=vel, preset="grand_piano")
+                add_to_buffer(keys_stem, chord_sound, t_key)
+
         # Dynamic Raised-Cosine Sidechain Ducking
         bass_ducked = self.apply_raised_cosine_sidechain(bass_stem, arr.kick_times)
         pads_ducked = self.apply_raised_cosine_sidechain(pad_stem, arr.kick_times)
+        keys_ducked = self.apply_raised_cosine_sidechain(keys_stem, arr.kick_times, duck_dur=0.18)
 
         # Agent 5: Airwindows Console8 Channel Encode per stem
         drums_enc = console8_channel_encode(drums_stem * 0.95, drive=0.82)
         bass_enc = console8_channel_encode(bass_ducked * 0.88, drive=0.88)
         pads_enc = console8_channel_encode(pads_ducked * 0.72, drive=0.80)
         lead_enc = console8_channel_encode(lead_stem * 0.68, drive=0.78)
+        keys_enc = console8_channel_encode(keys_ducked * 0.75, drive=0.80)
 
         # Sum encoded stems
-        summed = drums_enc + bass_enc + pads_enc + lead_enc
+        summed = drums_enc + bass_enc + pads_enc + lead_enc + keys_enc
 
         # Master Bus Decode: arcsin(x) analog depth expansion
         master = console8_bus_decode(summed, drive=0.82)
 
-        # Abbey Road Spatial Pre-Filter Reverb Send
-        rev_delay = int(0.048 * self.sr)
-        master[rev_delay:, 0] += master[:-rev_delay, 1] * 0.14
-        master[rev_delay:, 1] += master[:-rev_delay, 0] * 0.14
+        # Professional Spatial Reverb Engine (Dattorro Plate + Abbey Road Filtering + Dynamic Ducking)
+        master, _ = self.reverb.process(master)
+
+        # Elliptical Filter (Mono-maker below 120 Hz) for punchy, focused low end
+        master_t = master.T  # (2, N)
+        master_t = MidSideProcessor.elliptical_mono_maker(master_t, cutoff_hz=120.0, fs=self.sr)
+        master = master_t.T  # (N, 2)
 
         return master

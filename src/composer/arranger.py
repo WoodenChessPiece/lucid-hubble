@@ -470,12 +470,18 @@ def create_arrangement(
         # --- 4. LEAD MOTIF HOOK ---
         # Active in Chorus 1 & Climax Drop; strictly NO lead hook in Intro, Verse 1, or Zero-Drop!
         if mask.lead and not is_zero_drop_bar:
-            lead_root_midi = get_chord_pitches(chord_root, 'maj', base_octave=4)[0]
+            chord_pitches_lead = get_chord_pitches(chord_root, chord_type, base_octave=4)
+            lead_root_midi = chord_pitches_lead[0]
             motif_step = rel_bar % 4
 
-            m_notes = motif.get("notes") or motif.get("intervals") or [0, 2, 4, 7]
+            # Dynamic chord tones (Root, 3rd, 5th, 7th) for 100% consonance:
+            third_offset = chord_pitches_lead[1] - chord_pitches_lead[0]
+            fifth_offset = 7
+            seventh_offset = (chord_pitches_lead[3] - chord_pitches_lead[0]) if len(chord_pitches_lead) > 3 else (10 if "min" in chord_type else 11)
+
+            m_intervals = [0, third_offset, fifth_offset, seventh_offset]
             m_rhythm = motif.get("rhythm") or [0.0, 0.5, 1.0, 1.5]
-            for note_idx, (interval, r_offset) in enumerate(zip(m_notes, m_rhythm)):
+            for note_idx, (interval, r_offset) in enumerate(zip(m_intervals, m_rhythm)):
                 # Metric displacement on phrases 2 & 4
                 disp = 0.25 if motif_step in [1, 3] else 0.0
                 note_start = bar_start + (r_offset * beat_dur * 0.5) + disp
@@ -502,24 +508,29 @@ def create_arrangement(
         # In Breakdown: emotional piano/Rhodes counterpoint.
         # In Climax Drop: soaring counter-melody layered simultaneously with lead motif!
         if mask.counter and not is_zero_drop_bar:
-            counter_root = get_chord_pitches(chord_root, 'maj', base_octave=4 if section == "breakdown" else 5)[0]
+            oct = 4 if section == "breakdown" else 5
+            chord_pitches_counter = get_chord_pitches(chord_root, chord_type, base_octave=oct)
+            counter_root = chord_pitches_counter[0]
+            third_offset = chord_pitches_counter[1] - chord_pitches_counter[0]
+            fifth_offset = 7
+            seventh_offset = (chord_pitches_counter[3] - chord_pitches_counter[0]) if len(chord_pitches_counter) > 3 else (10 if "min" in chord_type else 11)
 
             if section == "breakdown":
-                # Emotional lyrical counterpoint weaving through piano chords
+                # Diatonic counterpoint targeting 3rd, 5th, 7th, and octave:
+                diatonic_counter_intervals = [fifth_offset, third_offset + 12, 12, seventh_offset, fifth_offset + 12]
                 rhodes_steps = [2, 5, 8, 11, 14]
-                counter_intervals = [7, 9, 11, 12, 14]
                 for s_idx, step in enumerate(rhodes_steps):
                     ct = bar_start + step * sixteenth_dur
-                    p = counter_root + counter_intervals[s_idx % len(counter_intervals)]
+                    p = counter_root + diatonic_counter_intervals[s_idx % len(diatonic_counter_intervals)]
                     t, v = humanize_timing_and_velocity(ct, 72, swing_ratio=swing_ratio, genre=genre)
                     arr.tracks["counter"].append(NoteEvent(
                         pitch=p, start_time=t, duration=sixteenth_dur * 2.5, velocity=v, track_name="counter"
                     ))
-            elif section == "climax":
+            elif section in ["climax", "chorus"]:
                 # High energy counterpoint arpeggios on offbeats (contrary motion to lead)
                 for step in [2, 6, 10, 14]:
                     ct = bar_start + step * sixteenth_dur
-                    p = counter_root + (7 if step in [2, 10] else 12)
+                    p = counter_root + (fifth_offset if step in [2, 10] else 12)
                     t, v = humanize_timing_and_velocity(ct, 85, swing_ratio=swing_ratio, genre=genre)
                     arr.tracks["counter"].append(NoteEvent(
                         pitch=p, start_time=t, duration=sixteenth_dur * 1.8, velocity=v, track_name="counter"

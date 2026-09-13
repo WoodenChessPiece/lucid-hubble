@@ -1041,6 +1041,7 @@ class StudioBrain:
     def generate_counter_melody(
         self,
         chord_root: str,
+        chord_type: str = "min7",
         section: str = "breakdown",
         bar_idx: int = 0,
         rel_bar: int = 0,
@@ -1061,15 +1062,20 @@ class StudioBrain:
 
         beat_dur = 60.0 / bpm
         sixteenth_dur = beat_dur / 4.0
-        counter_root = get_chord_pitches(chord_root, 'maj', base_octave=4 if section == "breakdown" else 5)[0]
+        oct = 4 if section == "breakdown" else 5
+        chord_pitches_counter = get_chord_pitches(chord_root, chord_type, base_octave=oct)
+        counter_root = chord_pitches_counter[0]
+        third_offset = chord_pitches_counter[1] - chord_pitches_counter[0]
+        fifth_offset = 7
+        seventh_offset = (chord_pitches_counter[3] - chord_pitches_counter[0]) if len(chord_pitches_counter) > 3 else (10 if "min" in chord_type else 11)
         events: List[NoteEvent] = []
 
         if section == "breakdown":
+            diatonic_counter_intervals = [fifth_offset, third_offset + 12, 12, seventh_offset, fifth_offset + 12]
             rhodes_steps = [2, 5, 8, 11, 14]
-            counter_intervals = [7, 9, 11, 12, 14]
             for s_idx, step in enumerate(rhodes_steps):
                 ct = bar_start + step * sixteenth_dur
-                p = counter_root + counter_intervals[s_idx % len(counter_intervals)]
+                p = counter_root + diatonic_counter_intervals[s_idx % len(diatonic_counter_intervals)]
                 t, v = humanize_timing_and_velocity(ct, 72, swing_ratio=swing_ratio, genre=genre)
                 events.append(NoteEvent(
                     pitch=p, start_time=t, duration=sixteenth_dur * 2.5, velocity=v, track_name="counter"
@@ -1077,7 +1083,7 @@ class StudioBrain:
         elif section in ["climax", "chorus"]:
             for step in [2, 6, 10, 14]:
                 ct = bar_start + step * sixteenth_dur
-                p = counter_root + (7 if step in [2, 10] else 12)
+                p = counter_root + (fifth_offset if step in [2, 10] else 12)
                 t, v = humanize_timing_and_velocity(ct, 85, swing_ratio=swing_ratio, genre=genre)
                 events.append(NoteEvent(
                     pitch=p, start_time=t, duration=sixteenth_dur * 1.8, velocity=v, track_name="counter"
