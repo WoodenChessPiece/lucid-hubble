@@ -618,17 +618,8 @@ def create_arrangement(
                     hook_notes_midi = [note_str_to_midi(n) for n in motif["resolution_path"]]
 
                 n_notes = len(hook_notes_midi)
-                if n_notes == 7 and artist and "avicii" in artist.lower():
-                    # Exact Avicii Levels phrasing
-                    phrase_notes_map = {
-                        0: hook_notes_midi[:4],
-                        1: (hook_notes_midi[4:] + [hook_notes_midi[0]])[:4],
-                        2: [hook_notes_midi[0], hook_notes_midi[1], hook_notes_midi[2], hook_notes_midi[0]],
-                        3: (hook_notes_midi[3:] + [hook_notes_midi[0]])[:4]
-                    }
-                    bar_pitches = phrase_notes_map.get(motif_step, hook_notes_midi[:4])
-                elif n_notes <= 4:
-                    # 4-note motif statement / answer / inversion / resolution
+                if n_notes <= 4:
+                    # 4-note motif statement / answer / intensification / resolution
                     if motif_step == 0:
                         bar_pitches = hook_notes_midi
                     elif motif_step == 1:
@@ -637,6 +628,15 @@ def create_arrangement(
                         bar_pitches = [p + 2 for p in hook_notes_midi] # Intensification
                     else:
                         bar_pitches = [hook_notes_midi[-1], hook_notes_midi[0], hook_notes_midi[1], hook_notes_midi[0]]
+                elif n_notes == 7:
+                    # 7-note classical sentence partitioning (Antecedent / Consequent balance)
+                    phrase_notes_map = {
+                        0: hook_notes_midi[:4],
+                        1: (hook_notes_midi[4:] + [hook_notes_midi[0]])[:4],
+                        2: [hook_notes_midi[0], hook_notes_midi[1], hook_notes_midi[2], hook_notes_midi[0]],
+                        3: (hook_notes_midi[3:] + [hook_notes_midi[0]])[:4]
+                    }
+                    bar_pitches = phrase_notes_map.get(motif_step, hook_notes_midi[:4])
                 else:
                     # Universal 7-stage motif sentence partitioning for arbitrary note lengths
                     chunk_len = max(2, math.ceil(n_notes / 4))

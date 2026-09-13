@@ -101,11 +101,12 @@ Examples:
         if user_in:
             prompt = user_in
 
-    # Default fallback if no arguments provided: Avicii (with notice on full capabilities)
+    # Dynamic selection if no arguments provided: Pick randomly from the 100-artist database
     if not prompt and not artist_choice:
-        artist_choice = "Avicii"
-        print("\n💡 [Notice] No prompt/artist specified; defaulting to Avicii.")
-        print("   Run with '--prompt \"deadmau5 Strobe\"' or '--prompt \"Daft Punk disco funk\"' or '--list-artists' to render any of 100+ artists!")
+        all_artists = brain.get_all_edm_artists()
+        artist_choice = random.choice(all_artists) if all_artists else "Daft Punk"
+        print(f"\n💡 [Autonomous Selection] No artist or prompt specified. Selected from 100 EDM roster: '{artist_choice}'")
+        print("   Specify any prompt via '--prompt \"<query>\"' or '--artist \"<name>\"' or view all with '--list-artists'.")
 
     print("=" * 75)
     print("🚀 STUDIOBRAIN INTERCONNECTED MASTERCLASS ORCHESTRATION")

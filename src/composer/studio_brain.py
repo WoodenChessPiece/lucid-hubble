@@ -1088,19 +1088,38 @@ class StudioBrain:
                 res["archetype"] = a_id
                 break
 
-        # Infer archetype from artist or genre
+        # Infer archetype from database profile or genre
         if "archetype" not in res:
-            art_name = res.get("artist", "").lower()
-            if any(x in art_name for x in ["deadmau5", "eric prydz", "lane 8", "ben bohmer", "bodzin"]):
-                res["archetype"] = "slow_burn_progressive"
-            elif any(x in art_name for x in ["daft punk", "justice", "kavinsky", "carpenter brut"]):
-                res["archetype"] = "continuous_drive"
-            elif any(x in art_name for x in ["skrillex", "illenium"]):
-                res["archetype"] = "in_medias_res"
-            elif any(x in art_name for x in ["billie eilish", "chappell roan"]):
-                res["archetype"] = "aaba_classic"
-            else:
-                res["archetype"] = "narrative_7part"
+            if "artist" in res and self.edm_loader:
+                macro = self.edm_loader.get_macro_structure(res["artist"])
+                if macro and macro.get("archetype"):
+                    raw_arch = str(macro["archetype"]).lower()
+                    if "strophic" in raw_arch or "continuous" in raw_arch or "drive" in raw_arch:
+                        res["archetype"] = "continuous_drive"
+                    elif "slow" in raw_arch or "progressive" in raw_arch:
+                        res["archetype"] = "slow_burn_progressive"
+                    elif "in medias" in raw_arch or "hook" in raw_arch:
+                        res["archetype"] = "in_medias_res"
+                    elif "aaba" in raw_arch:
+                        res["archetype"] = "aaba_classic"
+                    elif "rondo" in raw_arch:
+                        res["archetype"] = "episodic_rondo"
+                    else:
+                        res["archetype"] = macro["archetype"]
+
+            if "archetype" not in res:
+                genre_archetypes = {
+                    "melodic_techno": "slow_burn_progressive",
+                    "french_touch": "continuous_drive",
+                    "dubstep": "in_medias_res",
+                    "future_bass": "in_medias_res",
+                    "dark_pop": "aaba_classic",
+                    "synthwave": "continuous_drive",
+                    "progressive_house": "narrative_7part",
+                    "drum_and_bass": "continuous_drive",
+                    "trance": "narrative_7part"
+                }
+                res["archetype"] = genre_archetypes.get(res.get("genre", ""), "narrative_7part")
 
         # 5. Match BPM
         bpm_match = re.search(r"(\d{2,3})\s*(?:bpm|tempo)", p_lower)
@@ -1173,7 +1192,36 @@ class StudioBrain:
         if bars is None:
             bars = 96
         if archetype is None:
-            archetype = "slow_burn_progressive" if (artist and "deadmau5" in artist.lower()) else "narrative_7part"
+            # Query artist's structural profile from edm_loader if available
+            if artist and self.edm_loader:
+                macro = self.edm_loader.get_macro_structure(artist)
+                if macro and macro.get("archetype"):
+                    raw_arch = str(macro["archetype"]).lower()
+                    if "strophic" in raw_arch or "continuous" in raw_arch or "drive" in raw_arch:
+                        archetype = "continuous_drive"
+                    elif "slow" in raw_arch or "progressive" in raw_arch:
+                        archetype = "slow_burn_progressive"
+                    elif "in medias" in raw_arch or "hook" in raw_arch:
+                        archetype = "in_medias_res"
+                    elif "aaba" in raw_arch:
+                        archetype = "aaba_classic"
+                    elif "rondo" in raw_arch:
+                        archetype = "episodic_rondo"
+                    else:
+                        archetype = macro["archetype"]
+            if archetype is None:
+                genre_archetypes = {
+                    "melodic_techno": "slow_burn_progressive",
+                    "french_touch": "continuous_drive",
+                    "dubstep": "in_medias_res",
+                    "future_bass": "in_medias_res",
+                    "dark_pop": "aaba_classic",
+                    "synthwave": "continuous_drive",
+                    "progressive_house": "narrative_7part",
+                    "drum_and_bass": "continuous_drive",
+                    "trance": "narrative_7part"
+                }
+                archetype = genre_archetypes.get(genre, "narrative_7part")
 
         # 3. Dynamic Querying across Loaders
         if artist:
@@ -1187,11 +1235,24 @@ class StudioBrain:
             if bpm is None:
                 if progression and progression.get("bpm"):
                     bpm = float(progression["bpm"])
-                else:
-                    bpm = 126.0 if "avicii" in artist.lower() else 118.0
+                elif self.edm_loader:
+                    art_data = self.edm_loader.get_artist(artist)
+                    if art_data and art_data.get("harmonic_progression", {}).get("bpm"):
+                        bpm = float(art_data["harmonic_progression"]["bpm"])
 
         if bpm is None:
-            bpm = 118.0
+            genre_default_bpms = {
+                "progressive_house": 126.0,
+                "melodic_techno": 124.0,
+                "french_touch": 122.0,
+                "dubstep": 140.0,
+                "future_bass": 150.0,
+                "dark_pop": 105.0,
+                "synthwave": 118.0,
+                "drum_and_bass": 174.0,
+                "trance": 138.0
+            }
+            bpm = genre_default_bpms.get(genre, 120.0)
 
         # 4. Generate the complete interconnected arrangement
         base_arr = create_arrangement(
