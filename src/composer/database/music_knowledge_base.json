@@ -1,0 +1,2867 @@
+{
+  "progressions": [
+    {
+      "source": "research/genre_deepdives/dreamwave_synthpop_database.md",
+      "data": {
+        "genre": "Dreamwave_Synthpop",
+        "bpm_range": [
+          85,
+          115
+        ],
+        "chord_dictionary": {
+          "Cmaj9": {
+            "type": "maj9",
+            "notes": [
+              48,
+              55,
+              64,
+              71,
+              74
+            ],
+            "role": "Tonic_Lush"
+          },
+          "Fmaj7": {
+            "type": "maj7",
+            "notes": [
+              53,
+              60,
+              65,
+              69,
+              72
+            ],
+            "role": "Subdominant_Dreamy"
+          },
+          "Am11": {
+            "type": "min11",
+            "notes": [
+              45,
+              52,
+              60,
+              64,
+              67,
+              74
+            ],
+            "role": "Relative_Minor_Deep"
+          },
+          "Fm6": {
+            "type": "min6",
+            "notes": [
+              53,
+              60,
+              65,
+              68,
+              74
+            ],
+            "role": "Borrowed_Melancholy"
+          },
+          "G/B": {
+            "type": "slash",
+            "notes": [
+              47,
+              55,
+              62,
+              67
+            ],
+            "role": "Passing_Tension"
+          }
+        },
+        "progressions": {
+          "verse_brooding": {
+            "description": "Atmospheric, unresolved movement relying on common tones.",
+            "chords": [
+              {
+                "chord": "Am9",
+                "duration_beats": 8,
+                "voicing": [
+                  45,
+                  52,
+                  60,
+                  64,
+                  71
+                ]
+              },
+              {
+                "chord": "Fmaj7(sus2)",
+                "duration_beats": 8,
+                "voicing": [
+                  41,
+                  53,
+                  60,
+                  65,
+                  67
+                ]
+              }
+            ],
+            "roman_numeral": "vi - IV"
+          },
+          "pre_chorus_buildup": {
+            "description": "Increasing tension leading into the triumphant chorus. Features the minor iv.",
+            "chords": [
+              {
+                "chord": "Dm7",
+                "duration_beats": 4,
+                "voicing": [
+                  50,
+                  57,
+                  60,
+                  65,
+                  69
+                ]
+              },
+              {
+                "chord": "Em7",
+                "duration_beats": 4,
+                "voicing": [
+                  52,
+                  59,
+                  62,
+                  67,
+                  71
+                ]
+              },
+              {
+                "chord": "Fmaj7",
+                "duration_beats": 4,
+                "voicing": [
+                  53,
+                  60,
+                  65,
+                  69,
+                  72
+                ]
+              },
+              {
+                "chord": "Fm6",
+                "duration_beats": 4,
+                "voicing": [
+                  53,
+                  60,
+                  65,
+                  68,
+                  74
+                ]
+              }
+            ],
+            "roman_numeral": "ii - iii - IV - iv"
+          },
+          "chorus_anthem": {
+            "description": "The soaring, nostalgic payoff with a descending bassline.",
+            "chords": [
+              {
+                "chord": "Cmaj9",
+                "duration_beats": 4,
+                "voicing": [
+                  48,
+                  55,
+                  64,
+                  71,
+                  74
+                ]
+              },
+              {
+                "chord": "G/B",
+                "duration_beats": 4,
+                "voicing": [
+                  47,
+                  55,
+                  62,
+                  67
+                ]
+              },
+              {
+                "chord": "Am11",
+                "duration_beats": 4,
+                "voicing": [
+                  45,
+                  52,
+                  60,
+                  64,
+                  67,
+                  74
+                ]
+              },
+              {
+                "chord": "Fmaj9",
+                "duration_beats": 4,
+                "voicing": [
+                  41,
+                  53,
+                  60,
+                  65,
+                  69,
+                  72
+                ]
+              }
+            ],
+            "roman_numeral": "I - V/7 - vi - IV"
+          }
+        }
+      }
+    },
+    {
+      "source": "research/genre_deepdives/darksynth_harmony_database.md",
+      "data": {
+        "darksynth_harmony": {
+          "version": "1.0",
+          "primary_scales": [
+            {
+              "name": "Aeolian",
+              "intervals": [
+                0,
+                2,
+                3,
+                5,
+                7,
+                8,
+                10
+              ],
+              "usage": "Base canvas for riffs and arpeggios."
+            },
+            {
+              "name": "Phrygian Dominant",
+              "intervals": [
+                0,
+                1,
+                4,
+                5,
+                7,
+                8,
+                10
+              ],
+              "usage": "Exotic, aggressive leads; provides the bII crunch."
+            },
+            {
+              "name": "Harmonic Minor",
+              "intervals": [
+                0,
+                2,
+                3,
+                5,
+                7,
+                8,
+                11
+              ],
+              "usage": "Gothic horror tension; V major to i minor cadences."
+            }
+          ],
+          "progressions": [
+            {
+              "id": "prog_phrygian_crunch",
+              "name": "The Carpenter bII Crunch",
+              "roman_numerals": [
+                "i",
+                "bVI",
+                "bII",
+                "i"
+              ],
+              "root_offsets_semitones": [
+                0,
+                8,
+                1,
+                0
+              ],
+              "chord_qualities": [
+                "min",
+                "maj",
+                "maj",
+                "min"
+              ],
+              "voicings": [
+                "power_chord",
+                "power_chord",
+                "power_chord",
+                "power_chord"
+              ],
+              "tension_level": "high",
+              "description": "Signature darksynth progression. The bII (Phrygian) crashing down into the tonic creates immense, heavy tension."
+            },
+            {
+              "id": "prog_cyberpunk_drive",
+              "name": "Cyber_Drive_Ascent",
+              "roman_numerals": [
+                "i",
+                "bIII",
+                "iv",
+                "bVI"
+              ],
+              "root_offsets_semitones": [
+                0,
+                3,
+                5,
+                8
+              ],
+              "chord_qualities": [
+                "min",
+                "maj",
+                "min",
+                "maj"
+              ],
+              "voicings": [
+                "min_triad",
+                "maj_triad",
+                "min_triad",
+                "maj_triad"
+              ],
+              "tension_level": "medium",
+              "description": "A driving, relentless progression often used with 16th note basslines for high-speed chase sequences."
+            },
+            {
+              "id": "prog_horror_descent",
+              "name": "Goblin's Descent",
+              "roman_numerals": [
+                "i",
+                "V",
+                "bVI",
+                "V"
+              ],
+              "root_offsets_semitones": [
+                0,
+                7,
+                8,
+                7
+              ],
+              "chord_qualities": [
+                "min",
+                "maj",
+                "maj",
+                "maj"
+              ],
+              "voicings": [
+                "min_add9",
+                "maj_triad",
+                "maj_triad",
+                "maj_triad"
+              ],
+              "tension_level": "extreme",
+              "description": "Harmonic minor descent emphasizing the leading tone and the semitone clash between V and bVI."
+            },
+            {
+              "id": "prog_tritone_sub",
+              "name": "Tritone Hell",
+              "roman_numerals": [
+                "i",
+                "bV",
+                "iv",
+                "V"
+              ],
+              "root_offsets_semitones": [
+                0,
+                6,
+                5,
+                7
+              ],
+              "chord_qualities": [
+                "power_chord",
+                "diminished",
+                "power_chord",
+                "power_chord"
+              ],
+              "voicings": [
+                "power_chord",
+                "dim_triad",
+                "power_chord",
+                "power_chord"
+              ],
+              "tension_level": "extreme",
+              "description": "Heavy use of the tritone (bV) for dissonant, jarring rhythmic stabs."
+            }
+          ],
+          "modal_interchange": [
+            {
+              "target_chord": "bII",
+              "borrowed_from": "Phrygian",
+              "typical_resolution": "i",
+              "effect": "Abrupt, aggressive downward resolution."
+            },
+            {
+              "target_chord": "V (Major)",
+              "borrowed_from": "Harmonic Minor",
+              "typical_resolution": "i",
+              "effect": "Strong classical/horror resolution."
+            }
+          ],
+          "bassline_formulas": [
+            {
+              "type": "gallop",
+              "pattern_16ths": [
+                1,
+                0,
+                1,
+                1
+              ],
+              "note_selection": [
+                "root",
+                "octave",
+                "root",
+                "root"
+              ],
+              "description": "Standard metal-influenced galloping bassline."
+            },
+            {
+              "type": "octave_pedal_tension",
+              "pattern_16ths": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ],
+              "note_selection": [
+                "root",
+                "root",
+                "root",
+                "root",
+                "root",
+                "root",
+                "b2",
+                "root"
+              ],
+              "description": "Relentless pedal point with a quick Phrygian passing tone for disruption."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Classic 2-5-1 Lo-Fi",
+        "bpm": 75,
+        "chords": [
+          {
+            "name": "Dmin9",
+            "voicing": [
+              60,
+              65,
+              69,
+              72,
+              76
+            ]
+          },
+          {
+            "name": "G13",
+            "voicing": [
+              55,
+              65,
+              71,
+              76,
+              77
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "A7(b13)",
+            "voicing": [
+              57,
+              61,
+              67,
+              70,
+              77
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Minor Subdominant Nostalgia",
+        "bpm": 80,
+        "chords": [
+          {
+            "name": "Fmaj9",
+            "voicing": [
+              53,
+              60,
+              65,
+              69,
+              72
+            ]
+          },
+          {
+            "name": "Fmin9",
+            "voicing": [
+              53,
+              60,
+              63,
+              68,
+              72
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              55,
+              64,
+              67,
+              71
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              55,
+              64,
+              67,
+              71
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Tritone Walkdown",
+        "bpm": 78,
+        "chords": [
+          {
+            "name": "Emin9",
+            "voicing": [
+              52,
+              59,
+              62,
+              67,
+              71
+            ]
+          },
+          {
+            "name": "Eb9",
+            "voicing": [
+              51,
+              57,
+              61,
+              65,
+              68
+            ]
+          },
+          {
+            "name": "Dmin9",
+            "voicing": [
+              50,
+              57,
+              60,
+              65,
+              69
+            ]
+          },
+          {
+            "name": "Db9",
+            "voicing": [
+              49,
+              56,
+              59,
+              63,
+              68
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Neo-Soul Turnaround",
+        "bpm": 72,
+        "chords": [
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Bmin11",
+            "voicing": [
+              59,
+              66,
+              69,
+              74,
+              76
+            ]
+          },
+          {
+            "name": "E7(b9)",
+            "voicing": [
+              52,
+              64,
+              68,
+              74,
+              77
+            ]
+          },
+          {
+            "name": "Amin11",
+            "voicing": [
+              57,
+              64,
+              67,
+              72,
+              74
+            ]
+          },
+          {
+            "name": "D13",
+            "voicing": [
+              50,
+              60,
+              66,
+              71,
+              74
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Diminished Passing",
+        "bpm": 82,
+        "chords": [
+          {
+            "name": "Dmin9",
+            "voicing": [
+              50,
+              65,
+              69,
+              72,
+              76
+            ]
+          },
+          {
+            "name": "D#dim7",
+            "voicing": [
+              51,
+              63,
+              66,
+              69,
+              75
+            ]
+          },
+          {
+            "name": "Emin7",
+            "voicing": [
+              52,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "A7(alt)",
+            "voicing": [
+              57,
+              61,
+              65,
+              70,
+              75
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Parallel Float",
+        "bpm": 70,
+        "chords": [
+          {
+            "name": "Abmaj9",
+            "voicing": [
+              56,
+              63,
+              68,
+              72,
+              75
+            ]
+          },
+          {
+            "name": "Gmaj9",
+            "voicing": [
+              55,
+              62,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Gbmaj9",
+            "voicing": [
+              54,
+              61,
+              66,
+              70,
+              73
+            ]
+          },
+          {
+            "name": "Fmaj9",
+            "voicing": [
+              53,
+              60,
+              65,
+              69,
+              72
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Aeolian Borrowing",
+        "bpm": 76,
+        "chords": [
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Abmaj7",
+            "voicing": [
+              56,
+              63,
+              68,
+              72,
+              75
+            ]
+          },
+          {
+            "name": "Bbmaj7",
+            "voicing": [
+              58,
+              65,
+              70,
+              74,
+              77
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Phrygian Major Float",
+        "bpm": 85,
+        "chords": [
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Dbmaj9",
+            "voicing": [
+              49,
+              65,
+              68,
+              72,
+              75
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Dbmaj9",
+            "voicing": [
+              49,
+              65,
+              68,
+              72,
+              75
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Sus Ambiguity",
+        "bpm": 74,
+        "chords": [
+          {
+            "name": "Fmaj7",
+            "voicing": [
+              53,
+              65,
+              69,
+              72,
+              76
+            ]
+          },
+          {
+            "name": "Gsus4",
+            "voicing": [
+              55,
+              65,
+              67,
+              72,
+              77
+            ]
+          },
+          {
+            "name": "Esus4",
+            "voicing": [
+              52,
+              64,
+              69,
+              74,
+              76
+            ]
+          },
+          {
+            "name": "Asus4",
+            "voicing": [
+              57,
+              69,
+              74,
+              76,
+              81
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/genre_deepdives/lofi_neosoul_harmony_database.md",
+      "data": {
+        "name": "Dilla Offset",
+        "bpm": 86,
+        "chords": [
+          {
+            "name": "Dmin11",
+            "voicing": [
+              50,
+              65,
+              69,
+              72,
+              76
+            ]
+          },
+          {
+            "name": "G7(#9)",
+            "voicing": [
+              55,
+              65,
+              71,
+              74,
+              75
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "A7(b13)",
+            "voicing": [
+              57,
+              61,
+              67,
+              70,
+              77
+            ]
+          },
+          {
+            "name": "Dmin11",
+            "voicing": [
+              50,
+              65,
+              69,
+              72,
+              76
+            ]
+          },
+          {
+            "name": "Db13",
+            "voicing": [
+              49,
+              63,
+              68,
+              73,
+              75
+            ]
+          },
+          {
+            "name": "Cmaj9",
+            "voicing": [
+              48,
+              64,
+              67,
+              71,
+              74
+            ]
+          },
+          {
+            "name": "Bb13",
+            "voicing": [
+              46,
+              62,
+              68,
+              72,
+              74
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "motifs": [
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "Dotted 8th Lead",
+        "length_16ths": 48,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44
+        ],
+        "lead_pattern": [
+          0,
+          3,
+          6,
+          9,
+          12,
+          15,
+          18,
+          21,
+          24,
+          27,
+          30,
+          33,
+          36,
+          39,
+          42,
+          45
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "3:2 Hi-Hat Hemiola",
+        "length_16ths": 16,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "hihat_pattern": [
+          0,
+          3,
+          6,
+          8,
+          11,
+          14
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "5/16 Bassline",
+        "length_16ths": 80,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60,
+          64,
+          68,
+          72,
+          76
+        ],
+        "bass_pattern": [
+          0,
+          5,
+          10,
+          15,
+          20,
+          25,
+          30,
+          35,
+          40,
+          45,
+          50,
+          55,
+          60,
+          65,
+          70,
+          75
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "7/16 Arpeggio",
+        "length_16ths": 112,
+        "kick_pattern_interval": 4,
+        "arp_pattern_interval": 7
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "3-against-4 Chords",
+        "length_16ths": 16,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "chord_pattern": [
+          0,
+          5,
+          10
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "Metric Mod Transition",
+        "length_16ths": 32,
+        "bar1_4_4_drums": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "bar2_implied_6_8_kick": [
+          16,
+          21,
+          26
+        ],
+        "bar2_implied_6_8_snare": [
+          21,
+          29
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "3/8 Bass",
+        "length_16ths": 48,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44
+        ],
+        "bass_pattern": [
+          0,
+          6,
+          12,
+          18,
+          24,
+          30,
+          36,
+          42
+        ]
+      }
+    },
+    {
+      "source": "research/midi_patterns/polyrhythms_and_metric_modulation.md",
+      "data": {
+        "name": "5:4 Percussion",
+        "length_16ths": 16,
+        "kick_pattern": [
+          0,
+          4,
+          8,
+          12
+        ],
+        "percussion_pattern": [
+          0,
+          3.2,
+          6.4,
+          9.6,
+          12.8
+        ]
+      }
+    },
+    {
+      "source": "research/motifs/earworm_hook_database.md",
+      "data": {
+        "motifs": [
+          {
+            "id": "motif_001",
+            "style": "Anthemic House (Avicii)",
+            "bpm_range": [
+              126,
+              128
+            ],
+            "key": "F# minor",
+            "rhythm_type": "Syncopated Offbeats",
+            "notes": [
+              {
+                "pitch": "F#4",
+                "start_beat": 1.0,
+                "duration_beats": 0.5,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "A4",
+                "start_beat": 1.75,
+                "duration_beats": 0.25,
+                "velocity": 85,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "C#5",
+                "start_beat": 2.25,
+                "duration_beats": 0.5,
+                "velocity": 110,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "B4",
+                "start_beat": 3.0,
+                "duration_beats": 0.75,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "A4",
+                "start_beat": 4.5,
+                "duration_beats": 0.5,
+                "velocity": 95,
+                "pitch_bend": 0
+              }
+            ]
+          },
+          {
+            "id": "motif_002",
+            "style": "Progressive Pluck (deadmau5)",
+            "bpm_range": [
+              128,
+              130
+            ],
+            "key": "B minor",
+            "rhythm_type": "Polyrhythmic 16ths",
+            "notes": [
+              {
+                "pitch": "B3",
+                "start_beat": 1.0,
+                "duration_beats": 0.25,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "D4",
+                "start_beat": 1.75,
+                "duration_beats": 0.25,
+                "velocity": 75,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "F#4",
+                "start_beat": 2.5,
+                "duration_beats": 0.25,
+                "velocity": 85,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "B4",
+                "start_beat": 3.25,
+                "duration_beats": 0.25,
+                "velocity": 120,
+                "pitch_bend": 0
+              }
+            ]
+          },
+          {
+            "id": "motif_003",
+            "style": "Synthwave Lead (The Midnight)",
+            "bpm_range": [
+              90,
+              110
+            ],
+            "key": "Eb major",
+            "rhythm_type": "Legato with Glide",
+            "notes": [
+              {
+                "pitch": "Eb4",
+                "start_beat": 1.0,
+                "duration_beats": 1.5,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "F4",
+                "start_beat": 2.5,
+                "duration_beats": 0.5,
+                "velocity": 80,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "G4",
+                "start_beat": 3.0,
+                "duration_beats": 1.0,
+                "velocity": 110,
+                "pitch_bend": 2000
+              },
+              {
+                "pitch": "Bb4",
+                "start_beat": 4.0,
+                "duration_beats": 2.0,
+                "velocity": 95,
+                "pitch_bend": -1000
+              }
+            ]
+          },
+          {
+            "id": "motif_004",
+            "style": "Festival Big Room (Swedish House Mafia)",
+            "bpm_range": [
+              125,
+              128
+            ],
+            "key": "G minor",
+            "rhythm_type": "Staccato Downbeats",
+            "notes": [
+              {
+                "pitch": "G4",
+                "start_beat": 1.0,
+                "duration_beats": 0.25,
+                "velocity": 127,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "G4",
+                "start_beat": 1.5,
+                "duration_beats": 0.25,
+                "velocity": 110,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "D5",
+                "start_beat": 2.0,
+                "duration_beats": 0.5,
+                "velocity": 127,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "C5",
+                "start_beat": 3.0,
+                "duration_beats": 0.5,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "Bb4",
+                "start_beat": 4.0,
+                "duration_beats": 0.5,
+                "velocity": 115,
+                "pitch_bend": 0
+              }
+            ]
+          },
+          {
+            "id": "motif_005",
+            "style": "Melancholy Pop-Dance",
+            "bpm_range": [
+              115,
+              122
+            ],
+            "key": "C minor",
+            "rhythm_type": "Call and Response",
+            "notes": [
+              {
+                "pitch": "C5",
+                "start_beat": 1.0,
+                "duration_beats": 0.5,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "Eb5",
+                "start_beat": 1.5,
+                "duration_beats": 0.5,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "G5",
+                "start_beat": 2.5,
+                "duration_beats": 1.0,
+                "velocity": 110,
+                "pitch_bend": 500
+              },
+              {
+                "pitch": "F5",
+                "start_beat": 4.5,
+                "duration_beats": 0.5,
+                "velocity": 85,
+                "pitch_bend": 0
+              }
+            ]
+          },
+          {
+            "id": "motif_006",
+            "style": "Deep House Chord-Lead",
+            "bpm_range": [
+              120,
+              124
+            ],
+            "key": "A minor",
+            "rhythm_type": "Dotted 8ths",
+            "notes": [
+              {
+                "pitch": "A4",
+                "start_beat": 1.0,
+                "duration_beats": 0.75,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "E5",
+                "start_beat": 1.75,
+                "duration_beats": 0.75,
+                "velocity": 110,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "D5",
+                "start_beat": 2.5,
+                "duration_beats": 0.5,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "C5",
+                "start_beat": 4.0,
+                "duration_beats": 1.0,
+                "velocity": 95,
+                "pitch_bend": -500
+              }
+            ]
+          },
+          {
+            "id": "motif_007",
+            "style": "Trance Arp (Classic)",
+            "bpm_range": [
+              135,
+              140
+            ],
+            "key": "E minor",
+            "rhythm_type": "Straight 16ths",
+            "notes": [
+              {
+                "pitch": "E4",
+                "start_beat": 1.0,
+                "duration_beats": 0.25,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "G4",
+                "start_beat": 1.25,
+                "duration_beats": 0.25,
+                "velocity": 80,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "B4",
+                "start_beat": 1.5,
+                "duration_beats": 0.25,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "E5",
+                "start_beat": 1.75,
+                "duration_beats": 0.25,
+                "velocity": 120,
+                "pitch_bend": 0
+              }
+            ]
+          },
+          {
+            "id": "motif_008",
+            "style": "Modern Tech House",
+            "bpm_range": [
+              126,
+              128
+            ],
+            "key": "D minor",
+            "rhythm_type": "Minimal Syncopation",
+            "notes": [
+              {
+                "pitch": "D3",
+                "start_beat": 1.5,
+                "duration_beats": 0.25,
+                "velocity": 110,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "F3",
+                "start_beat": 2.5,
+                "duration_beats": 0.25,
+                "velocity": 90,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "D4",
+                "start_beat": 4.5,
+                "duration_beats": 0.5,
+                "velocity": 127,
+                "pitch_bend": -8192
+              }
+            ]
+          },
+          {
+            "id": "motif_009",
+            "style": "Future Bass Glide",
+            "bpm_range": [
+              140,
+              160
+            ],
+            "key": "F major",
+            "rhythm_type": "Triplets & Glides",
+            "notes": [
+              {
+                "pitch": "F4",
+                "start_beat": 1.0,
+                "duration_beats": 1.0,
+                "velocity": 100,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "A4",
+                "start_beat": 2.33,
+                "duration_beats": 0.33,
+                "velocity": 90,
+                "pitch_bend": 4096
+              },
+              {
+                "pitch": "C5",
+                "start_beat": 3.0,
+                "duration_beats": 1.5,
+                "velocity": 110,
+                "pitch_bend": 8192
+              }
+            ]
+          },
+          {
+            "id": "motif_010",
+            "style": "Euphoric Hardstyle",
+            "bpm_range": [
+              150,
+              155
+            ],
+            "key": "G# minor",
+            "rhythm_type": "Anthemic Quarters & 8ths",
+            "notes": [
+              {
+                "pitch": "G#4",
+                "start_beat": 1.0,
+                "duration_beats": 1.0,
+                "velocity": 127,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "D#5",
+                "start_beat": 2.0,
+                "duration_beats": 0.5,
+                "velocity": 115,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "C#5",
+                "start_beat": 2.5,
+                "duration_beats": 0.5,
+                "velocity": 115,
+                "pitch_bend": 0
+              },
+              {
+                "pitch": "B4",
+                "start_beat": 3.0,
+                "duration_beats": 1.0,
+                "velocity": 120,
+                "pitch_bend": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/motifs/arpeggiator_counterpoint_database.md",
+      "data": {
+        "arpeggiator_patterns": [
+          {
+            "id": "ARP_001",
+            "name": "Classic 16th Trance Gate",
+            "mode": "Up-Down",
+            "subdivision": "1/16",
+            "gate_percentage": 25,
+            "octave_range": 2,
+            "velocity_curve": "Accent on downbeats (127, 90, 100, 90)"
+          },
+          {
+            "id": "ARP_002",
+            "name": "Darksynth Gallop",
+            "mode": "As-Played",
+            "subdivision": "1/8",
+            "delay_sync": "3/16 (Dotted 8th)",
+            "gate_percentage": 50,
+            "octave_range": 1,
+            "filter_movement": "Slow upward ramp over 8 bars"
+          },
+          {
+            "id": "ARP_003",
+            "name": "Cinematic Triplet Roll",
+            "mode": "Random",
+            "subdivision": "1/8T",
+            "gate_percentage": 80,
+            "octave_range": 3,
+            "velocity_curve": "Randomized (60-110) for humanization"
+          },
+          {
+            "id": "ARP_004",
+            "name": "Converging Focus",
+            "mode": "Converge",
+            "subdivision": "1/16",
+            "gate_percentage": 40,
+            "octave_range": 4,
+            "note_behavior": "Pinches inward to root note"
+          },
+          {
+            "id": "ARP_005",
+            "name": "Expansive Divergence",
+            "mode": "Diverge",
+            "subdivision": "1/8",
+            "gate_percentage": 60,
+            "octave_range": 2,
+            "note_behavior": "Blossoms outward from the third"
+          }
+        ],
+        "counterpoint_rules": [
+          {
+            "id": "CPT_001",
+            "name": "Gap Filler (Obbligato)",
+            "trigger_condition": "Lead rests > 1 beat",
+            "action": "Generate melodic fill in counter-voice",
+            "interval_preference": [
+              "3rd",
+              "6th"
+            ]
+          },
+          {
+            "id": "CPT_002",
+            "name": "Contrary Motion Engine",
+            "trigger_condition": "Lead moves > a perfect 4th in one direction",
+            "action": "Move counter-voice in opposite direction by step",
+            "interval_preference": [
+              "Stepwise",
+              "3rd"
+            ]
+          },
+          {
+            "id": "CPT_003",
+            "name": "Sustained Anchor",
+            "trigger_condition": "Lead plays 16th notes",
+            "action": "Hold whole notes on chord tones (Root or 5th)",
+            "register_offset": "-1 Octave"
+          },
+          {
+            "id": "CPT_004",
+            "name": "Rhythmic Hocket",
+            "trigger_condition": "Lead plays syncopated 8ths",
+            "action": "Play on the exact off-beats of the lead",
+            "velocity_mapping": "Match lead accentuation"
+          },
+          {
+            "id": "CPT_005",
+            "name": "Climax Harmonization",
+            "trigger_condition": "Track intensity > 80%",
+            "action": "Shadow lead melody in parallel 6ths",
+            "rhythmic_density": "Match lead perfectly"
+          }
+        ]
+      }
+    }
+  ],
+  "drum_grooves": [
+    {
+      "source": "research/drums_percussion/halftime_breakbeat_database.md",
+      "data": {
+        "groove_maps": [
+          {
+            "id": "halftime_glitch_mob_style",
+            "name": "Heavy Halftime (Glitch Mob Style)",
+            "tempo": 90,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.1",
+                "velocity": 90
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.3",
+                "velocity": 70
+              },
+              {
+                "instrument": "snare",
+                "position": "1.3.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.3.1",
+                "velocity": 90
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.4",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.3.3",
+                "velocity": 70
+              }
+            ],
+            "swing_percentage": 50
+          },
+          {
+            "id": "classic_amen_variation",
+            "name": "Amen Break Variation",
+            "tempo": 170,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "ride",
+                "position": "1.1.1",
+                "velocity": 90
+              },
+              {
+                "instrument": "kick",
+                "position": "1.1.3",
+                "velocity": 100
+              },
+              {
+                "instrument": "ride",
+                "position": "1.1.3",
+                "velocity": 85
+              },
+              {
+                "instrument": "snare",
+                "position": "1.2.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "ride",
+                "position": "1.2.1",
+                "velocity": 90
+              },
+              {
+                "instrument": "snare_ghost",
+                "position": "1.2.4",
+                "velocity": 50
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.3",
+                "velocity": 110
+              },
+              {
+                "instrument": "snare",
+                "position": "1.4.1",
+                "velocity": 127
+              }
+            ],
+            "swing_percentage": 50
+          },
+          {
+            "id": "two_step_garage",
+            "name": "2-Step Garage Core",
+            "tempo": 135,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 110
+              },
+              {
+                "instrument": "kick",
+                "position": "1.2.4",
+                "velocity": 100
+              },
+              {
+                "instrument": "snare",
+                "position": "1.2.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "snare",
+                "position": "1.4.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.3",
+                "velocity": 90
+              },
+              {
+                "instrument": "hihat_open",
+                "position": "1.3.3",
+                "velocity": 105
+              }
+            ],
+            "swing_percentage": 62
+          },
+          {
+            "id": "syncopated_kick_displacement",
+            "name": "16th Note Kick Displacement",
+            "tempo": 120,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "kick",
+                "position": "1.1.4",
+                "velocity": 115
+              },
+              {
+                "instrument": "snare",
+                "position": "1.2.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.2",
+                "velocity": 110
+              },
+              {
+                "instrument": "snare",
+                "position": "1.4.1",
+                "velocity": 120
+              }
+            ],
+            "swing_percentage": 55
+          },
+          {
+            "id": "pendulum_dnb_step",
+            "name": "Arena DnB (Pendulum Style)",
+            "tempo": 174,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "snare",
+                "position": "1.2.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.3",
+                "velocity": 120
+              },
+              {
+                "instrument": "snare",
+                "position": "1.4.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.1",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.3",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.2.1",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.2.3",
+                "velocity": 100
+              }
+            ],
+            "swing_percentage": 50
+          },
+          {
+            "id": "kavinsky_halftime_synthwave",
+            "name": "Synthwave Halftime Breakdown",
+            "tempo": 100,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "snare_gated",
+                "position": "1.3.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.4",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.1",
+                "velocity": 85
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.3",
+                "velocity": 85
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.2.1",
+                "velocity": 85
+              }
+            ],
+            "swing_percentage": 50
+          },
+          {
+            "id": "breakbeat_hardcore",
+            "name": "Rave Breakbeat",
+            "tempo": 150,
+            "time_signature": "4/4",
+            "resolution": "16th",
+            "pattern": [
+              {
+                "instrument": "kick",
+                "position": "1.1.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "snare",
+                "position": "1.2.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "kick",
+                "position": "1.2.4",
+                "velocity": 100
+              },
+              {
+                "instrument": "kick",
+                "position": "1.3.2",
+                "velocity": 90
+              },
+              {
+                "instrument": "snare",
+                "position": "1.4.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "snare_ghost",
+                "position": "1.4.4",
+                "velocity": 60
+              }
+            ],
+            "swing_percentage": 54
+          },
+          {
+            "id": "halftime_trap_hybrid",
+            "name": "Halftime Trap Hybrid",
+            "tempo": 140,
+            "time_signature": "4/4",
+            "resolution": "32nd",
+            "pattern": [
+              {
+                "instrument": "kick_808",
+                "position": "1.1.1",
+                "velocity": 127
+              },
+              {
+                "instrument": "snare",
+                "position": "1.3.1",
+                "velocity": 120
+              },
+              {
+                "instrument": "kick_808",
+                "position": "1.3.4",
+                "velocity": 100
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.1",
+                "velocity": 90
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.2",
+                "velocity": 90
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.3",
+                "velocity": 90
+              },
+              {
+                "instrument": "hihat_closed",
+                "position": "1.1.4",
+                "velocity": 90
+              }
+            ],
+            "swing_percentage": 50
+          }
+        ]
+      }
+    }
+  ],
+  "basslines": [],
+  "arrangements": [],
+  "patches": [
+    {
+      "source": "research/sound_design/analog_synth_patch_database.md",
+      "data": {
+        "patch_name": "Rolling Cyberpunk Bass",
+        "synth_type": "Subtractive Analog Monosynth",
+        "oscillators": [
+          {
+            "id": "Osc1",
+            "waveform": "sawtooth",
+            "octave": 0
+          },
+          {
+            "id": "Osc2",
+            "waveform": "square",
+            "octave": -1
+          },
+          {
+            "id": "Sub",
+            "waveform": "triangle",
+            "mix": 0.5
+          }
+        ],
+        "filter": {
+          "type": "ladder_24db",
+          "cutoff_hz": 40,
+          "resonance_pct": 30,
+          "env_amount_pct": 60
+        },
+        "envelopes": {
+          "filter": {
+            "a": 0,
+            "d": 300,
+            "s": 10,
+            "r": 100
+          },
+          "amp": {
+            "a": 0,
+            "d": 400,
+            "s": 80,
+            "r": 100
+          }
+        },
+        "portamento_ms": 15
+      }
+    },
+    {
+      "source": "research/sound_design/analog_synth_patch_database.md",
+      "data": {
+        "patch_name": "Warm Vintage 80s Pad",
+        "synth_type": "Roland Juno-106",
+        "oscillators": [
+          {
+            "waveform": "sawtooth",
+            "mix": 1.0
+          },
+          {
+            "waveform": "square",
+            "mix": 1.0,
+            "pwm_lfo_rate_hz": 0.4,
+            "pwm_amount_pct": 40
+          },
+          {
+            "waveform": "sub_square",
+            "mix": 0.3
+          }
+        ],
+        "filter": {
+          "type": "lowpass_24db",
+          "cutoff_hz": 600,
+          "resonance_pct": 0,
+          "hpf_freq": 1
+        },
+        "envelopes": {
+          "filter": {
+            "a": 800,
+            "d": 1000,
+            "s": 50,
+            "r": 2500
+          },
+          "amp": {
+            "a": 1200,
+            "d": 0,
+            "s": 100,
+            "r": 2500
+          }
+        },
+        "effects": {
+          "chorus": "Mode II"
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/analog_synth_patch_database.md",
+      "data": {
+        "patch_name": "Soaring Resonant Mono-Lead",
+        "synth_type": "Roland Jupiter-8",
+        "oscillators": [
+          {
+            "id": "Osc1",
+            "waveform": "sawtooth",
+            "sync": "master"
+          },
+          {
+            "id": "Osc2",
+            "waveform": "square",
+            "tuning": "+7st",
+            "sync": "slave"
+          }
+        ],
+        "filter": {
+          "type": "lowpass_12db",
+          "cutoff_hz": 1200,
+          "resonance_pct": 70
+        },
+        "envelopes": {
+          "filter": {
+            "a": 50,
+            "d": 400,
+            "s": 30,
+            "r": 300
+          },
+          "amp": {
+            "a": 10,
+            "d": 500,
+            "s": 100,
+            "r": 200
+          }
+        },
+        "modulation": {
+          "vibrato_delay_ms": 500,
+          "vibrato_rate_hz": 5.0
+        },
+        "portamento_ms": 60
+      }
+    },
+    {
+      "source": "research/sound_design/analog_synth_patch_database.md",
+      "data": {
+        "patch_name": "Nostalgic FM Electric Piano",
+        "synth_type": "Yamaha DX7",
+        "algorithm": 5,
+        "operators": [
+          {
+            "id": 1,
+            "type": "carrier",
+            "ratio": 1.0,
+            "detune": 0
+          },
+          {
+            "id": 2,
+            "type": "modulator",
+            "ratio": 14.0,
+            "env": {
+              "a": 0,
+              "d": 200,
+              "s": 0,
+              "r": 100
+            },
+            "velocity_sens": 99
+          },
+          {
+            "id": 3,
+            "type": "carrier",
+            "ratio": 1.0,
+            "detune": 3
+          },
+          {
+            "id": 4,
+            "type": "modulator",
+            "ratio": 2.0,
+            "env": {
+              "a": 0,
+              "d": 800,
+              "s": 0,
+              "r": 300
+            },
+            "velocity_sens": 70
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/sound_design/analog_synth_patch_database.md",
+      "data": {
+        "patch_name": "Plucked Neon Arpeggio",
+        "synth_type": "Subtractive Analog Poly",
+        "oscillators": [
+          {
+            "id": "Osc1",
+            "waveform": "square"
+          },
+          {
+            "id": "Osc2",
+            "waveform": "pulse_25",
+            "detune_cents": 5
+          }
+        ],
+        "filter": {
+          "type": "lowpass_24db",
+          "cutoff_hz": 150,
+          "resonance_pct": 40,
+          "env_amount_pct": 80
+        },
+        "envelopes": {
+          "filter": {
+            "a": 0,
+            "d": 150,
+            "s": 0,
+            "r": 50
+          },
+          "amp": {
+            "a": 0,
+            "d": 250,
+            "s": 0,
+            "r": 100
+          }
+        },
+        "effects": {
+          "delay": {
+            "type": "ping_pong",
+            "sync": "3/16",
+            "feedback_pct": 30
+          }
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/lead_articulation_humanization.md",
+      "data": {
+        "lead_articulation_models": [
+          {
+            "model_id": "M01_FRENCH_TOUCH_GLIDER",
+            "style_reference": "Daft Punk",
+            "synthesis_type": "square_saw_talkbox",
+            "portamento": {
+              "mode": "legato",
+              "time_ms": 45,
+              "curve": "exponential"
+            },
+            "pitch_bend": {
+              "type": "scoop",
+              "range_st": -2,
+              "duration_ms": 80
+            },
+            "vibrato": {
+              "delay_ms": 300,
+              "attack_ms": 150,
+              "rate_hz": 4.5,
+              "depth_cents": 20
+            }
+          },
+          {
+            "model_id": "M02_COMPLEXTRO_LASER",
+            "style_reference": "Skrillex",
+            "synthesis_type": "fm_growl_lead",
+            "portamento": {
+              "mode": "always",
+              "time_ms": 30,
+              "curve": "linear"
+            },
+            "pitch_bend": {
+              "type": "whip_down",
+              "range_st": 12,
+              "duration_ms": 40
+            },
+            "vibrato": {
+              "delay_ms": 0,
+              "attack_ms": 0,
+              "rate_hz": 0,
+              "depth_cents": 0
+            }
+          },
+          {
+            "model_id": "M03_NURTURE_BREATHY_CHOP",
+            "style_reference": "Porter Robinson",
+            "synthesis_type": "vocal_chop_sampler",
+            "portamento": {
+              "mode": "legato",
+              "time_ms": 85,
+              "curve": "logarithmic"
+            },
+            "pitch_bend": {
+              "type": "scoop",
+              "range_st": -2,
+              "duration_ms": 120
+            },
+            "vibrato": {
+              "delay_ms": 350,
+              "attack_ms": 200,
+              "rate_hz": 5.0,
+              "depth_cents": 30
+            },
+            "formant_shift": {
+              "velocity_mapped": true,
+              "low_vel_shift": 3,
+              "high_vel_shift": -1
+            }
+          },
+          {
+            "model_id": "M04_ADVENTURE_STACCATO_ARP",
+            "style_reference": "Madeon",
+            "synthesis_type": "pulse_vocal_hybrid",
+            "portamento": {
+              "mode": "off",
+              "time_ms": 0,
+              "curve": "none"
+            },
+            "pitch_bend": {
+              "type": "none",
+              "range_st": 0,
+              "duration_ms": 0
+            },
+            "vibrato": {
+              "delay_ms": 200,
+              "attack_ms": 100,
+              "rate_hz": 6.0,
+              "depth_cents": 25
+            },
+            "formant_shift": {
+              "velocity_mapped": false,
+              "static_shift": 2
+            }
+          },
+          {
+            "model_id": "M05_EMOTIONAL_SWELL",
+            "style_reference": "Porter Robinson",
+            "synthesis_type": "supersaw_lead",
+            "portamento": {
+              "mode": "legato",
+              "time_ms": 70,
+              "curve": "exponential"
+            },
+            "pitch_bend": {
+              "type": "scoop",
+              "range_st": -2,
+              "duration_ms": 150
+            },
+            "vibrato": {
+              "delay_ms": 400,
+              "attack_ms": 300,
+              "rate_hz": 4.0,
+              "depth_cents": 35
+            }
+          },
+          {
+            "model_id": "M06_DISCOVERY_SOLO",
+            "style_reference": "Daft Punk",
+            "synthesis_type": "moog_triangle",
+            "portamento": {
+              "mode": "legato",
+              "time_ms": 60,
+              "curve": "linear"
+            },
+            "pitch_bend": {
+              "type": "up_down_flick",
+              "range_st": 2,
+              "duration_ms": 90
+            },
+            "vibrato": {
+              "delay_ms": 250,
+              "attack_ms": 100,
+              "rate_hz": 5.5,
+              "depth_cents": 25
+            }
+          },
+          {
+            "model_id": "M07_AGGRESSIVE_VOWEL_BASS",
+            "style_reference": "Skrillex",
+            "synthesis_type": "wavetable_vowel",
+            "portamento": {
+              "mode": "always",
+              "time_ms": 40,
+              "curve": "exponential"
+            },
+            "pitch_bend": {
+              "type": "scoop",
+              "range_st": -12,
+              "duration_ms": 200
+            },
+            "vibrato": {
+              "delay_ms": 100,
+              "attack_ms": 50,
+              "rate_hz": 4.0,
+              "depth_cents": 15
+            }
+          },
+          {
+            "model_id": "M08_SHELTER_CHORD_LEAD",
+            "style_reference": "Madeon / Porter Robinson",
+            "synthesis_type": "layered_vocal_synth",
+            "portamento": {
+              "mode": "legato",
+              "time_ms": 80,
+              "curve": "logarithmic"
+            },
+            "pitch_bend": {
+              "type": "scoop",
+              "range_st": -1,
+              "duration_ms": 100
+            },
+            "vibrato": {
+              "delay_ms": 300,
+              "attack_ms": 150,
+              "rate_hz": 4.5,
+              "depth_cents": 20
+            },
+            "formant_shift": {
+              "velocity_mapped": true,
+              "low_vel_shift": 4,
+              "high_vel_shift": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Shimmering_Granular_Pad",
+        "source": "piano_minor_chord",
+        "fx_chain": {
+          "granular": {
+            "grain_size_ms": 150,
+            "density": 8,
+            "pitch_shift": "+12st"
+          },
+          "reverb": {
+            "type": "shimmer",
+            "decay_time_s": 25.0,
+            "mix_pct": 100,
+            "feedback_pitch_shift": "+12st",
+            "high_cut_hz": 8000
+          }
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Abyssal_Sub_Drone",
+        "source": "dual_sine_oscillators",
+        "tuning": [
+          "tonic",
+          "perfect_fifth"
+        ],
+        "modulation": {
+          "lfo_1": {
+            "target": "lowpass_filter_cutoff",
+            "rate_hz": 0.05,
+            "waveform": "sine",
+            "depth_pct": 30
+          },
+          "lfo_2": {
+            "target": "amplitude",
+            "rate_hz": 0.02,
+            "waveform": "triangle",
+            "depth_pct": 15
+          }
+        },
+        "filter": {
+          "type": "lowpass_24db",
+          "cutoff_hz": 120,
+          "resonance": 0.2
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Wasteland_Noise_Floor",
+        "layers": [
+          {
+            "source": "rain_loop",
+            "eq": {
+              "low_cut_hz": 300,
+              "high_cut_hz": 12000
+            },
+            "volume_db": -18
+          },
+          {
+            "source": "vinyl_crackle",
+            "eq": {
+              "low_cut_hz": 800
+            },
+            "volume_db": -24
+          },
+          {
+            "source": "apollo_radio_chatter",
+            "fx": {
+              "bandpass_hz": [
+                1000,
+                4000
+              ],
+              "reverb_mix_pct": 80,
+              "delay_ms": 400
+            },
+            "volume_db": -20
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Binaural_Evolving_Horizon",
+        "source": "bowed_metal",
+        "spatialization": {
+          "type": "binaural",
+          "azimuth_lfo": {
+            "rate_hz": 0.03,
+            "waveform": "sine",
+            "range_degrees": [
+              -90,
+              90
+            ]
+          },
+          "elevation_lfo": {
+            "rate_hz": 0.015,
+            "waveform": "triangle",
+            "range_degrees": [
+              -20,
+              20
+            ]
+          },
+          "distance_lfo": {
+            "rate_hz": 0.01,
+            "range_meters": [
+              2.0,
+              10.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Cyberpunk_Modular_Tension",
+        "source": "white_noise_burst",
+        "filter": {
+          "type": "bandpass",
+          "cutoff_lfo_rate_hz": 0.1,
+          "resonance": 0.85
+        },
+        "fx_chain": {
+          "granular_delay": {
+            "delay_time_ms": 350,
+            "feedback_pct": 70,
+            "pitch_jitter_pct": 20,
+            "grain_size_randomization": true
+          },
+          "distortion": {
+            "type": "soft_clip",
+            "drive_db": 6
+          }
+        }
+      }
+    },
+    {
+      "source": "research/sound_design/cinematic_textures_ambience.md",
+      "data": {
+        "texture_name": "Frozen_Time_Stretched_Choirs",
+        "source": "mellotron_choir_sample",
+        "processing": {
+          "time_stretch_pct": 800,
+          "algorithm": "paulxstretch",
+          "formant_shift": "-2st"
+        },
+        "fx_chain": {
+          "chorus": {
+            "rate_hz": 0.4,
+            "depth_pct": 60,
+            "voices": 4
+          },
+          "reverb": {
+            "type": "hall",
+            "decay_time_s": 15.0,
+            "mix_pct": 50
+          }
+        }
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "source": "research/transitions/impacts_and_downlifters.md",
+      "data": {
+        "transitions": [
+          {
+            "name": "Classic_Downlifter",
+            "type": "noise_sweep",
+            "trigger_beat": 1.0,
+            "duration_beats": 16.0,
+            "dsp": {
+              "oscillator": "white_noise",
+              "filter": {
+                "type": "lowpass_24db",
+                "start_freq_hz": 15000,
+                "end_freq_hz": 200,
+                "sweep_curve": "logarithmic"
+              },
+              "fx": {
+                "reverb": {
+                  "decay_s": 4.0,
+                  "mix": 0.6
+                },
+                "sidechain": {
+                  "source": "kick",
+                  "ratio": 4.0,
+                  "threshold_db": -12.0
+                }
+              }
+            }
+          },
+          {
+            "name": "Heavy_Sub_Drop",
+            "type": "bass_drop",
+            "trigger_beat": 1.0,
+            "duration_beats": 8.0,
+            "dsp": {
+              "oscillator": "sine",
+              "pitch_envelope": {
+                "start_hz": 90.0,
+                "end_hz": 25.0,
+                "time_s": 2.5,
+                "curve": "exponential"
+              },
+              "amp_envelope": {
+                "attack_ms": 5,
+                "decay_ms": 2500,
+                "sustain_level": 0.0,
+                "release_ms": 10
+              },
+              "saturation": {
+                "type": "tape",
+                "drive_db": 3.0
+              }
+            }
+          },
+          {
+            "name": "Pre_Drop_Reverse_Crash",
+            "type": "reverse_cymbal",
+            "trigger_beat": -2.0,
+            "duration_beats": 2.0,
+            "dsp": {
+              "sample": "cymbal_crash_909",
+              "reverse": true,
+              "alignment": "peak_at_downbeat",
+              "fade_in_curve": "exponential"
+            }
+          },
+          {
+            "name": "Cinematic_Drop_Impact",
+            "type": "impact",
+            "trigger_beat": 1.0,
+            "duration_beats": 4.0,
+            "dsp": {
+              "layers": [
+                "sub_kick",
+                "metallic_anvil",
+                "distorted_brass_braam"
+              ],
+              "transient_shaper": {
+                "attack": 5.0,
+                "sustain": -2.0
+              },
+              "clipper": {
+                "threshold_db": -3.0
+              },
+              "reverb": {
+                "type": "plate",
+                "size": 100,
+                "decay_s": 3.0
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "source": "research/transitions/build_up_tension_database.md",
+      "data": {
+        "snare_roll": {
+          "duration_bars": 8,
+          "acceleration_phases": [
+            {
+              "start_bar": 1,
+              "end_bar": 5,
+              "subdivision": "1/4",
+              "velocity_range": [
+                60,
+                80
+              ]
+            },
+            {
+              "start_bar": 5,
+              "end_bar": 7,
+              "subdivision": "1/8",
+              "velocity_range": [
+                80,
+                100
+              ]
+            },
+            {
+              "start_bar": 7,
+              "end_bar": 8,
+              "subdivision": "1/16",
+              "velocity_range": [
+                100,
+                115
+              ]
+            },
+            {
+              "start_bar": 8,
+              "end_bar": 8.5,
+              "subdivision": "1/32",
+              "velocity_range": [
+                115,
+                127
+              ]
+            },
+            {
+              "start_bar": 8.5,
+              "end_bar": 8.75,
+              "subdivision": "1/64",
+              "velocity_range": [
+                127,
+                127
+              ]
+            },
+            {
+              "start_bar": 8.75,
+              "end_bar": 9,
+              "subdivision": "none",
+              "description": "Zero Drop Silence"
+            }
+          ],
+          "velocity_curve": "exponential",
+          "velocity_exponent_p": 2.5
+        }
+      }
+    },
+    {
+      "source": "research/transitions/build_up_tension_database.md",
+      "data": {
+        "pitch_riser": {
+          "waveform": "sawtooth",
+          "voices": 5,
+          "detune": 0.15,
+          "duration_bars": 8,
+          "start_pitch": "C3",
+          "end_pitch": "C5",
+          "pitch_envelope": {
+            "type": "convex",
+            "formula": "24 * (t ^ 1.5)",
+            "target_semitones_offset": 24
+          },
+          "effects": {
+            "reverb": {
+              "mix": "increases from 10% to 50%",
+              "decay_time": "3.5s"
+            },
+            "chorus": {
+              "rate": "0.5Hz",
+              "depth": "40%"
+            }
+          }
+        }
+      }
+    },
+    {
+      "source": "research/transitions/build_up_tension_database.md",
+      "data": {
+        "hpf_sweep": {
+          "target": "master_bus_or_drum_group",
+          "filter_type": "high_pass",
+          "slope": "24dB/oct",
+          "duration_bars": 8,
+          "frequency_curve": {
+            "type": "logarithmic",
+            "f_min_hz": 20,
+            "f_max_hz": 400,
+            "formula": "20 * (20 ^ t)"
+          },
+          "resonance_q": {
+            "start": 0.707,
+            "end": 1.5,
+            "description": "Slight resonance boost at cutoff to accentuate the sweep."
+          }
+        }
+      }
+    },
+    {
+      "source": "research/transitions/build_up_tension_database.md",
+      "data": {
+        "zero_drop": {
+          "placement": "End of build-up (e.g., Bar 8, Beat 4)",
+          "duration_beats": 1,
+          "actions": [
+            {
+              "track_group": "drums",
+              "action": "mute"
+            },
+            {
+              "track_group": "synths_and_bass",
+              "action": "mute"
+            },
+            {
+              "track_group": "fx_returns",
+              "action": "mute_or_tape_stop",
+              "tape_stop_time_ms": 250
+            },
+            {
+              "track_group": "vocals",
+              "action": "play_pre_drop_sample",
+              "sample": "dry_vocal_shout.wav",
+              "timing": "Beat 4"
+            }
+          ],
+          "dynamic_range_delta_db": 18
+        }
+      }
+    }
+  ]
+}
