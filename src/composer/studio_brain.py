@@ -34,6 +34,7 @@ try:
     )
     from .knowledge_base import MusicKnowledgeBase, DB_FILE as KNOWLEDGE_BASE_DEFAULT_PATH
     from .billboard_loader import BillboardHitLoader, get_billboard_loader, DB_PATH as BILLBOARD_DEFAULT_PATH
+    from .edm_loader import EDMLoader, get_edm_loader, DB_PATH as EDM_TOP100_DEFAULT_PATH
     from .open_midi_loader import OpenMidiLibrary, OpenMidiLoader, find_midi_library_zip, OPEN_HUMAN_PROGRESSIONS
     from .arranger import (
         Arrangement,
@@ -76,11 +77,31 @@ class HarmonicIntelligence:
     Drop-2 jazz voicing, and reharmonization across all database sources.
     """
 
-    def __init__(self, knowledge_base: MusicKnowledgeBase, billboard_loader: BillboardHitLoader, midi_library: Optional[OpenMidiLibrary] = None):
+    def __init__(
+        self,
+        knowledge_base: MusicKnowledgeBase,
+        billboard_loader: BillboardHitLoader,
+        midi_library: Optional[OpenMidiLibrary] = None,
+        edm_loader: Optional[EDMLoader] = None
+    ):
         self.kb = knowledge_base
         self.billboard = billboard_loader
         self.midi_lib = midi_library
+        self.edm_loader = edm_loader or get_edm_loader()
         self.custom_progressions: List[Dict[str, Any]] = []
+
+    def get_edm_progression(self, artist: Optional[str] = None, discipline: Optional[str] = None) -> Optional[Dict[str, Any]]:
+        """
+        Retrieves an authoritative harmonic progression from the Billboard Top 100 EDM database.
+        """
+        if self.edm_loader:
+            if artist:
+                return self.edm_loader.get_progression(artist)
+            if discipline:
+                progs = self.edm_loader.get_progressions_by_discipline(discipline)
+                if progs:
+                    return random.choice(progs)
+        return None
 
     def get_progression(
         self,
@@ -91,13 +112,20 @@ class HarmonicIntelligence:
         key: str = "D",
         mode: str = "Minor",
         use_billboard: bool = False,
-        use_midi_library: bool = False
+        use_midi_library: bool = False,
+        use_edm: bool = False
     ) -> Dict[str, Any]:
         """
         Retrieves a chord progression resolving across Billboard hits,
-        open MIDI libraries, or the masterclass knowledge base.
+        Top 100 EDM compositions, open MIDI libraries, or the masterclass knowledge base.
         """
-        if artist or use_billboard:
+        if artist or use_edm:
+            # First check EDM Top 100 database
+            if self.edm_loader and artist:
+                edm_prog = self.edm_loader.get_progression(artist)
+                if edm_prog:
+                    return edm_prog
+
             try:
                 hit = self.billboard.get_hit_progression(artist=artist, style=style, section=section)
                 if hit:
@@ -646,6 +674,7 @@ class StudioBrain:
         kb_path: Optional[str] = None,
         billboard_path: Optional[str] = None,
         midi_zip_path: Optional[str] = None,
+        edm_path: Optional[str] = None,
         force_reload: bool = False
     ):
         if getattr(self, "_initialized", False) and not force_reload:
@@ -654,6 +683,7 @@ class StudioBrain:
         self.kb_path = kb_path or KNOWLEDGE_BASE_DEFAULT_PATH
         self.billboard_path = billboard_path or BILLBOARD_DEFAULT_PATH
         self.midi_zip_path = midi_zip_path
+        self.edm_path = edm_path or EDM_TOP100_DEFAULT_PATH
 
         # Discover databases
         self.databases: Dict[str, Dict[str, Any]] = {}
@@ -662,6 +692,7 @@ class StudioBrain:
         # Instantiate Database Engines
         self.knowledge_base = MusicKnowledgeBase()
         self.billboard_loader = get_billboard_loader(self.billboard_path)
+        self.edm_loader = get_edm_loader()
 
         try:
             self.midi_library: Optional[OpenMidiLibrary] = OpenMidiLibrary(zip_path=self.midi_zip_path)
@@ -672,7 +703,8 @@ class StudioBrain:
         self.harmonic = HarmonicIntelligence(
             knowledge_base=self.knowledge_base,
             billboard_loader=self.billboard_loader,
-            midi_library=self.midi_library
+            midi_library=self.midi_library,
+            edm_loader=self.edm_loader
         )
         self.melodic = MelodicIntelligence(
             knowledge_base=self.knowledge_base,
@@ -722,7 +754,18 @@ class StudioBrain:
             "filename": os.path.basename(self.billboard_path)
         }
 
-        # 3. 11,400 Open MIDI Files Library
+        # 3. Top 100 EDM Artists Billboard Database
+        edm_exists = os.path.exists(self.edm_path)
+        edm_size = os.path.getsize(self.edm_path) if edm_exists else 0
+        self.databases["edm_top100"] = {
+            "name": "Top 100 EDM Artists Billboard Database",
+            "path": self.edm_path,
+            "exists": edm_exists,
+            "size_bytes": edm_size,
+            "filename": os.path.basename(self.edm_path)
+        }
+
+        # 4. 11,400 Open MIDI Files Library
         zip_found = None
         try:
             zip_found = find_midi_library_zip(self.midi_zip_path)
@@ -739,6 +782,18 @@ class StudioBrain:
             "filename": os.path.basename(zip_found) if zip_found else "free-midi-progressions.zip"
         }
 
+    def get_edm_artist(self, artist_name: str) -> Optional[Dict[str, Any]]:
+        """Retrieves composition profile for an artist from the Top 100 EDM database."""
+        return self.edm_loader.get_artist(artist_name) if self.edm_loader else None
+
+    def get_edm_progression(self, artist_name: str) -> Optional[Dict[str, Any]]:
+        """Retrieves harmonic progression for an artist from the Top 100 EDM database."""
+        return self.harmonic.get_edm_progression(artist=artist_name)
+
+    def get_all_edm_artists(self) -> List[str]:
+        """Returns the full roster of 100 EDM artists."""
+        return self.edm_loader.get_all_artists() if self.edm_loader else []
+
     def reload_databases(self) -> Dict[str, Any]:
         """
         Dynamic hot-reload of all database engines.
@@ -747,6 +802,8 @@ class StudioBrain:
         self._discover_databases()
         self.knowledge_base._load_all_databases()
         self.billboard_loader._load_database()
+        if self.edm_loader:
+            self.edm_loader.load_database()
 
         if self.midi_library:
             self.midi_library._load_or_build_index()
@@ -1358,7 +1415,15 @@ class StudioBrain:
 def get_studio_brain(
     kb_path: Optional[str] = None,
     billboard_path: Optional[str] = None,
-    midi_zip_path: Optional[str] = None
+    midi_zip_path: Optional[str] = None,
+    edm_path: Optional[str] = None,
+    force_reload: bool = False
 ) -> StudioBrain:
     """Convenience singleton accessor for StudioBrain."""
-    return StudioBrain(kb_path=kb_path, billboard_path=billboard_path, midi_zip_path=midi_zip_path)
+    return StudioBrain(
+        kb_path=kb_path,
+        billboard_path=billboard_path,
+        midi_zip_path=midi_zip_path,
+        edm_path=edm_path,
+        force_reload=force_reload
+    )

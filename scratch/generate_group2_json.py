@@ -1,0 +1,550 @@
+import json
+
+group2_data = {
+    "metadata": {
+        "group_id": 2,
+        "group_name": "Melodic Techno, Deep House & Organic House Specialist",
+        "artists_range": "21-40",
+        "total_artists": 20,
+        "artists": [
+            "deadmau5",
+            "Eric Prydz / Pryda",
+            "Rüfüs Du Sol",
+            "ODESZA",
+            "Bicep",
+            "Fred again..",
+            "Peggy Gou",
+            "Anyma / Tale of Us",
+            "CamelPhat",
+            "Meduza",
+            "John Summit",
+            "Fisher",
+            "Chris Lake",
+            "Dom Dolla",
+            "Lane 8",
+            "ARTBAT",
+            "Boris Brejcha",
+            "Solomun",
+            "Stephan Bodzin",
+            "Gorgon City"
+        ]
+    },
+    "progressions": [
+        {
+            "id": "deadmau5_strobe_main",
+            "title": "Strobe",
+            "artist": "deadmau5",
+            "section": "main_theme",
+            "key": "Bb Minor",
+            "mode": "Aeolian",
+            "bpm": 128,
+            "time_signature": "4/4",
+            "harmonic_rhythm": "2 measures per chord",
+            "roman_numerals": "i - VI - III - VII(sus4)",
+            "roots": ["Bb", "Gb", "Db", "Ab"],
+            "types": ["min", "maj7", "maj", "sus4"],
+            "bass_notes": ["Bb", "Gb", "Db", "Ab"],
+            "chords": [
+                {
+                    "measure": 1,
+                    "chord_symbol": "Bbm",
+                    "roman_numeral": "i",
+                    "function": "Tonic",
+                    "root": "Bb",
+                    "bass_note": "Bb",
+                    "bass_midi": 34,
+                    "duration_beats": 8,
+                    "close_voicing": [46, 49, 53, 58],
+                    "close_voicing_notes": ["Bb2", "Db3", "F3", "Bb3"],
+                    "drop2_voicing": [41, 46, 49, 58],
+                    "drop2_voicing_notes": ["F2", "Bb2", "Db3", "Bb3"],
+                    "drop4_voicing": [34, 46, 49, 53],
+                    "drop4_voicing_notes": ["Bb1", "Bb2", "Db3", "F3"],
+                    "interval_semitones": [0, 3, 7, 12]
+                },
+                {
+                    "measure": 3,
+                    "chord_symbol": "Gbmaj7",
+                    "roman_numeral": "VImaj7",
+                    "function": "Submediant",
+                    "root": "Gb",
+                    "bass_note": "Gb",
+                    "bass_midi": 30,
+                    "duration_beats": 8,
+                    "close_voicing": [42, 49, 53, 58],
+                    "close_voicing_notes": ["Gb2", "Db3", "F3", "Bb3"],
+                    "drop2_voicing": [37, 42, 49, 58],
+                    "drop2_voicing_notes": ["Db2", "Gb2", "Db3", "Bb3"],
+                    "drop4_voicing": [30, 42, 49, 53],
+                    "drop4_voicing_notes": ["Gb1", "Gb2", "Db3", "F3"],
+                    "interval_semitones": [0, 4, 7, 11]
+                },
+                {
+                    "measure": 5,
+                    "chord_symbol": "Db",
+                    "roman_numeral": "III",
+                    "function": "Mediant",
+                    "root": "Db",
+                    "bass_note": "Db",
+                    "bass_midi": 37,
+                    "duration_beats": 8,
+                    "close_voicing": [44, 49, 53, 56],
+                    "close_voicing_notes": ["Ab2", "Db3", "F3", "Ab3"],
+                    "drop2_voicing": [37, 44, 49, 56],
+                    "drop2_voicing_notes": ["Db2", "Ab2", "Db3", "Ab3"],
+                    "drop4_voicing": [25, 44, 49, 53],
+                    "drop4_voicing_notes": ["Db1", "Ab2", "Db3", "F3"],
+                    "interval_semitones": [0, 4, 7, 12]
+                },
+                {
+                    "measure": 7,
+                    "chord_symbol": "Absus4",
+                    "roman_numeral": "VIIsus4",
+                    "function": "Subtonic Suspended",
+                    "root": "Ab",
+                    "bass_note": "Ab",
+                    "bass_midi": 32,
+                    "duration_beats": 8,
+                    "close_voicing": [44, 49, 51, 56],
+                    "close_voicing_notes": ["Ab2", "Db3", "Eb3", "Ab3"],
+                    "drop2_voicing": [39, 44, 49, 56],
+                    "drop2_voicing_notes": ["Eb2", "Ab2", "Db3", "Ab3"],
+                    "drop4_voicing": [32, 44, 49, 51],
+                    "drop4_voicing_notes": ["Ab1", "Ab2", "Db3", "Eb3"],
+                    "interval_semitones": [0, 5, 7, 12]
+                }
+            ]
+        },
+        {
+            "id": "eric_prydz_opus_build",
+            "title": "Opus",
+            "artist": "Eric Prydz",
+            "section": "climax_progression",
+            "key": "F# Minor",
+            "mode": "Aeolian",
+            "bpm": 126,
+            "time_signature": "4/4",
+            "harmonic_rhythm": "1 chord per 4 measures",
+            "roman_numerals": "i - VI - iv - v",
+            "roots": ["F#", "D", "B", "C#"],
+            "types": ["min", "maj", "min", "min"],
+            "bass_notes": ["F#", "D", "B", "C#"],
+            "chords": [
+                {
+                    "measure": 1,
+                    "chord_symbol": "F#m",
+                    "roman_numeral": "i",
+                    "function": "Tonic",
+                    "root": "F#",
+                    "bass_note": "F#",
+                    "bass_midi": 30,
+                    "duration_beats": 16,
+                    "close_voicing": [54, 57, 61, 66],
+                    "close_voicing_notes": ["F#3", "A3", "C#4", "F#4"],
+                    "drop2_voicing": [49, 54, 57, 66],
+                    "drop2_voicing_notes": ["C#3", "F#3", "A3", "F#4"],
+                    "drop4_voicing": [30, 54, 57, 61],
+                    "drop4_voicing_notes": ["F#1", "F#3", "A3", "C#4"],
+                    "interval_semitones": [0, 3, 7, 12]
+                },
+                {
+                    "measure": 5,
+                    "chord_symbol": "D",
+                    "roman_numeral": "VI",
+                    "function": "Submediant",
+                    "root": "D",
+                    "bass_note": "D",
+                    "bass_midi": 26,
+                    "duration_beats": 16,
+                    "close_voicing": [50, 54, 57, 66],
+                    "close_voicing_notes": ["D3", "F#3", "A3", "F#4"],
+                    "drop2_voicing": [45, 50, 54, 66],
+                    "drop2_voicing_notes": ["A2", "D3", "F#3", "F#4"],
+                    "drop4_voicing": [26, 50, 54, 57],
+                    "drop4_voicing_notes": ["D1", "D3", "F#3", "A3"],
+                    "interval_semitones": [0, 4, 7, 12]
+                },
+                {
+                    "measure": 9,
+                    "chord_symbol": "Bm",
+                    "roman_numeral": "iv",
+                    "function": "Subdominant",
+                    "root": "B",
+                    "bass_note": "B",
+                    "bass_midi": 23,
+                    "duration_beats": 16,
+                    "close_voicing": [47, 50, 54, 66],
+                    "close_voicing_notes": ["B2", "D3", "F#3", "F#4"],
+                    "drop2_voicing": [42, 47, 50, 66],
+                    "drop2_voicing_notes": ["F#2", "B2", "D3", "F#4"],
+                    "drop4_voicing": [23, 47, 50, 54],
+                    "drop4_voicing_notes": ["B0", "B2", "D3", "F#3"],
+                    "interval_semitones": [0, 3, 7, 12]
+                },
+                {
+                    "measure": 13,
+                    "chord_symbol": "C#m",
+                    "roman_numeral": "v",
+                    "function": "Dominant Minor",
+                    "root": "C#",
+                    "bass_note": "C#",
+                    "bass_midi": 25,
+                    "duration_beats": 16,
+                    "close_voicing": [49, 52, 56, 66],
+                    "close_voicing_notes": ["C#3", "E3", "G#3", "F#4"],
+                    "drop2_voicing": [44, 49, 52, 66],
+                    "drop2_voicing_notes": ["G#2", "C#3", "E3", "F#4"],
+                    "drop4_voicing": [25, 49, 52, 56],
+                    "drop4_voicing_notes": ["C#1", "C#3", "E3", "G#3"],
+                    "interval_semitones": [0, 3, 7, 11]
+                }
+            ]
+        },
+        {
+            "id": "rufus_du_sol_innerbloom_main",
+            "title": "Innerbloom",
+            "artist": "Rüfüs Du Sol",
+            "section": "chorus_drop",
+            "key": "F Minor",
+            "mode": "Aeolian",
+            "bpm": 122,
+            "time_signature": "4/4",
+            "harmonic_rhythm": "1 chord per measure",
+            "roman_numerals": "i9 - VImaj9 - IIImaj7 - VIIadd9",
+            "roots": ["F", "Db", "Ab", "Eb"],
+            "types": ["min9", "maj9", "maj7", "add9"],
+            "bass_notes": ["F", "Db", "Ab", "Eb"],
+            "chords": [
+                {
+                    "measure": 1,
+                    "chord_symbol": "Fm9",
+                    "roman_numeral": "i9",
+                    "function": "Tonic",
+                    "root": "F",
+                    "bass_note": "F",
+                    "bass_midi": 29,
+                    "duration_beats": 4,
+                    "close_voicing": [48, 51, 56, 60, 67],
+                    "close_voicing_notes": ["C3", "Eb3", "Ab3", "C4", "G4"],
+                    "drop2_voicing": [44, 48, 51, 56, 67],
+                    "drop2_voicing_notes": ["Ab2", "C3", "Eb3", "Ab3", "G4"],
+                    "drop4_voicing": [29, 48, 51, 56, 60],
+                    "drop4_voicing_notes": ["F1", "C3", "Eb3", "Ab3", "C4"],
+                    "interval_semitones": [0, 3, 7, 10, 14]
+                },
+                {
+                    "measure": 2,
+                    "chord_symbol": "Dbmaj9",
+                    "roman_numeral": "VImaj9",
+                    "function": "Submediant",
+                    "root": "Db",
+                    "bass_note": "Db",
+                    "bass_midi": 25,
+                    "duration_beats": 4,
+                    "close_voicing": [49, 53, 56, 60, 63],
+                    "close_voicing_notes": ["Db3", "F3", "Ab3", "C4", "Eb4"],
+                    "drop2_voicing": [44, 49, 53, 60, 63],
+                    "drop2_voicing_notes": ["Ab2", "Db3", "F3", "C4", "Eb4"],
+                    "drop4_voicing": [25, 49, 53, 56, 60],
+                    "drop4_voicing_notes": ["Db1", "Db3", "F3", "Ab3", "C4"],
+                    "interval_semitones": [0, 4, 7, 11, 14]
+                },
+                {
+                    "measure": 3,
+                    "chord_symbol": "Abmaj7",
+                    "roman_numeral": "IIImaj7",
+                    "function": "Mediant",
+                    "root": "Ab",
+                    "bass_note": "Ab",
+                    "bass_midi": 32,
+                    "duration_beats": 4,
+                    "close_voicing": [48, 51, 55, 60, 63],
+                    "close_voicing_notes": ["C3", "Eb3", "G3", "C4", "Eb4"],
+                    "drop2_voicing": [44, 48, 51, 55, 63],
+                    "drop2_voicing_notes": ["Ab2", "C3", "Eb3", "G3", "Eb4"],
+                    "drop4_voicing": [32, 48, 51, 55, 60],
+                    "drop4_voicing_notes": ["Ab1", "C3", "Eb3", "G3", "C4"],
+                    "interval_semitones": [0, 4, 7, 11]
+                },
+                {
+                    "measure": 4,
+                    "chord_symbol": "Ebadd9",
+                    "roman_numeral": "VIIadd9",
+                    "function": "Subtonic",
+                    "root": "Eb",
+                    "bass_note": "Eb",
+                    "bass_midi": 27,
+                    "duration_beats": 4,
+                    "close_voicing": [46, 51, 55, 58, 65],
+                    "close_voicing_notes": ["Bb2", "Eb3", "G3", "Bb3", "F4"],
+                    "drop2_voicing": [39, 46, 51, 55, 65],
+                    "drop2_voicing_notes": ["Eb2", "Bb2", "Eb3", "G3", "F4"],
+                    "drop4_voicing": [27, 46, 51, 55, 58],
+                    "drop4_voicing_notes": ["Eb1", "Bb2", "Eb3", "G3", "Bb3"],
+                    "interval_semitones": [0, 4, 7, 14]
+                }
+            ]
+        },
+        {
+            "id": "anyma_consciousness_main",
+            "title": "Consciousness",
+            "artist": "Anyma / Tale of Us",
+            "section": "main_theme",
+            "key": "D Minor",
+            "mode": "Phrygian / Aeolian",
+            "bpm": 126,
+            "time_signature": "4/4",
+            "harmonic_rhythm": "1 chord per 2 measures",
+            "roman_numerals": "i - bII - VI - VII",
+            "roots": ["D", "Eb", "Bb", "C"],
+            "types": ["min", "maj", "maj7", "sus4"],
+            "bass_notes": ["D", "Eb", "Bb", "C"],
+            "chords": [
+                {
+                    "measure": 1,
+                    "chord_symbol": "Dm",
+                    "roman_numeral": "i",
+                    "function": "Tonic",
+                    "root": "D",
+                    "bass_note": "D",
+                    "bass_midi": 26,
+                    "duration_beats": 8,
+                    "close_voicing": [50, 53, 57, 62],
+                    "close_voicing_notes": ["D3", "F3", "A3", "D4"],
+                    "drop2_voicing": [45, 50, 53, 62],
+                    "drop2_voicing_notes": ["A2", "D3", "F3", "D4"],
+                    "drop4_voicing": [26, 50, 53, 57],
+                    "drop4_voicing_notes": ["D1", "D3", "F3", "A3"],
+                    "interval_semitones": [0, 3, 7, 12]
+                },
+                {
+                    "measure": 3,
+                    "chord_symbol": "Eb",
+                    "roman_numeral": "bII",
+                    "function": "Neapolitan / Phrygian Modal Interlock",
+                    "root": "Eb",
+                    "bass_note": "Eb",
+                    "bass_midi": 27,
+                    "duration_beats": 8,
+                    "close_voicing": [51, 55, 58, 63],
+                    "close_voicing_notes": ["Eb3", "G3", "Bb3", "Eb4"],
+                    "drop2_voicing": [46, 51, 55, 63],
+                    "drop2_voicing_notes": ["Bb2", "Eb3", "G3", "Eb4"],
+                    "drop4_voicing": [27, 51, 55, 58],
+                    "drop4_voicing_notes": ["Eb1", "Eb3", "G3", "Bb3"],
+                    "interval_semitones": [0, 4, 7, 12]
+                },
+                {
+                    "measure": 5,
+                    "chord_symbol": "Bbmaj7",
+                    "roman_numeral": "VImaj7",
+                    "function": "Submediant",
+                    "root": "Bb",
+                    "bass_note": "Bb",
+                    "bass_midi": 22,
+                    "duration_beats": 8,
+                    "close_voicing": [46, 50, 53, 57],
+                    "close_voicing_notes": ["Bb2", "D3", "F3", "A3"],
+                    "drop2_voicing": [41, 46, 50, 57],
+                    "drop2_voicing_notes": ["F2", "Bb2", "D3", "A3"],
+                    "drop4_voicing": [22, 46, 50, 53],
+                    "drop4_voicing_notes": ["Bb0", "Bb2", "D3", "F3"],
+                    "interval_semitones": [0, 4, 7, 11]
+                },
+                {
+                    "measure": 7,
+                    "chord_symbol": "Csus4",
+                    "roman_numeral": "VIIsus4",
+                    "function": "Subtonic Suspended",
+                    "root": "C",
+                    "bass_note": "C",
+                    "bass_midi": 24,
+                    "duration_beats": 8,
+                    "close_voicing": [48, 53, 55, 60],
+                    "close_voicing_notes": ["C3", "F3", "G3", "C4"],
+                    "drop2_voicing": [43, 48, 53, 60],
+                    "drop2_voicing_notes": ["G2", "C3", "F3", "C4"],
+                    "drop4_voicing": [24, 48, 53, 55],
+                    "drop4_voicing_notes": ["C1", "C3", "F3", "G3"],
+                    "interval_semitones": [0, 5, 7, 12]
+                }
+            ]
+        }
+    ],
+    "melodic_motifs": [
+        {
+            "id": "deadmau5_strobe_bell_arp",
+            "title": "Strobe",
+            "artist": "deadmau5",
+            "key": "Bb Minor",
+            "bpm": 128,
+            "time_signature": "4/4",
+            "starting_scale_degree": 1,
+            "pickup_beat": 4.75,
+            "contour_type": "Ascending/descending 16th bell ostinato",
+            "syncopation": {
+                "pickup_location": 4.75,
+                "anticipation": "16th-note anticipation prior to downbeat"
+            },
+            "climax_target": {
+                "pitch": "Bb5",
+                "midi_number": 82,
+                "scale_degree": 8,
+                "bar_location": "Bar 81, Beat 1.0",
+                "description": "Golden Ratio kick drop at 61.8% of timeline",
+                "resolution_sequence": ["Bb5", "Ab5", "F5", "Db5", "Bb4"]
+            },
+            "midi_sequence": [
+                {"pitch": "Bb4", "midi": 70, "start_beat": 4.75, "duration_beats": 0.25, "velocity": 90, "scale_degree": 1},
+                {"pitch": "Db5", "midi": 73, "start_beat": 1.0, "duration_beats": 0.25, "velocity": 105, "scale_degree": 3},
+                {"pitch": "F5", "midi": 77, "start_beat": 1.25, "duration_beats": 0.25, "velocity": 95, "scale_degree": 5},
+                {"pitch": "Ab5", "midi": 80, "start_beat": 1.5, "duration_beats": 0.25, "velocity": 110, "scale_degree": 7},
+                {"pitch": "Bb5", "midi": 82, "start_beat": 1.75, "duration_beats": 0.25, "velocity": 115, "scale_degree": 8},
+                {"pitch": "Ab5", "midi": 80, "start_beat": 2.0, "duration_beats": 0.25, "velocity": 95, "scale_degree": 7},
+                {"pitch": "F5", "midi": 77, "start_beat": 2.25, "duration_beats": 0.25, "velocity": 90, "scale_degree": 5},
+                {"pitch": "Db5", "midi": 73, "start_beat": 2.5, "duration_beats": 0.25, "velocity": 85, "scale_degree": 3}
+            ]
+        },
+        {
+            "id": "anyma_consciousness_lead_hook",
+            "title": "Consciousness",
+            "artist": "Anyma / Tale of Us",
+            "key": "D Minor",
+            "bpm": 126,
+            "time_signature": "4/4",
+            "starting_scale_degree": 1,
+            "pickup_beat": 4.5,
+            "contour_type": "Triadic soaring saw ostinato",
+            "syncopation": {
+                "pickup_location": 4.5,
+                "anticipation": "8th note push into measure 1"
+            },
+            "climax_target": {
+                "pitch": "D5",
+                "midi_number": 74,
+                "scale_degree": 1,
+                "bar_location": "Bar 17, Beat 1.0",
+                "description": "Peak filter cutoff opening at drop release",
+                "resolution_sequence": ["D5", "C5", "Bb4", "A4", "F4", "D4"]
+            },
+            "midi_sequence": [
+                {"pitch": "A4", "midi": 69, "start_beat": 4.5, "duration_beats": 0.5, "velocity": 98, "scale_degree": 5},
+                {"pitch": "D5", "midi": 74, "start_beat": 1.0, "duration_beats": 0.75, "velocity": 120, "scale_degree": 8},
+                {"pitch": "C5", "midi": 72, "start_beat": 1.75, "duration_beats": 0.25, "velocity": 102, "scale_degree": 7},
+                {"pitch": "Bb4", "midi": 70, "start_beat": 2.0, "duration_beats": 0.5, "velocity": 108, "scale_degree": 6},
+                {"pitch": "A4", "midi": 69, "start_beat": 2.5, "duration_beats": 0.5, "velocity": 105, "scale_degree": 5}
+            ]
+        }
+    ],
+    "bass_grooves": [
+        {
+            "id": "anyma_melodic_techno_rolling_16th",
+            "title": "Afterlife Rolling 16th Bassline",
+            "artist": "Anyma / Tale of Us",
+            "genre": "melodic_techno",
+            "tempo": 126,
+            "time_signature": "4/4",
+            "groove_characteristics": {
+                "swing_percentage": 50.0,
+                "humanize_ms_jitter": 1.2,
+                "pocket_description": "Kick on downbeats; 16th ghost note on e, accented driving note on &, ghost on a. 25-30% gate ratio."
+            },
+            "patch_type": "moog_saw_sub_pluck",
+            "cutoff_hz": 420,
+            "resonance_q": 2.4,
+            "envelope_decay_ms": 130,
+            "steps": [
+                {"step": 1, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 2, "note": "D1", "velocity": 65, "gate_ratio": 0.25, "offset_ms": 1.0},
+                {"step": 3, "note": "D1", "velocity": 115, "gate_ratio": 0.38, "offset_ms": 0.0},
+                {"step": 4, "note": "D1", "velocity": 50, "gate_ratio": 0.20, "offset_ms": 1.2},
+                {"step": 5, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 6, "note": "D1", "velocity": 68, "gate_ratio": 0.25, "offset_ms": 0.8},
+                {"step": 7, "note": "D1", "velocity": 118, "gate_ratio": 0.40, "offset_ms": 0.0},
+                {"step": 8, "note": "D1", "velocity": 55, "gate_ratio": 0.22, "offset_ms": 1.1},
+                {"step": 9, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 10, "note": "D1", "velocity": 65, "gate_ratio": 0.25, "offset_ms": 0.9},
+                {"step": 11, "note": "D1", "velocity": 112, "gate_ratio": 0.38, "offset_ms": 0.0},
+                {"step": 12, "note": "D1", "velocity": 52, "gate_ratio": 0.20, "offset_ms": 1.0},
+                {"step": 13, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 14, "note": "F1", "velocity": 75, "gate_ratio": 0.28, "offset_ms": 0.8},
+                {"step": 15, "note": "G1", "velocity": 122, "gate_ratio": 0.42, "offset_ms": 0.0},
+                {"step": 16, "note": "Eb1", "velocity": 90, "gate_ratio": 0.30, "offset_ms": 0.5}
+            ],
+            "drum_pocket": {
+                "kick": {
+                    "steps": [1, 5, 9, 13],
+                    "velocity": [127, 125, 127, 124]
+                },
+                "snare": {
+                    "steps": [5, 13],
+                    "velocity": [115, 118],
+                    "timing_offsets_ms": [0.0, 0.0]
+                }
+            },
+            "style_tags": [
+                "melodic_techno",
+                "afterlife_sound",
+                "rolling_16th",
+                "moog_ladder_filter"
+            ]
+        },
+        {
+            "id": "fisher_losing_it_tech_house_pocket",
+            "title": "Tech House Syncopated Offbeat Sub",
+            "artist": "Fisher",
+            "genre": "tech_house",
+            "tempo": 125,
+            "time_signature": "4/4",
+            "groove_characteristics": {
+                "swing_percentage": 54.0,
+                "humanize_ms_jitter": 2.0,
+                "pocket_description": "Kick on quarter notes; massive offbeat sub punch with 30% gate staccato plucks."
+            },
+            "patch_type": "sh101_square_sub",
+            "cutoff_hz": 280,
+            "resonance_q": 1.8,
+            "envelope_decay_ms": 120,
+            "steps": [
+                {"step": 1, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 2, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 3, "note": "F#1", "velocity": 124, "gate_ratio": 0.30, "offset_ms": 2.5},
+                {"step": 4, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 5, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 6, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 7, "note": "F#1", "velocity": 120, "gate_ratio": 0.28, "offset_ms": 2.0},
+                {"step": 8, "note": "G1", "velocity": 75, "gate_ratio": 0.18, "offset_ms": 3.0},
+                {"step": 9, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 10, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 11, "note": "F#1", "velocity": 125, "gate_ratio": 0.30, "offset_ms": 2.2},
+                {"step": 12, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 13, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 14, "note": None, "velocity": 0, "gate_ratio": 0.0},
+                {"step": 15, "note": "F#1", "velocity": 122, "gate_ratio": 0.32, "offset_ms": 2.0},
+                {"step": 16, "note": "E1", "velocity": 85, "gate_ratio": 0.22, "offset_ms": 2.8}
+            ],
+            "drum_pocket": {
+                "kick": {
+                    "steps": [1, 5, 9, 13],
+                    "velocity": [127, 127, 127, 127]
+                },
+                "snare": {
+                    "steps": [5, 13],
+                    "velocity": [120, 122],
+                    "timing_offsets_ms": [1.0, 1.0]
+                }
+            },
+            "style_tags": [
+                "tech_house",
+                "offbeat_sub",
+                "staccato_pluck",
+                "punchy_low_end"
+            ]
+        }
+    ]
+}
+
+with open("/Users/x17hubris/Documents/antigravity/lucid-hubble/research/edm_masterclass/group2_melodic_techno_deephouse.json", "w") as f:
+    json.dump(group2_data, f, indent=2)
+
+print("Saved group2_melodic_techno_deephouse.json successfully.")

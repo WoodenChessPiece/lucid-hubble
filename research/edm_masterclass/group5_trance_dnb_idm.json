@@ -1,0 +1,1109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "group": "group_5",
+  "title": "Trance, Drum & Bass, IDM & Hard Dance Billboard/Global Chart Knowledge Base",
+  "scholar": "Music Scholar 5",
+  "artist_range": "81-100",
+  "artists": [
+    {
+      "id": "81_armin_van_buuren",
+      "number": 81,
+      "artist": "Armin van Buuren",
+      "subgenres": ["Uplifting Trance", "Psy-Trance Crossover", "Progressive Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "This Is What It Feels Like",
+          "charts": "Grammy Award Nominee (Best Dance Recording), Billboard Hot 100 #96, Dance/Mix Show Airplay #1, Platinum certified",
+          "key": "D minor",
+          "bpm": 130
+        },
+        {
+          "title": "Blah Blah Blah",
+          "charts": "Over 1 Billion streams, Global Festival Mainstage Anthem",
+          "key": "F minor",
+          "bpm": 138
+        },
+        {
+          "title": "Great Spirit",
+          "charts": "Beatport #1, Gold certified, Ultra/Tomorrowland Anthem",
+          "key": "E minor (Phrygian)",
+          "bpm": 138
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Uplifting Aeolian / Phrygian Ostinato",
+        "roman_numerals": "i - VI - III - VII",
+        "chords": ["Fm", "Db", "Ab", "Eb"],
+        "modal_analysis": "Classic uplifting trance cycle cycling subdominant and mediant before falling to subtonic VII, maintaining continuous harmonic lift without authentic V-I resolution.",
+        "voice_leading": "Parsimonious voice leading with pedal C4 and Ab4 holding across chords."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Driving 16th-note arpeggio & staccato chant",
+        "arpeggio_contour": "F3 - Ab3 - C4 - Eb4 - F4 - Ab4 ascending 2-octave sweep",
+        "phrasing": "High-velocity accents on offbeat 16th notes; child choir staccato chants in 'Blah Blah Blah'."
+      },
+      "groove_and_rhythm": {
+        "bpm": 138,
+        "kick_type": "Tight 909-style transient with 50 Hz sub thump",
+        "bassline_pattern": "Rolling 16th-note trance bass (root on 1.2, 1.3, 1.4) sidechained 100% to kick; triplet psy gallop (k-b-b-b) at 45ms gate length",
+        "swing_rubato": "Straight 16th grid with 51% micro-swing on hi-hat shakers"
+      },
+      "timbral_profile": {
+        "synths": ["Dual Roland JP-8000 supersaw (7 detuned saws)", "Access Virus TI Hypersaw"],
+        "filters": "24dB low-pass analog resonant filter with automated cutoff opening",
+        "spatial_fx": "Valhalla VintageVerb Concert Hall (4.8s decay, 120ms pre-delay), ping-pong stereo delay"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 64,
+        "buildup_bars": 16,
+        "drop_type": "Cascading drop with 1-beat zero-drop snare cutout",
+        "macro_structure": "Intro (32) - Verse (16) - Breakdown (64) - Buildup (16) - Drop (32) - Outro (32)"
+      }
+    },
+    {
+      "id": "82_above_and_beyond",
+      "number": 82,
+      "artist": "Above & Beyond",
+      "subgenres": ["Vocal Trance", "Anjunabeats Progressive Trance", "Orchestral Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Sun & Moon",
+          "charts": "UK Dance #1, UK Singles #30, Billboard Dance/Mix Show Airplay #24",
+          "key": "F# minor",
+          "bpm": 132
+        },
+        {
+          "title": "Thing Called Love",
+          "charts": "ASOT Tune of the Year #2, Beatport Trance #1",
+          "key": "D major",
+          "bpm": 130
+        },
+        {
+          "title": "Northern Soul",
+          "charts": "ASOT Tune of the Year 2017 Winner, Billboard Dance/Electronic",
+          "key": "A minor",
+          "bpm": 128
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Bittersweet Aeolian / Ionian Interplay with Inverted Pedal",
+        "roman_numerals": "vi - IV - I - V",
+        "chords": ["F#m", "Dadd9", "A", "Esus4"],
+        "modal_analysis": "Inverted 5th pedal (C#) sustained across all chords to produce lush open tensions and emotional ambiguity.",
+        "voice_leading": "Common tones A and C# maintained while bass steps down F# -> D -> A -> E."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Euphoric vocal topline & counter-melodic polyphony",
+        "arpeggio_contour": "Vocal launching on minor 3rd (A4) leaping to 5th (C#5) and descending down chord tones",
+        "phrasing": "Intimate grand piano motif provides descending counter-melody to the soaring vocal lead."
+      },
+      "groove_and_rhythm": {
+        "bpm": 130,
+        "kick_type": "Punchy 52 Hz fundamental kick with rounded low-mid punch",
+        "bassline_pattern": "Envelope-followed 16th-note rolling bass with filtered sub-weight",
+        "swing_rubato": "16th-note shaker swing at 54%, humanized piano rubato in breakdown"
+      },
+      "timbral_profile": {
+        "synths": ["Steinway Model D Grand Piano", "Access Virus TI supersaw pads", "Roland JP-8000 leads"],
+        "filters": "Smooth 12dB low-pass filter with slow 32-bar envelope sweep",
+        "spatial_fx": "Lexicon 480L Hall, Haas effect widening (12ms delay on right channel)"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 80,
+        "buildup_bars": 16,
+        "drop_type": "Full supersaw wall-of-sound release with instant sub-bass anchor",
+        "macro_structure": "Intro (32) - Verse (16) - Anjuna Breakdown (80) - Ratchet Buildup (16) - Drop (32) - Outro (32)"
+      }
+    },
+    {
+      "id": "83_paul_van_dyk",
+      "number": 83,
+      "artist": "Paul van Dyk",
+      "subgenres": ["Classic Trance", "Uplifting Trance", "Euro-Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "For an Angel",
+          "charts": "Voted #1 Trance Track of All Time by Mixmag, UK Singles #28, German Dance #1",
+          "key": "Bb minor / Db major",
+          "bpm": 138
+        },
+        {
+          "title": "Time of Our Lives",
+          "charts": "UK Top 40, Billboard Dance Club Songs #13",
+          "key": "F# minor",
+          "bpm": 136
+        },
+        {
+          "title": "Nothing But You",
+          "charts": "EA Sports FIFA soundtrack, Beatport Trance Classic #1",
+          "key": "A minor",
+          "bpm": 140
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Pure German Uplifting Modal Cadence",
+        "roman_numerals": "i - VII - VI - VII",
+        "chords": ["Bbm", "Ab", "Gb", "Ab"],
+        "modal_analysis": "Stepwise natural minor cadence rejecting dominant V7 leading tones in favor of open, heroic Aeolian steps.",
+        "voice_leading": "Stepwise bass movement Gb -> Ab -> Bbm with static upper octave harmonic anchor."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "16th-note syncopated pluck arpeggio",
+        "arpeggio_contour": "Syncopated motif oscillating Bb3 - Db4 - F4 - Ab4",
+        "phrasing": "2-bar cyclic motif modulated continuously via filter decay and resonance rather than melodic notes."
+      },
+      "groove_and_rhythm": {
+        "bpm": 138,
+        "kick_type": "Hard 909 kick with sharp 3.5 kHz transient click",
+        "bassline_pattern": "High-velocity German 16th-note offbeat bass driving hard on every upbeat",
+        "swing_rubato": "Zero swing (100% mechanical drive) on bass; subtle human rubato on lead pluck delay"
+      },
+      "timbral_profile": {
+        "synths": ["Roland JD-800", "Clavia Nord Lead 2", "Novation Supernova"],
+        "filters": "Squelchy 24dB resonant low-pass filter with peak bite",
+        "spatial_fx": "Dotted 3/16 ping-pong digital delay with 45% feedback, wide stereo imaging"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Cascading drop without EDM risers; direct re-entry of kick under wide-open pluck",
+        "macro_structure": "DJ Intro (32) - Bassline Groove (32) - Breakdown (32) - Cascading Drop (64) - Outro (32)"
+      }
+    },
+    {
+      "id": "84_atb",
+      "number": 84,
+      "artist": "ATB",
+      "subgenres": ["Melodic Dream Trance", "Vocal Trance", "Eurodance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "9 PM (Till I Come)",
+          "charts": "UK Singles #1 (First Trance #1 in UK history), Billboard Dance Club #7",
+          "key": "C minor",
+          "bpm": 130
+        },
+        {
+          "title": "Your Love (9PM)",
+          "charts": "Billboard Hot Dance/Electronic #8, multi-platinum 2021 reboot",
+          "key": "C minor",
+          "bpm": 126
+        },
+        {
+          "title": "Don't Stop!",
+          "charts": "UK Singles #3, European Hot 100 top 10",
+          "key": "A minor",
+          "bpm": 132
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Dorian / Natural Minor Melodic Loop",
+        "roman_numerals": "i - v - VI - VII",
+        "chords": ["Cm", "Gm", "Ab", "Bb"],
+        "modal_analysis": "Smooth minor loop with minor dominant v preserving wistful melancholy.",
+        "voice_leading": "5th pedal drone anchoring the bass register."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Slide-guitar pitch-bent synth lead",
+        "arpeggio_contour": "Eb4 - D4 - C4 - G3 with 70ms portamento glide and pitch-wheel vibrato",
+        "phrasing": "Syncopated 8th-note call-and-response with breathy vocal toplines."
+      },
+      "groove_and_rhythm": {
+        "bpm": 130,
+        "kick_type": "Short-decay punchy 4-on-the-floor kick",
+        "bassline_pattern": "Bouncy offbeat bass with 16th-note pickup notes into the kick",
+        "swing_rubato": "Crisp 52% swing with layered tambourine accents"
+      },
+      "timbral_profile": {
+        "synths": ["Akai S3000XL sampled guitar pluck", "Roland JV-2080 pads/flutes", "Ensoniq TS-10 piano"],
+        "filters": "Gentle 12dB multi-mode filter",
+        "spatial_fx": "Roland Dimension D chorus, slapback stereo delay"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 8,
+        "drop_type": "Melodic hook drop with immediate drum bounce",
+        "macro_structure": "Intro (16) - Verse (16) - Breakdown (16) - Buildup (8) - Hook Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "85_ferry_corsten",
+      "number": 85,
+      "artist": "Ferry Corsten",
+      "subgenres": ["Dutch Trance", "Uplifting Trance", "Electro-Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Out of the Blue (as System F)",
+          "charts": "UK Singles #14, Seminal Uplifting Dutch Trance Anthem",
+          "key": "C minor / Eb major",
+          "bpm": 136
+        },
+        {
+          "title": "Punk",
+          "charts": "Billboard Dance Club Songs #11, Electro-Trance pioneer",
+          "key": "A minor",
+          "bpm": 136
+        },
+        {
+          "title": "Gouryella (with Tiësto)",
+          "charts": "UK Singles #15, Gold certified, legendary anthem",
+          "key": "G minor / Bb major",
+          "bpm": 138
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Heroic Dutch Uplifting Cadence",
+        "roman_numerals": "i - III - VI - VII",
+        "chords": ["Gm", "Bb", "Eb", "F"],
+        "modal_analysis": "Ascending heroic bassline lifting through the relative major and subdominant.",
+        "voice_leading": "Suspended passing chord Ebmaj7 - Fsus4 - Gm providing continuous harmonic lift."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Towering anthemic brass-saw lead",
+        "arpeggio_contour": "Melodic leap spanning a 12th: Bb3 -> D4 -> F4 -> G4 -> D5",
+        "phrasing": "Climbing 16th-note motif resolving on the 9th degree before cascading back to the root."
+      },
+      "groove_and_rhythm": {
+        "bpm": 138,
+        "kick_type": "Heavy Dutch kick with 48 Hz sub weight and 4 kHz click",
+        "bassline_pattern": "Rolling 16th-note offbeat bassline saturated with tube warmth",
+        "swing_rubato": "Driving straight 16th-notes with syncopated ride cymbals entering on drop beat 2"
+      },
+      "timbral_profile": {
+        "synths": ["Roland JP-8000 dual-detuned supersaw (14 saw waves)", "Access Virus B/C dist-leads", "Korg Prophecy"],
+        "filters": "Resonant 24dB low-pass sweep",
+        "spatial_fx": "Massive 5.0s hall reverb with 300 Hz low-cut filter"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 64,
+        "buildup_bars": 16,
+        "drop_type": "Zero-drop silence on beat 4 followed by explosive full supersaw detonation",
+        "macro_structure": "Intro (32) - Build (16) - 64-Bar Breakdown (64) - Buildup (16) - Climax Drop (64) - Outro (32)"
+      }
+    },
+    {
+      "id": "86_cosmic_gate",
+      "number": 86,
+      "artist": "Cosmic Gate",
+      "subgenres": ["Hard Trance", "Tech-Trance", "Progressive Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Exploration of Space",
+          "charts": "Global Hard Trance Anthem, German #12, Billboard Dance staple",
+          "key": "D minor / D Phrygian",
+          "bpm": 138
+        },
+        {
+          "title": "Falling Back",
+          "charts": "ASOT Tune of the Year runner-up, Beatport #1",
+          "key": "F minor",
+          "bpm": 130
+        },
+        {
+          "title": "Fire Wire",
+          "charts": "UK Top 10 (#9), German #19, Hard Trance Club Weapon",
+          "key": "A minor",
+          "bpm": 140
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Dark Phrygian & Hard Aeolian Cadence",
+        "roman_numerals": "i - bII - i - bVII",
+        "chords": ["Dm", "Eb", "Dm", "C"],
+        "modal_analysis": "Phrygian half-step chromatic oscillation creating ominous tension and release.",
+        "voice_leading": "D drone bassline with Eb passing upper chord tension."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Angular octave-jumping synth riff",
+        "arpeggio_contour": "D3 -> D4 -> F4 -> D4 staccato octave leaps with pitch-bend mod",
+        "phrasing": "Iconic space-themed spoken word sample launching high-tension arpeggio."
+      },
+      "groove_and_rhythm": {
+        "bpm": 138,
+        "kick_type": "Distorted hard trance kick with extended sub decay",
+        "bassline_pattern": "Driving 16th-note offbeat bass with aggressive saturation",
+        "swing_rubato": "Mechanical, quantized 16th-note drive with heavy crash accents"
+      },
+      "timbral_profile": {
+        "synths": ["Access Virus TI Hypersaw driven through pedal distortion", "Roland JP-8000"],
+        "filters": "Overdriven 18dB low-pass filter",
+        "spatial_fx": "Gated reverb bursts, flanged white-noise sweeps"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "False drop (8 bars of kick/sub pulse) before full lead detonates",
+        "macro_structure": "Intro (32) - Spoken Word Breakdown (32) - Filter Buildup (16) - False Drop (8) - Full Drop (32) - Outro (32)"
+      }
+    },
+    {
+      "id": "87_gareth_emery",
+      "number": 87,
+      "artist": "Gareth Emery",
+      "subgenres": ["Vocal Uplifting Trance", "Melodic Trance", "Progressive House"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Concrete Angel",
+          "charts": "Billboard Dance/Mix Show Airplay #15, ASOT Tune of the Year #2, 60M+ YouTube",
+          "key": "Bb minor / Db major",
+          "bpm": 134
+        },
+        {
+          "title": "Saving Light",
+          "charts": "Beatport #1 Overall, UK Official Dance Charts #1",
+          "key": "F minor",
+          "bpm": 138
+        },
+        {
+          "title": "U",
+          "charts": "ASOT Tune of the Year 2014 #1, Global Festival Anthem",
+          "key": "Eb major",
+          "bpm": 132
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Pop-Literate Emotional Aeolian Cadence",
+        "roman_numerals": "vi - IV - I - V",
+        "chords": ["Bbm", "Gb", "Db", "Ab"],
+        "modal_analysis": "Emotional Aeolian loop inflected with add9 and sus4 passing chords for maximum vocal lift.",
+        "voice_leading": "Gbadd9 -> Dbsus4 voice-leading maintaining Db and F resolution points."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Powerhouse vocal belt & harmonized supersaw leads",
+        "arpeggio_contour": "Christina Novelli vocal belt jumping octaves to sustained F5 peak",
+        "phrasing": "Lead synths doubling vocal chorus in drop with stacked 3rds and 6ths."
+      },
+      "groove_and_rhythm": {
+        "bpm": 134,
+        "kick_type": "Modern punchy EDM kick with 50 Hz sub fundamental",
+        "bassline_pattern": "Split-band bass: clean sine sub below 80 Hz, gritty sawtooth mid-bass from 150-700 Hz",
+        "swing_rubato": "Subtle 52% swing on hi-hat tops; expressive vocal rubato in breakdown"
+      },
+      "timbral_profile": {
+        "synths": ["Sylenth1 supersaws", "Xfer Serum detuned stacks", "Alicia's Keys Grand Piano"],
+        "filters": "Smooth 24dB low-pass filter with sidechained white-noise layer",
+        "spatial_fx": "Soundtoys Little AlterBoy vocal formant shifts, automated 1/4-note ping-pong delay"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Accelerating snare ratchet with zero-drop pause on final bar before explosive drop",
+        "macro_structure": "Intro (16) - Verse (16) - Breakdown (32) - Snare Buildup (16) - Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "88_dash_berlin",
+      "number": 88,
+      "artist": "Dash Berlin",
+      "subgenres": ["Vocal Uplifting Trance", "Progressive Trance"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Till the Sky Falls Down",
+          "charts": "Breakthrough Global Anthem, ASOT Tune of the Year #2",
+          "key": "G minor",
+          "bpm": 134
+        },
+        {
+          "title": "Waiting",
+          "charts": "IDMA Best Hi-NRG/Track, ASOT Tune of the Year 2009 #1",
+          "key": "A minor",
+          "bpm": 132
+        },
+        {
+          "title": "Man on the Run",
+          "charts": "Global Vocal Trance Classic, multi-million streams",
+          "key": "D minor",
+          "bpm": 134
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Romantic Minor Aeolian Cadence",
+        "roman_numerals": "i - VI - III - VII",
+        "chords": ["Gm", "Eb", "Bb", "F"],
+        "modal_analysis": "Bittersweet romantic minor progression driven by fingerpicked acoustic guitar arpeggios.",
+        "voice_leading": "Stepwise descending soprano line G4 -> F4 -> Eb4 -> D4."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Breathy melancholic vocal hook & high-register plucks",
+        "arpeggio_contour": "High-register 16th-note plucks outlining maj7 and add9 chord extensions",
+        "phrasing": "Emma Hewitt breathy vocal performance with emotional portamento glides."
+      },
+      "groove_and_rhythm": {
+        "bpm": 134,
+        "kick_type": "Warm, rounded kick drum with smooth low-end transient",
+        "bassline_pattern": "Silky 16th-note rolling bass with smooth attack and release times",
+        "swing_rubato": "53% groove swing on shakers; relaxed acoustic guitar timing"
+      },
+      "timbral_profile": {
+        "synths": ["reFX Nexus trance layers", "Access Virus TI supersaws", "Steel-string acoustic guitar"],
+        "filters": "12dB low-pass filter with envelope decay",
+        "spatial_fx": "Wide stereo plate reverb (4.0s decay), automated 1/8-note delay throws"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 64,
+        "buildup_bars": 16,
+        "drop_type": "Emotional supersaw release following dramatic orchestral string swell",
+        "macro_structure": "Intro (16) - Verse (16) - Cinematic Breakdown (64) - Snare Buildup (16) - Melodic Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "89_charlotte_de_witte",
+      "number": 89,
+      "artist": "Charlotte de Witte",
+      "subgenres": ["Peak Time Techno", "Acid Techno", "Hard Techno"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "The Age of Love (with Enrico Sangiuliano)",
+          "charts": "Beatport #1 Track of the Year, Billboard Dance charts, Global Festival Anthem",
+          "key": "G minor / D Dorian",
+          "bpm": 133
+        },
+        {
+          "title": "Selected",
+          "charts": "Beatport Techno #1, KNTXT label anthem",
+          "key": "E minor",
+          "bpm": 134
+        },
+        {
+          "title": "Overdrive",
+          "charts": "BBC Radio 1 Dance Chart topper",
+          "key": "D minor",
+          "bpm": 135
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Hypnotic Modal Ostinato & Dark Acid Loop",
+        "roman_numerals": "i - bII - i",
+        "chords": ["Dm", "Eb", "Dm"],
+        "modal_analysis": "D Dorian / D Phrygian drone center with minor 2nd chromatic shifts and trance-reimagined Gm - Eb - Bb - F loops.",
+        "voice_leading": "Monolithic sub pedal anchoring screaming upper acid resonance."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Screaming 303 acid line & robotic spoken-word mantras",
+        "arpeggio_contour": "Monophonic 303 sawtooth pattern gliding between root D2 and octave D3",
+        "phrasing": "Deadpan, rhythmically quantized spoken vocal mantras repeated with subtle delay."
+      },
+      "groove_and_rhythm": {
+        "bpm": 134,
+        "kick_type": "Industrial rumble kick: sub-kick paired with heavily distorted, bandpassed reverb rumble",
+        "bassline_pattern": "Undulating 16th-note sub-rumble sitting precisely in 35-90 Hz pocket",
+        "swing_rubato": "Rigid 16th-note quantization with aggressive offbeat 909 open hats"
+      },
+      "timbral_profile": {
+        "synths": ["Roland TB-303 / TT-303", "Moog Sub 37", "Elektron Analog Rytm"],
+        "filters": "Overdriven 18dB diode ladder filter pushed into screaming self-oscillation",
+        "spatial_fx": "Industrial room reverb with short pre-delay, heavy sidechain ducking"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Zero-drop blackout on beat 4 followed by crushing rumble kick return",
+        "macro_structure": "Rhythm Intro (32) - Acid Intro (32) - High-Tension Breakdown (32) - Blackout (1) - Rumble Drop (64) - Outro (32)"
+      }
+    },
+    {
+      "id": "90_amelie_lens",
+      "number": 90,
+      "artist": "Amelie Lens",
+      "subgenres": ["Hard Techno", "Acid Techno", "Industrial Peak-Time Techno"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Follow",
+          "charts": "Beatport Techno #1, Lenske label anthem, worldwide club weapon",
+          "key": "F# minor",
+          "bpm": 138
+        },
+        {
+          "title": "Feel It",
+          "charts": "Global Festival Staple (Awakenings, Time Warp)",
+          "key": "G minor",
+          "bpm": 136
+        },
+        {
+          "title": "Basiel",
+          "charts": "Chart-topping Peak-Time Techno track",
+          "key": "E minor",
+          "bpm": 137
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Monolithic Chromatic Drone & Phrygian Shift",
+        "roman_numerals": "i - bII - i - bvii",
+        "chords": ["F#m", "G", "F#m", "Em"],
+        "modal_analysis": "Dark chromatic root pedals with microtonal detuning (+7 to +12 cents) inducing apocalyptic tension.",
+        "voice_leading": "Static low drone anchor with half-step upper neighbor slips."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Intimate spoken-word whisper & syncopated metallic stabs",
+        "arpeggio_contour": "Dry, close-mic vocal whisper repeating rhythmic mantras ('Feel it, follow...')",
+        "phrasing": "FM metallic percussive stabs hitting syncopated 16th offbeats."
+      },
+      "groove_and_rhythm": {
+        "bpm": 138,
+        "kick_type": "Hard-clipped warehouse kick with aggressive 250 Hz punch",
+        "bassline_pattern": "Distorted sub-rumble locked in mono beneath 100 Hz",
+        "swing_rubato": "Driving 909 ride cymbals with subtle micro-swing on 16th-note hat rolls"
+      },
+      "timbral_profile": {
+        "synths": ["Roland TR-909 driven through Elektron Analog Heat", "Eurorack Modular", "TB-303"],
+        "filters": "High-resonance screaming bandpass sweeps",
+        "spatial_fx": "Short metallic plate reverb, bone-dry vocal staging"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 24,
+        "buildup_bars": 8,
+        "drop_type": "Sudden drop into pure sub-weight and kick drum assault",
+        "macro_structure": "DJ Intro (32) - Groove Expansion (32) - Breakdown (24) - Acceleration (8) - Heavy Drop (64) - Outro (32)"
+      }
+    },
+    {
+      "id": "91_jon_hopkins",
+      "number": 91,
+      "artist": "Jon Hopkins",
+      "subgenres": ["IDM", "Ambient Techno", "Micro-house", "Neo-Classical Electronic"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Singularity",
+          "charts": "Grammy Award Nominee (Best Dance/Electronic Album), Billboard Dance/Electronic #11",
+          "key": "C minor",
+          "bpm": 124
+        },
+        {
+          "title": "Open Eye Signal",
+          "charts": "Pitchfork Best New Track, UK Electronic Masterpiece",
+          "key": "D minor",
+          "bpm": 120
+        },
+        {
+          "title": "Emerald Rush",
+          "charts": "Lead single from Singularity, global streaming smash",
+          "key": "Ab major / F minor",
+          "bpm": 126
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Neo-Classical Modal Impressionism & Microtonal Drift",
+        "roman_numerals": "i - VImaj7#11 - iv9 - VII13",
+        "chords": ["Cm9", "Abmaj7#11", "Fm9", "Bb13"],
+        "modal_analysis": "Complex modal and suspended harmonies with organic tape pitch drift (+/- 20 cents) creating living acoustic resonance.",
+        "voice_leading": "Tender chromatic counterpoint descending through internal voices."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Breathing modular sequence & felted upright piano",
+        "arpeggio_contour": "Breathing synth sequences modulated with LFOs on filter decay and cutoff",
+        "phrasing": "Intimate, felted piano melodies played with muting felt between hammers and strings."
+      },
+      "groove_and_rhythm": {
+        "bpm": 124,
+        "kick_type": "Deep acoustic-electronic hybrid kick layered with wooden transient",
+        "bassline_pattern": "Heavy, distorted analog bass pulses with dynamic velocity accents",
+        "swing_rubato": "Organic micro-rubato swing; unquantized foley percussion (ice, wood, breathing)"
+      },
+      "timbral_profile": {
+        "synths": ["Korg MS-20 filter self-oscillation", "Moog Sub Phatty", "Acoustic Felt Piano"],
+        "filters": "Dirty analog MS-20 high-pass / low-pass filter pairing",
+        "spatial_fx": "Real reel-to-reel tape saturation (wow/flutter), Eventide H8000 harmonizer"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Tectonic drop collapsing into intimate piano before exploding into analog distortion",
+        "macro_structure": "Atmospheric Drone (32) - Groove Inception (32) - Peak Build (32) - Piano Collapse (16) - Distortion Climax (48) - Dissolve (32)"
+      }
+    },
+    {
+      "id": "92_aphex_twin",
+      "number": 92,
+      "artist": "Aphex Twin",
+      "subgenres": ["IDM", "Braindance", "Drill 'n' Bass", "Ambient Techno"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Windowlicker",
+          "charts": "UK Singles #16, Billboard Dance Club Songs #15, NME Track of the Year 1999",
+          "key": "Db major / C altered",
+          "bpm": 128
+        },
+        {
+          "title": "Xtal",
+          "charts": "Selected Ambient Works 85-92 masterpiece, timeless electronic benchmark",
+          "key": "Eb major",
+          "bpm": 113
+        },
+        {
+          "title": "Digeridoo",
+          "charts": "UK Dance Chart hit, early rave breakthrough",
+          "key": "F# drone",
+          "bpm": 145
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Microtonal Tuning & Polymetric Modal Loops",
+        "roman_numerals": "Imaj7 - vi7 - IVmaj7 / Dbmaj9 - C7#9 - Bmaj7",
+        "chords": ["Ebmaj7", "Cm7", "Abmaj7"],
+        "modal_analysis": "Custom microtonal scales (Bohlen-Pierce, Just Intonation) combined with surreal altered jazz-funk dominant chords.",
+        "voice_leading": "Microtonally bent voice-leading defying 12-TET equal temperament."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Granular female choral pads & formant vocal chaos",
+        "arpeggio_contour": "Pitched, time-stretched ethereal choral textures contrasted with frantic microtonal leads",
+        "phrasing": "Extreme pitch-shifted vocoded laughter and processed speech in 'Windowlicker'."
+      },
+      "groove_and_rhythm": {
+        "bpm": 128,
+        "kick_type": "Pitched 808/909 hybrid kicks sliced into microscopic slices",
+        "bassline_pattern": "Elastic, pitch-bent sub-basslines weaving through erratic drum bursts",
+        "swing_rubato": "Hyper-edited breakbeats (Amen / Think break sliced to 64th/128th notes) with algorithmic Euclidean swing"
+      },
+      "timbral_profile": {
+        "synths": ["Yamaha DX7 / SY22 FM", "Roland TB-303", "Roland SH-101", "Custom Modular"],
+        "filters": "Extreme dynamic comb filters and analog bandpass modules",
+        "spatial_fx": "Spring reverbs, vintage bitcrushers, granular time-stretch processors"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 8,
+        "drop_type": "Anti-formulaic polyrhythmic climax with sudden textural disintegration",
+        "macro_structure": "Non-repeating modular sections with abrupt metric modulations and ambient dissolutions"
+      }
+    },
+    {
+      "id": "93_boards_of_canada",
+      "number": 93,
+      "artist": "Boards of Canada",
+      "subgenres": ["Downtempo", "IDM", "Chillwave", "Hauntology", "Ambient"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Dayvan Cowboy",
+          "charts": "Critical and Streaming Masterpiece, Pitchfork Top Track",
+          "key": "D Mixolydian / D Dorian",
+          "bpm": 86
+        },
+        {
+          "title": "Roygbiv",
+          "charts": "Definitive Electronic Anthem with iconic bassline, BBC Radio staple",
+          "key": "D Mixolydian",
+          "bpm": 84
+        },
+        {
+          "title": "Music Is Math",
+          "charts": "Seminal IDM classic from Geogaddi",
+          "key": "C minor",
+          "bpm": 92
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Nostalgic Tape-Degraded Mixolydian Loop",
+        "roman_numerals": "I - bVII - IV - I",
+        "chords": ["D", "C", "G", "D"],
+        "modal_analysis": "Sun-drenched, melancholic Mixolydian progression evocative of 1970s documentary soundtracks.",
+        "voice_leading": "Descending chromatic bass notes beneath static upper triads; tape wow/flutter pitch drift (+/- 30 cents)."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Childlike nostalgic synth melody",
+        "arpeggio_contour": "Simple, emotive 5-note pentatonic contour played on warm analog brass",
+        "phrasing": "Subtle, unhurried phrasing interspersed with shortwave radio numbers station snippets."
+      },
+      "groove_and_rhythm": {
+        "bpm": 86,
+        "kick_type": "Dusty, vinyl-sampled kick drum with tape compression",
+        "bassline_pattern": "Iconic, warm analog bassline playing walking syncopated 8th-notes ('Roygbiv')",
+        "swing_rubato": "Heavy laid-back vinyl swing (58-62% shuffle); unquantized organic drum feel"
+      },
+      "timbral_profile": {
+        "synths": ["Roland Juno-6", "Roland SH-101", "Yamaha CS-80 emulation", "Akai S950"],
+        "filters": "Warm analog low-pass filter with gentle resonance and bandpass coloration",
+        "spatial_fx": "Nagra reel-to-reel and cassette saturation, analog wow/flutter, room plate reverb"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 8,
+        "drop_type": "Organic thematic swell with live electric guitar and strings in 'Dayvan Cowboy'",
+        "macro_structure": "Poetic vignette progression evolving across 3 to 5 minutes without rigid EDM divisions"
+      }
+    },
+    {
+      "id": "94_four_tet",
+      "number": 94,
+      "artist": "Four Tet",
+      "subgenres": ["Folktronica", "IDM", "Microhouse", "UK Garage / Melodic Techno"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Baby (feat. Ellie Goulding)",
+          "charts": "UK Top 40, Global Streaming Smash (Over 100M streams)",
+          "key": "E minor / E Dorian",
+          "bpm": 130
+        },
+        {
+          "title": "Looking at Your Pager (as KH)",
+          "charts": "Beatport #1, Coachella / Glastonbury Festival Anthem",
+          "key": "F# minor",
+          "bpm": 132
+        },
+        {
+          "title": "Parallel Jammers",
+          "charts": "Electronic Streaming & DJ chart hit",
+          "key": "A minor",
+          "bpm": 128
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Pentatonic & Modal Ostinato Loop",
+        "roman_numerals": "i - III - iv - VII",
+        "chords": ["Em7", "G", "Am7", "D"],
+        "modal_analysis": "Breezy Dorian / Aeolian ostinato constructed from micro-sampled vocal snippets acting as chord tones.",
+        "voice_leading": "Cyclical acoustic arpeggios (harp/kalimba) shifting against the bass pedal."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Chopped vocal earworm & organic arpeggio",
+        "arpeggio_contour": "Intricately chopped, pitch-shifted vocal samples (3LW sample in 'Looking at Your Pager')",
+        "phrasing": "Staccato micro-chops repeated into an infectious, dancefloor-ready hook."
+      },
+      "groove_and_rhythm": {
+        "bpm": 130,
+        "kick_type": "Warm, punchy UK Garage kick with soft top end",
+        "bassline_pattern": "Deep sub-bass sine wave following the vocal chop rhythm",
+        "swing_rubato": "2-step UK Garage syncopation: skipping hats, offbeat rimshots, organic wooden foley"
+      },
+      "timbral_profile": {
+        "synths": ["Kalimba / Folk Harp acoustic recordings", "Pristine digital FM synths"],
+        "filters": "Smooth digital low-pass and bandpass filters",
+        "spatial_fx": "Granular delays, lush stereo room reverbs, tape saturation"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 8,
+        "drop_type": "Additive loop release; subtle dropout rather than bombastic EDM drop",
+        "macro_structure": "Isolated Vocal Loop (16) - Percussion Entry (16) - Full 2-Step (32) - Vocal Breakdown (16) - Full Groove Climax (32)"
+      }
+    },
+    {
+      "id": "95_wilkinson",
+      "number": 95,
+      "artist": "Wilkinson",
+      "subgenres": ["Dancefloor Drum & Bass", "Vocal DnB", "Liquid DnB"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Afterglow (feat. Becky Hill)",
+          "charts": "UK Singles #8, UK Dance #1, Multi-Platinum certified, 200M+ streams",
+          "key": "Eb minor / Gb major",
+          "bpm": 174
+        },
+        {
+          "title": "Used to This (feat. Issey Cross)",
+          "charts": "UK Top 40, BBC Radio 1 A-list",
+          "key": "F minor",
+          "bpm": 174
+        },
+        {
+          "title": "All for You (feat. Karen Harding)",
+          "charts": "UK Dance Chart hit, Festival staple",
+          "key": "C minor",
+          "bpm": 175
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Anthemic Pop-DnB Cadence",
+        "roman_numerals": "vi - IV - I - V",
+        "chords": ["Ebm", "B", "Gb", "Db"],
+        "modal_analysis": "Soaring, emotionally uplifting Aeolian / Ionian cadence with suspended 4ths.",
+        "voice_leading": "Ebsus4 -> Badd9 -> Db6 voice-leading sustaining vocal tension."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Soaring vocal belt & supersaw drop lead",
+        "arpeggio_contour": "Becky Hill powerhouse vocal belt sustaining high Bb4 and Db5 notes",
+        "phrasing": "Harmonized vocal stacks layered in 3rds and 5ths doubled by bright supersaws."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "Punchy DnB kick on beat 1 and beat 2-and",
+        "bassline_pattern": "Massive Reese bass layered with clean sub-sine wave",
+        "swing_rubato": "Snappy 200 Hz snare on beat 2 and 4, fast 16th-note hi-hat shuffle, syncopated ghost snares"
+      },
+      "timbral_profile": {
+        "synths": ["Serum Reese bass with chorus", "Spire supersaw leads", "Acoustic Grand Piano"],
+        "filters": "Multi-band filtered Reese with mid-range saturation",
+        "spatial_fx": "Lexicon hall reverb, multi-band sidechain compression ducking bass to kick/snare"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "1-bar silence / drum fill cutout followed by explosive 174 BPM cascading drop",
+        "macro_structure": "Intro (16) - Vocal Verse (16) - Breakdown (32) - Accelerating Ratchet Buildup (16) - Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "96_netsky",
+      "number": 96,
+      "artist": "Netsky",
+      "subgenres": ["Liquid Drum & Bass", "Dancefloor DnB", "Melodic DnB"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Come Alive",
+          "charts": "UK Top 40, Belgian Singles #2, Seminal Liquid DnB Anthem",
+          "key": "F major",
+          "bpm": 174
+        },
+        {
+          "title": "Everyday (Rusko Remix / Original)",
+          "charts": "Global Festival Classic, multi-million streams",
+          "key": "G major",
+          "bpm": 175
+        },
+        {
+          "title": "Rio (feat. Digital Farm Animals)",
+          "charts": "Belgian #3, Global viral summer anthem",
+          "key": "C major",
+          "bpm": 175
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Joyful Soul/Jazz Liquid Cadence",
+        "roman_numerals": "I - vi - IV - V / IV - V - vi - iii",
+        "chords": ["F", "Dm", "Bb", "C"],
+        "modal_analysis": "Uplifting Major harmony with rich jazz-inflected extensions (Maj9, min7, 9sus4).",
+        "voice_leading": "Smooth voice-leading across piano comping with parallel 3rds."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Syncopated house piano & live brass stabs",
+        "arpeggio_contour": "Bouncy, syncopated M1-style piano chords with bright octave doubling",
+        "phrasing": "Joyful vocal hooks with call-and-response brass section stabs."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "Round, acoustic-synthetic hybrid kick with 60 Hz punch",
+        "bassline_pattern": "Warm 808-style sine sub-bass paired with filtered Reese bass",
+        "swing_rubato": "Chopped Think break / Amen break layers; swinging ride cymbals and dynamic ghost snares"
+      },
+      "timbral_profile": {
+        "synths": ["Korg M1 Piano", "Live-recorded brass multisamples", "Roland Juno-106 pads"],
+        "filters": "Warm 12dB low-pass filter on Reese layers",
+        "spatial_fx": "Airy Lexicon hall reverb, sparkling stereo shaker delays"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 16,
+        "drop_type": "Seamless drop into rolling liquid bass and skipping breakbeats",
+        "macro_structure": "Piano Intro (16) - Vocal Verse (16) - Brass Swell (16) - Snare Build (16) - Rolling Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "97_dimension",
+      "number": 97,
+      "artist": "Dimension",
+      "subgenres": ["Stadium Dancefloor Drum & Bass", "Tech DnB"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Desire (with Sub Focus)",
+          "charts": "UK Dance #1, certified Gold, Definitive Modern Stadium DnB Anthem",
+          "key": "F# minor",
+          "bpm": 174
+        },
+        {
+          "title": "DJ Turn It Up",
+          "charts": "Beatport #1, Viral Global Festival Weapon",
+          "key": "G minor",
+          "bpm": 175
+        },
+        {
+          "title": "Rhyme Dust (Dimension Remix)",
+          "charts": "Peak-time Festival Weapon, Beatport #1",
+          "key": "A minor",
+          "bpm": 174
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Anthemic Stadium Minor Cadence",
+        "roman_numerals": "i - VI - III - VII",
+        "chords": ["F#m", "D", "A", "E"],
+        "modal_analysis": "Trance-inspired Aeolian progression injected with high-energy modern bass production.",
+        "voice_leading": "Suspended synth arpeggios sustaining high F#5 anchor note."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "174 BPM trance supersaw arpeggio & vocal catchphrases",
+        "arpeggio_contour": "Razor-sharp 16th-note arpeggios operating at 174 BPM across 2 octaves",
+        "phrasing": "Minimalist vocal catchphrases ('DJ turn it up!') with instantaneous crowd recognition."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "Aggressive, clicky kick with massive 80 Hz knock",
+        "bassline_pattern": "Screaming FM screech bass paired with pure sine sub clipped hard at 0 dBFS",
+        "swing_rubato": "Robotic, ultra-tight 16th-note closed hats; massive layered 200 Hz snare"
+      },
+      "timbral_profile": {
+        "synths": ["Serum supersaws with Haas widening", "Spire FM leads", "Clipped sub-bass"],
+        "filters": "Sharp 24dB ladder filter sweeps",
+        "spatial_fx": "Laser FX risers, short stereo room on snares, dry punchy mixdown"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 16,
+        "drop_type": "Zero-drop snare cutout followed by high-impact stadium drop",
+        "macro_structure": "Intro (16) - Vocal Breakdown (16) - Pitch Riser Build (16) - Cutout (1) - Stadium Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "98_hybrid_minds",
+      "number": 98,
+      "artist": "Hybrid Minds",
+      "subgenres": ["Liquid Vocal Drum & Bass", "Melodic DnB"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Touch (feat. Tiffani Juno)",
+          "charts": "Global Liquid DnB classic, over 60M streams, UK Dance staple",
+          "key": "C minor",
+          "bpm": 174
+        },
+        {
+          "title": "Castles (feat. Tom Cane)",
+          "charts": "UK Electronic hit, Festival Singalong Anthem",
+          "key": "D minor",
+          "bpm": 174
+        },
+        {
+          "title": "Let Me Hold You (with Netsky)",
+          "charts": "Major Crossover Streaming Hit",
+          "key": "G minor",
+          "bpm": 174
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Bittersweet Cinematic Minor Cadence",
+        "roman_numerals": "i - v - VI - III",
+        "chords": ["Cm", "Gm", "Ab", "Eb"],
+        "modal_analysis": "Deeply emotional minor progression with delicate 7th and 9th extensions.",
+        "voice_leading": "Parsimonious voice leading with acoustic piano chords moving smoothly in root position and 1st inversions."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Intimate, breathy vocal delivery & delicate piano arpeggio",
+        "arpeggio_contour": "Flowing piano arpeggios weaving around fragile vocal topline",
+        "phrasing": "Vulnerable, emotional vocal phrasing recorded with close-mic intimacy."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "Soft, rounded kick drum with warm sub weight",
+        "bassline_pattern": "Warm, modulated Reese bass with low-pass cutoff sweeping gently between 200 Hz and 700 Hz",
+        "swing_rubato": "Gentle funk breakbeat loops with subtle micro-rubato swing and quiet rolling ghost snares"
+      },
+      "timbral_profile": {
+        "synths": ["Felted Upright Piano", "Acoustic Strings (Cello/Violin)", "Modulated Reese bass"],
+        "filters": "Gentle 12dB low-pass filter with slow LFO modulation",
+        "spatial_fx": "Valhalla Shimmer and lush plate reverbs creating expansive depth"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Silky rolling drop where sub-bass and vocal harmonize in deep emotional resonance",
+        "macro_structure": "Piano/Vocal Intro (32) - Filtered Break Build (16) - Smooth Swell (8) - Silky Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "99_camo_and_krooked",
+      "number": 99,
+      "artist": "Camo & Krooked",
+      "subgenres": ["Futuristic Drum & Bass", "Minimal DnB", "Orchestral DnB"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "Watch It Burn (feat. Ayah Marar)",
+          "charts": "UK Dance Chart hit, Beatport #1",
+          "key": "G minor",
+          "bpm": 174
+        },
+        {
+          "title": "Atlas",
+          "charts": "Beatport #1, DnB Arena Awards Best Track, Sound Design benchmark",
+          "key": "F minor",
+          "bpm": 172
+        },
+        {
+          "title": "Red Bull Symphonic",
+          "charts": "Historic Orchestral DnB collaboration with Max Richter & Christian Kolonovits",
+          "key": "E minor",
+          "bpm": 174
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Neo-Classical & Jazz Modal Harmony",
+        "roman_numerals": "i - bVImaj7 - iiø7 - V7alt",
+        "chords": ["Gm9", "Ebmaj7", "Am7b5", "D7#9"],
+        "modal_analysis": "Sophisticated modal interchange, half-diminished chords, and altered dominant tensions.",
+        "voice_leading": "Microtonal inflections and chromatic internal line movements."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Micro-sampled vocal chops & syncopated minimalist plucks",
+        "arpeggio_contour": "Quirky, syncopated synth plucks and pizzicato string ostinatos",
+        "phrasing": "Formant-shifted micro-vocal slices acting as percussive melodic hooks."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "Dry, surgical kick drum with ultra-short decay",
+        "bassline_pattern": "Hyper-clean FM bass growls with pristine EQ separation",
+        "swing_rubato": "Bossa/Funk DnB groove: unquantized human swing, finger snaps, claves, and wooden clicks"
+      },
+      "timbral_profile": {
+        "synths": ["Buchla & Eurorack modular synths", "Surgically modulated FM operators"],
+        "filters": "Precision notch filters and linear-phase dynamic EQ",
+        "spatial_fx": "Dry, pristine spatial staging with microscopic room reflections"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 16,
+        "buildup_bars": 8,
+        "drop_type": "Minimalist drop stripping elements away to spotlight a hyper-detailed bass groove",
+        "macro_structure": "Minimal Intro (16) - Foley Build (8) - Stripped Drop (32) - Metric Shift (16) - Second Drop (32) - Outro (16)"
+      }
+    },
+    {
+      "id": "100_noisia",
+      "number": 100,
+      "artist": "Noisia",
+      "subgenres": ["Neurofunk Drum & Bass", "Halftime", "Bass Music Sound Design Benchmark"],
+      "chart_hits_and_anthems": [
+        {
+          "title": "The Tide",
+          "charts": "Seminal Neurofunk genre-defining anthem, Vision Recordings #1",
+          "key": "F minor / F Phrygian",
+          "bpm": 174
+        },
+        {
+          "title": "Outer Edges (Voodoo, Tentacles, Mantra)",
+          "charts": "Critically acclaimed album benchmark for modern audio engineering",
+          "key": "E minor / Chromatic",
+          "bpm": 172
+        },
+        {
+          "title": "Tommy's Theme",
+          "charts": "BBC Radio 1 A-list, Global Bass Music Classic",
+          "key": "Eb minor",
+          "bpm": 140
+        }
+      ],
+      "harmonic_progression": {
+        "cadence_type": "Atonal, Chromatic & Phrygian Dominant",
+        "roman_numerals": "i - bII - i - bV",
+        "chords": ["Em", "F", "Em", "Bb"],
+        "modal_analysis": "Intense, apocalyptic harmonic tension utilizing diminished arpeggios, tritones, and chromatic slips.",
+        "voice_leading": "Continuous microtonal pitch bends and re-sampled formant modulations."
+      },
+      "topline_melodic_hook": {
+        "hook_type": "Alien formant reese bass & metallic screech leads",
+        "arpeggio_contour": "Multi-band modulated neuro reese acting as the primary melodic voice through vowel filtering",
+        "phrasing": "Menacing, aggressive non-diatonic riffs with extreme pitch-wheel automation."
+      },
+      "groove_and_rhythm": {
+        "bpm": 174,
+        "kick_type": "The most powerful, transient-shaped kick in electronic music history",
+        "bassline_pattern": "Constantly mutating neurofunk reese changing timbre and filter movement every 2 bars",
+        "swing_rubato": "Micro-timed transient attacks, surgical ghost snares, and polyrhythmic hat grids"
+      },
+      "timbral_profile": {
+        "synths": ["The Noisia Reese (multi-band distortion, comb filtering, phasing, and re-sampling)", "Native Instruments Reaktor"],
+        "filters": "Dynamic notch and comb filters sweeping in opposite phase directions",
+        "spatial_fx": "FabFilter Saturn multi-band saturation, ultra-wide stereo highs with absolute mono below 150 Hz"
+      },
+      "arrangement_structure": {
+        "breakdown_bars": 32,
+        "buildup_bars": 16,
+        "drop_type": "Catastrophic neuro drop with unpredictable micro-edits and zero-drop pauses",
+        "macro_structure": "Eerie Foley Intro (32) - Escalating Rhythmic Buildup (16) - Micro-Pause (1) - Catastrophic Neuro Drop (32) - Re-Mutation (32) - Outro (16)"
+      }
+    }
+  ]
+}

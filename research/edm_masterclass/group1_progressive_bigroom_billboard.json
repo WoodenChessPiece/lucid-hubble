@@ -1,0 +1,3231 @@
+{
+  "catalog_metadata": {
+    "group_id": "group1_progressive_bigroom_billboard",
+    "genre_category": "Progressive House, Big Room & Mainstage Pop Billboard Composition",
+    "era": "2011-2024",
+    "total_artists": 20,
+    "target_system": "Lucid-Hubble Algorithmic Music Studio",
+    "schema_conformance": "http://json-schema.org/draft-07/schema#"
+  },
+  "artists": [
+    {
+      "artist_id": "avicii",
+      "artist_name": "Avicii",
+      "primary_tracks": [
+        {
+          "title": "Levels",
+          "year": 2011,
+          "billboard_achievements": [
+            "Hot 100 #60",
+            "Dance Club Songs #1",
+            "RIAA Platinum"
+          ],
+          "key": "C# Minor",
+          "mode": "Aeolian",
+          "tempo_bpm": 126,
+          "time_signature": "4/4",
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "III",
+              "VII"
+            ],
+            "chords": [
+              "C#m",
+              "A",
+              "E",
+              "B"
+            ],
+            "harmonic_rhythm": "1 chord per measure",
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "C#m",
+                  "notes": [
+                    44,
+                    49,
+                    52,
+                    61
+                  ]
+                },
+                {
+                  "chord": "A",
+                  "notes": [
+                    40,
+                    45,
+                    49,
+                    57
+                  ]
+                },
+                {
+                  "chord": "E",
+                  "notes": [
+                    47,
+                    52,
+                    56,
+                    64
+                  ]
+                },
+                {
+                  "chord": "B",
+                  "notes": [
+                    42,
+                    47,
+                    51,
+                    59
+                  ]
+                }
+              ],
+              "drop4_midi": [
+                {
+                  "chord": "C#m",
+                  "notes": [
+                    37,
+                    52,
+                    56,
+                    61
+                  ]
+                },
+                {
+                  "chord": "A",
+                  "notes": [
+                    33,
+                    49,
+                    52,
+                    57
+                  ]
+                },
+                {
+                  "chord": "E",
+                  "notes": [
+                    40,
+                    56,
+                    59,
+                    64
+                  ]
+                },
+                {
+                  "chord": "B",
+                  "notes": [
+                    35,
+                    51,
+                    54,
+                    59
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Perfect 8th",
+              "Minor 3rd"
+            ],
+            "climax_note": "G#5",
+            "climax_midi": 80,
+            "climax_bar": 1,
+            "resolution_path": [
+              "G#5",
+              "F#5",
+              "E5",
+              "C#5",
+              "B4",
+              "G#4",
+              "C#4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 42.0,
+            "gate_length_ms": 100.0,
+            "syncopation_offset_ms": -3.0,
+            "velocity_tiers": {
+              "accent": 124,
+              "groove": 90,
+              "ghost": 72
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 140.0,
+              "ducking_depth_db": -22.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.24,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "attack_ms": 0,
+              "decay_ms": 420,
+              "sustain": 0.65
+            },
+            "tape_saturation": {
+              "mode": "Warm Tape",
+              "drive_db": 3.2,
+              "bias": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "32-68",
+              "low_mid_cut_hz": 220,
+              "air_shelf_hz": 8500
+            }
+          },
+          "structural_arc": {
+            "archetype": "Extended Festival Progressive Pop (128 BPM standard)",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0 total silence; dry vocal sample ('Oh, sometimes...')",
+            "buildup_mechanisms": [
+              "Snare acceleration 1/4 to 1/32 flams",
+              "White noise riser",
+              "Width collapse to 45% then explosion to 120%"
+            ]
+          }
+        },
+        {
+          "title": "Wake Me Up",
+          "year": 2013,
+          "billboard_achievements": [
+            "Hot 100 #4",
+            "Hot Dance/Electronic Songs #1 (26 weeks)",
+            "6x Platinum"
+          ],
+          "key": "B Minor",
+          "mode": "Aeolian / Ionian Hybrid",
+          "tempo_bpm": 124,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "Bm",
+              "G",
+              "D",
+              "A"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "swedish_house_mafia",
+      "artist_name": "Swedish House Mafia",
+      "primary_tracks": [
+        {
+          "title": "Don't You Worry Child",
+          "year": 2012,
+          "billboard_achievements": [
+            "Hot 100 #6",
+            "Dance Club Songs #1",
+            "5x Platinum",
+            "Grammy Nominee"
+          ],
+          "key": "B Minor / D Major",
+          "mode": "Aeolian / Ionian",
+          "tempo_bpm": 129,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IVmaj7",
+              "I",
+              "V6"
+            ],
+            "chords": [
+              "Bm",
+              "Gmaj7",
+              "D",
+              "A/C#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Bm",
+                  "notes": [
+                    42,
+                    47,
+                    50,
+                    59
+                  ]
+                },
+                {
+                  "chord": "Gmaj7",
+                  "notes": [
+                    47,
+                    43,
+                    50,
+                    54
+                  ]
+                },
+                {
+                  "chord": "D",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    62
+                  ]
+                },
+                {
+                  "chord": "A/C#",
+                  "notes": [
+                    40,
+                    45,
+                    49,
+                    57
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Major 6th"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#5",
+              "E5",
+              "D5",
+              "B4",
+              "A4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 65.0,
+            "gate_length_ms": 150.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 110,
+              "ghost": 75
+            },
+            "sidechain": {
+              "attack_ms": 0.5,
+              "release_ms": 125.0,
+              "ducking_depth_db": -20.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.22,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 450,
+              "sustain": 0.7
+            },
+            "tape_saturation": {
+              "mode": "Neve 1073 preamp drive + Distressor 1:1",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "40-80",
+              "low_mid_cut_hz": 300,
+              "presence_hz": 4000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Extended Club Vocal Progressive (64-bar block)",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: tape stop silence; dry vocal whisper ('See heaven's got a plan for you')",
+            "buildup_mechanisms": [
+              "HPF climbing to 750 Hz",
+              "Pitch-riser +24 semitones",
+              "Clap density quadrupling"
+            ]
+          }
+        },
+        {
+          "title": "Greyhound",
+          "year": 2012,
+          "billboard_achievements": [
+            "Dance Club Songs #3",
+            "Global Gold Certification"
+          ],
+          "key": "E Minor",
+          "mode": "Dorian / Aeolian",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "iv",
+              "v"
+            ],
+            "chords": [
+              "Em",
+              "C",
+              "Am",
+              "Bm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "alesso",
+      "artist_name": "Alesso",
+      "primary_tracks": [
+        {
+          "title": "Calling (Lose My Mind)",
+          "year": 2012,
+          "billboard_achievements": [
+            "Dance Club Songs #1",
+            "UK #19",
+            "Beatport #1"
+          ],
+          "key": "Ab Major",
+          "mode": "Major (Subdominant Launch)",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "V",
+              "vi",
+              "I6"
+            ],
+            "chords": [
+              "Db",
+              "Eb",
+              "Fm",
+              "Ab/C"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Dbmaj7",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    60
+                  ]
+                },
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Fm7",
+                  "notes": [
+                    48,
+                    53,
+                    56,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Ab/C",
+                  "notes": [
+                    44,
+                    48,
+                    51,
+                    60
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Minor 3rd",
+              "Octave Drop"
+            ],
+            "climax_note": "Eb5",
+            "climax_midi": 75,
+            "climax_bar": 2,
+            "resolution_path": [
+              "Eb5",
+              "C5",
+              "Bb4",
+              "Ab4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 50.0,
+            "gate_length_ms": 119.0,
+            "syncopation_offset_ms": 4.0,
+            "velocity_tiers": {
+              "accent": 120,
+              "groove": 88,
+              "ghost": 60
+            },
+            "sidechain": {
+              "attack_ms": 0.2,
+              "release_ms": 130.0,
+              "ducking_depth_db": -22.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 7,
+            "detune_spread": 0.2,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 500,
+              "sustain": 0.7
+            },
+            "tape_saturation": {
+              "mode": "Decapitator Style T",
+              "drive_db": 2.5
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-70",
+              "low_mid_cut_hz": 300,
+              "air_shelf_hz": 10000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Swedish Melodic Pop Festival Structure",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: silence with dry vocal whisper ('Lose my mind...')",
+            "buildup_mechanisms": [
+              "HPF sweep from 100 Hz to 600 Hz",
+              "Pitch-riser +12 semitones",
+              "Kick quadrupling"
+            ]
+          }
+        },
+        {
+          "title": "Heroes (we could be)",
+          "year": 2014,
+          "billboard_achievements": [
+            "Hot 100 #31",
+            "Dance/Mix Show #1",
+            "RIAA Platinum"
+          ],
+          "key": "D Minor / F Major",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "I",
+              "V",
+              "vi"
+            ],
+            "chords": [
+              "Bb",
+              "F",
+              "C",
+              "Dm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "martin_garrix",
+      "artist_name": "Martin Garrix",
+      "primary_tracks": [
+        {
+          "title": "Animals",
+          "year": 2013,
+          "billboard_achievements": [
+            "Hot 100 #21",
+            "UK #1",
+            "Dance Club Songs #1",
+            "2x Platinum"
+          ],
+          "key": "F Minor",
+          "mode": "Phrygian / Aeolian Bounce",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "iv",
+              "V"
+            ],
+            "chords": [
+              "Fm",
+              "Db",
+              "Bbm",
+              "C"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Fm",
+                  "notes": [
+                    36,
+                    41,
+                    44,
+                    53
+                  ]
+                },
+                {
+                  "chord": "Db",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    61
+                  ]
+                },
+                {
+                  "chord": "Bbm",
+                  "notes": [
+                    41,
+                    46,
+                    49,
+                    58
+                  ]
+                },
+                {
+                  "chord": "C",
+                  "notes": [
+                    43,
+                    48,
+                    52,
+                    60
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 1.0,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Minor 7th"
+            ],
+            "climax_note": "Eb4",
+            "climax_midi": 63,
+            "climax_bar": 2,
+            "resolution_path": [
+              "Eb4",
+              "Db4",
+              "C4",
+              "F3"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 20.0,
+            "gate_length_ms": 46.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 95,
+              "ghost": 65
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 90.0,
+              "ducking_depth_db": -26.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 1,
+            "detune_spread": 0.0,
+            "filter_cutoff_env": {
+              "type": "Short Pluck LPF",
+              "decay_ms": 85,
+              "sustain": 0.0
+            },
+            "tape_saturation": {
+              "mode": "Dada Life Sausage Fattener (Fatness 45%, Color 60%)",
+              "drive_db": 4.5
+            },
+            "frequency_slotting": {
+              "sub_hz": "42-55 (909 kick tail)",
+              "lead_pluck_hz": 174,
+              "presence_hz": 3000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Big Room Festival Standard (Minimal Percussive Drop)",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: silence; pitched vocal drop ('Motherf---ing animals!')",
+            "buildup_mechanisms": [
+              "Pitch-riser +36 semitones",
+              "Snare roll to 1/64 flams",
+              "Massive sidechained noise sweep"
+            ]
+          }
+        },
+        {
+          "title": "In the Name of Love",
+          "year": 2016,
+          "billboard_achievements": [
+            "Hot 100 #24",
+            "Mainstream Top 40 #16",
+            "3x Platinum"
+          ],
+          "key": "E Minor",
+          "tempo_bpm": 134,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "Em",
+              "C",
+              "G",
+              "D"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "zedd",
+      "artist_name": "Zedd",
+      "primary_tracks": [
+        {
+          "title": "Clarity",
+          "year": 2012,
+          "billboard_achievements": [
+            "Hot 100 #8",
+            "Grammy Award Winner",
+            "5x Platinum"
+          ],
+          "key": "D# Minor / F# Major",
+          "mode": "Ionian / Aeolian",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "vi",
+              "V",
+              "I6"
+            ],
+            "chords": [
+              "B",
+              "D#m",
+              "C#",
+              "F#/A#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Bmaj7",
+                  "notes": [
+                    42,
+                    47,
+                    51,
+                    58
+                  ]
+                },
+                {
+                  "chord": "D#m7",
+                  "notes": [
+                    46,
+                    51,
+                    54,
+                    61
+                  ]
+                },
+                {
+                  "chord": "C#",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    61
+                  ]
+                },
+                {
+                  "chord": "F#/A#",
+                  "notes": [
+                    42,
+                    46,
+                    50,
+                    58
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Perfect 4th",
+              "Minor 3rd"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#5",
+              "D#5",
+              "C#5",
+              "B4",
+              "A#4",
+              "G#4",
+              "F#4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 25.0,
+            "gate_length_ms": 58.0,
+            "syncopation_offset_ms": 2.5,
+            "velocity_tiers": {
+              "accent": 124,
+              "groove": 105,
+              "ghost": 65
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 115.0,
+              "ducking_depth_db": -24.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.28,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 280,
+              "sustain": 0.5
+            },
+            "tape_saturation": {
+              "mode": "Trash 2 Multiband Tape",
+              "drive_db": 4.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-70",
+              "low_mid_cut_hz": 320,
+              "bell_transient_hz": 2500
+            }
+          },
+          "structural_arc": {
+            "archetype": "Classical Concerto Pop EDM Hybrid",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: stutter-gate silence; solo Foxes vocal ('...why are you my clarity?')",
+            "buildup_mechanisms": [
+              "Clock-tick woodblock acceleration",
+              "Orchestral timpani roll",
+              "Stereo width unmasking"
+            ]
+          }
+        },
+        {
+          "title": "Stay the Night",
+          "year": 2013,
+          "billboard_achievements": [
+            "Hot 100 #18",
+            "Dance Club Songs #1",
+            "2x Platinum"
+          ],
+          "key": "Ab Major",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "vi",
+              "V",
+              "I6"
+            ],
+            "chords": [
+              "Db",
+              "Fm",
+              "Eb",
+              "Ab/C"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "calvin_harris",
+      "artist_name": "Calvin Harris",
+      "primary_tracks": [
+        {
+          "title": "Feel So Close",
+          "year": 2011,
+          "billboard_achievements": [
+            "Hot 100 #12",
+            "Dance Club Songs #1",
+            "3x Platinum"
+          ],
+          "key": "A Minor / C Major",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "Am",
+              "F",
+              "C",
+              "G"
+            ]
+          }
+        },
+        {
+          "title": "Summer",
+          "year": 2014,
+          "billboard_achievements": [
+            "Hot 100 #7",
+            "UK #1",
+            "4x Platinum"
+          ],
+          "key": "E Minor / G Major",
+          "mode": "Aeolian / Ionian",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "Em",
+              "C",
+              "G",
+              "D"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Em",
+                  "notes": [
+                    35,
+                    40,
+                    43,
+                    52
+                  ]
+                },
+                {
+                  "chord": "C",
+                  "notes": [
+                    43,
+                    48,
+                    52,
+                    60
+                  ]
+                },
+                {
+                  "chord": "G",
+                  "notes": [
+                    38,
+                    43,
+                    47,
+                    55
+                  ]
+                },
+                {
+                  "chord": "D",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    62
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Octave Jump"
+            ],
+            "climax_note": "E5",
+            "climax_midi": 76,
+            "climax_bar": 1,
+            "resolution_path": [
+              "E5",
+              "D5",
+              "B4",
+              "A4",
+              "G4",
+              "E4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 45.0,
+            "gate_length_ms": 105.0,
+            "syncopation_offset_ms": 5.0,
+            "velocity_tiers": {
+              "accent": 122,
+              "groove": 95,
+              "ghost": 70
+            },
+            "sidechain": {
+              "attack_ms": 0.5,
+              "release_ms": 150.0,
+              "ducking_depth_db": -20.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 8,
+            "detune_spread": 0.18,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 350,
+              "sustain": 0.6
+            },
+            "tape_saturation": {
+              "mode": "Studer A800 30 IPS",
+              "drive_db": 2.5
+            },
+            "frequency_slotting": {
+              "sub_hz": "45-95",
+              "low_mid_cut_hz": 280,
+              "presence_hz": 4000
+            }
+          },
+          "structural_arc": {
+            "archetype": "British Commercial Pop Dance Anthem",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: total silence; two 16th-note snare hits and dry clap",
+            "buildup_mechanisms": [
+              "HPF roll-off below 400 Hz",
+              "Pitch-envelope snare riser",
+              "Filter resonance sweep"
+            ]
+          }
+        },
+        {
+          "title": "One Kiss",
+          "year": 2018,
+          "billboard_achievements": [
+            "Hot 100 #26",
+            "UK #1 (8 weeks)",
+            "4x Platinum"
+          ],
+          "key": "A Minor",
+          "tempo_bpm": 124,
+          "progression": {
+            "roman_numerals": [
+              "i9",
+              "iv7",
+              "VImaj7",
+              "VII"
+            ],
+            "chords": [
+              "Am9",
+              "Dm7",
+              "Fmaj7",
+              "G"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "tiesto",
+      "artist_name": "Ti\u00ebsto",
+      "primary_tracks": [
+        {
+          "title": "The Business",
+          "year": 2020,
+          "billboard_achievements": [
+            "Hot 100 #69",
+            "Hot Dance/Electronic #2",
+            "Global 200 Top 10",
+            "Platinum"
+          ],
+          "key": "Bb Minor",
+          "mode": "Aeolian / Dorian Slap House",
+          "tempo_bpm": 120,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VImaj7",
+              "iv7",
+              "v7"
+            ],
+            "chords": [
+              "Bbm",
+              "Gbmaj7",
+              "Ebm7",
+              "Fm7"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Bbm",
+                  "notes": [
+                    41,
+                    46,
+                    49,
+                    58
+                  ]
+                },
+                {
+                  "chord": "Gbmaj7",
+                  "notes": [
+                    46,
+                    42,
+                    49,
+                    53
+                  ]
+                },
+                {
+                  "chord": "Ebm7",
+                  "notes": [
+                    46,
+                    51,
+                    54,
+                    61
+                  ]
+                },
+                {
+                  "chord": "Fm7",
+                  "notes": [
+                    48,
+                    53,
+                    56,
+                    63
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.75,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Minor 3rd (Blue Note bend)"
+            ],
+            "climax_note": "Db4",
+            "climax_midi": 61,
+            "climax_bar": 1,
+            "resolution_path": [
+              "Db4",
+              "C4",
+              "Bb3",
+              "Ab3",
+              "F3"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 30.0,
+            "gate_length_ms": 75.0,
+            "syncopation_offset_ms": -4.5,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 120,
+              "ghost": 55
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 95.0,
+              "ducking_depth_db": -28.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 1,
+            "detune_spread": 0.0,
+            "filter_cutoff_env": {
+              "type": "FM Slap Snappy Envelope",
+              "decay_ms": 65,
+              "sustain": 0.0
+            },
+            "tape_saturation": {
+              "mode": "Saturn 2 Warm Tube",
+              "drive_db": 5.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-75",
+              "kick_punch_hz": 95,
+              "slap_bite_hz": 1800
+            }
+          },
+          "structural_arc": {
+            "archetype": "Modern Slap House Streaming Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: total instrument silence; solo vocal chant ('Let's get down to business')",
+            "buildup_mechanisms": [
+              "HPF sweep to 450 Hz",
+              "16th-note pitched snare roll",
+              "White noise cutoff plunge"
+            ]
+          }
+        },
+        {
+          "title": "Red Lights",
+          "year": 2014,
+          "billboard_achievements": [
+            "Hot 100 #56",
+            "UK #6",
+            "RIAA Platinum"
+          ],
+          "key": "C Major",
+          "tempo_bpm": 125,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "vi",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "F",
+              "Am",
+              "C",
+              "G"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "david_guetta",
+      "artist_name": "David Guetta",
+      "primary_tracks": [
+        {
+          "title": "Titanium",
+          "year": 2011,
+          "billboard_achievements": [
+            "Hot 100 #7",
+            "UK #1",
+            "5x Platinum"
+          ],
+          "key": "Eb Major",
+          "mode": "Ionian / Aeolian",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "I",
+              "V",
+              "vi",
+              "IV"
+            ],
+            "chords": [
+              "Eb",
+              "Bb",
+              "Cm",
+              "Ab"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Bb",
+                  "notes": [
+                    41,
+                    46,
+                    50,
+                    58
+                  ]
+                },
+                {
+                  "chord": "Cm",
+                  "notes": [
+                    43,
+                    48,
+                    51,
+                    60
+                  ]
+                },
+                {
+                  "chord": "Ab",
+                  "notes": [
+                    39,
+                    44,
+                    48,
+                    56
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Major 6th Operatic Belt"
+            ],
+            "climax_note": "C6",
+            "climax_midi": 84,
+            "climax_bar": 2,
+            "resolution_path": [
+              "C6",
+              "Bb5",
+              "Ab5",
+              "G5",
+              "Eb5"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 48.0,
+            "gate_length_ms": 114.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 90,
+              "ghost": 50
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 135.0,
+              "ducking_depth_db": -22.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 32,
+            "detune_spread": 0.24,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 400,
+              "sustain": 0.65
+            },
+            "tape_saturation": {
+              "mode": "Empirical Labs Fatso Spank Tape",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "38-75",
+              "low_mid_cut_hz": 320,
+              "air_shelf_hz": 12000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Mainstage Pop Dance Anthem Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: total audio cut; solo Sia dry vocal belt ('I am titanium!')",
+            "buildup_mechanisms": [
+              "HPF sweep to 600 Hz",
+              "Stereo width collapse to mono before explosion to 130%"
+            ]
+          }
+        },
+        {
+          "title": "Hey Mama",
+          "year": 2015,
+          "billboard_achievements": [
+            "Hot 100 #8",
+            "4x Platinum"
+          ],
+          "key": "E Minor",
+          "tempo_bpm": 86,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "III",
+              "iv",
+              "VI"
+            ],
+            "chords": [
+              "Em",
+              "G",
+              "Am",
+              "C"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "hardwell",
+      "artist_name": "Hardwell",
+      "primary_tracks": [
+        {
+          "title": "Spaceman",
+          "year": 2012,
+          "billboard_achievements": [
+            "Dance/Electronic Digital #17",
+            "Beatport #1 (25 days)",
+            "Certified Gold"
+          ],
+          "key": "D Minor",
+          "mode": "Aeolian",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "III",
+              "VII"
+            ],
+            "chords": [
+              "Dm",
+              "Bb",
+              "F",
+              "C"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Dm",
+                  "notes": [
+                    45,
+                    50,
+                    53,
+                    62
+                  ]
+                },
+                {
+                  "chord": "Bb",
+                  "notes": [
+                    41,
+                    46,
+                    50,
+                    58
+                  ]
+                },
+                {
+                  "chord": "F",
+                  "notes": [
+                    48,
+                    53,
+                    57,
+                    65
+                  ]
+                },
+                {
+                  "chord": "C",
+                  "notes": [
+                    43,
+                    48,
+                    52,
+                    60
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Octave Leap",
+              "Minor 3rd"
+            ],
+            "climax_note": "F5",
+            "climax_midi": 77,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F5",
+              "E5",
+              "D5",
+              "C5",
+              "A4",
+              "F4",
+              "D4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 40.0,
+            "gate_length_ms": 93.0,
+            "syncopation_offset_ms": -2.0,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 90,
+              "ghost": 72
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 110.0,
+              "ducking_depth_db": -25.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 8,
+            "detune_spread": 0.26,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 340,
+              "sustain": 0.5
+            },
+            "tape_saturation": {
+              "mode": "Decapitator Style A",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "36-72",
+              "lead_bite_hz": 1800,
+              "high_shelf_hz": 10000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Peak-Time Big Room Festival Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: silence; pitched snare roll choked on beat 3.75 followed by pitch-bent synth laser",
+            "buildup_mechanisms": [
+              "HPF sweep from 30 Hz to 800 Hz",
+              "Pitch-riser +24 semitones",
+              "Snare acceleration to 1/64 flams"
+            ]
+          }
+        },
+        {
+          "title": "Apollo",
+          "year": 2012,
+          "billboard_achievements": [
+            "Dance/Mix Show #14",
+            "Beatport #1"
+          ],
+          "key": "F# Minor",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "F#m",
+              "D",
+              "A",
+              "E"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "kshmr",
+      "artist_name": "KSHMR",
+      "primary_tracks": [
+        {
+          "title": "Secrets",
+          "year": 2015,
+          "billboard_achievements": [
+            "Dance Club Songs #1",
+            "Beatport #1",
+            "European Platinum"
+          ],
+          "key": "G Minor",
+          "mode": "Aeolian / Phrygian Dominant",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "III",
+              "VII"
+            ],
+            "chords": [
+              "Gm",
+              "Eb",
+              "Bb",
+              "F"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Gm",
+                  "notes": [
+                    38,
+                    43,
+                    46,
+                    55
+                  ]
+                },
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Bb",
+                  "notes": [
+                    41,
+                    46,
+                    50,
+                    58
+                  ]
+                },
+                {
+                  "chord": "F",
+                  "notes": [
+                    48,
+                    53,
+                    57,
+                    65
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Perfect 5th"
+            ],
+            "climax_note": "D5",
+            "climax_midi": 74,
+            "climax_bar": 1,
+            "resolution_path": [
+              "D5",
+              "C5",
+              "Bb4",
+              "A4",
+              "G4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 44.0,
+            "gate_length_ms": 103.0,
+            "syncopation_offset_ms": -3.0,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 95,
+              "ghost": 55
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 120.0,
+              "ducking_depth_db": -24.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 7,
+            "detune_spread": 0.22,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 380,
+              "sustain": 0.6
+            },
+            "tape_saturation": {
+              "mode": "Kush Audio UBK-1 / Saturn Warm Tape",
+              "drive_db": 4.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "38-75",
+              "low_mid_cut_hz": 280,
+              "presence_hz": 3500
+            }
+          },
+          "structural_arc": {
+            "archetype": "Cinematic World / Festival Big Room Hybrid",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: complete silence; solo dry ethnic flute ornament",
+            "buildup_mechanisms": [
+              "Orchestral timpani roll",
+              "Marching snares",
+              "Shepard tone riser"
+            ]
+          }
+        },
+        {
+          "title": "Bazaar",
+          "year": 2015,
+          "billboard_achievements": [
+            "Beatport #1",
+            "Official Sunburn Anthem"
+          ],
+          "key": "D Phrygian / D Harmonic Minor",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "bII",
+              "viio",
+              "i"
+            ],
+            "chords": [
+              "Dm",
+              "Eb",
+              "Cm",
+              "Dm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "the_chainsmokers",
+      "artist_name": "The Chainsmokers",
+      "primary_tracks": [
+        {
+          "title": "Closer",
+          "year": 2016,
+          "billboard_achievements": [
+            "Hot 100 #1 (12 weeks)",
+            "Diamond (15x Platinum)",
+            "Spotify Top 5 All-Time"
+          ],
+          "key": "Ab Major",
+          "mode": "Lydian (Unresolved Loop)",
+          "tempo_bpm": 95,
+          "progression": {
+            "roman_numerals": [
+              "IVadd9",
+              "V",
+              "vi7",
+              "V"
+            ],
+            "chords": [
+              "Dbadd9",
+              "Eb",
+              "Fm7",
+              "Eb"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Dbadd9",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Fm7",
+                  "notes": [
+                    48,
+                    53,
+                    56,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Perfect 5th"
+            ],
+            "climax_note": "C5",
+            "climax_midi": 72,
+            "climax_bar": 1,
+            "resolution_path": [
+              "C5",
+              "Bb4",
+              "Ab4",
+              "F4",
+              "Eb4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 85.0,
+            "gate_length_ms": 536.0,
+            "syncopation_offset_ms": 8.0,
+            "velocity_tiers": {
+              "accent": 118,
+              "groove": 92,
+              "ghost": 60
+            },
+            "sidechain": {
+              "attack_ms": 1.0,
+              "release_ms": 180.0,
+              "ducking_depth_db": -16.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 4,
+            "detune_spread": 0.14,
+            "filter_cutoff_env": {
+              "type": "Short Pluck LPF",
+              "decay_ms": 220,
+              "sustain": 0.0
+            },
+            "tape_saturation": {
+              "mode": "Soundtoys Radiator Tube",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "44 (Db1 808)",
+              "low_mid_cut_hz": 250,
+              "air_shelf_hz": 9000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Future Pop Radio Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: complete audio cut; dry finger snap and vocal breath",
+            "buildup_mechanisms": [
+              "White noise riser",
+              "Pitch-bend riser on vocal chop",
+              "Kick accelerating from 1/4 to 1/8"
+            ]
+          }
+        },
+        {
+          "title": "Roses",
+          "year": 2015,
+          "billboard_achievements": [
+            "Hot 100 #6",
+            "6x Platinum"
+          ],
+          "key": "E Major",
+          "tempo_bpm": 100,
+          "progression": {
+            "roman_numerals": [
+              "I",
+              "ii7",
+              "vi",
+              "IV"
+            ],
+            "chords": [
+              "E",
+              "F#m7",
+              "C#m",
+              "A"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "porter_robinson",
+      "artist_name": "Porter Robinson",
+      "primary_tracks": [
+        {
+          "title": "Language",
+          "year": 2012,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #7",
+            "UK #9",
+            "RIAA Gold"
+          ],
+          "key": "A Major",
+          "mode": "Ionian",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "vi7",
+              "IVmaj7",
+              "I",
+              "V6"
+            ],
+            "chords": [
+              "F#m7",
+              "Dmaj7",
+              "A",
+              "E/G#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "F#m7",
+                  "notes": [
+                    45,
+                    42,
+                    49,
+                    52
+                  ]
+                },
+                {
+                  "chord": "Dmaj7",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    61
+                  ]
+                },
+                {
+                  "chord": "A",
+                  "notes": [
+                    40,
+                    45,
+                    49,
+                    57
+                  ]
+                },
+                {
+                  "chord": "E/G#",
+                  "notes": [
+                    47,
+                    44,
+                    52,
+                    56
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 3,
+            "interval_leaps": [
+              "Perfect 4th",
+              "Minor 3rd"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#5",
+              "E5",
+              "C#5",
+              "B4",
+              "A4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 55.0,
+            "gate_length_ms": 128.0,
+            "syncopation_offset_ms": 3.5,
+            "velocity_tiers": {
+              "accent": 120,
+              "groove": 105,
+              "ghost": 75
+            },
+            "sidechain": {
+              "attack_ms": 0.2,
+              "release_ms": 140.0,
+              "ducking_depth_db": -20.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.25,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 480,
+              "sustain": 0.7
+            },
+            "tape_saturation": {
+              "mode": "Distressor 2:1 + Decapitator Style E",
+              "drive_db": 2.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-70",
+              "low_mid_cut_hz": 300,
+              "air_shelf_hz": 14000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Extended Emotional Progressive Journey",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: total drum mute; solo grand piano chord and acoustic damper decay",
+            "buildup_mechanisms": [
+              "Massive pitch-riser",
+              "Snare roll acceleration",
+              "Continuous filter unmasking"
+            ]
+          }
+        },
+        {
+          "title": "Shelter",
+          "year": 2016,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #11",
+            "RIAA Gold"
+          ],
+          "key": "C Major",
+          "tempo_bpm": 100,
+          "progression": {
+            "roman_numerals": [
+              "IVmaj7",
+              "V",
+              "iii7",
+              "vi7"
+            ],
+            "chords": [
+              "Fmaj7",
+              "G",
+              "Em7",
+              "Am7"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "madeon",
+      "artist_name": "Madeon",
+      "primary_tracks": [
+        {
+          "title": "The City",
+          "year": 2012,
+          "billboard_achievements": [
+            "Hot Dance Club Songs #4",
+            "UK Dance #16"
+          ],
+          "key": "B Minor / D Major",
+          "mode": "French Electro Pop",
+          "tempo_bpm": 124,
+          "progression": {
+            "roman_numerals": [
+              "IVmaj7",
+              "V",
+              "vi7",
+              "I6"
+            ],
+            "chords": [
+              "Gmaj7",
+              "A",
+              "Bm7",
+              "D/F#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Gmaj7",
+                  "notes": [
+                    47,
+                    43,
+                    50,
+                    54
+                  ]
+                },
+                {
+                  "chord": "A",
+                  "notes": [
+                    40,
+                    45,
+                    49,
+                    57
+                  ]
+                },
+                {
+                  "chord": "Bm7",
+                  "notes": [
+                    42,
+                    47,
+                    50,
+                    57
+                  ]
+                },
+                {
+                  "chord": "D/F#",
+                  "notes": [
+                    45,
+                    42,
+                    50,
+                    54
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.75,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Major 6th"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#5",
+              "E5",
+              "D5",
+              "B4",
+              "A4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 28.0,
+            "gate_length_ms": 67.0,
+            "syncopation_offset_ms": 6.5,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 98,
+              "ghost": 55
+            },
+            "sidechain": {
+              "attack_ms": 0.2,
+              "release_ms": 110.0,
+              "ducking_depth_db": -18.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 7,
+            "detune_spread": 0.18,
+            "filter_cutoff_env": {
+              "type": "Resonant Squelch LPF",
+              "decay_ms": 180,
+              "sustain": 0.3
+            },
+            "tape_saturation": {
+              "mode": "Neve Portico 542 Tape + SSL Bus Comp",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "40-80",
+              "low_mid_cut_hz": 280,
+              "funk_bite_hz": 2800
+            }
+          },
+          "structural_arc": {
+            "archetype": "Nu-Disco / French Pop Dynamic Structure",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: complete stop; rapid 32nd-note Linndrum snare panning left to right",
+            "buildup_mechanisms": [
+              "HPF sweep",
+              "Vocal chop micro-glitching in double-time"
+            ]
+          }
+        },
+        {
+          "title": "Pay No Mind",
+          "year": 2015,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #29",
+            "Triple J Hit"
+          ],
+          "key": "F# Major",
+          "tempo_bpm": 115,
+          "progression": {
+            "roman_numerals": [
+              "IVmaj9",
+              "V",
+              "vi7",
+              "iii7"
+            ],
+            "chords": [
+              "Bmaj9",
+              "C#",
+              "D#m7",
+              "A#m7"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "galantis",
+      "artist_name": "Galantis",
+      "primary_tracks": [
+        {
+          "title": "Runaway (U & I)",
+          "year": 2014,
+          "billboard_achievements": [
+            "Hot 100 #47",
+            "UK #4",
+            "Grammy Nominee",
+            "3x Platinum"
+          ],
+          "key": "Bb Minor",
+          "mode": "Aeolian / Ionian",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "vi",
+              "IV",
+              "I",
+              "V"
+            ],
+            "chords": [
+              "Bbm",
+              "Gb",
+              "Db",
+              "Ab"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Bbm",
+                  "notes": [
+                    41,
+                    46,
+                    49,
+                    58
+                  ]
+                },
+                {
+                  "chord": "Gb",
+                  "notes": [
+                    46,
+                    42,
+                    49,
+                    54
+                  ]
+                },
+                {
+                  "chord": "Db",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    61
+                  ]
+                },
+                {
+                  "chord": "Ab",
+                  "notes": [
+                    39,
+                    44,
+                    48,
+                    56
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Octave Leap (Formant shifted)"
+            ],
+            "climax_note": "Db6",
+            "climax_midi": 85,
+            "climax_bar": 1,
+            "resolution_path": [
+              "Db6",
+              "C6",
+              "Ab5",
+              "F5",
+              "Db5"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 48.0,
+            "gate_length_ms": 114.0,
+            "syncopation_offset_ms": -3.0,
+            "velocity_tiers": {
+              "accent": 124,
+              "groove": 92,
+              "ghost": 58
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 130.0,
+              "ducking_depth_db": -22.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.22,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 420,
+              "sustain": 0.65
+            },
+            "tape_saturation": {
+              "mode": "Decapitator Style P",
+              "drive_db": 2.8
+            },
+            "frequency_slotting": {
+              "sub_hz": "34-68",
+              "low_mid_cut_hz": 300,
+              "air_shelf_hz": 12000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Commercial Festival Pop Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: silence; pitched vocal scream ('U & I!') with dry cutoff",
+            "buildup_mechanisms": [
+              "Shepard tone riser",
+              "Accelerating snare roll with heavy flanging"
+            ]
+          }
+        },
+        {
+          "title": "Peanut Butter Jelly",
+          "year": 2015,
+          "billboard_achievements": [
+            "UK #8",
+            "RIAA Platinum"
+          ],
+          "key": "Eb Major",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "I",
+              "IV",
+              "V",
+              "vi"
+            ],
+            "chords": [
+              "Eb",
+              "Ab",
+              "Bb",
+              "Cm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "afrojack",
+      "artist_name": "Afrojack",
+      "primary_tracks": [
+        {
+          "title": "Take Over Control",
+          "year": 2010,
+          "billboard_achievements": [
+            "Hot 100 #41",
+            "Dance Club Songs #1",
+            "RIAA Platinum"
+          ],
+          "key": "F# Minor",
+          "mode": "Dutch House Minor",
+          "tempo_bpm": 130,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "iv",
+              "v"
+            ],
+            "chords": [
+              "F#m",
+              "D",
+              "Bm",
+              "C#m"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "F#m",
+                  "notes": [
+                    45,
+                    42,
+                    49,
+                    54
+                  ]
+                },
+                {
+                  "chord": "D",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    62
+                  ]
+                },
+                {
+                  "chord": "Bm",
+                  "notes": [
+                    42,
+                    47,
+                    50,
+                    59
+                  ]
+                },
+                {
+                  "chord": "C#m",
+                  "notes": [
+                    44,
+                    49,
+                    52,
+                    61
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Perfect 5th",
+              "Portamento Glides"
+            ],
+            "climax_note": "F#4",
+            "climax_midi": 66,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#4",
+              "E4",
+              "C#4",
+              "B3",
+              "F#3"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 22.0,
+            "gate_length_ms": 51.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 90,
+              "ghost": 50
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 95.0,
+              "ducking_depth_db": -26.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 2,
+            "detune_spread": 0.12,
+            "filter_cutoff_env": {
+              "type": "Resonant Pitch Squeak LPF",
+              "decay_ms": 75,
+              "sustain": 0.0
+            },
+            "tape_saturation": {
+              "mode": "CLA-76 All-Buttons-In Spank",
+              "drive_db": 5.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "37-74",
+              "lead_resonance_hz": 2500,
+              "high_shelf_hz": 11000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Extended Club Electro Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: silence; Eva Simons' vocal chop ('Take over control!')",
+            "buildup_mechanisms": [
+              "Pitched snare roll",
+              "White noise sweep",
+              "HPF clearing out all sub-500 Hz frequencies"
+            ]
+          }
+        },
+        {
+          "title": "Ten Feet Tall",
+          "year": 2014,
+          "billboard_achievements": [
+            "Hot 100 #100",
+            "Dance Club #8",
+            "RIAA Gold"
+          ],
+          "key": "G Major",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "I",
+              "vi",
+              "V"
+            ],
+            "chords": [
+              "C",
+              "G",
+              "Em",
+              "D"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "steve_aoki",
+      "artist_name": "Steve Aoki",
+      "primary_tracks": [
+        {
+          "title": "Pursuit of Happiness (Remix)",
+          "year": 2011,
+          "billboard_achievements": [
+            "Hot 100 #59",
+            "RIAA Platinum",
+            "Over 1B Streams"
+          ],
+          "key": "C Minor",
+          "mode": "Aeolian Electro Punk",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "III",
+              "VII"
+            ],
+            "chords": [
+              "Cm",
+              "Ab",
+              "Eb",
+              "Bb"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Cm",
+                  "notes": [
+                    43,
+                    48,
+                    51,
+                    60
+                  ]
+                },
+                {
+                  "chord": "Ab",
+                  "notes": [
+                    39,
+                    44,
+                    48,
+                    56
+                  ]
+                },
+                {
+                  "chord": "Eb",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    63
+                  ]
+                },
+                {
+                  "chord": "Bb",
+                  "notes": [
+                    41,
+                    46,
+                    50,
+                    58
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Minor 3rd",
+              "Perfect 4th"
+            ],
+            "climax_note": "G5",
+            "climax_midi": 79,
+            "climax_bar": 1,
+            "resolution_path": [
+              "G5",
+              "F5",
+              "Eb5",
+              "C5",
+              "Bb4",
+              "G4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 24.0,
+            "gate_length_ms": 56.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 127,
+              "ghost": 90
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 100.0,
+              "ducking_depth_db": -25.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 8,
+            "detune_spread": 0.32,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 300,
+              "sustain": 0.4
+            },
+            "tape_saturation": {
+              "mode": "Sausage Fattener (Fatness 60%, Color 70%) + Marshall JCM800",
+              "drive_db": 6.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "36-72",
+              "mid_bite_hz": 2000,
+              "high_shelf_hz": 9500
+            }
+          },
+          "structural_arc": {
+            "archetype": "High-Energy Electro Festival Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: complete drum/synth choke; solo vocal shout ('Pursuit of happiness!')",
+            "buildup_mechanisms": [
+              "Exponential white noise riser",
+              "Snare acceleration to 1/64 flams",
+              "HPF sweep to 700 Hz"
+            ]
+          }
+        },
+        {
+          "title": "Boneless",
+          "year": 2013,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #17",
+            "Beatport #1",
+            "RIAA Gold"
+          ],
+          "key": "F Minor",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "III",
+              "IV",
+              "i"
+            ],
+            "chords": [
+              "Fm",
+              "Ab",
+              "Bb",
+              "Fm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "nicky_romero",
+      "artist_name": "Nicky Romero",
+      "primary_tracks": [
+        {
+          "title": "I Could Be the One",
+          "year": 2012,
+          "billboard_achievements": [
+            "UK #1",
+            "Hot Dance/Electronic #10",
+            "RIAA Platinum"
+          ],
+          "key": "F# Minor / A Major",
+          "mode": "Ionian (Subdominant Launch)",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "V",
+              "vi",
+              "I6"
+            ],
+            "chords": [
+              "D",
+              "E",
+              "F#m",
+              "A/C#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Dmaj7",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    61
+                  ]
+                },
+                {
+                  "chord": "E",
+                  "notes": [
+                    47,
+                    52,
+                    56,
+                    64
+                  ]
+                },
+                {
+                  "chord": "F#m7",
+                  "notes": [
+                    45,
+                    42,
+                    49,
+                    52
+                  ]
+                },
+                {
+                  "chord": "A/C#",
+                  "notes": [
+                    40,
+                    45,
+                    49,
+                    57
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Perfect 4th",
+              "Major 3rd"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 1,
+            "resolution_path": [
+              "F#5",
+              "E5",
+              "D5",
+              "C#5",
+              "B4",
+              "A4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 46.0,
+            "gate_length_ms": 110.0,
+            "syncopation_offset_ms": 2.0,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 95,
+              "ghost": 60
+            },
+            "sidechain": {
+              "attack_ms": 0.1,
+              "release_ms": 125.0,
+              "ducking_depth_db": -22.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.24,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 420,
+              "sustain": 0.65
+            },
+            "tape_saturation": {
+              "mode": "Neve 88RS Console Saturation",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "37-74",
+              "low_mid_cut_hz": 300,
+              "presence_hz": 5000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Dutch Festival Progressive Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: silence; isolated vocal chop and snare flam",
+            "buildup_mechanisms": [
+              "HPF sweep to 650 Hz",
+              "Pitch-riser +24 semitones",
+              "Snare doubling to 1/32"
+            ]
+          }
+        },
+        {
+          "title": "Toulouse",
+          "year": 2011,
+          "billboard_achievements": [
+            "Beatport #1",
+            "450M+ Views"
+          ],
+          "key": "D Minor",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "VII",
+              "i"
+            ],
+            "chords": [
+              "Dm",
+              "Bb",
+              "C",
+              "Dm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "dimitri_vegas_like_mike",
+      "artist_name": "Dimitri Vegas & Like Mike",
+      "primary_tracks": [
+        {
+          "title": "Mammoth",
+          "year": 2013,
+          "billboard_achievements": [
+            "Beatport #1 (4 weeks)",
+            "Tomorrowland Greatest Anthem",
+            "European Platinum"
+          ],
+          "key": "E Minor / G Major",
+          "mode": "Ionian / Aeolian",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "V",
+              "vi",
+              "iii"
+            ],
+            "chords": [
+              "C",
+              "D",
+              "Em",
+              "Bm"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Cmaj7",
+                  "notes": [
+                    43,
+                    48,
+                    52,
+                    59
+                  ]
+                },
+                {
+                  "chord": "D",
+                  "notes": [
+                    45,
+                    50,
+                    54,
+                    62
+                  ]
+                },
+                {
+                  "chord": "Em7",
+                  "notes": [
+                    43,
+                    40,
+                    47,
+                    50
+                  ]
+                },
+                {
+                  "chord": "Bm7",
+                  "notes": [
+                    42,
+                    47,
+                    50,
+                    57
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Perfect 4th",
+              "Minor 3rd"
+            ],
+            "climax_note": "G5",
+            "climax_midi": 79,
+            "climax_bar": 2,
+            "resolution_path": [
+              "G5",
+              "F#5",
+              "E5",
+              "D5",
+              "B4",
+              "G4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 45.0,
+            "gate_length_ms": 105.0,
+            "syncopation_offset_ms": 0.0,
+            "velocity_tiers": {
+              "accent": 127,
+              "groove": 100,
+              "ghost": 70
+            },
+            "sidechain": {
+              "attack_ms": 0.05,
+              "release_ms": 115.0,
+              "ducking_depth_db": -25.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 24,
+            "detune_spread": 0.28,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 460,
+              "sustain": 0.7
+            },
+            "tape_saturation": {
+              "mode": "Saturn 2 Warm Tube + Sausage Fattener",
+              "drive_db": 4.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-70",
+              "low_mid_cut_hz": 300,
+              "lead_bite_hz": 2500
+            }
+          },
+          "structural_arc": {
+            "archetype": "Peak-Time Tomorrowland Mainstage Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 16, Beat 4.0: silence; Like Mike crowd hype shout ('1, 2, 3, JUMP!')",
+            "buildup_mechanisms": [
+              "HPF sweep",
+              "White noise riser",
+              "Snare roll to 1/64 flams",
+              "Stadium sub-drop sweep"
+            ]
+          }
+        },
+        {
+          "title": "Tremor",
+          "year": 2014,
+          "billboard_achievements": [
+            "Beatport #1",
+            "500M+ Views"
+          ],
+          "key": "F Minor",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "i",
+              "VI",
+              "VII",
+              "i"
+            ],
+            "chords": [
+              "Fm",
+              "Db",
+              "Eb",
+              "Fm"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "audien",
+      "artist_name": "Audien",
+      "primary_tracks": [
+        {
+          "title": "Something Better",
+          "year": 2015,
+          "billboard_achievements": [
+            "Bubbling Under #17",
+            "Dance Club Songs #1",
+            "Hot Dance/Electronic #10"
+          ],
+          "key": "Bb Major",
+          "mode": "Major (Subdominant Launch)",
+          "tempo_bpm": 126,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "V",
+              "vi",
+              "I6"
+            ],
+            "chords": [
+              "Eb",
+              "F",
+              "Gm",
+              "Bb/D"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Ebmaj7",
+                  "notes": [
+                    46,
+                    51,
+                    55,
+                    62
+                  ]
+                },
+                {
+                  "chord": "F",
+                  "notes": [
+                    48,
+                    53,
+                    57,
+                    65
+                  ]
+                },
+                {
+                  "chord": "Gm7",
+                  "notes": [
+                    46,
+                    43,
+                    50,
+                    53
+                  ]
+                },
+                {
+                  "chord": "Bb/D",
+                  "notes": [
+                    46,
+                    50,
+                    53,
+                    62
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 5,
+            "interval_leaps": [
+              "Perfect 4th",
+              "Major 3rd"
+            ],
+            "climax_note": "D5",
+            "climax_midi": 74,
+            "climax_bar": 1,
+            "resolution_path": [
+              "D5",
+              "C5",
+              "Bb4",
+              "A4",
+              "F4",
+              "Eb4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 52.0,
+            "gate_length_ms": 124.0,
+            "syncopation_offset_ms": 3.0,
+            "velocity_tiers": {
+              "accent": 122,
+              "groove": 92,
+              "ghost": 65
+            },
+            "sidechain": {
+              "attack_ms": 0.2,
+              "release_ms": 135.0,
+              "ducking_depth_db": -20.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.28,
+            "filter_cutoff_env": {
+              "type": "24dB LPF",
+              "decay_ms": 480,
+              "sustain": 0.7
+            },
+            "tape_saturation": {
+              "mode": "Studer A800 15 IPS Tape",
+              "drive_db": 3.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "35-68",
+              "low_mid_cut_hz": 300,
+              "presence_shelf_hz": 10000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Euphoric American Progressive Journey",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: total drum mute; isolated grand piano chord and acoustic decay",
+            "buildup_mechanisms": [
+              "HPF sweep from 50 Hz to 600 Hz",
+              "Pitch-riser +12 semitones",
+              "Stereo-flanged snare roll"
+            ]
+          }
+        },
+        {
+          "title": "Pompeii (Audien Remix)",
+          "year": 2014,
+          "billboard_achievements": [
+            "Grammy Award Nominee",
+            "Beatport #1"
+          ],
+          "key": "A Major",
+          "tempo_bpm": 128,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "V",
+              "vi",
+              "I"
+            ],
+            "chords": [
+              "D",
+              "E",
+              "F#m",
+              "A"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "artist_id": "gryffin",
+      "artist_name": "Gryffin",
+      "primary_tracks": [
+        {
+          "title": "Feel Good",
+          "year": 2017,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #8",
+            "RIAA Platinum",
+            "Over 350M Streams"
+          ],
+          "key": "F# Major",
+          "mode": "Major / Future Bass Hybrid",
+          "tempo_bpm": 140,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "vi",
+              "V",
+              "I6"
+            ],
+            "chords": [
+              "B",
+              "D#m",
+              "C#",
+              "F#/A#"
+            ],
+            "voicings": {
+              "type": "Drop-2",
+              "drop2_midi": [
+                {
+                  "chord": "Bmaj7",
+                  "notes": [
+                    42,
+                    47,
+                    51,
+                    58
+                  ]
+                },
+                {
+                  "chord": "D#m7",
+                  "notes": [
+                    46,
+                    51,
+                    54,
+                    61
+                  ]
+                },
+                {
+                  "chord": "C#",
+                  "notes": [
+                    44,
+                    49,
+                    53,
+                    61
+                  ]
+                },
+                {
+                  "chord": "F#/A#",
+                  "notes": [
+                    42,
+                    46,
+                    50,
+                    58
+                  ]
+                }
+              ]
+            }
+          },
+          "topline_hook": {
+            "pickup_beat": 4.5,
+            "starting_scale_degree": 1,
+            "interval_leaps": [
+              "Perfect 5th",
+              "Perfect 4th"
+            ],
+            "climax_note": "F#5",
+            "climax_midi": 78,
+            "climax_bar": 2,
+            "resolution_path": [
+              "F#5",
+              "D#5",
+              "C#5",
+              "B4",
+              "A#4",
+              "F#4"
+            ]
+          },
+          "bass_groove": {
+            "gate_length_percent": 90.0,
+            "gate_length_ms": 770.0,
+            "syncopation_offset_ms": 7.0,
+            "velocity_tiers": {
+              "accent": 125,
+              "groove": 95,
+              "ghost": 70
+            },
+            "sidechain": {
+              "attack_ms": 0.5,
+              "release_ms": 160.0,
+              "ducking_depth_db": -18.0
+            }
+          },
+          "timbre": {
+            "supersaw_unison": 16,
+            "detune_spread": 0.22,
+            "filter_cutoff_env": {
+              "type": "LFO Modulated Cutoff",
+              "decay_ms": 300,
+              "sustain": 0.5
+            },
+            "tape_saturation": {
+              "mode": "Decapitator Style T",
+              "drive_db": 2.0
+            },
+            "frequency_slotting": {
+              "sub_hz": "46 (F#0 808)",
+              "guitar_warmth_hz": 400,
+              "reverb_air_hz": 12000
+            }
+          },
+          "structural_arc": {
+            "archetype": "Organic Melodic Future Bass Blueprint",
+            "zero_drop_transition_bar": "Buildup Bar 8, Beat 4.0: silence; clean electric guitar lick and dry vocal whisper",
+            "buildup_mechanisms": [
+              "HPF sweep",
+              "Snare roll with pitch bend",
+              "White noise fade into dead silence"
+            ]
+          }
+        },
+        {
+          "title": "All You Need To Know",
+          "year": 2019,
+          "billboard_achievements": [
+            "Hot Dance/Electronic #12",
+            "RIAA Gold"
+          ],
+          "key": "Db Major",
+          "tempo_bpm": 140,
+          "progression": {
+            "roman_numerals": [
+              "IV",
+              "vi",
+              "V",
+              "I6"
+            ],
+            "chords": [
+              "Gb",
+              "Bbm",
+              "Ab",
+              "Db/F"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
