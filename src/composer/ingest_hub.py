@@ -491,7 +491,8 @@ class IngestionHub:
         json_out_path = None
         if save_progression_json and roots:
             safe_genre_name = genre.lower().replace(" ", "_").replace("-", "_")
-            json_filename = f"leadsheet_{safe_genre_name}_{progression_entry['id']}.json"
+            prefix = "test_" if fname.startswith("test_") else ""
+            json_filename = f"{prefix}leadsheet_{safe_genre_name}_{progression_entry['id']}.json"
             json_out_path = os.path.join(self.database_dir, json_filename)
             db_payload = {
                 "metadata": {

@@ -825,6 +825,513 @@ class StudioBrain:
 
         return unified
 
+    def reset_voicings(self) -> None:
+        """Resets voice-leading caches between arrangements."""
+        self.prev_chord_voicing = None
+        self.prev_pad_voicing = None
+
+    def get_harmony(
+        self,
+        genre: str = "synthwave",
+        mood: str = "heroic",
+        section: str = "chorus"
+    ) -> Dict[str, Any]:
+        """
+        Retrieves human chord progression with voice-leading metadata,
+        human micro-timing offsets, and dynamic velocities.
+        """
+        prog = self.harmonic.get_progression(genre=genre, section=section, style=mood)
+        if not prog or "roots" not in prog or len(prog["roots"]) == 0:
+            prog = self.knowledge_base.get_progression(genre=genre, section=section)
+
+        if "roots" not in prog or not prog["roots"]:
+            prog["roots"] = ["D", "Bb", "F", "C"]
+        if "types" not in prog or not prog["types"]:
+            prog["types"] = ["min7", "maj7", "maj", "dom7"]
+        if "bass_notes" not in prog or not prog["bass_notes"]:
+            prog["bass_notes"] = list(prog["roots"])
+        if "human_offsets_ms" not in prog:
+            prog["human_offsets_ms"] = [-2.0, 1.5, -1.0, 2.0]
+        if "velocities" not in prog:
+            prog["velocities"] = [85, 82, 88, 80]
+        return prog
+
+    def get_archetype(
+        self,
+        archetype_name: Optional[str] = None,
+        genre: str = "synthwave"
+    ) -> ArrangementArchetype:
+        """Selects arrangement archetype by identifier or genre."""
+        return self.structural.get_archetype(archetype_name=archetype_name, genre=genre)
+
+    def generate_lead_motif(
+        self,
+        chord_root: str,
+        chord_type: str = "min7",
+        section: str = "chorus",
+        bar_idx: int = 0,
+        rel_bar: int = 0,
+        bar_start: float = 0.0,
+        bpm: float = 118.0,
+        swing_ratio: float = 0.52,
+        genre: str = "synthwave",
+        is_zero_drop_bar: bool = False,
+        total_section_bars: int = 16,
+        mood: str = "heroic",
+        **kwargs
+    ) -> List[NoteEvent]:
+        """
+        Generates expressive lead melody notes embodying:
+        - 7-stage mutation:
+          Stage 1: Seed Statement (target 3rd/7th degrees)
+          Stage 2: Answer Phrase (neighbor tone embellishment)
+          Stage 3: Intensification (register leaps, rhythmic subdivision)
+          Stage 4: Climax & Resolution (peak pitch, sustained emotive hold)
+          Stage 5: Repetition Variation (grace notes, octave displacements, syncopations)
+          Stage 6: Expressive Humanization (micro-timing swing, sigmoidal velocity arcs)
+          Stage 7: Legato Overlaps & Articulation
+        - Beat 4.5 pickups (anticipatory eighth notes leading into phrase downbeats).
+        """
+        if is_zero_drop_bar:
+            return []
+
+        beat_dur = 60.0 / bpm
+        bar_dur = beat_dur * 4.0
+
+        lead_root_midi = get_chord_pitches(chord_root, 'maj', base_octave=4)[0]
+        if section == "climax":
+            lead_root_midi += 12
+
+        events: List[NoteEvent] = []
+        p_bar = rel_bar % 8
+        pass_idx = rel_bar // 8
+
+        if p_bar in [0, 1]:
+            # Stage 1: Seed statement targeting 3rd (3/4) and 7th (10/11), resting on downbeat 0.0
+            pattern = [
+                (0.5, 3, 0.75, 95),
+                (1.5, 5, 0.5, 88),
+                (2.25, 10, 0.75, 108),
+                (3.25, 7, 0.75, 98),
+            ]
+        elif p_bar in [2, 3]:
+            # Stage 2: Answer Phrase (neighbor tone inversion)
+            pattern = [
+                (0.5, 7, 0.5, 92),
+                (1.25, 8, 0.5, 96),
+                (2.0, 5, 0.75, 90),
+                (3.0, 3, 1.0, 94),
+            ]
+        elif p_bar in [4, 5]:
+            # Stage 3: Intensification (register leap + subdivision)
+            pattern = [
+                (0.25, 7, 0.5, 102),
+                (1.0, 12, 0.5, 112),
+                (1.75, 14, 0.5, 115),
+                (2.5, 12, 0.5, 110),
+                (3.25, 10, 0.5, 105),
+            ]
+        else:
+            # Stage 4: Climax & Resolution
+            if p_bar == 6:
+                pattern = [
+                    (0.5, 12, 0.75, 118),
+                    (1.5, 15, 1.0, 122),
+                    (3.0, 14, 0.75, 105),
+                ]
+            else:
+                pattern = [
+                    (0.5, 12, 0.75, 100),
+                    (1.5, 10, 2.0, 85),
+                ]
+
+        # Stage 5: Variation on Repetition (Bars 9-16 / pass_idx > 0)
+        if pass_idx > 0:
+            var_pattern = []
+            for (b_pos, interval, dur, vel) in pattern:
+                if vel > 110 and b_pos >= 0.5:
+                    var_pattern.append((b_pos - 0.25, interval - 2, 0.2, 75))
+                new_interval = interval + (12 if p_bar in [4, 5, 6] and section != "climax" else 0)
+                var_pattern.append((b_pos, new_interval, dur, min(127, vel + 5)))
+            pattern = var_pattern
+
+        # Beat 4.5 Pickup (Anticipatory pickup note on beat 3.5 in 0-indexed time leading into next bar)
+        if p_bar in [1, 3, 5, 7] and not is_zero_drop_bar:
+            pattern.append((3.5, 7, 0.45, 96))
+
+        # Convert pattern into NoteEvents with Stage 6 & 7 Expressive Humanization & Legato Overlap
+        for (b_pos, interval, dur_beats, vel) in pattern:
+            note_time = bar_start + b_pos * beat_dur
+            if note_time < bar_start + bar_dur:
+                pitch = lead_root_midi + interval
+                t, v = humanize_timing_and_velocity(
+                    note_time, vel,
+                    metric_weight=1.15 if b_pos in [0.0, 2.0] else 0.88,
+                    swing_ratio=swing_ratio,
+                    genre=genre
+                )
+                dur = dur_beats * beat_dur * 0.95
+                events.append(NoteEvent(
+                    pitch=pitch,
+                    start_time=t,
+                    duration=dur,
+                    velocity=v,
+                    track_name="lead"
+                ))
+
+        return events
+
+    def generate_counter_melody(
+        self,
+        chord_root: str,
+        section: str = "breakdown",
+        bar_idx: int = 0,
+        rel_bar: int = 0,
+        bar_start: float = 0.0,
+        bpm: float = 118.0,
+        swing_ratio: float = 0.52,
+        genre: str = "synthwave",
+        is_zero_drop_bar: bool = False,
+        **kwargs
+    ) -> List[NoteEvent]:
+        """
+        Generates conversational counterpoint that complements the lead melody:
+        - In Breakdown: emotional lyrical piano/Rhodes counterpoint.
+        - In Climax: soaring counterpoint arpeggios that speak during polyphonic gaps.
+        """
+        if is_zero_drop_bar:
+            return []
+
+        beat_dur = 60.0 / bpm
+        sixteenth_dur = beat_dur / 4.0
+        counter_root = get_chord_pitches(chord_root, 'maj', base_octave=4 if section == "breakdown" else 5)[0]
+        events: List[NoteEvent] = []
+
+        if section == "breakdown":
+            rhodes_steps = [2, 5, 8, 11, 14]
+            counter_intervals = [7, 9, 11, 12, 14]
+            for s_idx, step in enumerate(rhodes_steps):
+                ct = bar_start + step * sixteenth_dur
+                p = counter_root + counter_intervals[s_idx % len(counter_intervals)]
+                t, v = humanize_timing_and_velocity(ct, 72, swing_ratio=swing_ratio, genre=genre)
+                events.append(NoteEvent(
+                    pitch=p, start_time=t, duration=sixteenth_dur * 2.5, velocity=v, track_name="counter"
+                ))
+        elif section in ["climax", "chorus"]:
+            for step in [2, 6, 10, 14]:
+                ct = bar_start + step * sixteenth_dur
+                p = counter_root + (7 if step in [2, 10] else 12)
+                t, v = humanize_timing_and_velocity(ct, 85, swing_ratio=swing_ratio, genre=genre)
+                events.append(NoteEvent(
+                    pitch=p, start_time=t, duration=sixteenth_dur * 1.8, velocity=v, track_name="counter"
+                ))
+
+        return events
+
+    def generate_bass_groove(
+        self,
+        genre: str,
+        bass_root_name: str,
+        section: str,
+        bar_idx: int,
+        rel_bar: int,
+        bar_start: float,
+        bpm: float,
+        swing_ratio: float = 0.52,
+        is_zero_drop_bar: bool = False,
+        mask_end_bar: Optional[int] = None,
+        **kwargs
+    ) -> List[NoteEvent]:
+        """
+        Generates dynamic bassline grooves adhering to:
+        - 30% gate staccato (snappy transients, tight sub space)
+        - Dynamic velocity arcs across the 16-step grid
+        - Conversational walking passing turnaround on bar 4 of phrase
+        - Octave bounces on step 2
+        - Complete silence on Zero-Drop beat 4 and Outro fadeout.
+        """
+        if section in ["intro", "breakdown"] or is_zero_drop_bar:
+            return []
+        if section == "outro" and mask_end_bar is not None and bar_idx >= (mask_end_bar - 8):
+            return []
+
+        beat_dur = 60.0 / bpm
+        sixteenth_dur = beat_dur / 4.0
+        events: List[NoteEvent] = []
+
+        bass_root_midi = get_chord_pitches(bass_root_name, 'maj', base_octave=1)[0]
+        bar_in_phrase = rel_bar % 4
+
+        bass_grid = [
+            (0, 0.30, 115), (1, 0.30, 85), (2, 0.30, 95), (3, 0.30, 70),
+            (4, 0.30, 110), (5, 0.30, 80), (6, 0.30, 100), (7, 0.0, 0),
+            (8, 0.30, 120), (9, 0.30, 85), (10, 0.30, 95), (11, 0.30, 70),
+            (12, 0.30, 110), (13, 0.30, 80), (14, 0.30, 100), (15, 0.30, 110)
+        ]
+
+        for step, gate_pct, vel in bass_grid:
+            if vel == 0:
+                continue
+
+            if is_zero_drop_bar and step >= 12:
+                continue
+
+            step_time = bar_start + step * sixteenth_dur
+            is_off = (step % 2 != 0)
+
+            pitch = bass_root_midi
+            if bar_in_phrase == 3 and section in ["chorus", "climax"] and step in [8, 10, 12, 14]:
+                passing_offsets = {8: 5, 10: 7, 12: 10, 14: 12}
+                pitch = bass_root_midi + passing_offsets[step]
+            elif step % 4 == 2 and section in ["chorus", "climax"]:
+                pitch = bass_root_midi + 12
+
+            if section == "verse":
+                vel_adj = int(vel * 0.88)
+                gate_adj = 0.30
+            else:
+                vel_adj = vel
+                gate_adj = gate_pct
+
+            t, v = humanize_timing_and_velocity(
+                step_time, vel_adj,
+                metric_weight=1.1 if step in [0, 8] else 0.85,
+                swing_ratio=swing_ratio,
+                is_offbeat=is_off,
+                subdivision_dur=sixteenth_dur,
+                genre=genre
+            )
+            dur = max(0.04, sixteenth_dur * gate_adj)
+            events.append(NoteEvent(
+                pitch=pitch, start_time=t, duration=dur, velocity=v, track_name="bass"
+            ))
+
+        return events
+
+    def generate_drums(
+        self,
+        section: str,
+        bar_idx: int,
+        rel_bar: int,
+        mask: SectionMask,
+        bar_start: float,
+        bpm: float,
+        swing_ratio: float = 0.52,
+        is_zero_drop_bar: bool = False,
+        is_breakdown_pre_drop: bool = False,
+        genre: str = "synthwave",
+        **kwargs
+    ) -> Dict[str, List[NoteEvent]]:
+        """
+        Generates structured drum parts (kick, snare, hihat) with:
+        - Human groove micro-timing jitter
+        - Turnaround snare fills on phrase endings (32nd rolls)
+        - Accelerating buildup snare rolls (8ths -> 16ths -> 32nds)
+        - Zero-drop cutouts on Beat 4 (total silence on kick, snare, hihat).
+        """
+        beat_dur = 60.0 / bpm
+        sixteenth_dur = beat_dur / 4.0
+        drums: Dict[str, List[NoteEvent]] = {
+            "kick": [],
+            "snare": [],
+            "hihat": [],
+            "hats": []
+        }
+
+        for beat in range(4):
+            beat_time = bar_start + beat * beat_dur
+            is_cut_beat = (is_zero_drop_bar and beat == 3) or (is_breakdown_pre_drop and beat == 3)
+
+            # Kick
+            if mask.kick and not is_cut_beat:
+                is_kick = False
+                if section == "outro" and bar_idx >= (mask.end_bar - 8):
+                    is_kick = False
+                elif section == "outro" and beat != 0:
+                    is_kick = False
+                elif section in ["chorus", "climax"]:
+                    is_kick = True
+                elif section == "verse" and beat in [0, 2]:
+                    is_kick = True
+                elif section == "buildup" and not is_zero_drop_bar and (beat in [0, 2] or bar_idx >= mask.end_bar - 3):
+                    is_kick = True
+
+                if is_kick:
+                    kt, kv = humanize_timing_and_velocity(
+                        beat_time, 120 if section in ["chorus", "climax"] else 105,
+                        metric_weight=1.2, timing_jitter_ms=1.0, genre=genre
+                    )
+                    drums["kick"].append(NoteEvent(pitch=36, start_time=kt, duration=0.25, velocity=kv, track_name="kick"))
+
+            # Snare
+            if mask.snare and not is_cut_beat:
+                if section in ["verse", "chorus", "climax"] and beat in [1, 3]:
+                    snare_vel = 112 if section in ["chorus", "climax"] else 98
+                    st, sv = humanize_timing_and_velocity(beat_time, snare_vel, metric_weight=1.1, timing_jitter_ms=1.5, genre=genre)
+                    drums["snare"].append(NoteEvent(pitch=38, start_time=st, duration=0.35, velocity=sv, track_name="snare"))
+
+                    if section == "climax" and rel_bar % 4 == 3 and beat == 3:
+                        for fill_sub in range(1, 4):
+                            fill_t = beat_time + fill_sub * (sixteenth_dur * 0.5)
+                            drums["snare"].append(NoteEvent(
+                                pitch=38, start_time=fill_t, duration=0.10, velocity=int(90 + fill_sub * 10), track_name="snare"
+                            ))
+
+                elif section == "buildup":
+                    sub_count = 2 if rel_bar < 4 else 4
+                    progress = rel_bar / max(1.0, float(mask.end_bar - mask.start_bar))
+                    snare_vel = int(60 + progress * 62)
+                    for sub in range(sub_count):
+                        sub_time = beat_time + sub * (beat_dur / sub_count)
+                        st, sv = humanize_timing_and_velocity(sub_time, snare_vel, timing_jitter_ms=1.0, genre=genre)
+                        drums["snare"].append(NoteEvent(pitch=38, start_time=st, duration=0.12, velocity=sv, track_name="snare"))
+
+            # Hi-hat
+            if mask.hihat and not is_cut_beat:
+                for sub in range(4):
+                    hat_time = beat_time + sub * sixteenth_dur
+                    is_off = (sub % 2 != 0)
+
+                    if section == "verse":
+                        hat_vel = 62 if sub in [0, 2] else 42
+                        is_open = False
+                    elif section in ["chorus", "climax"]:
+                        hat_vel = 88 if sub == 0 else 65
+                        is_open = (sub == 2 and beat % 2 == 1)
+                    else:
+                        hat_vel = 70
+                        is_open = False
+
+                    ht, hv = humanize_timing_and_velocity(
+                        hat_time, hat_vel,
+                        swing_ratio=swing_ratio,
+                        is_offbeat=is_off,
+                        subdivision_dur=sixteenth_dur,
+                        genre=genre
+                    )
+                    pitch = 46 if is_open else 42
+                    dur = 0.22 if is_open else 0.08
+                    hat_event = NoteEvent(pitch=pitch, start_time=ht, duration=dur, velocity=hv, track_name="hats")
+                    drums["hihat"].append(hat_event)
+                    drums["hats"].append(hat_event)
+
+        return drums
+
+    def generate_pads(
+        self,
+        chord_root: str,
+        chord_type: str,
+        section: str,
+        bar_start: float,
+        bpm: float,
+        is_zero_drop_bar: bool = False,
+        genre: str = "synthwave",
+        **kwargs
+    ) -> List[NoteEvent]:
+        """Generates lush parsimonious voice-led pads with Drop-2 voicings."""
+        beat_dur = 60.0 / bpm
+        bar_dur = beat_dur * 4.0
+
+        raw_pad = get_chord_pitches(chord_root, chord_type, base_octave=3)
+        voiced_pad = parsimonious_voice_leading(self.prev_pad_voicing, raw_pad, register_range=(48, 72))
+        voiced_pad = apply_drop_2(voiced_pad)
+        self.prev_pad_voicing = voiced_pad
+
+        pad_vel = 58 if section in ["intro", "outro", "breakdown"] else 88
+        pad_dur = bar_dur * (0.95 if section != "buildup" else 0.85)
+
+        if is_zero_drop_bar:
+            pad_dur = beat_dur * 3.0
+
+        events: List[NoteEvent] = []
+        for p in voiced_pad:
+            t, v = humanize_timing_and_velocity(bar_start, pad_vel, metric_weight=1.0, genre=genre)
+            events.append(NoteEvent(pitch=p, start_time=t, duration=pad_dur, velocity=v, track_name="pad"))
+
+        return events
+
+    def generate_chords(
+        self,
+        chord_root: str,
+        chord_type: str,
+        section: str,
+        bar_start: float,
+        bpm: float,
+        is_zero_drop_bar: bool = False,
+        is_breakdown_pre_drop: bool = False,
+        genre: str = "synthwave",
+        **kwargs
+    ) -> List[NoteEvent]:
+        """Generates voice-led chord layers (Piano/Rhodes) with Drop-2 voicings."""
+        beat_dur = 60.0 / bpm
+        bar_dur = beat_dur * 4.0
+
+        raw_chords = get_chord_pitches(chord_root, chord_type, base_octave=3)
+        voiced_chords = parsimonious_voice_leading(self.prev_chord_voicing, raw_chords, register_range=(52, 76))
+        voiced_chords = apply_drop_2(voiced_chords)
+        self.prev_chord_voicing = voiced_chords
+
+        events: List[NoteEvent] = []
+
+        if section == "breakdown":
+            for beat in [0, 2]:
+                beat_time = bar_start + beat * beat_dur
+                if not (is_breakdown_pre_drop and beat == 3):
+                    chord_vel = 68 if beat == 0 else 58
+                    for p in voiced_chords:
+                        t, v = humanize_timing_and_velocity(beat_time, chord_vel, metric_weight=1.0, genre=genre)
+                        events.append(NoteEvent(
+                            pitch=p, start_time=t, duration=beat_dur * 1.8, velocity=v, track_name="chords"
+                        ))
+        elif not is_zero_drop_bar:
+            chord_vel = 75 if section in ["verse", "outro"] else 95
+            chord_dur = bar_dur * 0.90
+            for p in voiced_chords:
+                t, v = humanize_timing_and_velocity(bar_start, chord_vel, metric_weight=1.0, genre=genre)
+                events.append(NoteEvent(
+                    pitch=p, start_time=t, duration=chord_dur, velocity=v, track_name="chords"
+                ))
+
+        return events
+
+    def generate_fx(
+        self,
+        section: str,
+        bar_idx: int,
+        rel_bar: int,
+        mask: SectionMask,
+        bar_start: float,
+        bpm: float,
+        is_zero_drop_bar: bool = False,
+        **kwargs
+    ) -> List[NoteEvent]:
+        """Generates risers, transition sweeps, ambient textures, and impacts."""
+        beat_dur = 60.0 / bpm
+        bar_dur = beat_dur * 4.0
+        events: List[NoteEvent] = []
+
+        if is_zero_drop_bar:
+            sweep_time = bar_start + 3.0 * beat_dur
+            events.append(NoteEvent(
+                pitch=72, start_time=sweep_time, duration=beat_dur * 0.95, velocity=75, track_name="fx"
+            ))
+        elif section == "intro" and bar_idx == 0:
+            events.append(NoteEvent(
+                pitch=60, start_time=bar_start, duration=bar_dur * 4.0, velocity=45, track_name="fx"
+            ))
+        elif section == "buildup":
+            progress = rel_bar / max(1.0, float(mask.end_bar - mask.start_bar))
+            riser_pitch = 60 + int(progress * 24)
+            events.append(NoteEvent(
+                pitch=riser_pitch, start_time=bar_start, duration=bar_dur, velocity=int(60 + rel_bar * 8), track_name="fx"
+            ))
+        elif section in ["chorus", "climax"] and rel_bar == 0:
+            events.append(NoteEvent(
+                pitch=49, start_time=bar_start, duration=beat_dur * 2.5, velocity=118, track_name="fx"
+            ))
+
+        return events
+
     def summary(self) -> Dict[str, Any]:
         """Provides full diagnostic status report of the Studio Brain."""
         return {
