@@ -21,11 +21,14 @@ def run_pipeline(
     genre: str = "synthwave",
     bpm: float = 118.0,
     bars: int = 16,
-    key_name: str = "D Minor"
+    key_name: str = "D Minor",
+    engine: str = "neural",
+    model_name: str = "facebook/musicgen-stereo-large"
 ):
     print("=" * 60)
     print(f"🚀 LAUNCHING AUTONOMOUS HEADLESS MUSIC & VIDEO FACTORY")
     print(f"🎵 Title: {title} | Genre: {genre.upper()} | BPM: {bpm} | Key: {key_name}")
+    print(f"🧠 Engine: {engine.upper()} ({model_name} on {'RunPod Cloud GPU' if os.getenv('RUNPOD_API_KEY') else 'Local Apple Silicon M3 MPS' if engine == 'neural' else 'SoundFont GM'})")
     print(f"☁️ Storage: Google Drive (storage/ -> My Drive/HeadlessMusicStudio)")
     print("=" * 60)
 
@@ -45,10 +48,20 @@ def run_pipeline(
     print(f"  ✓ Created {bars} bars ({arr.total_duration:.1f}s) across 6 tracks (kick, snare, hats, bass, pads, lead).")
 
     # Step 2: Synthesis
-    print("\n[2/6] Headlessly synthesizing audio stems & analog modeling...")
-    engine = MultiTrackEngine()
-    raw_audio = engine.render_arrangement(arr)
-    print(f"  ✓ Synthesized {raw_audio.shape[0]} samples with active sidechain compression.")
+    if engine == "neural":
+        model_name = getattr(args, "model", "facebook/musicgen-stereo-large")
+        print(f"\n[2/6] Generative Neural Synthesis via Meta MusicGen ({model_name} on {'RunPod Cloud GPU' if os.getenv('RUNPOD_API_KEY') else 'Local Apple Silicon M3 MPS'})...")
+        from src.engine.runpod_neural_engine import RunPodNeuralEngine
+        neural = RunPodNeuralEngine(backend="auto", model_name=model_name)
+        duration = min(20.0, arr.total_duration)
+        prompt = f"festival {genre} anthem, driving bassline, euphoric supersaw leads, crisp punchy drums, stadium acoustics, in {key_name}, {int(bpm)} bpm"
+        raw_audio = neural.generate_full_track(prompt=prompt, duration_seconds=duration, bpm=bpm, key=key_name, model_name=model_name)
+        print(f"  ✓ Neural Audio Generated: {raw_audio.shape[0]} samples ({raw_audio.shape[1] if raw_audio.ndim > 1 else 1} channels) at {neural.target_sr} Hz.")
+    else:
+        print("\n[2/6] Headlessly synthesizing audio stems & analog modeling...")
+        synth_engine = MultiTrackEngine()
+        raw_audio = synth_engine.render_arrangement(arr)
+        print(f"  ✓ Synthesized {raw_audio.shape[0]} samples with active sidechain compression.")
 
     # Step 3: Mastering
     print("\n[3/6] Applying YouTube -14.0 LUFS & -1.5 dBTP mastering chain...")
@@ -114,6 +127,16 @@ if __name__ == "__main__":
     parser.add_argument("--bpm", type=float, default=118.0, help="Tempo in BPM")
     parser.add_argument("--bars", type=int, default=16, help="Number of bars")
     parser.add_argument("--key", default="D Minor", help="Musical key")
+    parser.add_argument("--engine", default="neural", choices=["neural", "soundfont"], help="Audio synthesis engine (neural via MusicGen or SoundFont GM)")
+    parser.add_argument("--model", default="facebook/musicgen-stereo-large", help="MusicGen model repository (e.g. facebook/musicgen-stereo-large, facebook/musicgen-large, facebook/musicgen-stereo-medium)")
 
     args = parser.parse_args()
-    run_pipeline(title=args.title, genre=args.genre, bpm=args.bpm, bars=args.bars, key_name=args.key)
+    run_pipeline(
+        title=args.title,
+        genre=args.genre,
+        bpm=args.bpm,
+        bars=args.bars,
+        key_name=args.key,
+        engine=args.engine,
+        model_name=args.model
+    )

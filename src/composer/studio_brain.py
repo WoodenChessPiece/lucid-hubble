@@ -1477,6 +1477,46 @@ class StudioBrain:
             mode=mode
         )
 
+    def render_neural_audio(
+        self,
+        prompt_or_arr: Union[str, UnifiedArrangement, Arrangement],
+        duration_seconds: float = 30.0,
+        bpm: Optional[float] = None,
+        key: Optional[str] = None,
+        backend: str = "auto",
+        model_name: str = "facebook/musicgen-stereo-large"
+    ) -> np.ndarray:
+        """
+        Renders commercial-grade neural audio via Meta MusicGen (Local M3 MPS or RunPod GPU).
+        Translates symbolic arrangement or natural prompt into neural conditioning.
+        Supports true stereo 3.3B models: facebook/musicgen-stereo-large, musicgen-large, musicgen-stereo-medium.
+        """
+        try:
+            from src.engine.runpod_neural_engine import RunPodNeuralEngine
+        except ImportError:
+            from engine.runpod_neural_engine import RunPodNeuralEngine
+
+        neural_engine = RunPodNeuralEngine(backend=backend, model_name=model_name)
+
+        if isinstance(prompt_or_arr, str):
+            prompt = prompt_or_arr
+        else:
+            arr = prompt_or_arr
+            g = getattr(arr, "genre", "progressive_house")
+            prog = getattr(arr, "progression", None)
+            k = key or (prog.get("key") if prog else "D Minor")
+            b = bpm or getattr(arr, "bpm", 126.0)
+            art = getattr(arr, "artist", "EDM")
+            prompt = f"{art} style {g.replace('_', ' ')} anthem, driving bassline, euphoric supersaw leads, crisp punchy drums, stadium acoustics, in {k}, {int(b)} bpm"
+
+        return neural_engine.generate_full_track(
+            prompt=prompt,
+            duration_seconds=duration_seconds,
+            bpm=bpm,
+            key=key,
+            model_name=model_name
+        )
+
     def generate_arrangement(
         self,
         genre: str = "synthwave",

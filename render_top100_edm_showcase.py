@@ -51,6 +51,10 @@ Examples:
     parser.add_argument("-g", "--genre", type=str, default=None, help="Genre/subgenre (e.g. progressive_house, melodic_techno, french_touch, dubstep, dark_pop)")
     parser.add_argument("--bpm", type=float, default=None, help="Tempo in BPM")
     parser.add_argument("--bars", type=int, default=96, help="Total bar count (default: 96)")
+    parser.add_argument("--duration", type=float, default=30.0, help="Duration in seconds for neural engine rendering (default: 30.0)")
+    parser.add_argument("--engine", type=str, choices=["neural", "soundfont"], default="neural", help="Audio generation engine: 'neural' (MusicGen Meta AI) or 'soundfont' (legacy MultiTrack DSP)")
+    parser.add_argument("--neural-backend", type=str, choices=["auto", "local", "runpod", "mock"], default="auto", help="Neural engine backend: auto, local, runpod, or mock")
+    parser.add_argument("--model", type=str, default="facebook/musicgen-stereo-large", help="Hugging Face model repository (e.g. facebook/musicgen-stereo-large, facebook/musicgen-large, facebook/musicgen-stereo-medium)")
     parser.add_argument("--archetype", type=str, default=None, help="Structural archetype (narrative_7part, slow_burn_progressive, in_medias_res, continuous_drive, aaba_classic)")
     parser.add_argument("--list-artists", action="store_true", help="List all 100 EDM artists across 5 disciplines + Billboard hits")
     parser.add_argument("--random", action="store_true", help="Pick a random artist from the Top 100 EDM database")
@@ -143,25 +147,39 @@ Examples:
         count = len(arr.tracks.get(track_name, []))
         print(f"  - {track_name.capitalize():<8} events: {count}")
 
-    # 4. Multi-Track Stem Synthesis with DSP Engine
-    print("\n[3/4] Synthesizing multi-track stems with Moog ladder filter & Console8 summing...")
-    engine = MultiTrackEngine()
-    raw_audio = engine.render_arrangement(arr)
+    # 4. Audio Synthesis (Neural Meta MusicGen vs Legacy SoundFont DSP)
+    if args.engine == "neural":
+        print(f"\n[3/4] 🧠 Synthesizing authentic broadcast-quality audio with Meta MusicGen ({args.model} via {args.neural_backend})...")
+        neural_duration = float(args.duration)
+        raw_audio = brain.render_neural_audio(
+            prompt_or_arr=arr,
+            duration_seconds=neural_duration,
+            bpm=arr.bpm,
+            backend=args.neural_backend,
+            model_name=args.model
+        )
+        sample_rate = 32000
+    else:
+        print("\n[3/4] Synthesizing multi-track stems with Moog ladder filter & Console8 summing...")
+        engine = MultiTrackEngine()
+        raw_audio = engine.render_arrangement(arr)
+        sample_rate = 44100
 
     # 5. YouTube EBU R128 Mastering
     print("\n[4/4] Mastering to YouTube EBU R128 (-14.0 LUFS / -1.5 dBTP)...")
-    masterer = YouTubeMasteringChain()
+    masterer = YouTubeMasteringChain(sample_rate=sample_rate)
     mastered = masterer.master(raw_audio)
 
     os.makedirs("storage/renders", exist_ok=True)
+    engine_tag = "_NEURAL" if args.engine == "neural" else ""
     if is_communal:
-        wav_out = "storage/renders/COMMUNAL_MASTERCLASS_SHOWCASE.wav"
-        mp3_out = "storage/renders/COMMUNAL_MASTERCLASS_SHOWCASE.mp3"
+        wav_out = f"storage/renders/COMMUNAL_MASTERCLASS{engine_tag}_SHOWCASE.wav"
+        mp3_out = f"storage/renders/COMMUNAL_MASTERCLASS{engine_tag}_SHOWCASE.mp3"
     else:
         slug_artist = slugify(resolved_artist)
         slug_arch = slugify(arr.archetype)
-        wav_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.wav"
-        mp3_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}.mp3"
+        wav_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}{engine_tag}.wav"
+        mp3_out = f"storage/renders/SHOWCASE_{slug_artist}_{slug_arch}{engine_tag}.mp3"
     legacy_mp3 = "storage/renders/TOP100_EDM_BILLBOARD_SHOWCASE.mp3"
 
     int16_audio = np.int16(np.clip(mastered * 32767, -32767, 32767))

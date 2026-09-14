@@ -85,17 +85,106 @@ class NeuralGenerationConfig:
     normalize: bool = True
 
 
+class LocalMusicGenBackend:
+    """
+    Local Hugging Face MusicGen engine running on Apple Silicon Metal Performance Shaders (MPS) or CUDA/CPU.
+    Uses facebook/musicgen-small with zero external API dependencies.
+    """
+    _instances: Dict[str, 'LocalMusicGenBackend'] = {}
+
+    def __init__(self, model_name: str = "facebook/musicgen-stereo-large"):
+        self.model_name = model_name
+        self.device = "cpu"
+        try:
+            import torch
+            if hasattr(torch.backends, "mps") and torch.backends.mps.is_available():
+                self.device = "mps"
+            elif torch.cuda.is_available():
+                self.device = "cuda"
+        except Exception:
+            pass
+
+        self.processor = None
+        self.model = None
+        self._loaded = False
+
+    @classmethod
+    def get_instance(cls, model_name: str = "facebook/musicgen-stereo-large") -> 'LocalMusicGenBackend':
+        if model_name not in cls._instances:
+            cls._instances[model_name] = cls(model_name)
+        return cls._instances[model_name]
+
+    def load_model(self):
+        """Lazy loads model weights into device memory on first generation."""
+        if not self._loaded:
+            import torch
+            from transformers import AutoProcessor, MusicgenForConditionalGeneration
+            print(f"[NeuralEngine] Loading {self.model_name} onto {self.device}...")
+            self.processor = AutoProcessor.from_pretrained(self.model_name)
+            self.model = MusicgenForConditionalGeneration.from_pretrained(self.model_name)
+            self.model.to(self.device)
+            self._loaded = True
+            print(f"[NeuralEngine] {self.model_name} successfully loaded.")
+
+    def generate(
+        self,
+        prompt: str,
+        duration_seconds: float = 10.0,
+        temperature: float = 1.0,
+        guidance_scale: float = 3.5
+    ) -> Tuple[np.ndarray, int]:
+        """
+        Generates audio for prompt. Returns (audio_np, sample_rate).
+        Output is float32: (samples, 2) if stereo or (samples,) if mono.
+        """
+        self.load_model()
+        inputs = self.processor(
+            text=[prompt],
+            padding=True,
+            return_tensors="pt"
+        ).to(self.device)
+
+        # ~50 tokens per second of generated audio
+        max_tokens = max(100, int(duration_seconds * 50))
+        audio_values = self.model.generate(
+            **inputs,
+            max_new_tokens=max_tokens,
+            do_sample=True,
+            temperature=temperature,
+            guidance_scale=guidance_scale
+        )
+        sr = self.model.config.audio_encoder.sampling_rate
+        # audio_values shape: (batch_size, channels, samples)
+        # e.g. for stereo: (1, 2, N), for mono: (1, 1, N)
+        raw = audio_values[0].detach().cpu().numpy().astype(np.float32)
+        if raw.ndim == 2:
+            if raw.shape[0] == 2:
+                # True stereo: shape (2, N) -> transpose to (N, 2)
+                audio = raw.T
+            elif raw.shape[0] == 1:
+                # Mono: shape (1, N) -> squeeze to (N,)
+                audio = raw[0]
+            else:
+                audio = raw.T
+        else:
+            audio = raw
+        return audio, sr
+
+
 class RunPodNeuralEngine:
     """
-    RunPod Serverless Client for Neural AudioCraft / MusicGen Generation.
-    Arbitrates cloud GPU inference, audio conditioning serialization, and
-    hybrid stem summing.
+    RunPod Serverless Client & Local M3 Neural MusicGen Generator.
+    Arbitrates between cloud GPU inference (NVIDIA A100 / RTX 4090) and local
+    Apple Silicon M3 Metal Performance Shaders (MPS), with audio conditioning
+    serialization and hybrid stem summing.
     """
 
     def __init__(
         self,
         api_key: Optional[str] = None,
         endpoint_id: Optional[str] = None,
+        backend: str = "auto",
+        model_name: str = "facebook/musicgen-stereo-large",
         mock_mode: Optional[bool] = None,
         timeout_seconds: float = 180.0,
         poll_interval: float = 2.0,
@@ -103,15 +192,30 @@ class RunPodNeuralEngine:
     ):
         self.api_key = api_key or os.getenv("RUNPOD_API_KEY", "")
         self.endpoint_id = endpoint_id or os.getenv("RUNPOD_ENDPOINT_ID", "")
+        self.model_name = model_name
         self.timeout_seconds = timeout_seconds
         self.poll_interval = poll_interval
         self.target_sr = target_sample_rate
 
-        # Enable mock_mode automatically if no API credentials exist
-        if mock_mode is not None:
-            self.mock_mode = mock_mode
+        # Determine backend: 'runpod', 'local', or 'mock'
+        if mock_mode is True or backend == "mock":
+            self.backend = "mock"
+        elif backend == "runpod" or (backend == "auto" and bool(self.api_key) and bool(self.endpoint_id)):
+            self.backend = "runpod"
+        elif backend in ("local", "auto"):
+            try:
+                import torch
+                import transformers
+                self.backend = "local"
+            except ImportError:
+                self.backend = "mock"
         else:
-            self.mock_mode = not (bool(self.api_key) and bool(self.endpoint_id))
+            self.backend = "mock"
+
+        self.mock_mode = (self.backend == "mock")
+        self.local_backend = None
+        if self.backend == "local":
+            self.local_backend = LocalMusicGenBackend.get_instance(model_name=self.model_name)
 
     # -----------------------------------------------------------------------
     # Audio Serialization & Guide Audio Rendering
@@ -275,8 +379,27 @@ class RunPodNeuralEngine:
         a stereo float32 numpy array at target_sample_rate.
         """
         # If running in mock/offline mode, generate rich harmonic surrogate audio
-        if self.mock_mode:
+        if self.mock_mode or self.backend == "mock":
             return self._generate_mock_stem(config, melody_notes, guide_audio)
+
+        # If running in local M3 MPS neural mode:
+        if self.backend == "local" and self.local_backend is not None:
+            raw_audio, sr = self.local_backend.generate(
+                prompt=config.prompt,
+                duration_seconds=config.duration_seconds,
+                temperature=config.temperature,
+                guidance_scale=config.cfg_coef
+            )
+            if config.stereo and raw_audio.ndim == 1:
+                delay_samples = max(1, int(0.0008 * sr))
+                right = np.roll(raw_audio, delay_samples)
+                stereo_audio = np.column_stack((raw_audio, right))
+            elif raw_audio.ndim == 1:
+                stereo_audio = np.column_stack((raw_audio, raw_audio))
+            else:
+                stereo_audio = raw_audio
+
+            return self.resample_audio(stereo_audio, orig_sr=sr, target_sr=self.target_sr)
 
         # Prepare conditioning audio
         melody_b64: Optional[str] = None
@@ -328,6 +451,34 @@ class RunPodNeuralEngine:
     # -----------------------------------------------------------------------
     # Production Convenience Methods
     # -----------------------------------------------------------------------
+
+    def generate_full_track(
+        self,
+        prompt: str,
+        duration_seconds: float = 30.0,
+        bpm: Optional[float] = None,
+        key: Optional[str] = None,
+        model_name: Optional[str] = None
+    ) -> np.ndarray:
+        """
+        Generates a complete stereo master audio track from a descriptive prompt.
+        """
+        full_prompt = prompt
+        if bpm and f"{int(bpm)} bpm" not in prompt.lower():
+            full_prompt += f", {int(bpm)} bpm"
+        if key and key.lower() not in prompt.lower():
+            full_prompt += f", in {key}"
+
+        chosen_model = model_name or self.model_name
+        cfg = NeuralGenerationConfig(
+            model_name=chosen_model,
+            prompt=full_prompt,
+            duration_seconds=duration_seconds,
+            stereo=True,
+            temperature=1.0,
+            cfg_coef=3.5
+        )
+        return self.generate_stem(cfg)
 
     def generate_melody_lead(
         self,
