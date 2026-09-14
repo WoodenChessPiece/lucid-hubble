@@ -1517,6 +1517,174 @@ class StudioBrain:
             model_name=model_name
         )
 
+    def render_hybrid_masterpiece(
+        self,
+        arr: UnifiedArrangement,
+        duration_seconds: float = 20.0,
+        backend: str = "auto",
+        model_name: str = "facebook/musicgen-stereo-large"
+    ) -> Tuple[np.ndarray, int]:
+        """
+        The 3-Tier Hybrid Architecture Masterpiece Renderer:
+        - Layer 1: Deterministic Rhythm & Sub-Bass Foundation (Sample-accurate, 44.1kHz punch, zero pitch drift).
+        - Layer 2: Isolated Neural Sound Design (MusicGen 3.3B True Stereo supersaw lead & chorus pad).
+        - Layer 3: Forensic Neural DSP Restoration (120Hz HPF, sidechain ducking, transient recovery, exciter).
+        """
+        import numpy as np
+        import scipy.signal as signal
+        try:
+            from src.engine.runpod_neural_engine import RunPodNeuralEngine
+            from src.engine.synth import MultiTrackEngine
+            from src.mastering.neural_restoration import NeuralAudioRestorationEngine, RestorationConfig
+        except ImportError:
+            from engine.runpod_neural_engine import RunPodNeuralEngine
+            from engine.synth import MultiTrackEngine
+            from mastering.neural_restoration import NeuralAudioRestorationEngine, RestorationConfig
+
+        sr = 44100
+        bpm = float(getattr(arr, "bpm", 126.0))
+        genre = str(getattr(arr, "genre", "progressive_house"))
+        prog = getattr(arr, "progression", None)
+        key_name = prog.get("key", "D minor") if prog else "D minor"
+
+        # -------------------------------------------------------------
+        # 1. LAYER 1: Render Deterministic Rhythm (Kick, Snare, Hats) & Sub-Bass
+        # -------------------------------------------------------------
+        print(f"\n[Hybrid Layer 1] Rendering sample-accurate deterministic rhythm & locked sub-bass...")
+        synth = MultiTrackEngine(sample_rate=sr)
+        tracks = getattr(arr, "tracks", {})
+        total_samples = int(duration_seconds * sr)
+
+        kick_stem = np.zeros((total_samples, 2), dtype=np.float32)
+        drums_stem = np.zeros((total_samples, 2), dtype=np.float32)
+        bass_stem = np.zeros((total_samples, 2), dtype=np.float32)
+
+        def add_to_buf(buf, sound, start_t):
+            idx = int(start_t * sr)
+            if idx >= total_samples:
+                return
+            end = min(idx + len(sound), total_samples)
+            clen = end - idx
+            if clen > 0:
+                buf[idx:end] += sound[:clen]
+
+        # Extract deterministic events up to duration_seconds
+        kick_events = [n for n in tracks.get("kick", []) if n.start_time < duration_seconds]
+        snare_events = [n for n in tracks.get("snare", []) if n.start_time < duration_seconds]
+        hat_events = [n for n in (tracks.get("hihat", []) or tracks.get("hats", [])) if n.start_time < duration_seconds]
+        bass_events = [n for n in tracks.get("bass", []) if n.start_time < duration_seconds]
+
+        # Render kicks
+        for k in kick_events:
+            k_snd = synth.synth_kick(velocity=getattr(k, "velocity", 110))
+            add_to_buf(kick_stem, k_snd, k.start_time)
+        drums_stem += kick_stem
+
+        # Render snares
+        for s in snare_events:
+            s_snd = synth.synth_snare(velocity=getattr(s, "velocity", 105))
+            add_to_buf(drums_stem, s_snd, s.start_time)
+
+        # Render hats
+        for h in hat_events:
+            is_open = (getattr(h, "pitch", 42) == 46)
+            h_snd = synth.synth_hat(is_open=is_open, velocity=getattr(h, "velocity", 90))
+            add_to_buf(drums_stem, h_snd, h.start_time)
+
+        # Render locked sub-bass (Moog ladder filter + pure sub fundamental)
+        from src.engine.synth import midi_to_freq
+        for b in bass_events:
+            freq = midi_to_freq(b.pitch)
+            b_snd = synth.synth_moog_bass(freq, b.duration) * (b.velocity / 127.0)
+            add_to_buf(bass_stem, b_snd, b.start_time)
+
+        # -------------------------------------------------------------
+        # 2. LAYER 2: Isolated Neural Sound Design via MusicGen 3.3B
+        # -------------------------------------------------------------
+        print(f"[Hybrid Layer 2] Synthesizing isolated supersaw lead & ambient pads via MusicGen 3.3B ({backend})...")
+        neural = RunPodNeuralEngine(backend=backend, model_name=model_name, target_sample_rate=sr)
+
+        # Generate isolated supersaw lead (no drums, no bass)
+        lead_audio = neural.generate_isolated_lead_stem(
+            genre=genre,
+            key=key_name,
+            bpm=bpm,
+            duration=duration_seconds
+        )
+
+        # Generate isolated ambient pad layer
+        pad_audio = neural.generate_isolated_pad_stem(
+            genre=genre,
+            key=key_name,
+            bpm=bpm,
+            duration=duration_seconds
+        )
+
+        # -------------------------------------------------------------
+        # 3. LAYER 3: Forensic Neural DSP Restoration & Sidechain Bus
+        # -------------------------------------------------------------
+        print(f"[Hybrid Layer 3] Restoring neural stems (120Hz HPF, sidechain ducking, transient exciter)...")
+        restorer = NeuralAudioRestorationEngine(RestorationConfig(sample_rate=sr))
+
+        # Restore neural lead & pad stems
+        lead_clean = restorer.restore(lead_audio)
+        pad_clean = restorer.restore(pad_audio)
+
+        # 120Hz highpass on neural stems to eliminate clash with deterministic sub-bass
+        sos_hp = signal.butter(3, 120.0, btype="highpass", fs=sr, output="sos")
+        lead_hp = signal.sosfilt(sos_hp, lead_clean, axis=0)
+        pad_hp = signal.sosfilt(sos_hp, pad_clean, axis=0)
+
+        # Optical Sidechain Ducking triggered by Kick
+        total_samples = int(duration_seconds * sr)
+        duck_mask = np.ones((total_samples, 1), dtype=np.float32)
+        duck_dur = 0.22  # 220ms release
+        duck_samples = int(duck_dur * sr)
+        t_duck = np.linspace(0, duck_dur, duck_samples)
+        duck_curve = 1.0 - 0.85 * (0.5 * (1.0 + np.cos(np.pi * t_duck / duck_dur)))
+
+        for k in kick_events:
+            idx = int(k.start_time * sr)
+            end = min(idx + duck_samples, total_samples)
+            clen = end - idx
+            if clen > 0:
+                duck_mask[idx:end, 0] = np.minimum(duck_mask[idx:end, 0], duck_curve[:clen])
+
+        # Apply sidechain ducking to neural synths
+        def match_len(arr_in, target_len):
+            if arr_in.ndim == 1:
+                arr_in = np.column_stack((arr_in, arr_in))
+            if len(arr_in) < target_len:
+                return np.pad(arr_in, ((0, target_len - len(arr_in)), (0, 0)))
+            return arr_in[:target_len]
+
+        lead_ducked = match_len(lead_hp, total_samples) * duck_mask
+        pad_ducked = match_len(pad_hp, total_samples) * duck_mask
+        drums_clean = match_len(drums_stem, total_samples)
+        bass_clean = match_len(bass_stem, total_samples)
+
+        # Mid/Side Stereo Widening on Neural Synths
+        mid_lead = 0.5 * (lead_ducked[:, 0] + lead_ducked[:, 1])
+        side_lead = 0.5 * (lead_ducked[:, 0] - lead_ducked[:, 1]) * 1.35
+        lead_wide = np.column_stack((mid_lead + side_lead, mid_lead - side_lead))
+
+        mid_pad = 0.5 * (pad_ducked[:, 0] + pad_ducked[:, 1])
+        side_pad = 0.5 * (pad_ducked[:, 0] - pad_ducked[:, 1]) * 1.50
+        pad_wide = np.column_stack((mid_pad + side_pad, mid_pad - side_pad))
+
+        # Master Bus Summing
+        master = (
+            drums_clean * 1.05 +
+            bass_clean * 0.95 +
+            lead_wide * 0.70 +
+            pad_wide * 0.55
+        )
+
+        # Final broadcast mastering polish
+        final_master = restorer.mastering_stage(master)
+        print(f"  ✓ 3-Tier Hybrid Audio Assembled: {len(final_master)} samples at {sr} Hz.")
+        return final_master, sr
+
     def generate_arrangement(
         self,
         genre: str = "synthwave",

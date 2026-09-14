@@ -52,7 +52,7 @@ Examples:
     parser.add_argument("--bpm", type=float, default=None, help="Tempo in BPM")
     parser.add_argument("--bars", type=int, default=96, help="Total bar count (default: 96)")
     parser.add_argument("--duration", type=float, default=30.0, help="Duration in seconds for neural engine rendering (default: 30.0)")
-    parser.add_argument("--engine", type=str, choices=["neural", "soundfont"], default="neural", help="Audio generation engine: 'neural' (MusicGen Meta AI) or 'soundfont' (legacy MultiTrack DSP)")
+    parser.add_argument("--engine", type=str, choices=["hybrid", "neural", "soundfont"], default="hybrid", help="Audio generation engine: 'hybrid' (3-Tier Hybrid), 'neural' (MusicGen), or 'soundfont' (legacy MultiTrack DSP)")
     parser.add_argument("--neural-backend", type=str, choices=["auto", "local", "runpod", "mock"], default="auto", help="Neural engine backend: auto, local, runpod, or mock")
     parser.add_argument("--model", type=str, default="facebook/musicgen-stereo-large", help="Hugging Face model repository (e.g. facebook/musicgen-stereo-large, facebook/musicgen-large, facebook/musicgen-stereo-medium)")
     parser.add_argument("--archetype", type=str, default=None, help="Structural archetype (narrative_7part, slow_burn_progressive, in_medias_res, continuous_drive, aaba_classic)")
@@ -147,9 +147,18 @@ Examples:
         count = len(arr.tracks.get(track_name, []))
         print(f"  - {track_name.capitalize():<8} events: {count}")
 
-    # 4. Audio Synthesis (Neural Meta MusicGen vs Legacy SoundFont DSP)
-    if args.engine == "neural":
-        print(f"\n[3/4] 🧠 Synthesizing authentic broadcast-quality audio with Meta MusicGen ({args.model} via {args.neural_backend})...")
+    # 4. Audio Synthesis (3-Tier Hybrid vs Pure Neural vs Legacy SoundFont)
+    if args.engine == "hybrid":
+        print(f"\n[3/4] 🚀 Synthesizing 3-Tier Hybrid Masterpiece (Deterministic 44.1k Rhythm + MusicGen 3.3B Stems + Forensic DSP Restoration)...")
+        neural_duration = float(args.duration)
+        raw_audio, sample_rate = brain.render_hybrid_masterpiece(
+            arr=arr,
+            duration_seconds=neural_duration,
+            backend=args.neural_backend,
+            model_name=args.model
+        )
+    elif args.engine == "neural":
+        print(f"\n[3/4] 🧠 Synthesizing raw neural audio with Meta MusicGen ({args.model} via {args.neural_backend})...")
         neural_duration = float(args.duration)
         raw_audio = brain.render_neural_audio(
             prompt_or_arr=arr,
@@ -171,7 +180,7 @@ Examples:
     mastered = masterer.master(raw_audio)
 
     os.makedirs("storage/renders", exist_ok=True)
-    engine_tag = "_NEURAL" if args.engine == "neural" else ""
+    engine_tag = "_HYBRID" if args.engine == "hybrid" else ("_NEURAL" if args.engine == "neural" else "")
     if is_communal:
         wav_out = f"storage/renders/COMMUNAL_MASTERCLASS{engine_tag}_SHOWCASE.wav"
         mp3_out = f"storage/renders/COMMUNAL_MASTERCLASS{engine_tag}_SHOWCASE.mp3"

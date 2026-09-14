@@ -73,13 +73,17 @@ RUNPOD_API_BASE = "https://api.runpod.ai/v2"
 @dataclass
 class NeuralGenerationConfig:
     """Configuration parameters for RunPod Neural AudioCraft generation."""
-    model_name: str = "facebook/musicgen-melody"
+    model_name: str = "facebook/musicgen-stereo-large"
     prompt: str = "Avicii style progressive house melodic lead, warm analog supersaws, stadium acoustics, 128 bpm"
-    duration_seconds: float = 8.0
-    temperature: float = 1.0
-    top_k: int = 250
-    top_p: float = 0.0
-    cfg_coef: float = 3.5
+    negative_prompt: str = (
+        "muddy, muffled, boomy low-end, distorted, clipping, excessive reverb wash, "
+        "phase cancellation, out of tune, mono mush, background noise, low bit-rate artifacts"
+    )
+    duration_seconds: float = 15.0
+    temperature: float = 0.85
+    top_k: int = 200
+    top_p: float = 0.90
+    cfg_coef: float = 2.1
     sample_rate: int = 32000
     stereo: bool = True
     normalize: bool = True
@@ -129,13 +133,17 @@ class LocalMusicGenBackend:
     def generate(
         self,
         prompt: str,
-        duration_seconds: float = 10.0,
-        temperature: float = 1.0,
-        guidance_scale: float = 3.5
+        duration_seconds: float = 15.0,
+        temperature: float = 0.85,
+        guidance_scale: float = 2.1,
+        top_k: int = 200,
+        top_p: float = 0.90
     ) -> Tuple[np.ndarray, int]:
         """
         Generates audio for prompt. Returns (audio_np, sample_rate).
         Output is float32: (samples, 2) if stereo or (samples,) if mono.
+        Uses tuned hyperparameters (temp=0.85, cfg=2.1, top_p=0.90) to eliminate
+        CFG clipping distortion, phase mush, and detuned pitch drift.
         """
         self.load_model()
         inputs = self.processor(
@@ -151,7 +159,9 @@ class LocalMusicGenBackend:
             max_new_tokens=max_tokens,
             do_sample=True,
             temperature=temperature,
-            guidance_scale=guidance_scale
+            guidance_scale=guidance_scale,
+            top_k=top_k,
+            top_p=top_p
         )
         sr = self.model.config.audio_encoder.sampling_rate
         # audio_values shape: (batch_size, channels, samples)
@@ -475,8 +485,77 @@ class RunPodNeuralEngine:
             prompt=full_prompt,
             duration_seconds=duration_seconds,
             stereo=True,
-            temperature=1.0,
-            cfg_coef=3.5
+            temperature=0.85,
+            cfg_coef=2.1,
+            top_k=200,
+            top_p=0.90
+        )
+        return self.generate_stem(cfg)
+
+    def generate_isolated_lead_stem(
+        self,
+        genre: str = "progressive_house",
+        key: str = "D minor",
+        bpm: float = 128.0,
+        duration: float = 20.0,
+        style_prompt: Optional[str] = None
+    ) -> np.ndarray:
+        """
+        Generates an isolated melodic supersaw lead stem with NO drums and NO bass.
+        Prevents codebook saturation and frequency masking.
+        """
+        genre_clean = genre.replace("_", " ")
+        if not style_prompt:
+            prompt = (
+                f"isolated solo synthesizer lead, bright detuned supersaw lead melody, "
+                f"expressive pitch contour, {genre_clean} hook, in {key}, {int(bpm)} bpm, "
+                f"dry recording, wide stereo field, pristine high-end, no drums, no kick, no bass"
+            )
+        else:
+            prompt = f"{style_prompt}, isolated solo synth lead, no drums, no bass, in {key}, {int(bpm)} bpm"
+
+        cfg = NeuralGenerationConfig(
+            model_name=self.model_name,
+            prompt=prompt,
+            duration_seconds=duration,
+            stereo=True,
+            temperature=0.85,
+            cfg_coef=2.1,
+            top_k=200,
+            top_p=0.90
+        )
+        return self.generate_stem(cfg)
+
+    def generate_isolated_pad_stem(
+        self,
+        genre: str = "progressive_house",
+        key: str = "D minor",
+        bpm: float = 128.0,
+        duration: float = 20.0,
+        style_prompt: Optional[str] = None
+    ) -> np.ndarray:
+        """
+        Generates an isolated lush polyphonic chord pad layer with NO drums and NO bass.
+        """
+        genre_clean = genre.replace("_", " ")
+        if not style_prompt:
+            prompt = (
+                f"isolated synthesizer pad chords, warm analog polyphonic sustained harmony, "
+                f"rich chorus, lush atmospheric space, {genre_clean}, in {key}, {int(bpm)} bpm, "
+                f"studio quality, wide stereo field, no drums, no percussion, no bass, no lead"
+            )
+        else:
+            prompt = f"{style_prompt}, isolated synth pad chords, no drums, no bass, in {key}, {int(bpm)} bpm"
+
+        cfg = NeuralGenerationConfig(
+            model_name=self.model_name,
+            prompt=prompt,
+            duration_seconds=duration,
+            stereo=True,
+            temperature=0.85,
+            cfg_coef=2.1,
+            top_k=200,
+            top_p=0.90
         )
         return self.generate_stem(cfg)
 
@@ -494,7 +573,7 @@ class RunPodNeuralEngine:
             duration_seconds=duration,
             stereo=stereo,
             temperature=0.85,
-            cfg_coef=4.0
+            cfg_coef=2.2
         )
         return self.generate_stem(cfg, melody_notes=notes)
 
@@ -510,8 +589,8 @@ class RunPodNeuralEngine:
             prompt=style_prompt,
             duration_seconds=duration,
             stereo=True,
-            temperature=0.95,
-            cfg_coef=3.5
+            temperature=0.85,
+            cfg_coef=2.2
         )
         return self.generate_stem(cfg, melody_notes=chord_notes)
 

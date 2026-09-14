@@ -48,7 +48,20 @@ def run_pipeline(
     print(f"  ✓ Created {bars} bars ({arr.total_duration:.1f}s) across 6 tracks (kick, snare, hats, bass, pads, lead).")
 
     # Step 2: Synthesis
-    if engine == "neural":
+    if engine == "hybrid":
+        model_name = getattr(args, "model", "facebook/musicgen-stereo-large")
+        print(f"\n[2/6] 🚀 3-Tier Hybrid Synthesis (Deterministic 44.1k Rhythm + MusicGen 3.3B Stems + Forensic DSP)...")
+        from src.composer.studio_brain import get_studio_brain
+        brain = get_studio_brain()
+        duration = min(20.0, arr.total_duration)
+        raw_audio, sr = brain.render_hybrid_masterpiece(
+            arr=arr,
+            duration_seconds=duration,
+            backend="auto",
+            model_name=model_name
+        )
+        print(f"  ✓ 3-Tier Hybrid Master Created: {raw_audio.shape[0]} samples ({raw_audio.shape[1] if raw_audio.ndim > 1 else 1} channels) at {sr} Hz.")
+    elif engine == "neural":
         model_name = getattr(args, "model", "facebook/musicgen-stereo-large")
         print(f"\n[2/6] Generative Neural Synthesis via Meta MusicGen ({model_name} on {'RunPod Cloud GPU' if os.getenv('RUNPOD_API_KEY') else 'Local Apple Silicon M3 MPS'})...")
         from src.engine.runpod_neural_engine import RunPodNeuralEngine
@@ -127,7 +140,7 @@ if __name__ == "__main__":
     parser.add_argument("--bpm", type=float, default=118.0, help="Tempo in BPM")
     parser.add_argument("--bars", type=int, default=16, help="Number of bars")
     parser.add_argument("--key", default="D Minor", help="Musical key")
-    parser.add_argument("--engine", default="neural", choices=["neural", "soundfont"], help="Audio synthesis engine (neural via MusicGen or SoundFont GM)")
+    parser.add_argument("--engine", default="hybrid", choices=["hybrid", "neural", "soundfont"], help="Audio synthesis engine (hybrid: 3-Tier Hybrid, neural: MusicGen, soundfont: SoundFont GM)")
     parser.add_argument("--model", default="facebook/musicgen-stereo-large", help="MusicGen model repository (e.g. facebook/musicgen-stereo-large, facebook/musicgen-large, facebook/musicgen-stereo-medium)")
 
     args = parser.parse_args()
